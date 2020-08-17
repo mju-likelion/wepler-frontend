@@ -15,22 +15,33 @@ const Explanation = styled.div`
     text-align: center;
     color: #404A41;
 `;
-const BoList = styled.ul`
+const ButtonList = styled.ul`
     display: flex;  
-`;
-
-const Bottoms = styled.div`  
+    justify-content: center;
     padding : 20px;   
-    width:50%;
     height: 50px:
     text-align: center;
+    justify-content: center;
 `;
 
-const BoLink = styled(Link)`
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+const ButtonLink = styled(Link)`
+    display: flex;
+    align-items: center;
+`;
+
+const ButFi = styled.button`
+    border-radius: 5px; 
+    background-color:#C9AA79;
+    color:#FFFFFF;
+    margin:5px;
+`;
+
+const ButSe = styled.button`
+    border-radius: 5px; 
+    background-color:#FFFFFF;
+    color:#404A41;
+    margin:5px;
 `;
 
 const HomePresenter = () => (
@@ -45,15 +56,14 @@ const HomePresenter = () => (
                 <FaQuoteRight size="24" color="#404A41" />
             </div>
         </Explanation>
-        <BoList>
-            <Bottoms>
-                <BoLink to="/hire">참여하기</BoLink>
-            </Bottoms>
-            <Bottoms>
-                <BoLink to="/weplers">더보기</BoLink>
-            </Bottoms>
-        </BoList>
-
+        <ButtonList>
+            <ButtonLink to="/hire">
+                <ButFi>참여하기</ButFi>
+            </ButtonLink>
+            <ButtonLink to="/weplers">
+                <ButSe>더보기</ButSe>
+            </ButtonLink>
+        </ButtonList>
     </>
 )
 
