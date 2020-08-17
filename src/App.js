@@ -1,11 +1,17 @@
-import React, { Component } from "react"
-import nav from "../src/components/nav";
-import './App.css';
+import React, { Component } from "react";
+import Router from "components/Router";
+import GlobalStyled from "components/GlobalStyles";
+
 
 class App extends Component {
   render() {
-    return <h1>App</h1>
+    return (
+      <>
+        <Router />
+        <GlobalStyled />
+      </>
+    );
   }
 }
 
-export default App
+export default App;
