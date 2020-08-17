@@ -1,1 +1,3 @@
-export default () => "Hire";
+import HireContainer from "./HireContainer";
+
+export default HireContainer;
