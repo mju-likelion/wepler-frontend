@@ -1,1 +1,3 @@
-export default () => "Education";
+import EduContainer from "./EduContainer";
+
+export default EduContainer;

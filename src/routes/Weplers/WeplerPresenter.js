@@ -18,8 +18,8 @@ const WeHead = styled.div`
 const WeBody = styled.div`
     font-size:26px;
     padding: 30px 100px;
-    textAlign: justify,
-    lineHeight: 27px,
+    textAlign: justify;
+    lineHeight: 27px;
 `;
 
 const FooterContainer = styled.div`
