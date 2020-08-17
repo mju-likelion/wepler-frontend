@@ -1,1 +1,3 @@
-export default () => "Weplers";
+import WeplerContainer from "./WeplerContainer";
+
+export default WeplerContainer;
