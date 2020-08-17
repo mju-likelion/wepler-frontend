@@ -50,7 +50,7 @@ const SLink = styled(Link)`
 `;
 
 export default withRouter(({location: {pathname} }) => (
-  <Header className="nav">
+  <Header>
     <List>
       <ItemH>
         <SLink to="/">Wepler</SLink >
