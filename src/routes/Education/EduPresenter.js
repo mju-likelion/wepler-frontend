@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Calendar from 'react-calendar'
-
 
 const Container = styled.div`
     background-color: #404A41;
@@ -39,7 +37,7 @@ const EduPresenter = () => (
             <Explain>
                 <p>전문가의 일정에 따라 변동될 수 있습니다.</p>
             </Explain>
-            <Calendar />
+            
         </Container>
         
         <FooterContainer>

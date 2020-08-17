@@ -21,9 +21,7 @@ const ButtonList = styled.ul`
     padding : 20px;   
     height: 50px:
     text-align: center;
-    justify-content: center;
 `;
-
 
 const ButtonLink = styled(Link)`
     display: flex;

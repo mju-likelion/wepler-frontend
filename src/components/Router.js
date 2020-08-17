@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Redirect, Switch} from "react-router-dom";
-import Nav from "components/Nav";
+import Nav from "components/nav";
 import Home from "routes/Home";
 import Weplers from "routes/Weplers";
 import Hire from "routes/Hire";
