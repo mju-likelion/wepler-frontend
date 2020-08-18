@@ -32,7 +32,7 @@ const HirePresenter = () => (
             <p>지도사진 넣기</p>
 
             <ButtonList>
-                <ButtonLink>
+                <ButtonLink to>
                     <ButtonArea>서울특별시</ButtonArea>
                 </ButtonLink>
                 <ButtonLink>
