@@ -1,11 +1,11 @@
 import React from "react";
-import HomePresenter from "./HomePresenter";
+import ReviewPresenter from "./ReviewPresenter";
 
 export default class extends React.Component {
     state = {};
     
     render(){
         const {} = this.state;
-        return <HomePresenter />
+        return <ReviewPresenter />
     }
 }
