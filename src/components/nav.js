@@ -2,9 +2,24 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
+const HeaderLo = styled.header`
+  padding-left:750px;
+  color: #C9AA79;
+  top:0;
+  left:0;
+  height: 50px:
+  display:felx;
+  align-items: center;
+  background-color: #fffffc;
+`;
+
+const ListLo = styled.ul`
+  display: flex;
+`;
+
 const Header = styled.header`
   color: #C9AA79;
-  padding : fixed;
+  padding : 50px;
   top:0;
   left:0;
   width:100%;
@@ -37,7 +52,7 @@ const Item = styled.li`
 `;
 
 const ItemLo = styled.li`
-  width: 160px;
+  width: 120px;
   height: 0px;
   text-align: right;
   font-size: 20px;
@@ -50,6 +65,18 @@ const SLink = styled(Link)`
 `;
 
 export default withRouter(({location: {pathname} }) => (
+  <>
+  <HeaderLo>
+    <ListLo>
+    <ItemLo current={pathname === "/education"}>
+        <SLink to="/education">회원가입</SLink >
+      </ItemLo>
+      <ItemLo current={pathname === "/education"}>
+        <SLink to="/education">로그인</SLink >
+      </ItemLo>
+    </ListLo>
+      
+      </HeaderLo>
   <Header>
     <List>
       <ItemH>
@@ -67,12 +94,8 @@ export default withRouter(({location: {pathname} }) => (
       <Item current={pathname === "/education"}>
         <SLink to="/education">교육신청</SLink >
       </Item>
-      <ItemLo current={pathname === "/education"}>
-        <SLink to="/education">회원가입</SLink >
-      </ItemLo>
-      <ItemLo current={pathname === "/education"}>
-        <SLink to="/education">로그인</SLink >
-      </ItemLo>
-    </List>
+    </List>    
   </Header>
+  
+  </>
 ));
