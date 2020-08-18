@@ -1,9 +1,9 @@
 import React from "react";
-import HirePresenter from "./HirePresenter";
+import HireUsPresenter from "./HireUsPresenter";
 
 export default class extends React.Component {
    
     render(){
-        return <HirePresenter />
+        return <HireUsPresenter />
     }
 }
