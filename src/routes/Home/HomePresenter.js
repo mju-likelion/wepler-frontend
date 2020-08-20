@@ -17,8 +17,6 @@ const Explanation = styled.div`
 const ButtonList = styled.ul`
     display: flex;  
     justify-content: center;
-    padding : 20px;   
-    height: 50px;
     text-align: center;
     justify-content: center;
     
@@ -81,6 +79,7 @@ const B = styled.button`
     font-size: 1rem;
     line-height: 1.5;
     margin:55px;
+
 `;
 
 const C = styled.div`
@@ -127,7 +126,6 @@ const W = styled.div`
     padding : 20px;   
     height: 50px;
     text-align: center;
-    justify-content: center;
 
 `;
 
@@ -148,6 +146,28 @@ const W2 = styled.div`
     color: #C9AA79;
 
 `;
+
+const Y = styled.div`
+
+    display: flex;  
+    justify-content: center;
+    padding : 20px;   
+    height: 50px;
+    text-align: center;
+
+`;
+
+const Y1 = styled.div`
+
+    display: flex;  
+    justify-content: center;
+    padding : 20px;   
+    height: 50px;
+    text-align: center;
+
+`;
+
+
 
 
 
@@ -175,26 +195,30 @@ const HomePresenter = () => (
 
         <W>
             <W1>
-                <A>고용하기</A>
+                <Y>
+                    <A>고용하기</A>
 
-                <ButtonList>
-                    <ButtonLink to="/hire">
-                        <B>참여하기</B>
-                    </ButtonLink>
-                </ButtonList>
+                    <ButtonList>
+                        <ButtonLink to="/hire">
+                            <B>참여하기</B>
+                        </ButtonLink>
+                    </ButtonList>
+                </Y>
 
                 <C>고용하기 설명입니다.</C>
             </W1>    
 
             <W2>
-                <A1>활동후기</A1>
+                <Y1>
+                    <A1>활동후기</A1>
 
-                <ButtonList>
-                    <ButtonLink to="/hire">
-                            <B1>더보기</B1>
-                    </ButtonLink>
-                </ButtonList>    
-                
+                    <ButtonList>
+                        <ButtonLink to="/hire">
+                                <B1>더보기</B1>
+                        </ButtonLink>
+                    </ButtonList>    
+                </Y1>
+
                 <C1>활동후기 사진 들어갈 곳.</C1>
             </W2>
 
