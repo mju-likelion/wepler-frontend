@@ -122,9 +122,29 @@ const C1 = styled.div`
 
 const W = styled.div`
 
+    display: flex;  
+    justify-content: center;
+    padding : 20px;   
+    height: 50px;
+    text-align: center;
+    justify-content: center;
+
+`;
+
+const W1 = styled.div`
+
     padding: 100px 0px;
     text-align: center;
-    font-size: 50px;
+    font-size: 20px;
+    color: #C9AA79;
+
+`;
+
+const W2 = styled.div`
+
+    padding: 100px 0px;
+    text-align: center;
+    font-size: 20px;
     color: #C9AA79;
 
 `;
@@ -154,26 +174,29 @@ const HomePresenter = () => (
         </Explanation>
 
         <W>
+            <W1>
+                <A>고용하기</A>
 
-            <A>고용하기</A>
+                <ButtonList>
+                    <ButtonLink to="/hire">
+                        <B>참여하기</B>
+                    </ButtonLink>
+                </ButtonList>
 
-        <ButtonList>
-            <ButtonLink to="/hire">
-                <B>참여하기</B>
-            </ButtonLink>
-        </ButtonList>
+                <C>고용하기 설명입니다.</C>
+            </W1>    
 
-            <C>고용하기 설명입니다.</C>       
+            <W2>
+                <A1>활동후기</A1>
 
-            <A1>활동후기</A1>
-
-            <ButtonList>
-                <ButtonLink to="/hire">
-                        <B1>더보기</B1>
-                </ButtonLink>
-            </ButtonList>    
-            
-            <C1>활동후기 사진 들어갈 곳.</C1>
+                <ButtonList>
+                    <ButtonLink to="/hire">
+                            <B1>더보기</B1>
+                    </ButtonLink>
+                </ButtonList>    
+                
+                <C1>활동후기 사진 들어갈 곳.</C1>
+            </W2>
 
         </W>    
 
