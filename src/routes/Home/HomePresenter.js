@@ -66,16 +66,13 @@ const A = styled.div`
 
     color: #404A41;
     position: relative;
-    left: 400px;
-    top: 150px;
+    
 
 `;
 
 const B = styled.button`
 
     position: relative;
-    left: 500px;
-    top: 67px;
     color: white;
     background: teal;
     padding: 0.375rem 0.75rem;
@@ -90,8 +87,6 @@ const C = styled.div`
 
     color: #404A41;
     position: relative;
-    left: 400px;
-    top: 50px;
 
 
 `;
@@ -100,16 +95,12 @@ const A1 = styled.div`
 
     color: #404A41;
     position: relative;
-    left: 850px;
-    top: -46px;
 
 `;
 
 const B1 = styled.button`
 
     position: relative;
-    left: 960px;
-    top: -130px;
     color: white;
     background: teal;
     padding: 0.375rem 0.75rem;
@@ -125,15 +116,19 @@ const C1 = styled.div`
 
     color: #404A41;
     position: relative;
-    left: 830px;
-    top: -150px;
 
 
 `;
 
 const W = styled.div`
-    
+
+    padding: 100px 0px;
+    text-align: center;
+    font-size: 50px;
+    color: #C9AA79;
+
 `;
+
 
 
 const HomePresenter = () => (
@@ -148,52 +143,41 @@ const HomePresenter = () => (
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 <FaQuoteRight size="24" color="#404A41" />
             </div>
+            <ButtonList>
+                <ButtonLink to="/hire">
+                    <ButFi>참여하기</ButFi>
+                </ButtonLink>
+                <ButtonLink to="/weplers">
+                    <ButSe>더보기</ButSe>
+                </ButtonLink>
+            </ButtonList>
         </Explanation>
+
+        <W>
+
+            <A>고용하기</A>
+
         <ButtonList>
             <ButtonLink to="/hire">
-                <ButFi>참여하기</ButFi>
-            </ButtonLink>
-            <ButtonLink to="/weplers">
-                <ButSe>더보기</ButSe>
+                <B>참여하기</B>
             </ButtonLink>
         </ButtonList>
 
-        <W>
-            <A>
-                <h2>
-                    고용하기
-                </h2>
-            </A>
-            <ButtonLink to="/hire">
-                    <B>참여하기</B>
-            </ButtonLink>
-            <C>
-                <p>                
-                    고용하기 설명입니다.                
-                </p>
-            </C>       
+            <C>고용하기 설명입니다.</C>       
 
-        <A1>
-            <h2>
-                활동후기
-            </h2>
-        </A1>
+            <A1>활동후기</A1>
 
-        <ButtonLink to="/hire">
-                <B1>더보기</B1>
-        </ButtonLink>
-        
-        <C1>
-            <p>                
-                활동후기 사진 들어갈 곳.                
-            </p>
-        </C1>
-    </W>    
+            <ButtonList>
+                <ButtonLink to="/hire">
+                        <B1>더보기</B1>
+                </ButtonLink>
+            </ButtonList>    
+            
+            <C1>활동후기 사진 들어갈 곳.</C1>
 
-        
+        </W>    
 
-
-    </>
+</>
 
         
 )
