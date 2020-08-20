@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import Footer from "components/Footer/Footer.js"
+import member1 from "assets/img/Member/member1.png";
+import member3 from "assets/img/Member/member3.png";
 
 
 const Container = styled.div`
@@ -22,20 +25,7 @@ const WeBody = styled.div`
     lineHeight: 27px;
 `;
 
-const FooterContainer = styled.div`
-    padding: 20px 0px;
-    background-color: #404A41;
-    color: white;   
-    
-`;
 
-const Footer = styled.div`
-    padding: 3px 20px;
-    background-color: #404A41;
-    color: white;
-    font-size:15px;
-    
-`;
 
 const WeplerPresenter = () => (
     <>
@@ -61,19 +51,11 @@ const WeplerPresenter = () => (
                 <h2>WEPLER's TEAM</h2>
                 <br></br><br></br>
                 <hr width = "100%" color="#404A41" size = "3"></hr>
+                <img src={member1} alt="First slide" className="member-image" />
+                <img src={member3} alt="First slide" className="member-image" />
             </WeHead>
         </Container>
-        <FooterContainer>
-            <h1>WEPLER</h1>
-            <Footer>
-                <p>Preoject</p>
-            </Footer>
-            <hr width="100%" color="#C9AA79" size="10"></hr>
-            <Footer>
-                <p>Tel. 000-0000</p>
-                <p>E-mail. wepler@wepl.com</p>
-            </Footer>
-        </FooterContainer>
+        <Footer />
         
     </>
 )

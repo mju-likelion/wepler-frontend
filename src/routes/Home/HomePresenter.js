@@ -3,7 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import css from "assets/css/img.css";
-import image1 from "assets/img/Home/bg1.jpg";
+import imgBg1 from "assets/img/Home/bg1.jpg";
+import imgReview1 from "assets/img/Home/review1.jpg";
 
 
 const Container = styled.h2`
@@ -24,9 +25,7 @@ const Explanation = styled.div`
 const ButtonList = styled.ul`
     display: flex;  
     justify-content: center;
-    text-align: center;
-    justify-content: center;
-    
+    text-align: center;    
 `;
 
 
@@ -59,101 +58,56 @@ const ButSe = styled.button`
 `;
 
 
-
-const A = styled.div`
-
-    color: #404A41;
-    position: relative;
-    
-
+const Box = styled.div`
+    padding-top:30px;
+    padding-left: 10px;
+    padding-right: 20px;
+    margine: 10px;
+    display: flex;  
+    justify-content: center;
+    text-align: center;
+    background-color:#EFEFEF;
+    border-radius: 10px;
 `;
 
-const B = styled.button`
+const BoxBig = styled.div`    
+    padding: 20px 30px;
+    border: 3px solid #F2D4CA;
+    border-radius: 10px;
+    font-size:20px;
+    width: 450px;
+    height: 300px;
+    background-color:#FFFFFF;
+`;
 
-    position: relative;
-    color: white;
-    background: teal;
-    padding: 0.375rem 0.75rem;
-    border: 1px solid teal;
-    border-radius: 0.25rem;
+const BoxExplan = styled.div`   
+    font-size:20px;    
+`;
+
+const BoxName = styled.div`
+    padding: 25px;
+    font-size:30px;
+    text-align: center;
+    justify-content: center;
+    display: flex;  
+
+`; 
+
+
+const BoxButtonLink = styled(Link)` 
+    
+    &:hover {
+        background-color: #F2D4CA;
+    }    
+`;
+
+const BoxButton = styled.button`
+    color: #404A41; 
+    border: 3px solid ##FFFFFF; 
     font-size: 1rem;
     line-height: 1.5;
-    margin:55px;
-
+    
 `;
-
-const C = styled.div`
-
-    color: #404A41;
-    position: relative;
-
-
-`;
-
-const A1 = styled.div`
-
-    color: #404A41;
-    position: relative;
-
-`;
-
-const C1 = styled.div`
-
-    color: #404A41;
-    position: relative;
-
-
-`;
-
-const W = styled.div`
-
-    display: flex;  
-    justify-content: center;
-    padding : 20px;   
-    height: 50px;
-    text-align: center;
-
-`;
-
-const W1 = styled.div`
-
-    padding: 100px 0px;
-    text-align: center;
-    font-size: 20px;
-    color: #C9AA79;
-
-`;
-
-const W2 = styled.div`
-
-    padding: 100px 0px;
-    text-align: center;
-    font-size: 20px;
-    color: #C9AA79;
-
-`;
-
-const Y = styled.div`
-
-    display: flex;  
-    justify-content: center;
-    padding : 20px;   
-    height: 50px;
-    text-align: center;
-
-`;
-
-const Y1 = styled.div`
-
-    display: flex;  
-    justify-content: center;
-    padding : 20px;   
-    height: 50px;
-    text-align: center;
-
-`;
-
-
 
 
 
@@ -162,11 +116,10 @@ const HomePresenter = () => (
 
         <Container>
             <h2>WEPLER</h2>
-            <img src={image1} alt="First slide" className="slick-image" /> 
+            <img src={imgBg1} alt="First slide" className="slick-image" /> 
         </Container>        
             
-        <Explanation>
-        
+        <Explanation>        
             <div>
                 <FaQuoteLeft size="24" color="#404A41" />
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -180,39 +133,38 @@ const HomePresenter = () => (
                     <ButSe>더보기</ButSe>
                 </ButtonLink>
             </ButtonList>
+            
         </Explanation>
-
-        <W>
-            <W1>
-                <Y>
-                    <A>고용하기</A>
-
-                    <ButtonList>
-                        <ButtonLink to="/hire">
-                        <ButFi>참여하기</ButFi>
-                        </ButtonLink>
-                    </ButtonList>
-                </Y>
-
-                <C>고용하기 설명입니다.</C>
-            </W1>    
-
-            <W2>
-                <Y1>
-                    <A1>활동후기</A1>
-
-                    <ButtonList>
-                        <ButtonLink to="/hire">
-                                <ButSe>더보기</ButSe>
-                        </ButtonLink>
-                    </ButtonList>    
-                </Y1>
-
-                <C1>활동후기 사진 들어갈 곳.</C1>
-            </W2>
-
-        </W>    
-
+                 
+        <Box>
+            <BoxBig>
+                <BoxName>
+                    <h2>고용하기</h2>
+                   
+                    <BoxButtonLink to= "/hire">
+                        <BoxButton>고용하기</BoxButton>
+                    </BoxButtonLink>
+                    
+                    
+                </BoxName>
+                <BoxExplan>                    
+                    <p>위플러는 <br></br>플러스 회원와 플리즈회원이 <br></br>서로 원하는 회원을 매칭할 수 있습니다. </p>
+                </BoxExplan>
+            </BoxBig>  
+            <BoxBig>
+                <BoxName>
+                    <h2>활동후기</h2>
+                    <BoxButtonLink to= "/hire">
+                        <BoxButton>더보기</BoxButton>
+                    </BoxButtonLink>
+                </BoxName>
+                <BoxExplan> 
+                    <img src={imgReview1} alt="First slide" className="slicks-image" />
+                </BoxExplan>
+            </BoxBig>   
+        </Box>
+      
+        
 </>
 
         
