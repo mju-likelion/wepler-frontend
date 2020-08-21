@@ -72,38 +72,6 @@ const Container = styled.h2`
     
 `;
 
-const A = styled.div`
-
-    color: #404A41;
-    position: relative;
-
-`;
-
-
-const C = styled.div`
-
-    color: #404A41;
-    position: relative;
-
-
-`;
-
-const A1 = styled.div`
-
-    color: #404A41;
-    position: relative;
-
-`;
-
-
-const C1 = styled.div`
-
-    color: #404A41;
-    position: relative;
-
-
-`;
-
 const W = styled.div`
 
     display: flex;  
@@ -140,6 +108,8 @@ const Lower1List = styled.div`
     padding : 20px;   
     height: 50px;
     text-align: center;
+    
+    color: #C9AA79;
 
 
 
@@ -180,42 +150,42 @@ const HomePresenter = () => (
             </ButtonList>
         </Explanation>
 
-    <Content>
-        <W>
-            <Lower1>
+        <Content>
+            <W>
+                <Lower1>
 
-                <Lower1List>
-                    <A>고용하기</A>
-                    <ButtonList>
-                        <ButtonLink to="/hire">
-                            <ButFi>참여하기</ButFi>
-                        </ButtonLink>
-                    </ButtonList>
-                </Lower1List>
+                    <Lower1List>
+                        <h2>고용하기</h2>
+                        <ButtonList>
+                            <ButtonLink to="/hire">
+                                <ButFi>참여하기</ButFi>
+                            </ButtonLink>
+                        </ButtonList>
+                    </Lower1List>
 
-                <C>고용하기 설명입니다.</C>
+                    <h2>고용하기 설명입니다.</h2>
 
-            </Lower1>    
+                </Lower1>    
 
-            <Lower2>
+                <Lower2>
 
-                <Lower2List>
-                    <A1>활동후기</A1>
+                    <Lower2List>
+                        <h2>활동후기</h2>
 
-                    <ButtonList>
-                        <ButtonLink to="/hire">
-                                <ButFi>더보기</ButFi>
-                        </ButtonLink>
-                    </ButtonList>    
-                </Lower2List>
+                        <ButtonList>
+                            <ButtonLink to="/hire">
+                                    <ButFi>더보기</ButFi>
+                            </ButtonLink>
+                        </ButtonList>    
+                    </Lower2List>
 
-                <C1>활동후기 사진 들어갈 곳.</C1>
+                    <p>활동후기 사진 들어갈 곳.</p>
 
-            </Lower2>
+                </Lower2>
 
-        </W>  
+            </W>  
 
-    </Content>
+        </Content>
 
     </>        
 )
