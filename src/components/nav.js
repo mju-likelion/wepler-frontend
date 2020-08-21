@@ -73,8 +73,8 @@ export default withRouter(({location: {pathname} }) => (
     <ItemLo current={pathname === "/signup"}>
         <SLink to="/signup">회원가입</SLink >
       </ItemLo>
-      <ItemLo current={pathname === "/education"}>
-        <SLink to="/education">로그인</SLink >
+      <ItemLo current={pathname === "/signin"}>
+        <SLink to="/signin">로그인</SLink >
       </ItemLo>
     </ListLo>
       
