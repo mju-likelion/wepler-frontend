@@ -2,24 +2,23 @@ import React from "react";
 import styled from "styled-components";
 
 const ActivityList = styled.div`
-padding-left: 350px;
-display: flex;  
-justify-content: left; 
-height: 50px: 
+    padding-left: 350px;
+    display: flex;  
+    justify-content: left; 
+    height: 50px: 
 `;
 
 const ButtonActivity = styled.button`
-
-padding: 20px 20px;
-border-radius: 40px; 
-border: 3px solid #c9aa79;
-background-color:#FFFFFF;
-color:#404A41;   
-font-size: 20px;  
-margin:20px;
-&:hover {
-    background-color: #F2D4CA;
-}
+    padding: 20px 20px;
+    border-radius: 20px; 
+    border: 3px solid #c9aa79;
+    background-color:#FFFFFF;
+    color:#404A41;   
+    font-size: 20px;  
+    margin:30px;
+    &:hover {
+        background-color: #F2D4CA;
+    }
 `;
 
 const HashTag = () => (

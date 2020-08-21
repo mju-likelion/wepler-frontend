@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import HashTag from "components/HashTag/HashTag.js";
+import Profile from "components/Profile/Profile.js";
+
 
 const Container = styled.div`
     padding-left: 200px;
@@ -13,7 +15,7 @@ const Container = styled.div`
 const ButtonMember = styled.div`
     font-size: 50px;
     padding-top:60px; 
-    padding-left: 750px; 
+    padding-left: 1100px; 
 `;
 
 const ButtonLink = styled(Link)`
@@ -36,17 +38,16 @@ const BeforeButton = styled.button`
     
 `;
 
+
+
+
 const SeoulMem = () => (
     <>
         <Container>
             <h1>서울</h1>
         </Container>
-        <HashTag/>      
-        <ButtonMember>
-            <ButtonLink to="/plzseoulde">
-                <BeforeButton>프로필 뜨는 곳</BeforeButton>
-            </ButtonLink>
-        </ButtonMember>
+        <HashTag />
+        <Profile />
         <ButtonMember>
             <ButtonLink to="/areaplz">
                 <BeforeButton>이전으로</BeforeButton>

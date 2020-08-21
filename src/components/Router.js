@@ -13,6 +13,7 @@ import SeoulDetail from "./Areas/Plz/Seoul/SeoulDetail";
 import GyeonggiMem from "./Areas/Plz/Gyeonggi/GyenggiMem";
 import IncheonMem from "./Areas/Plz/Incheon/IncheonMem";
 
+import ReviewView from "./Reviews/Plz/view";
 
 
 export default () => (
@@ -32,6 +33,8 @@ export default () => (
                 <Route path="/plzseoulde" exact component={SeoulDetail} />
                 <Route path="/plzgyeong" exact component={GyeonggiMem} />
                 <Route path="/plzinch" exact component={IncheonMem} />
+
+                <Route path="/plzreviewview" exact component={ReviewView} />
 
                 <Redirect from="*" to="/" />
             </Switch>

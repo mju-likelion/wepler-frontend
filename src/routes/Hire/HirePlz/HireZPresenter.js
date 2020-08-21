@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
+
 const Container = styled.div`
     padding: 20px 200px;
 `;
@@ -33,7 +34,8 @@ const ButtonArea = styled.button`
 const HireZPresenter = () => (
     <>
         <Container>            
-            <p>플리즈 개인 혹은 단체 </p>
+            <p>플리즈 개인 혹은 단체 </p>          
+            
             <ButtonList>
                 <ButtonLink to="/plzseoul">
                     <ButtonArea>서울특별시</ButtonArea>

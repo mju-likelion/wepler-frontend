@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -54,11 +54,11 @@ const ButtPlu = styled.button`
 const ReviewPresenter= () => (
     <>        
     <ButtonList>
-        <ButtonLink to="/areaplz">
-            <ButtPlz><br></br>재능이 필요해요<ButtMember>플리즈 후기</ButtMember></ButtPlz>
+        <ButtonLink to="/plzreviewview">
+            <ButtPlz><br/>재능이 필요해요<ButtMember>플리즈 후기</ButtMember></ButtPlz>
         </ButtonLink>
         <ButtonLink to="/areaplus">
-            <ButtPlu><br></br>재능을 나누고 싶어요<ButtMember>플러스 후기</ButtMember></ButtPlu>
+            <ButtPlu><br/>재능을 나누고 싶어요<ButtMember>플러스 후기</ButtMember></ButtPlu>
         </ButtonLink>
     </ButtonList>    
     </>
