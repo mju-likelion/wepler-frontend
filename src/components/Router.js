@@ -9,6 +9,7 @@ import Review from "routes/Review";
 import Education from "routes/Education";
 import HireMember from "routes/Hire/HireMember";
 import Signup from "routes/Signup";
+import Signin from "routes/Signin";
 import SeoulMem from "./Areas/Plz/Seoul/SeoulMem";
 import SeoulDetail from "./Areas/Plz/Seoul/SeoulDetail";
 import GyeonggiMem from "./Areas/Plz/Gyeonggi/GyenggiMem";
@@ -31,6 +32,7 @@ export default () => (
                 <Route path="/areaplus" exact component={HirePlus} />
                 <Route path="/areaplz" exact component={HirePlz} />
                 <Route path="/signup" exact component={Signup} />
+                <Route path="/signin" exact component={Signin} />
              
                 <Route path="/plzreviewview" exact component={ReviewView} />
 
