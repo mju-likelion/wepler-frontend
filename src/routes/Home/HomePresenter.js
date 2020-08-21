@@ -2,19 +2,24 @@ import React from 'react';
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
-import css from "assets/css/img.css";
-import imgBg1 from "assets/img/Home/bg1.jpg";
-import imgReview1 from "assets/img/Home/review1.jpg";
+import img from './main.PNG';
 
 
-const Container = styled.h2`
-    padding-top: 100px;
-    text-align: center;
-    font-size: 50px;
-    color: #C9AA79;
+
+
+const Content = styled.div`
+    background-image: url(${img});
+    width: 1500px;
+    height: 400px;
+    background-size: cover;
+    margin-left: auto;
+    margin-right: auto;
+
+
 `;
 
 const Explanation = styled.div`
+
     padding: 0px 250px;
     text-align: center;
     color: #404A41;
@@ -25,7 +30,9 @@ const Explanation = styled.div`
 const ButtonList = styled.ul`
     display: flex;  
     justify-content: center;
-    text-align: center;    
+    text-align: center;
+    justify-content: center;
+    
 `;
 
 
@@ -37,9 +44,9 @@ const ButtonLink = styled(Link)`
 
 const ButFi = styled.button`
     color: white;
-    background: #C9AA79;
+    background: teal;
     padding: 0.375rem 0.75rem;
-    border: 3px solid #C9AA79;
+    border: 1px solid teal;
     border-radius: 0.25rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -47,76 +54,117 @@ const ButFi = styled.button`
 `;
 
 const ButSe = styled.button`
-    color: #404A41;
-    background: white;
+    color: white;
+    background: teal;
     padding: 0.375rem 0.75rem;
-    border: 1px solid #404A41;
+    border: 1px solid teal;
     border-radius: 0.25rem;
     font-size: 1rem;
     line-height: 1.5;
     margin:55px;
 `;
 
-
-const Box = styled.div`
-    padding-top:30px;
-    padding-left: 10px;
-    padding-right: 20px;
-    margine: 10px;
-    display: flex;  
-    justify-content: center;
+const Container = styled.h2`
+    padding: 100px 0px;
     text-align: center;
-    background-color:#EFEFEF;
-    border-radius: 10px;
-`;
-
-const BoxBig = styled.div`    
-    padding: 20px 30px;
-    border: 3px solid #F2D4CA;
-    border-radius: 10px;
-    font-size:20px;
-    width: 450px;
-    height: 300px;
-    background-color:#FFFFFF;
-`;
-
-const BoxExplan = styled.div`   
-    font-size:20px;    
-`;
-
-const BoxName = styled.div`
-    padding: 25px;
-    font-size:30px;
-    text-align: center;
-    justify-content: center;
-    display: flex;  
-
-`; 
-
-
-const BoxButtonLink = styled(Link)`  
-    padding-left: 30px;  
-`;
-
-const BoxButton = styled.button`
-    color: #404A41; 
-    border: 3px solid ##FFFFFF; 
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 50px;
+    color: #C9AA79;    
     
+`;
+
+const A = styled.div`
+
+    color: #404A41;
+    position: relative;
+
+`;
+
+
+const C = styled.div`
+
+    color: #404A41;
+    position: relative;
+
+
+`;
+
+const A1 = styled.div`
+
+    color: #404A41;
+    position: relative;
+
+`;
+
+
+const C1 = styled.div`
+
+    color: #404A41;
+    position: relative;
+
+
+`;
+
+const W = styled.div`
+
+    display: flex;  
+    justify-content: center;
+    padding : 20px;   
+    height: 50px;
+    text-align: center;
+
+`;
+
+const Lower1 = styled.div`
+
+    padding: 100px 170px;
+    text-align: center;
+    font-size: 20px;
+    color: #C9AA79;
+    position: relative;
+
+`;
+
+const Lower2 = styled.div`
+
+    padding: 100px 190px;
+    text-align: center;
+    font-size: 20px;
+    color: #C9AA79;
+
+`;
+
+const Lower1List = styled.div`
+
+    display: flex;  
+    justify-content: center;
+    padding : 20px;   
+    height: 50px;
+    text-align: center;
+
+
+
+`;
+
+const Lower2List = styled.div`
+
+    display: flex;  
+    justify-content: center;
+    padding : 20px;   
+    height: 50px;
+    text-align: center;
+
 `;
 
 
 
 const HomePresenter = () => (
-    <>  
+
+    <>
 
         <Container>
             <h2>WEPLER</h2>
-            <img src={imgBg1} alt="First slide" className="slick-image" /> 
-        </Container>        
-            
-        <Explanation>        
+        </Container>
+        <Explanation>
             <div>
                 <FaQuoteLeft size="24" color="#404A41" />
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -130,41 +178,46 @@ const HomePresenter = () => (
                     <ButSe>더보기</ButSe>
                 </ButtonLink>
             </ButtonList>
-            
         </Explanation>
-                 
-        <Box>
-            <BoxBig>
-                <BoxName>
-                    <h2>고용하기</h2>
-                   
-                    <BoxButtonLink to= "/hire">
-                        <BoxButton>고용하기</BoxButton>
-                    </BoxButtonLink>
-                    
-                    
-                </BoxName>
-                <BoxExplan>                    
-                    <p>위플러는 <br></br>플러스 회원와 플리즈회원이 <br></br>서로 원하는 회원을 매칭할 수 있습니다. </p>
-                </BoxExplan>
-            </BoxBig>  
-            <BoxBig>
-                <BoxName>
-                    <h2>활동후기</h2>
-                    <BoxButtonLink to= "/hire">
-                        <BoxButton>더보기</BoxButton>
-                    </BoxButtonLink>
-                </BoxName>
-                <BoxExplan> 
-                    <img src={imgReview1} alt="First slide" className="slicks-image" />
-                </BoxExplan>
-            </BoxBig>   
-        </Box>
-      
-        
-</>
 
-        
+    <Content>
+        <W>
+            <Lower1>
+
+                <Lower1List>
+                    <A>고용하기</A>
+                    <ButtonList>
+                        <ButtonLink to="/hire">
+                            <ButFi>참여하기</ButFi>
+                        </ButtonLink>
+                    </ButtonList>
+                </Lower1List>
+
+                <C>고용하기 설명입니다.</C>
+
+            </Lower1>    
+
+            <Lower2>
+
+                <Lower2List>
+                    <A1>활동후기</A1>
+
+                    <ButtonList>
+                        <ButtonLink to="/hire">
+                                <ButFi>더보기</ButFi>
+                        </ButtonLink>
+                    </ButtonList>    
+                </Lower2List>
+
+                <C1>활동후기 사진 들어갈 곳.</C1>
+
+            </Lower2>
+
+        </W>  
+
+    </Content>
+
+    </>        
 )
 
 export default HomePresenter;
