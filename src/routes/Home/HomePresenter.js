@@ -156,7 +156,7 @@ const HomePresenter = () => (
                 <BoxBig>
                     <BoxName>
                         <h2>활동후기</h2>
-                        <BoxButtonLink to="/hire">
+                        <BoxButtonLink to="/review">
                             <BoxButton>더보기</BoxButton>
                         </BoxButtonLink>
                     </BoxName>
