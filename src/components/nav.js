@@ -40,6 +40,8 @@ const ItemH = styled.li`
   text-align: center;
   font-size: 50px;
   color: #F2D4CA;
+  font-weight: bold;
+  
 `;
 
 const Item = styled.li`
@@ -68,8 +70,8 @@ export default withRouter(({location: {pathname} }) => (
   <>
   <HeaderLo>
     <ListLo>
-    <ItemLo current={pathname === "/education"}>
-        <SLink to="/education">회원가입</SLink >
+    <ItemLo current={pathname === "/signup"}>
+        <SLink to="/signup">회원가입</SLink >
       </ItemLo>
       <ItemLo current={pathname === "/education"}>
         <SLink to="/education">로그인</SLink >
