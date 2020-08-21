@@ -17,22 +17,26 @@ const ButtonLink = styled(Link)`
 `;
 
 const ButtonArea = styled.button`
+    padding: 20px 20px;
     border-radius: 40px; 
     border: 3px solid #c9aa79;
     background-color:#FFFFFF;
     color:#404A41;   
     font-size: 20px;  
     margin:20px;
+    &:hover {
+        background-color: #F2D4CA;
+    }
 `;
 
 
-const HirePresenter = () => (
+const HireUsPresenter = () => (
     <>
         <Container>
-            <p>지도사진 넣기</p>
+            <p>플러스 회원 프로필 보기</p>
 
             <ButtonList>
-                <ButtonLink>
+                <ButtonLink to>
                     <ButtonArea>서울특별시</ButtonArea>
                 </ButtonLink>
                 <ButtonLink>
@@ -98,4 +102,4 @@ const HirePresenter = () => (
     </>
 )
 
-export default HirePresenter;
+export default HireUsPresenter;

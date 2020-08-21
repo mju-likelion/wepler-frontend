@@ -2,15 +2,12 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
+const Container = styled.div``;
 
-const Container = styled.div`
-    
-`;
-
-const HireMemberPresenter = () => (
+const IncheonMem = () => (
     <Container>
-        <h2>WEPLER 교육 일정</h2>
+    <h2>Incheon</h2>
     </Container>
 )
 
-export default HireMemberPresenter;
+export default IncheonMem;
