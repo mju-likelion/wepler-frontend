@@ -7,19 +7,26 @@ const FooterContainer = styled.div`
     color: white;   
     
 `;
+const FirstFooter = styled.div`
+    padding: 3px 20px;
+    background-color: #404A41;
+    color: white;
+    font-size:25px;
+`;
 
 const Footer = styled.div`
     padding: 3px 20px;
     background-color: #404A41;
     color: white;
-    font-size:15px;
-    
+    font-size:15px;    
 `;
 
 const Footers = () => (
 
     <FooterContainer>
-        <h1>WEPLER</h1>
+        <FirstFooter>
+            <h1>WEPLER</h1>
+        </FirstFooter>       
         <Footer>
             <p>Preoject</p>
         </Footer>

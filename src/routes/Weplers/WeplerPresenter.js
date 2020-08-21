@@ -26,6 +26,7 @@ const WeBody = styled.div`
     padding: 30px 100px;
     textAlign: justify;
     lineHeight: 27px;
+    line-height: 1.5;   
 `;
 
 
