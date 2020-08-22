@@ -38,14 +38,18 @@ const BeforeButton = styled.button`
     
 `;
 
+const HashTagList = styled.div`
 
+`;
 
 const SeoulMem = () => (
     <>
         <Container>
             <h1>서울</h1>
         </Container>
-        <HashTag />
+        <HashTagList>
+            <HashTag />
+        </HashTagList>
         <Profile />
         <ButtonMember>
             <ButtonLink to="/areaplz">

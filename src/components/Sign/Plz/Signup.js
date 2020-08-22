@@ -15,84 +15,57 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-
-const Container1 = styled.div`
-    padding-left: 200px;
-    padding-top: 10px;
-    font-size:40px;
-    font-weight: bold;
+const TextTitle = styled.div`
+  padding-top:10px;
+  font-weight: bold;
+  font-size:25px;
 `;
 
-const Signup = () => (
+const TextQuestion = styled.div`
+  padding-top: 30px;
+  font-size:20px;
+  font-weight: bold;
+`;
+
+const Field = styled.div`
+  display: flex;  
+`;
+
+const useStyles = makeStyles((theme) => ({
+
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '160%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+export default function SignUp() {
+  const classes = useStyles();
+
+  return (
     <>
-        <Container1>
-            <h1>회원가입</h1>
-        </Container1>
-        <HashTag />
-        
-       
-    </>
-
-)
-
-
-
-function Copyright() {
-
-    
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-      
-    );
-  }
-
-
-
-  
-  const useStyles = makeStyles((theme) => ({
-    
-    
-    paper: {
-      marginTop: theme.spacing(8),
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    avatar: {
-      margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
-    },
-    form: {
-      width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing(3),
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-    },
-  }));
-  
-  export default function SignUp() {
-    const classes = useStyles();
-  
-    return (
-
-        
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
+          <TextTitle>
+          Plz(플리즈) - 회원가입
+          </TextTitle>          
+      </div>
+      </Container>
+      <Container component="main" maxWidth="xs">
+        <div className={classes.paper}>
           <form className={classes.form} noValidate>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -149,12 +122,7 @@ function Copyright() {
                   id="address"
                   label="주소"
                   name="address"
-                  autoComplete="address"/>
-
-
-
-
-
+                  autoComplete="address" />
 
               </Grid>
               <Grid item xs={12}>
@@ -167,6 +135,21 @@ function Copyright() {
                   name="number"
                   autoComplete="number"
                 />
+              </Grid>
+            </Grid>
+            <Grid>
+              <Grid item xs={12}>
+                <TextQuestion>
+                  관심있는 분야를 선택해주세요.
+              </TextQuestion>
+              </Grid>
+              <Field>
+                <HashTag />
+              </Field>
+              <Grid item xs={12}>
+                <TextQuestion>
+                  언제 배우고 싶으신가요?
+              </TextQuestion>
               </Grid>
 
               <Grid item xs={12}>
@@ -194,9 +177,10 @@ function Copyright() {
             </Grid>
           </form>
         </div>
-        <Box mt={5}>
-          <Copyright />
-        </Box>
+        <Box mt={5} />
       </Container>
-    );
-  }
+    </>
+  );
+}
+
+
