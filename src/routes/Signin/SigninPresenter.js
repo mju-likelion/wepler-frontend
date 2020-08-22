@@ -52,7 +52,7 @@ export default function SignIn() {
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <TextTitle>
-            Plz(플리즈) - 회원가입
+            로그인
           </TextTitle>
         </div>
       </Container>

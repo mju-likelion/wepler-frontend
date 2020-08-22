@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import HashTag from "components/HashTag/HashTagChoose/HashTagChoose";
 import WhenLearn from "components/Sign/Plz/WhenLearn";
-import Color from "components/PlzSignColor";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,8 +15,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+
 
 const theme = createMuiTheme({
   palette: {
@@ -49,8 +50,7 @@ const Field = styled.div`
 `;
 
 const useStyles = makeStyles((theme) => ({
-
-  paper: {
+   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
-
+  
   return (
     <>
       <Container component="main" maxWidth="xs">
@@ -81,7 +81,7 @@ export default function SignUp() {
           </TextTitle>          
         </div>
       </Container>
-      <createMuiTheme>
+      <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <form className={classes.form} noValidate>
@@ -179,6 +179,7 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
+            
             <Button
               type="submit"
               fullWidth
@@ -188,6 +189,7 @@ export default function SignUp() {
             >
               회원가입
             </Button>
+           
             <Grid container justify="flex-end">
               <Grid item>
                 <Link href="/Signin" variant="body2">
@@ -199,7 +201,7 @@ export default function SignUp() {
         </div>
         <Box mt={5} />
       </Container>
-      </createMuiTheme>
+      </ThemeProvider>
     </>
   );
 }
