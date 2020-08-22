@@ -7,8 +7,8 @@ const ActivityList = styled.div`
 
 
 const ButtonActivity = styled.button`
-    border-radius: 20px; 
-    border: 3px solid #c9aa79;
+    border-radius: 10px; 
+    border: 2px solid #c9aa79;
     background-color:#FFFFFF;
     color:#404A41;   
     font-size: 20px;  

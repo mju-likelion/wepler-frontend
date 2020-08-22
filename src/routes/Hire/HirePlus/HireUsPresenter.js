@@ -36,7 +36,7 @@ const HireUsPresenter = () => (
             <p>플러스 회원 프로필 보기</p>
 
             <ButtonList>
-                <ButtonLink to>
+                <ButtonLink to="/plusseoul">
                     <ButtonArea>서울특별시</ButtonArea>
                 </ButtonLink>
                 <ButtonLink>

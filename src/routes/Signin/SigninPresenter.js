@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from "styled-components";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,18 +14,15 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        wepler!
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+const TextTitle = styled.div`
+  padding-top:10px;
+  font-weight: bold;
+  font-size:25px;
+`;
+
+const Colors = styled.div`
+color:#F2D4CA;
+`;
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -50,15 +48,16 @@ export default function SignIn() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          로그인
-        </Typography>
+    <>
+      <Container component="main" maxWidth="xs">
+        <div className={classes.paper}>
+          <TextTitle>
+            Plz(플리즈) - 회원가입
+          </TextTitle>
+        </div>
+      </Container>
+      <Container component="main" maxWidth="xs">      
+        <div className={classes.paper}>
         <form className={classes.form} noValidate>
           <TextField
             variant="outlined"
@@ -66,7 +65,7 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="이메일 주소"
             name="email"
             autoComplete="email"
             autoFocus
@@ -77,7 +76,7 @@ export default function SignIn() {
             required
             fullWidth
             name="password"
-            label="Password"
+            label="비밀번호"
             type="password"
             id="password"
             autoComplete="current-password"
@@ -85,7 +84,7 @@ export default function SignIn() {
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="아이디를 기억합니다."
-          />
+          />        
           <Button
             type="submit"
             fullWidth
@@ -93,7 +92,7 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            로그인
           </Button>
           <Grid container>
             <Grid item xs>
@@ -107,11 +106,12 @@ export default function SignIn() {
               </Link>
             </Grid>
           </Grid>
+         
         </form>
       </div>
-      <Box mt={8}>
-        <Copyright />
+      <Box mt={8}>        
       </Box>
     </Container>
+    </>
   );
 }

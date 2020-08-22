@@ -10,10 +10,10 @@ import Education from "routes/Education";
 import HireMember from "routes/Hire/HireMember";
 import Signup from "routes/Signup";
 import Signin from "routes/Signin";
-import SeoulMem from "./Areas/Plz/Seoul/SeoulMem";
-import SeoulDetail from "./Areas/Plz/Seoul/SeoulDetail";
-import GyeonggiMem from "./Areas/Plz/Gyeonggi/GyenggiMem";
-import IncheonMem from "./Areas/Plz/Incheon/IncheonMem";
+import SeoulMem from "./Areas/Plus/Seoul/SeoulMem";
+import SeoulDetail from "./Areas/Plus/Seoul/SeoulDetail";
+import GyeonggiMem from "./Areas/Plus/Gyeonggi/GyenggiMem";
+import IncheonMem from "./Areas/Plus/Incheon/IncheonMem";
 
 import ReviewView from "./Reviews/Plz/view";
 import PlzSignupDetail from "./Sign/Plz/Signup";
@@ -38,10 +38,10 @@ export default () => (
 
                 <Route path="/plzsignupdetail" exact component={PlzSignupDetail} />
 
-                <Route path="/plzseoul" exact component={SeoulMem} />
-                <Route path="/plzseoulde" exact component={SeoulDetail} />
-                <Route path="/plzgyeong" exact component={GyeonggiMem} />
-                <Route path="/plzinch" exact component={IncheonMem} />
+                <Route path="/plusseoul" exact component={SeoulMem} />
+                <Route path="/plusseoulde" exact component={SeoulDetail} />
+                <Route path="/plusgyeong" exact component={GyeonggiMem} />
+                <Route path="/plusinch" exact component={IncheonMem} />
                 
 
                 <Redirect from="*" to="/" />

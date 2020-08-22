@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import HashTag from "components/HashTag/HashTagChoose/HashTagChoose";
+import WhenLearn from "components/Sign/Plz/WhenLearn";
+import Color from "components/PlzSignColor";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,6 +16,21 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: '#F2D4CA',
+    },
+    secondary: {
+      // This is green.A700 as hex.
+      main: '#EFEFEF',
+    },
+  },
+});
 
 const TextTitle = styled.div`
   padding-top:10px;
@@ -62,8 +79,9 @@ export default function SignUp() {
           <TextTitle>
           Plz(플리즈) - 회원가입
           </TextTitle>          
-      </div>
+        </div>
       </Container>
+      <createMuiTheme>
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <form className={classes.form} noValidate>
@@ -151,7 +169,9 @@ export default function SignUp() {
                   언제 배우고 싶으신가요?
               </TextQuestion>
               </Grid>
-
+              <Field>
+                <WhenLearn />
+              </Field>
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
@@ -179,6 +199,7 @@ export default function SignUp() {
         </div>
         <Box mt={5} />
       </Container>
+      </createMuiTheme>
     </>
   );
 }
