@@ -17,6 +17,7 @@ import IncheonMem from "./Areas/Plus/Incheon/IncheonMem";
 
 import ReviewView from "./Reviews/Plz/view";
 import PlzSignupDetail from "./Sign/Plz/Signup";
+import PlusSignupDetail from "./Sign/Plus/Signup";
 
 
 export default () => (
@@ -37,7 +38,8 @@ export default () => (
                 <Route path="/plzreviewview" exact component={ReviewView} />
 
                 <Route path="/plzsignupdetail" exact component={PlzSignupDetail} />
-
+                <Route path="/plussignupdetail" exact component={PlusSignupDetail} />
+                
                 <Route path="/plusseoul" exact component={SeoulMem} />
                 <Route path="/plusseoulde" exact component={SeoulDetail} />
                 <Route path="/plusgyeong" exact component={GyeonggiMem} />
