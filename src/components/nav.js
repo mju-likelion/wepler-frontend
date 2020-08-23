@@ -15,6 +15,7 @@ const HeaderLo = styled.header`
 
 const ListLo = styled.ul`
   display: flex;
+  padding-left: 40%;
 `;
 
 const Header = styled.header`
@@ -35,8 +36,8 @@ const List = styled.ul`
 `;
 
 const ItemH = styled.li`
-  width: 300px;
-  height: 50px;
+  width: 300%;
+  height: 50%;
   text-align: center;
   font-size: 50px;
   color: #F2D4CA;
@@ -45,8 +46,8 @@ const ItemH = styled.li`
 `;
 
 const Item = styled.li`
-  width: 160px;
-  height: 50px;
+  width: 160%;
+  height: 50%;
   text-align: center;
   border-bottom: 5px solid
     ${props => (props.current ? "#C9AA79" : "transparent")};
@@ -54,7 +55,7 @@ const Item = styled.li`
 `;
 
 const ItemLo = styled.li`
-  width: 120px;
+  width: 35%;
   height: 0px;
   text-align: right;
   font-size: 20px;

@@ -10,6 +10,9 @@ import Education from "routes/Education";
 import HireMember from "routes/Hire/HireMember";
 import Signup from "routes/Signup";
 import Signin from "routes/Signin";
+import HirePlzList from "components/Bord/HirePlz/List";
+import HirePlzWrite from "components/Bord/HirePlz/Write";
+import HirePlzRead from "components/Bord/HirePlz/Read";
 import SeoulMem from "./Areas/Plus/Seoul/SeoulMem";
 import SeoulDetail from "./Areas/Plus/Seoul/SeoulDetail";
 import GyeonggiMem from "./Areas/Plus/Gyeonggi/GyenggiMem";
@@ -34,7 +37,11 @@ export default () => (
                 <Route path="/areaplz" exact component={HirePlz} />
                 <Route path="/signup" exact component={Signup} />
                 <Route path="/signin" exact component={Signin} />
-             
+                <div className="borad">
+                    <Route path="/plzlist" exact component={HirePlzList} />
+                    <Route path="/plzread" exact component={HirePlzRead} />
+                    <Route path="/plzwrite" exact component={HirePlzWrite} />
+                </div>
                 <Route path="/plzreviewview" exact component={ReviewView} />
 
                 <Route path="/plzsignupdetail" exact component={PlzSignupDetail} />
