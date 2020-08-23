@@ -123,7 +123,7 @@ const HomePresenter = () => (
         <Explanation>
             <div>
                 <FaQuoteLeft size="24" color="#404A41" />
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                위플러로 다양한 취미생활을 즐겨보세요.
                 <FaQuoteRight size="24" color="#404A41" />
             </div>
             <ButtonList>
