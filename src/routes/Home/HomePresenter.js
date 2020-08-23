@@ -6,7 +6,6 @@ import css from "assets/css/img.css";
 import imgBg1 from "assets/img/Home/bg1.jpg";
 import imgReview1 from "assets/img/Home/review1.jpg";
 
-
 const Container = styled.h2`
     padding-top: 100px;
     text-align: center;
@@ -58,19 +57,19 @@ const ButSe = styled.button`
 `;
 
 const Margin = styled.div`
-    padding: 20px;
+    padding: 2%;
 `;
 
 const Box = styled.div`
     padding-top:50px;
-    padding-left: 10px;
-    padding-right: 20px;
-    margine: 10px;
+    padding-left: 0.5%;
+    padding-right: 0.5%;  
     display: flex;  
     justify-content: center;
     text-align: center;
     background-color:#EFEFEF;
-    border-radius: 10px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 60px gray;
 `;
 
 const BoxBig = styled.div`    
@@ -156,7 +155,7 @@ const HomePresenter = () => (
                 <BoxBig>
                     <BoxName>
                         <h2>활동후기</h2>
-                        <BoxButtonLink to="/hire">
+                        <BoxButtonLink to="/review">
                             <BoxButton>더보기</BoxButton>
                         </BoxButtonLink>
                     </BoxName>

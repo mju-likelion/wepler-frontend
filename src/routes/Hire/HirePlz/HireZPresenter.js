@@ -37,13 +37,13 @@ const HireZPresenter = () => (
             <p>플리즈 개인 혹은 단체 </p>          
             
             <ButtonList>
-                <ButtonLink to="/plzseoul">
+                <ButtonLink >
                     <ButtonArea>서울특별시</ButtonArea>
                 </ButtonLink>
-                <ButtonLink to="/plzgyeong">
+                <ButtonLink >
                     <ButtonArea>경기도</ButtonArea>
                 </ButtonLink>
-                <ButtonLink to="/plzinch">
+                <ButtonLink>
                     <ButtonArea>인천</ButtonArea>
                 </ButtonLink>
             </ButtonList>

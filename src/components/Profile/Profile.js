@@ -45,8 +45,9 @@ const BoxPink = styled.div`
     color: #F2D4CA; 
     width: 500px;
 `;
+
 const BoxButtonLink = styled(Link)`  
-    padding-left: 350px;  
+    
 `;
 
 const BoxButton = styled.button`
@@ -71,7 +72,7 @@ const Profile = () => (
                 <BoxPink>
                     <img src={clock} alt=".." className="clock-image" />
                     <div>1h ago</div>
-                    <BoxButtonLink>
+                    <BoxButtonLink to="/plzseoulde">
                         <BoxButton> <IoIosArrowRoundForward size="24" color="#404A41" /></BoxButton>
 
                     </BoxButtonLink>

@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import HashTag from "components/HashTag/HashTagChoose/HashTagChoose";
-import WhenLearn from "components/Sign/Plz/WhenLearn";
+import WhenShare from "components/Sign/Plus/WhenShare";
+import WhenStart from "components/Sign/Plus/WhenStart";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -25,7 +26,7 @@ const theme = createMuiTheme({
       main: '#C9AA79',
     },
     secondary: {
-      main: '#F2D4CA',
+      main: '#EFEFEF',
     },
   },
 });
@@ -74,7 +75,7 @@ export default function SignUp() {
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <TextTitle>
-            Plz(플리즈) - 회원가입
+            Plus(플러스) - 회원가입
           </TextTitle>
         </div>
       </Container>
@@ -155,7 +156,7 @@ export default function SignUp() {
               <Grid>
                 <Grid item xs={12}>
                   <TextQuestion>
-                    관심있는 분야를 선택해주세요.
+                    원하는 재능 나눔 분야
               </TextQuestion>
                 </Grid>
                 <Field>
@@ -163,12 +164,15 @@ export default function SignUp() {
                 </Field>
                 <Grid item xs={12}>
                   <TextQuestion>
-                    언제 배우고 싶으신가요?
+                    재능나눔 시간 입력해주세요.
               </TextQuestion>
                 </Grid>
                 <Field>
-                  <WhenLearn />
+                  <WhenStart />
                 </Field>
+                <Field>
+                  <WhenShare />
+                </Field>                
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={<Checkbox value="allowExtraEmails" color="primary" />}

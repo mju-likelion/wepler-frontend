@@ -9,13 +9,18 @@ import Review from "routes/Review";
 import Education from "routes/Education";
 import HireMember from "routes/Hire/HireMember";
 import Signup from "routes/Signup";
-import SeoulMem from "./Areas/Plz/Seoul/SeoulMem";
-import SeoulDetail from "./Areas/Plz/Seoul/SeoulDetail";
-import GyeonggiMem from "./Areas/Plz/Gyeonggi/GyenggiMem";
-import IncheonMem from "./Areas/Plz/Incheon/IncheonMem";
+import Signin from "routes/Signin";
+import HirePlzList from "components/Bord/HirePlz/List";
+import HirePlzWrite from "components/Bord/HirePlz/Write";
+import HirePlzRead from "components/Bord/HirePlz/Read";
+import SeoulMem from "./Areas/Plus/Seoul/SeoulMem";
+import SeoulDetail from "./Areas/Plus/Seoul/SeoulDetail";
+import GyeonggiMem from "./Areas/Plus/Gyeonggi/GyenggiMem";
+import IncheonMem from "./Areas/Plus/Incheon/IncheonMem";
 
 import ReviewView from "./Reviews/Plz/view";
 import PlzSignupDetail from "./Sign/Plz/Signup";
+import PlusSignupDetail from "./Sign/Plus/Signup";
 
 
 export default () => (
@@ -31,15 +36,21 @@ export default () => (
                 <Route path="/areaplus" exact component={HirePlus} />
                 <Route path="/areaplz" exact component={HirePlz} />
                 <Route path="/signup" exact component={Signup} />
-             
+                <Route path="/signin" exact component={Signin} />
+                <div className="borad">
+                    <Route path="/plzlist" exact component={HirePlzList} />
+                    <Route path="/plzread" exact component={HirePlzRead} />
+                    <Route path="/plzwrite" exact component={HirePlzWrite} />
+                </div>
                 <Route path="/plzreviewview" exact component={ReviewView} />
 
                 <Route path="/plzsignupdetail" exact component={PlzSignupDetail} />
-
-                <Route path="/plzseoul" exact component={SeoulMem} />
-                <Route path="/plzseoulde" exact component={SeoulDetail} />
-                <Route path="/plzgyeong" exact component={GyeonggiMem} />
-                <Route path="/plzinch" exact component={IncheonMem} />
+                <Route path="/plussignupdetail" exact component={PlusSignupDetail} />
+                
+                <Route path="/plusseoul" exact component={SeoulMem} />
+                <Route path="/plusseoulde" exact component={SeoulDetail} />
+                <Route path="/plusgyeong" exact component={GyeonggiMem} />
+                <Route path="/plusinch" exact component={IncheonMem} />
                 
 
                 <Redirect from="*" to="/" />

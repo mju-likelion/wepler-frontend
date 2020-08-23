@@ -63,7 +63,7 @@ const SignupPresenter = () => (
             <div>재능을 나누고 싶어요.</div>
         
         <ButtonMember>
-            <ButtonLink >
+            <ButtonLink to="/plussignupdetail">
                 <PlusButton>플러스 회원</PlusButton>
             </ButtonLink>
         </ButtonMember>         

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
+import Profile from "components/Profile/Profile.js";
 
 const Container = styled.div``;
 
@@ -31,16 +32,18 @@ const BeforeButton = styled.button`
 `;
 
 const SeoulDetail = () => (
-    <>
-    <Container>
-    <h1>서울</h1>
-    </Container>
-
+    <>    
+    <Profile/>
+   <div>원하는 재능 나눔 분야</div>
+   <div>봉사자 교육 수료 여부</div>
+   <div>제가 활동을 함께 할 수 있는 요일은 입니다.</div>
+   <div>제가 활동을 함께 할 수 있는 시간은 입니다.</div>
+   <div>제가 활동을 지속할 수 있는 기간은 입니다.</div>
+   <div>'고용하기'버튼을 누르면 플러스에게 알림이 갑니다.</div>
     <ButtonMember>
         <ButtonLink to="/areaplz">
         <BeforeButton>이전으로</BeforeButton>
         </ButtonLink>
-
     </ButtonMember>
     </>
 )
