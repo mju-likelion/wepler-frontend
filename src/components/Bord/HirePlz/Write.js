@@ -65,6 +65,7 @@ const TitleWrap = styled.div`
 `;
 const TextDisplay = styled.div`
   display: flex;
+  line-height: 1.5;
 `;
 const TextDisplay2 = styled.div`
   padding-right: 30px;
@@ -97,6 +98,18 @@ const TextWrapterm = styled.div`
     width: 30%;
     height: 30px;
     border: none;
+  }
+`;
+const DisplayLine = styled.div`
+padding-right: 10px;
+`;
+
+const ActivityDisplay = styled.div`
+  display: flex;
+  line-height: 1.5;
+  input {
+    width: 10%;
+
   }
 `;
 
@@ -172,7 +185,7 @@ class Write extends Component {
                 type="date"
                 name="need"
                 onChange={this.handleChange}
-                value={this.state.need ? "모집완료" : "모집중"}
+                value={this.state.need}
               />
             </TextDisplay>
             <Line>
@@ -219,7 +232,7 @@ class Write extends Component {
               <br />
             </Line>
             <div>분야</div> <br />
-            <TextDisplay>
+            <ActivityDisplay>
               <input
                 type="checkbox"
                 name="education"
@@ -227,6 +240,7 @@ class Write extends Component {
                 value={this.state.hash.education}
               />
               <div>교육</div>
+              <DisplayLine/>
               <input
                 type="checkbox"
                 name="council"
@@ -234,6 +248,7 @@ class Write extends Component {
                 value={this.state.hash.council}
               />
               <div>상담</div>
+              <DisplayLine/>
               <input
                 type="checkbox"
                 name="making"
@@ -241,13 +256,16 @@ class Write extends Component {
                 value={this.state.hash.making}
               />
               <div>메이킹</div>
+              <DisplayLine/>
               <input
                 type="checkbox"
                 name="activity"
                 onChange={this.handleChange}
                 value={this.state.hash.activity}
-              />
+              />              
               <div>야외활동</div>
+              </ActivityDisplay>
+              <ActivityDisplay>
               <input
                 type="checkbox"
                 name="culture"
@@ -255,6 +273,7 @@ class Write extends Component {
                 value={this.state.hash.culture}
               />
               <div>문화</div>
+              <DisplayLine/>
               <input
                 type="checkbox"
                 name="trip"
@@ -262,6 +281,7 @@ class Write extends Component {
                 value={this.state.hash.trip}
               />
               <div>여행</div>
+              <DisplayLine/>
               <input
                 type="checkbox"
                 name="etc"
@@ -269,7 +289,7 @@ class Write extends Component {
                 value={this.state.hash.etc}
               />
               <div>기타</div>
-            </TextDisplay>
+              </ActivityDisplay>
             <Line>
               <br />
             </Line>
