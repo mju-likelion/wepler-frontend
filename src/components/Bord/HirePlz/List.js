@@ -123,7 +123,7 @@ class List extends Component {
                                                                                      
                                             <ExplanWrap>
                                                 <div>필요/신청인원: {item.ne_mem}/{item.ap_mem}</div>
-                                                <div>기간: {item.term}</div>
+                                                <div>기간: {item.term1}~{item.term2}</div>
                                                 <div>분야: {item.hash}</div>
                                             </ExplanWrap>
                                         </Link>

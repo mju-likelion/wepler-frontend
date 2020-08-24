@@ -3,7 +3,18 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import Container from '@material-ui/core/Container';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import HashTag from "components/HashTag/HashTagChoose/HashTagChoose";
 
+const Container2 = styled.div`
+    text-align: center;
+    color: #404A41;
+    line-height: 2; 
+    padding-bottom: 5%;
+    font-weight:bold;
+    font-size:30px;
+`;
 
 const Button = styled.div` 
 border-top: 1px solid #eee; 
@@ -41,7 +52,9 @@ const TitleWrap = styled.div`
         font-weight: bold;
     }
 `;
-
+const TextDisplay = styled.div`
+    display:flex;
+`;
 const TextWrap = styled.div`
     padding: 20px;
     padding-left: 30px;
@@ -55,13 +68,40 @@ const TextWrap = styled.div`
         border: none; 
     }
 `;
+const TextWrapNeed = styled.div`
+    padding-left: 30px;
+    textarea{
+        resize: none;
+        border: none;
+        width: 30%; 
+        height: 20px; 
+        border: none; 
+    }
+`;
+const TextWrapterm = styled.div`
+padding-left: 30px;
+margin-top: 30px;
+margin-left: 50px;
+textarea{
+    resize: none;
+    border: none;
+    width: 30%; 
+    height: 30px; 
+    border: none; 
+}
+`;
+
 class Write extends Component {
     state = {
         title: '',
+        need: '',
+        ne_mem: '',
+        term1:'',
+        term2:'',
         content: '',
     };
     postBoard = async () => {
-        const { title, content } = this.state;
+        const { title, content, need } = this.state;
         const post = await axios.post('http://localhost:4000/board', {
             title,
             content,
@@ -70,6 +110,7 @@ class Write extends Component {
         this.setState({
             title: '',
             content: '',
+            need: '',
         });
         console.log(post);
     };
@@ -85,7 +126,9 @@ class Write extends Component {
         return (
             <>
                 <Container component="main" maxWidth="md">
-                    <h2>Write</h2>
+                    <Container2>
+                        <h2>고용 글 작성하기</h2>
+                    </Container2>
                     <TitleWrap>
                         <input
                             type="text"
@@ -95,15 +138,56 @@ class Write extends Component {
                             value={this.state.title}
                         />
                     </TitleWrap>
-                    <div>모집</div>
-                    <div>필요인원</div>
+                    <TextDisplay>
+                        <div>모집</div>
+                        <FormControlLabel
+                            label="모집중 입니다."
+                            control={<Checkbox value="remember" color="primary" />}
+                            name="need"
+                        />
+                    </TextDisplay>
+                    <TextDisplay>
+                        <div>필요인원</div>
+                        <TextWrapNeed>
+                            <textarea
+                                type="text"
+                                name="ne_mem"
+                                placeholder="ex) 5"
+                                onChange={this.handleChange}
+                                value={this.state.ne_mem} />
+                                명
+                        </TextWrapNeed>
+                    </TextDisplay>
                     <div>시작기간 및 종료기간</div>
+                    <TextWrapterm >
+                        <TextDisplay >
+                            시작기간 :
+                            <textarea
+                                type="text"
+                                name="ne_mem"
+                                placeholder="ex) 2020.08.08"
+                                onChange={this.handleChange}
+                                value={this.state.ne_mem} />
+                                ~ 종료기간: 
+                                <textarea
+                                type="text"
+                                name="ne_mem"
+                                placeholder="ex) 2020.12.31"
+                                onChange={this.handleChange}
+                                value={this.state.ne_mem} />
+                                </TextDisplay>
+                        </TextWrapterm >
                     <div>분야</div>
+                    <TextDisplay >
+                        <HashTag />
+                    </TextDisplay>
+
+
+                    <div>내용</div>
                     <TextWrap>
                         <textarea
                             type="text"
                             name="content"
-
                             placeholder="내용을 입력하세요."
                             onChange={this.handleChange}
                             value={this.state.content} />
