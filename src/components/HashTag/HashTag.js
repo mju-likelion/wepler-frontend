@@ -5,7 +5,7 @@ const ActivityList = styled.div`
     padding-left: 350px;
     display: flex;  
     justify-content: left; 
-    height: 50px: 
+    height: 50px; 
 `;
 
 const ButtonActivity = styled.button`
