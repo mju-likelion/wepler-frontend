@@ -9,8 +9,7 @@ const Container = styled.div`
 
 const ButtonList = styled.ul`
     display: flex;  
-    justify-content: left; 
-    height: 50px; 
+    justify-content: left;
 `;
 
 const ButtonLink = styled(Link)`    
