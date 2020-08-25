@@ -6,6 +6,7 @@ import css from "assets/css/img.css";
 import imgBg1 from "assets/img/Home/bg1.jpg";
 import imgReview1 from "assets/img/Home/review1.jpg";
 
+
 const Container = styled.h2`
     padding-top: 100px;
     text-align: center;
@@ -57,19 +58,19 @@ const ButSe = styled.button`
 `;
 
 const Margin = styled.div`
-    padding: 2%;
+    padding: 20px;
 `;
 
 const Box = styled.div`
     padding-top:50px;
-    padding-left: 0.5%;
-    padding-right: 0.5%;  
+    padding-left: 10px;
+    padding-right: 20px;
+    margine: 10px;
     display: flex;  
     justify-content: center;
     text-align: center;
     background-color:#EFEFEF;
-    border-radius: 20px;
-    box-shadow: 5px 5px 60px gray;
+    border-radius: 10px;
 `;
 
 const BoxBig = styled.div`    
@@ -122,7 +123,7 @@ const HomePresenter = () => (
         <Explanation>
             <div>
                 <FaQuoteLeft size="24" color="#404A41" />
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                위플러로 다양한 취미생활을 즐겨보세요.
                 <FaQuoteRight size="24" color="#404A41" />
             </div>
             <ButtonList>
