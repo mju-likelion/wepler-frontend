@@ -1,8 +1,34 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import {IoIosArrowRoundForward} from "react-icons/io";
+import { IoIosArrowRoundForward } from "react-icons/io";
 import clock from "assets/img/clock.png";
+import board from "BoardData.json";
+
+const ListItem = styled.div` 
+    width: 100%; 
+    margin-top: 10px; 
+    padding: 15px; 
+    border-top: 1px solid #eee; 
+    a { 
+        text-decoration: none; 
+        h3 {
+            margin: 0;
+            padding: 0; 
+            color: #212121; 
+        } 
+        p { 
+            margin: 0; 
+            padding: 10px 0 0 0; 
+            color: #787878; 
+        } 
+        &:hover { 
+            h3 { 
+                color: #f8961e; 
+            } 
+        } 
+    } 
+`;
 
 const Box = styled.div`
     padding-top:30px;
@@ -11,8 +37,7 @@ const Box = styled.div`
     margine: 10px;
     display: flex;
 `;
-const BoxLeft = styled.div`
-    padding: 30px;  
+const BoxLeft = styled.div`      
     width: 210px;    
     height: 210px;
     background-color:#C9AA79;
@@ -26,62 +51,71 @@ const BoxBig = styled.div`
     background-color:#EFEFEF;
 `;
 
-const BoxName = styled.div`
-    padding: 20px;
+const BoxName = styled.div`   
     font-size:30px;
     font-weight: bold;
     text-align: center;
     display: flex;  
 `;
 
-const BoxExplan = styled.div`   
+const BoxExplan = styled.div`  
+    padding-top:25px; 
     font-size:20px;       
     float: left; 
     line-height: 2;      
 `;
 
-const BoxPink = styled.div`
-    display: flex; 
-    color: #F2D4CA; 
-    width: 500px;
-`;
 
-const BoxButtonLink = styled(Link)`  
-    
-`;
+const BoxButtonLink = styled(Link)``;
 
 const BoxButton = styled.button`
     color: #404A41; 
     border: 3px solid #EFEFEF; 
     font-size: 1rem;
-    line-height: 1.5;
-    
+    line-height: 1.5;    
 `;
 
+const HashBox = styled.span`
+    border-radius: 10px; 
+    border: 2px solid #F2D4CA;
+    background-color:#FFFFFF;
+    color:#404A41;   
+    font-size: 20px;   
+    display: left;  
+`;
 
-const Profile = () => (
-    <Box>
-        <BoxLeft />
-        <BoxBig>
-            <BoxName>
-                <h2>제목</h2>
-            </BoxName>
-            <BoxExplan>
-                <div>플러스 회원의 한줄 소개</div>
-                <div>평균평점: 7</div>
-                <BoxPink>
-                    <img src={clock} alt=".." className="clock-image" />
-                    <div>1h ago</div>
-                    <BoxButtonLink to="/plzseoulde">
-                        <BoxButton> <IoIosArrowRoundForward size="24" color="#404A41" /></BoxButton>
+class Profile extends Component {
+    state = {
+        borads: [],
+    };
+    render() {
 
-                    </BoxButtonLink>
-
-                </BoxPink>
-            </BoxExplan>
-
-        </BoxBig>
-    </Box>
-)
+        return (
+            <>
+                {board.map((item) => {
+                    return (
+                        <Box>
+                            <BoxLeft />
+                            <BoxBig>
+                                <ListItem key={item.number}>
+                                    <Link to={`/plusseoulde/${item.number}`}>
+                                        <BoxName>
+                                            <h2>{item.mem_id}</h2>
+                                        </BoxName>
+                                        <BoxExplan>
+                                            <div>{item.mem_oneself}</div>
+                                            <div>평균평점: {item.mem_rating}</div>
+                                            <HashBox>{item.hash}</HashBox>
+                                        </BoxExplan>
+                                    </Link>
+                                </ListItem>
+                            </BoxBig>
+                        </Box>
+                    )
+                })}
+            </>
+        )
+    }
+}
 
 export default Profile;

@@ -12,8 +12,7 @@ const Button = styled.div` border-top: 1px solid #eee; padding: 20px; a { float:
 
 class Read extends Component { state = { id: '', board: [], }; 
 //로딩 데이터 
-loadingData = async () => { 
-        //test JSON: 이 주소로 넣으면 오류 없음 //https://jsonplaceholder.typicode.com/todos/1 
+loadingData = async () => {         
         try {
             // const id = 0; //test id 
             const { id } = this.props.match.params; console.log(id);
