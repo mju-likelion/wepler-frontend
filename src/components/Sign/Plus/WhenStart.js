@@ -34,16 +34,15 @@ const TextWrapterm = styled.div`
 class WhenShare extends Component {
     state = {
         start_time: '',
-        start_day: '',
     };
     postBoard = async () => {
-        const { start_time, start_day } = this.state;
+        const { start_time } = this.state;
         const post = await axios.post('http://localhost:4000/board', {
-            start_time, start_day
+            start_time
         });
 
         this.setState({
-            start_time: '', start_day: '',
+            start_time: '', 
         });
         console.log(post);
     };
@@ -68,19 +67,7 @@ class WhenShare extends Component {
                             value={this.state.start_time}
                         />
                     </TextWrapterm>
-                </ActivityList>
-                <ActivityList>
-                    <TextList><h3>요일</h3></TextList>
-                    <TextWrapterm>
-                        <input
-                            type="day"
-                            name="start_time"
-                            placeholder="월요일"
-                            onChange={this.handleChange}
-                            value={this.state.start_time}
-                        />
-                    </TextWrapterm>
-                </ActivityList>
+                </ActivityList>               
                 <div>{JSON.stringify(this.state)}</div>
             </>
         )

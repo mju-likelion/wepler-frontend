@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import HashTag from "components/HashTag/HashTagChoose/HashTagChoose";
 import WhenStart from "components/Sign/Plus/WhenStart";
+import WhenDay from "components/Sign/Plus/WhenDay";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -166,7 +167,8 @@ export default function SignUp() {
                     재능나눔 시간 입력해주세요.
                   </TextQuestion>
                 </Grid>                
-                  <WhenStart />              
+                  <WhenStart />  
+                  <WhenDay />            
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={<Checkbox value="allowExtraEmails" color="primary" />}

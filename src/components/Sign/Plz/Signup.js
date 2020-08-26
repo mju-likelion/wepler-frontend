@@ -17,11 +17,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-
+import Activitys from "../Plz/Activitys";
 
 const theme = createMuiTheme({
   palette: {
-    primary: {     
+    primary: {
       main: '#C9AA79',
     },
     secondary: {
@@ -42,9 +42,7 @@ const TextQuestion = styled.div`
   font-weight: bold;
 `;
 
-const Field = styled.div`
-  display: flex;  
-`;
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -158,17 +156,13 @@ export default function SignUp() {
                     관심있는 분야를 선택해주세요.
               </TextQuestion>
                 </Grid>
-                <Field>
-                  <HashTag />
-                </Field>
+                <Activitys />
                 <Grid item xs={12}>
                   <TextQuestion>
                     언제 배우고 싶으신가요?
               </TextQuestion>
                 </Grid>
-                <Field>
-                  <WhenLearn />
-                </Field>
+                <WhenLearn />
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={<Checkbox value="allowExtraEmails" color="primary" />}
