@@ -1,24 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
+import axios from "axios";
+import { Link } from 'react-router-dom';
+
 
 
 const ActivityList = styled.div`
-    justify-content: left; 
+   
     display:flex;
 `;
 
-const ButtonActivity = styled.button`
-    border-radius: 10px; 
-    border: 5px solid #FFFFFF;
-    background-color:#FFFFFF;
-    color:#404A41;   
-    font-size: 20px;  
-    margin:20px;  
-    display: flex;  
-    &:hover {
-        background-color: #F2D4CA;
-    }
-`;
 
 const TextList = styled.div`
     padding-top: 30px;
@@ -27,15 +18,74 @@ const TextList = styled.div`
     font-weight: bold;
    
 `;
+const TextWrapterm = styled.div`
+    font-size: 23px;
+    margin-top: 25px;
+    margin-left: 20px;
+    textarea {
+        resize: none;
+        border: none;
+        width: 30%;
+        height: 30px;
+        border: none;
+    }
+`;
 
-const WhenShare= () => (
-    <>
-    
-        <ActivityList>
-            <TextList><h3>재능 나눔 시작일</h3></TextList>            
-            <ButtonActivity>월</ButtonActivity>            
-        </ActivityList>        
-    </>
-)
+class WhenShare extends Component {
+    state = {
+        start_time: '',
+        start_day: '',
+    };
+    postBoard = async () => {
+        const { start_time, start_day } = this.state;
+        const post = await axios.post('http://localhost:4000/board', {
+            start_time, start_day
+        });
+
+        this.setState({
+            start_time: '', start_day: '',
+        });
+        console.log(post);
+    };
+    handleChange = (e) => {
+        const { name, value } = e.target;
+        this.setState({
+            [name]: value,
+        });
+    };
+
+    render() {
+        return (
+            <>
+                <ActivityList>
+                    <TextList><h3>재능 나눔 시작일</h3></TextList>
+                    <TextWrapterm>
+                        <input
+                            type="date"
+                            name="start_time"
+                            placeholder="ex) 2020.08.08"
+                            onChange={this.handleChange}
+                            value={this.state.start_time}
+                        />
+                    </TextWrapterm>
+                </ActivityList>
+                <ActivityList>
+                    <TextList><h3>요일</h3></TextList>
+                    <TextWrapterm>
+                        <input
+                            type="day"
+                            name="start_time"
+                            placeholder="월요일"
+                            onChange={this.handleChange}
+                            value={this.state.start_time}
+                        />
+                    </TextWrapterm>
+                </ActivityList>
+                <div>{JSON.stringify(this.state)}</div>
+            </>
+        )
+    }
+
+}
 
 export default WhenShare;

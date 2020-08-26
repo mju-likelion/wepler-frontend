@@ -6,16 +6,19 @@ import Profile from "components/Profile/Profile.js";
 
 
 const Container = styled.div`
-    padding-left: 200px;
+    padding-left: 13%;
     padding-top: 10px;
     font-size:40px;
     font-weight: bold;
 `;
-
+const Container2 = styled.div`
+    padding-left: 20%;    
+    padding-top: 10px;
+`;
 const ButtonMember = styled.div`
     font-size: 50px;
     padding-top:60px; 
-    padding-left: 1100px; 
+    padding-left: 75%; 
 `;
 
 const ButtonLink = styled(Link)`
@@ -38,24 +41,21 @@ const BeforeButton = styled.button`
     
 `;
 
-const HashTagList = styled.div`
-
-`;
 
 const SeoulMem = () => (
     <>
         <Container>
             <h1>서울</h1>
-        </Container>
-        <HashTagList>
-            <HashTag />
-        </HashTagList>
+            </Container>
+        <Container2><HashTag /></Container2>
+        
         <Profile />
         <ButtonMember>
-            <ButtonLink to="/areaplz">
+            <ButtonLink to="/areaplus">
                 <BeforeButton>이전으로</BeforeButton>
             </ButtonLink>
         </ButtonMember>
+        
     </>
 
 )

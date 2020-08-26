@@ -41,7 +41,7 @@ const SeoulDetail = () => (
    <div>제가 활동을 지속할 수 있는 기간은 입니다.</div>
    <div>'고용하기'버튼을 누르면 플러스에게 알림이 갑니다.</div>
     <ButtonMember>
-        <ButtonLink to="/areaplz">
+        <ButtonLink to="/plusseoul">
         <BeforeButton>이전으로</BeforeButton>
         </ButtonLink>
     </ButtonMember>

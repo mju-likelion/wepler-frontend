@@ -22,7 +22,8 @@ import SeoulMem from "components/Areas/Plus/Seoul/SeoulMem";
 import SeoulDetail from "components/Areas/Plus/Seoul/SeoulDetail";
 import GyeonggiMem from "components/Areas/Plus/Gyeonggi/GyenggiMem";
 import IncheonMem from "components/Areas/Plus/Incheon/IncheonMem";
-import ReviewView from "components/Reviews/Plz/view";
+import ReviewViewPlz from "components/Reviews/Plz/view";
+import ReviewViewPlus from "components/Reviews/Plus/view";
 import PlzSignupDetail from "components/Sign/Plz/Signup";
 import PlusSignupDetail from "components/Sign/Plus/Signup";
 
@@ -43,9 +44,10 @@ export default () => (
         <Route path="/plzlist" exact component={HirePlzList} />
         <Route path="/plzread" exact component={HirePlzRead} />
         <Route path="/plzwrite" exact component={HirePlzWrite} />
-        <Route path="/plzreviewview" exact component={ReviewView} />
-        <Route path="/plzsignupdetail" exact component={PlzSignupDetail} />
-        <Route path="/plussignupdetail" exact component={PlusSignupDetail} />
+        <Route path="/reviewplzlist" exact component={ReviewViewPlz} />
+        <Route path="/reviewpluslist" exact component={ReviewViewPlus} />
+        <Route path="/signuplz" exact component={PlzSignupDetail} />
+        <Route path="/signuplus" exact component={PlusSignupDetail} />
         <Route path="/plusseoul" exact component={SeoulMem} />
         <Route path="/plusseoulde" exact component={SeoulDetail} />
         <Route path="/plusgyeong" exact component={GyeonggiMem} />

@@ -7,7 +7,6 @@ import member3 from "assets/img/Member/member3.png";
 import member4 from "assets/img/Member/member4.png";
 
 
-
 const Container = styled.div`
     background-color: #F2D4CA;
     padding: 50px 0px;
@@ -17,12 +16,12 @@ const Container = styled.div`
 `;
 
 const WeHead = styled.div`
-    font-size:40px;
+    font-size:35px;
     padding: 30px 0px;
 `;
 
 const WeBody = styled.div`
-    font-size:26px;
+    font-size:23px;
     padding: 30px 100px;
     textAlign: justify;
     lineHeight: 27px;
