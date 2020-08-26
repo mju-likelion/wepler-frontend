@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import Container from "@material-ui/core/Container";
+import Activitys from "../HirePlz/WriteActivity";
 
 const Container2 = styled.div`
   text-align: center;
@@ -121,41 +122,30 @@ class Write extends Component {
     term1: "",
     term2: "",
     content: "",
-    hash: [],
   };
   postBoard = async () => {
-    const { title, content, need } = this.state;
+    const { title, content, need, ne_mem,term1,term2 } = this.state;
     const post = await axios.post("http://localhost:4000/board", {
       title,
-      content,
+      content, need, ne_mem,term1,term2
     });
     alert("전송");
     this.setState({
       title: "",
-      content: "",
-      need: "",
+    need: "",
+    ne_mem: "",
+    term1: "",
+    term2: "",
+    content: "",
     });
     console.log(post);
   };
 
   handleChange = (e) => {
-    const { name, value } = e.target;
-
-    // 배열에 값이 있으면
-    if (this.state.hash.findIndex((i) => i === name) !== -1) {
-      const newHash = this.state.hash.filter((value) => value !== name);
-      this.setState({
-        ...this.state,
-        hash: newHash,
-      });
-    }
-    // 배열에 값이 없으면
-    else {
-      this.setState({
-        ...this.state,
-        hash: [...this.state.hash, name],
-      });
-    }
+    const { name, value } = e.target; 
+    this.setState({ 
+      [name]: value, 
+    }); 
   };
 
   render() {
@@ -231,65 +221,7 @@ class Write extends Component {
             <Line>
               <br />
             </Line>
-            <div>분야</div> <br />
-            <ActivityDisplay>
-              <input
-                type="checkbox"
-                name="education"
-                onChange={this.handleChange}
-                value={this.state.hash.education}
-              />
-              <div>교육</div>
-              <DisplayLine/>
-              <input
-                type="checkbox"
-                name="council"
-                onChange={this.handleChange}
-                value={this.state.hash.council}
-              />
-              <div>상담</div>
-              <DisplayLine/>
-              <input
-                type="checkbox"
-                name="making"
-                onChange={this.handleChange}
-                value={this.state.hash.making}
-              />
-              <div>메이킹</div>
-              <DisplayLine/>
-              <input
-                type="checkbox"
-                name="activity"
-                onChange={this.handleChange}
-                value={this.state.hash.activity}
-              />              
-              <div>야외활동</div>
-              </ActivityDisplay>
-              <ActivityDisplay>
-              <input
-                type="checkbox"
-                name="culture"
-                onChange={this.handleChange}
-                value={this.state.hash.culture}
-              />
-              <div>문화</div>
-              <DisplayLine/>
-              <input
-                type="checkbox"
-                name="trip"
-                onChange={this.handleChange}
-                value={this.state.hash.trip}
-              />
-              <div>여행</div>
-              <DisplayLine/>
-              <input
-                type="checkbox"
-                name="etc"
-                onChange={this.handleChange}
-                value={this.state.hash.etc}
-              />
-              <div>기타</div>
-              </ActivityDisplay>
+            <Activitys />
             <Line>
               <br />
             </Line>

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import HashTag from "components/HashTag/HashTagChoose/HashTagChoose";
-import WhenShare from "components/Sign/Plus/WhenShare";
 import WhenStart from "components/Sign/Plus/WhenStart";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -22,7 +21,7 @@ import { ThemeProvider } from '@material-ui/styles';
 
 const theme = createMuiTheme({
   palette: {
-    primary: {     
+    primary: {
       main: '#C9AA79',
     },
     secondary: {
@@ -157,7 +156,7 @@ export default function SignUp() {
                 <Grid item xs={12}>
                   <TextQuestion>
                     원하는 재능 나눔 분야
-              </TextQuestion>
+                  </TextQuestion>
                 </Grid>
                 <Field>
                   <HashTag />
@@ -165,14 +164,9 @@ export default function SignUp() {
                 <Grid item xs={12}>
                   <TextQuestion>
                     재능나눔 시간 입력해주세요.
-              </TextQuestion>
-                </Grid>
-                <Field>
-                  <WhenStart />
-                </Field>
-                <Field>
-                  <WhenShare />
-                </Field>                
+                  </TextQuestion>
+                </Grid>                
+                  <WhenStart />              
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={<Checkbox value="allowExtraEmails" color="primary" />}

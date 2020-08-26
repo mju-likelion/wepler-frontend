@@ -13,7 +13,10 @@
     "area":"seoul",
     "mem_id":"아이디",
     "mem_oneself":"나는야 플러스회원",
-    "mem_rating":"5"
+    "mem_rating":"5",
+    "start_time":"2020.08.08",
+    "start_day":"mon"
+    
   },
   {
     "number": "2",
