@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { Link } from 'react-router-dom';
 
-
-
-const ActivityList = styled.div`
-   
+const ActivityList = styled.div`   
     display:flex;
 `;
-
 
 const TextList = styled.div`
     padding-top: 30px;
