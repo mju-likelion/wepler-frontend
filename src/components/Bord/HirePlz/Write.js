@@ -27,10 +27,15 @@ const Button = styled.div`
     float: right;
     padding: 10px 20px;
     border-radius: 5px;
+    border: none;
     text-decoration: none;
-    background: #212121;
+    background: #C9AA79;
     color: #fff;
     font-size: 16px;
+    &:hover {
+      background-color: #F2D4CA;
+    }
+  
   }
   a {
     float: right;

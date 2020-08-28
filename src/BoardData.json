@@ -16,7 +16,8 @@
     "mem_rating":"5",
     "start_time":"2020.08.08",
     "start_day":"mon",
-    "when_learn":"thinking"
+    "when_learn":"thinking",
+    "belong":"individual"
     
   },
   {
@@ -32,7 +33,11 @@
     "content":"두번째 글입니다아아아ㅏ",
     "mem_id":"아이디2",
     "mem_oneself":"나는야 플러스회원2",
-    "mem_rating":"6"
+    "mem_rating":"6",
+    "start_time":"2020.08.08",
+    "start_day":"wed",
+    "when_learn":"thinking",
+    "belong":"group"
   },
   {
     "number": "3",

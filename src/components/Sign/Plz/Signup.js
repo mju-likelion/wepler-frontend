@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import Activitys from "../Plz/Activitys";
+import Belongs from "../Plz/Belong";
 
 const theme = createMuiTheme({
   palette: {
@@ -158,6 +159,10 @@ export default function SignUp() {
               </TextQuestion>
                 </Grid>
                 <WhenLearn />
+                <TextQuestion>
+                    개인 혹은 단체 이신가요?
+              </TextQuestion>
+                <Belongs/>
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={<Checkbox value="allowExtraEmails" color="primary" />}
