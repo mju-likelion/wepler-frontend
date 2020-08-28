@@ -2,15 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Container = styled.div`
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding-top: 30px;
-    padding-left: 150px;
-    width: 80%;   
-    box-sizing: border-box; 
-`; 
 
 const ButtonList = styled.ul`
     display: flex;  
