@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Footer from "components/Footer/Footer.js"
+import Footer from "components/Footer/Footer.js";
 import member1 from "assets/img/Member/member1.png";
 import member2 from "assets/img/Member/member2.png";
 import member3 from "assets/img/Member/member3.png";
