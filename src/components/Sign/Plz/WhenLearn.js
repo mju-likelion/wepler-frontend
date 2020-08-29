@@ -5,10 +5,6 @@ import styled from "styled-components";
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-const ActivityList = styled.div`
-    justify-content: left; 
-`;
-
 const ActivityBox = styled.div`
     padding:5px 5px;
     border-radius: 5px; 

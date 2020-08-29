@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import board from "../../../BoardData.json";
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import axios from "axios";
 
 const Container2 = styled.div`
     text-align: center;
@@ -114,17 +115,17 @@ class List extends Component {
                                                     <h3>{item.title}</h3>
                                                 </Item>
                                                 <Item >
-                                                    <p>{item.need}</p>
+                                                    <p>{item.recruit}</p>
                                                 </Item>
                                                 <Item >
-                                                    <div>{item.member}</div>
+                                                    <div>{item.plz_id}</div>
                                                 </Item>
                                             </TextWrap> 
                                                                                      
                                             <ExplanWrap>
-                                                <div>필요/신청인원: {item.ne_mem}/{item.ap_mem}</div>
-                                                <div>기간: {item.term1}~{item.term2}</div>
-                                                <div>분야: {item.hash}</div>
+                                                <div>필요/신청인원: {item.need_member}/{item.apply_member}</div>
+                                                <div>기간: {item.start_date}~{item.end_date}</div>
+                                                <div>분야: {item.fields}</div>
                                             </ExplanWrap>
                                         </Link>
                                     </ListItem>

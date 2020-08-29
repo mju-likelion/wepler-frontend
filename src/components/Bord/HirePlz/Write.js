@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import Container from "@material-ui/core/Container";
-import Activitys from "../HirePlz/WriteActivity";
+// import {} from "../HirePlz/WirteStyled"
 
 const Container2 = styled.div`
   text-align: center;
@@ -120,39 +120,86 @@ const ActivityDisplay = styled.div`
 `;
 
 class Write extends Component {
-  state = {
-    title: "",
-    need: "",
-    ne_mem: "",
-    term1: "",
-    term2: "",
-    content: "",
-  };
-  postBoard = async () => {
-    const { title, content, need, ne_mem,term1,term2 } = this.state;
-    const post = await axios.post("http://localhost:4000/board", {
-      title,
-      content, need, ne_mem,term1,term2
-    });
-    alert("전송");
-    this.setState({
-      title: "",
-    need: "",
-    ne_mem: "",
-    term1: "",
-    term2: "",
-    content: "",
-    });
-    console.log(post);
-  };
-
-  handleChange = (e) => {
-    const { name, value } = e.target; 
-    this.setState({ 
-      [name]: value, 
-    }); 
-  };
-
+   state = {
+        title: "",
+        recruit: "",
+        need_member: "",
+        start_date: "",
+        end_date: "",
+        content: "",
+        fields: [],
+    };
+    postBoard = async () => {
+      const { title, recruit, need_member, start_date, end_date, content, fields } = this.state;
+      const post = await axios.post("http://localhost:8000/hire_post", {
+        title, recruit, need_member, start_date, end_date, content, fields,
+      });
+      alert("전송");
+      this.setState({
+        title: "",
+        recruit: "",
+        need_member: "",
+        start_date: "",
+        end_date: "",
+        content: "",
+        fields: [],
+      });
+      console.log(post);
+    };
+  
+    handleChange = (e) => {
+      const { name, value } = e.target;
+      if(name === 'title'){
+        this.setState({
+          title : e.target.value,        
+        });
+      }
+      if( name === 'recruit' ){
+        this.setState({       
+          recruit : e.target.value,
+          
+        });
+      }
+      if( name === 'need_member'){
+        this.setState({        
+          need_member : e.target.value,
+          
+        });
+      }
+      if( name === 'start_date'){
+        this.setState({        
+          start_date : e.target.value,       
+        });
+      }
+      if(name === 'end_date'){
+        this.setState({        
+          end_date : e.target.value,        
+        });
+      }
+      if(name === 'content'){
+        this.setState({       
+          content : e.target.value,
+        });
+      }
+           
+    };
+  
+    handleFieldsChange = (er) => {
+      const { name, value } = er.target;
+      // 분야가 배열에 값이 있으면 삭제하고
+      if (this.state.fields.findIndex((i) => i === name) !== -1) {
+        const newFields = this.state.hash.filter((value) => value !== name);
+        this.setState({
+          fields: newFields,
+        });
+      }
+      // 분야가 배열에 값이 없으면 추가한다
+      else {
+        this.setState({
+          fields: [this.state.fields, name],
+        });
+      }
+    };
   render() {
     return (
       <>
@@ -178,9 +225,9 @@ class Write extends Component {
               </TextDisplay2>
               <input
                 type="date"
-                name="need"
+                name="recruit"
                 onChange={this.handleChange}
-                value={this.state.need}
+                value={this.state.recruit}
               />
             </TextDisplay>
             <Line>
@@ -191,10 +238,10 @@ class Write extends Component {
               <TextWrapNeed>
                 <input
                   type="number"
-                  name="ne_mem"
+                  name="need_member"
                   placeholder="ex) 5"
                   onChange={this.handleChange}
-                  value={this.state.ne_mem}
+                  value={this.state.need_member}
                 />
                 명
               </TextWrapNeed>
@@ -208,25 +255,86 @@ class Write extends Component {
                 <TextDisplay2>시작기간 :</TextDisplay2>
                 <input
                   type="date"
-                  name="term1"
-                  placeholder="ex) 2020.08.08"
+                  name="start_date"
                   onChange={this.handleChange}
-                  value={this.state.term1}
+                  value={this.state.start_date}
                 />
                 <TextDisplay2>~ 종료기간:</TextDisplay2>
                 <input
                   type="date"
-                  name="term2"
-                  placeholder="ex) 2020.12.31"
+                  name="end_date"
                   onChange={this.handleChange}
-                  value={this.state.term2}
+                  value={this.state.end_date}
                 />
               </TextDisplay>
             </TextWrapterm>
             <Line>
               <br />
             </Line>
-            <Activitys />
+            
+            <div>분야</div> <br />
+                <ActivityDisplay>
+                    <input
+                        type="checkbox"
+                        name="education"
+                        onChange={this.handleFieldsChange}
+                        value={this.state.fields.education}
+                    />
+                    <div>교육</div>
+                    <DisplayLine />
+                    <input
+                        type="checkbox"
+                        name="council"
+                        onChange={this.handleFieldsChange}
+                        value={this.state.fields.council}
+                    />
+                    <div>상담</div>
+                    <DisplayLine />
+                    <input
+                        type="checkbox"
+                        name="making"
+                        onChange={this.handleFieldsChange}
+                        value={this.state.fields.making}
+                    />
+                    <div>메이킹</div>
+                    <DisplayLine />
+                    <input
+                        type="checkbox"
+                        name="activity"
+                        onChange={this.handleFieldsChange}
+                        value={this.state.fields.activity}
+                    />
+                    <div>야외활동</div>
+                </ActivityDisplay>
+                <ActivityDisplay>
+                    <input
+                        type="checkbox"
+                        name="culture"
+                        onChange={this.handleFieldsChange}
+                        value={this.state.fields.culture}
+                    />
+                    <div>문화</div>
+                    <DisplayLine />
+                    <input
+                        type="checkbox"
+                        name="trip"
+                        onChange={this.handleFieldsChange}
+                        value={this.state.fields.trip}
+                    />
+                    <div>여행</div>
+                    <DisplayLine />
+                    <input
+                        type="checkbox"
+                        name="etc"
+                        onChange={this.handleFieldsChange}
+                        value={this.state.fields.etc}
+                    />
+                    <div>기타</div>
+                </ActivityDisplay>
+                <Line>
+                    <br />
+                </Line>
+            
             <Line>
               <br />
             </Line>
@@ -245,7 +353,6 @@ class Write extends Component {
               <button onClick={this.postBoard}>전송하기 </button>
               <Link to="/plzlist">목록</Link>
             </Button>
-            <div>{JSON.stringify(this.state)}</div>
           </Container3>
         </Container>
       </>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'; 
 import axios from 'axios'; 
 import styled from 'styled-components';
-import board from "../../../BoardData.json";
+// import board from "../../../BoardData.json";
 
 //styling 
 const Wrap = styled.div` padding: 20px; `; 
@@ -39,7 +39,9 @@ loadingData = async () => {
                 <Button>
                     <Link to="/">목록</Link>
                     <a href="#" onClick={() => { alert('삭제'); }} > 삭제 </a>
+                    {/* 장고로 바로 보냄 */}
                     <a href="#" onClick={() => { alert('수정'); }} > 수정 </a>
+                    {/* 리액트에서 골라서 보냄 - Link사용*/}
                 </Button>
             </Wrap>
         );

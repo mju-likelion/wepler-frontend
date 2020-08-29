@@ -2,22 +2,23 @@
   {
     "number": "1",
     "title": "미용봉사",
-    "need": "모집중",
-    "member": "단체",
-    "ne_mem":"5",
-    "ap_mem":"1",
-    "term1":"2020.08.08",
-    "term2":"2020.12.31",
-    "hash":["council","trip"],
+    "recruit": "모집중",
+    "plz_id": "빛나는 위플러",
+    "need_member":"5",
+    "apply_member":"1",
+    "start_date":"2020.08.08",
+    "end_date":"2020.12.31",
+    "fields":["council","trip"],   
     "content":"첫번째 글입니다아아아ㅏ",
+    "plz_belong":"individual",
+
     "area":"seoul",
     "mem_id":"아이디",
     "mem_oneself":"나는야 플러스회원",
     "mem_rating":"5",
     "start_time":"2020.08.08",
     "start_day":"mon",
-    "when_learn":"thinking",
-    "belong":"individual"
+    "when_learn":"thinking"   
     
   },
   {
