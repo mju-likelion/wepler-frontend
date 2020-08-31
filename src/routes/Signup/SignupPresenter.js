@@ -47,7 +47,7 @@ const SignupPresenter = () => (
     <>
     <BoxBody>
         <Container>
-            <h2>WEPLER</h2>
+            <div>WEPLER</div>
         </Container>
         <Body>
             <div>다양한 것을 배우고 싶어요.</div>
