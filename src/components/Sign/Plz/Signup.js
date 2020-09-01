@@ -30,14 +30,6 @@ const TextTitle = styled.div`
   font-size:25px;
 `;
 
-const TextQuestion = styled.div`
-  padding-top: 30px;
-  font-size:20px;
-  font-weight: bold;
-`;
-
-
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -145,11 +137,7 @@ export default function SignUp() {
                 </Grid>
               </Grid>
               <Grid>
-                <Grid item xs={12}>
-                  <TextQuestion>
-                    관심있는 분야를 선택해주세요.
-              </TextQuestion>
-                </Grid>                
+                               
                 <Belongs/>
                 <Grid item xs={12}>
                   <FormControlLabel
