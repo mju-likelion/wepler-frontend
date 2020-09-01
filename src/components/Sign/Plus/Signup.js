@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import HashTag from "components/HashTag/HashTagChoose/HashTagChoose";
 import WhenDay from "components/Sign/Plus/WhenDay";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -30,16 +29,6 @@ const TextTitle = styled.div`
   padding-top:10px;
   font-weight: bold;
   font-size:25px;
-`;
-
-const TextQuestion = styled.div`
-  padding-top: 30px;
-  font-size:20px;
-  font-weight: bold;
-`;
-
-const Field = styled.div`
-  display: flex;  
 `;
 
 const useStyles = makeStyles((theme) => ({

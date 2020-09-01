@@ -109,43 +109,41 @@ class WhenDay extends Component {
 
     handleWhen = (e) => {
         const { name } = e.target;
-        if (name === 'plus_start_day') {
-            // 배열에 값이 있으면
-            if (this.state.plus_start_day.findIndex((i) => i === name) !== -1) {
-                const newHash = this.state.plus_start_day.filter((value) => value !== name);
-                this.setState({
-                    ...this.state,
-                    plus_start_day: newHash,
-                });
-            }
-            // 배열에 값이 없으면
-            else {
-                this.setState({
-                    ...this.state,
-                    plus_start_day: [...this.state.plus_start_day, name],
-                });
-            }
+        // 배열에 값이 있으면
+        if (this.state.plus_start_day.findIndex((i) => i === name) !== -1) {
+            const newHash = this.state.plus_start_day.filter((value) => value !== name);
+            this.setState({
+                ...this.state,
+                plus_start_day: newHash,
+            });
         }
-        if (name === 'plus_fields') {
-            // 배열에 값이 있으면
-            if (this.state.plus_fields.findIndex((i) => i === name) !== -1) {
-                const newHash = this.state.plus_fields.filter((value) => value !== name);
-                this.setState({
-                    ...this.state,
-                    plus_fields: newHash,
-                });
-            }
-            // 배열에 값이 없으면
-            else {
-                this.setState({
-                    ...this.state,
-                    plus_fields: [...this.state.plus_fields, name],
-                });
-            }
+        // 배열에 값이 없으면
+        else {
+            this.setState({
+                ...this.state,
+                plus_start_day: [...this.state.plus_start_day, name],
+            });
+        }
+    };
+    handleActivity = (e) => {
+        const { name } = e.target;
+        // 배열에 값이 있으면
+        if (this.state.plus_fields.findIndex((i) => i === name) !== -1) {
+            const newHash = this.state.plus_fields.filter((value) => value !== name);
+            this.setState({
+                ...this.state,
+                plus_fields: newHash,
+            });
+        }
+        // 배열에 값이 없으면
+        else {
+            this.setState({
+                ...this.state,
+                plus_fields: [...this.state.plus_fields, name],
+            });
         }
 
     };
-
     render() {
         return (
             <>
@@ -158,7 +156,7 @@ class WhenDay extends Component {
                         <FormControlLabel
                             control={<Checkbox
                                 name="education"
-                                onChange={this.handleWhen}
+                                onChange={this.handleActivity}
                                 value={this.state.plus_fields.education}
                                 color="primary"
                             />}
@@ -169,7 +167,7 @@ class WhenDay extends Component {
                         <FormControlLabel
                             control={<Checkbox
                                 name="council"
-                                onChange={this.handleWhen}
+                                onChange={this.handleActivity}
                                 value={this.state.plus_fields.council}
                                 color="primary"
                             />}
@@ -180,7 +178,7 @@ class WhenDay extends Component {
                         <FormControlLabel
                             control={<Checkbox
                                 name="making"
-                                onChange={this.handleWhen}
+                                onChange={this.handleActivity}
                                 value={this.state.plus_fields.making}
                                 color="primary"
                             />}
@@ -191,7 +189,7 @@ class WhenDay extends Component {
                         <FormControlLabel
                             control={<Checkbox
                                 name="activity"
-                                onChange={this.handleWhen}
+                                onChange={this.handleActivity}
                                 value={this.state.plus_fields.activity}
                                 color="primary"
                             />}
@@ -204,7 +202,7 @@ class WhenDay extends Component {
                         <FormControlLabel
                             control={<Checkbox
                                 name="culture"
-                                onChange={this.handleWhen}
+                                onChange={this.handleActivity}
                                 value={this.state.plus_fields.culture}
                                 color="primary"
                             />}
@@ -215,7 +213,7 @@ class WhenDay extends Component {
                         <FormControlLabel
                             control={<Checkbox
                                 name="trip"
-                                onChange={this.handleWhen}
+                                onChange={this.handleActivity}
                                 value={this.state.plus_fields.trip}
                                 color="primary"
                             />}
@@ -226,7 +224,7 @@ class WhenDay extends Component {
                         <FormControlLabel
                             control={<Checkbox
                                 name="etc"
-                                onChange={this.handleWhen}
+                                onChange={this.handleActivity}
                                 value={this.state.plus_fields.etc}
                                 color="primary"
                             />}
@@ -343,10 +341,10 @@ class WhenDay extends Component {
                     <TextWrapterm>
                         <input
                             type="number"
-                            name="continu_month"
+                            name="plus_continu_month"
                             placeholder="ex) 5"
                             onChange={this.handleChange}
-                            value={this.state.continu_month}
+                            value={this.state.plus_continu_month}
                         />
                         <div>개월</div>
                     </TextWrapterm>
