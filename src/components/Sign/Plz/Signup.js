@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import WhenLearn from "components/Sign/Plz/WhenLearn";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -12,7 +11,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import Activitys from "../Plz/Activitys";
 import Belongs from "../Plz/Belong";
 
 const theme = createMuiTheme({
@@ -151,17 +149,7 @@ export default function SignUp() {
                   <TextQuestion>
                     관심있는 분야를 선택해주세요.
               </TextQuestion>
-                </Grid>
-                <Activitys />
-                <Grid item xs={12}>
-                  <TextQuestion>
-                    언제 배우고 싶으신가요?
-              </TextQuestion>
-                </Grid>
-                <WhenLearn />
-                <TextQuestion>
-                    개인 혹은 단체 이신가요?
-              </TextQuestion>
+                </Grid>                
                 <Belongs/>
                 <Grid item xs={12}>
                   <FormControlLabel

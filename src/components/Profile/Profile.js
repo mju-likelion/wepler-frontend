@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { IoIosArrowRoundForward } from "react-icons/io";
-import clock from "assets/img/clock.png";
 import board from "BoardData.json";
 
 const ListItem = styled.div` 
@@ -65,15 +63,6 @@ const BoxExplan = styled.div`
     line-height: 2;      
 `;
 
-
-const BoxButtonLink = styled(Link)``;
-
-const BoxButton = styled.button`
-    color: #404A41; 
-    border: 3px solid #EFEFEF; 
-    font-size: 1rem;
-    line-height: 1.5;    
-`;
 
 const HashBox = styled.span`
     border-radius: 10px; 

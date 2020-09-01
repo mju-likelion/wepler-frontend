@@ -146,9 +146,15 @@ class Write extends Component {
       });
       console.log(post);
     };
-  
+    constructor(props) {
+      super(props)
+      this.handleActivityCheck = this.handleActivityCheck.bind(this)
+      this.state = {
+          ...this.state,
+      }
+  }
     handleChange = (e) => {
-      const { name, value } = e.target;
+      const { name} = e.target;
       if(name === 'title'){
         this.setState({
           title : e.target.value,        
@@ -184,22 +190,26 @@ class Write extends Component {
            
     };
   
-    handleFieldsChange = (er) => {
-      const { name, value } = er.target;
-      // 분야가 배열에 값이 있으면 삭제하고
+    handleActivityCheck(e) {
+      const { name } = e.target;
+
+      // 배열에 값이 있으면
       if (this.state.fields.findIndex((i) => i === name) !== -1) {
-        const newFields = this.state.hash.filter((value) => value !== name);
-        this.setState({
-          fields: newFields,
-        });
+          const newHash = this.state.fields.filter((value) => value !== name);
+          this.setState({
+              ...this.state,
+              fields: newHash,
+          });
       }
-      // 분야가 배열에 값이 없으면 추가한다
+      // 배열에 값이 없으면
       else {
-        this.setState({
-          fields: [this.state.fields, name],
-        });
+          this.setState({
+              ...this.state,
+              fields: [...this.state.fields, name],
+          });
       }
-    };
+  }
+
   render() {
     return (
       <>
@@ -277,7 +287,7 @@ class Write extends Component {
                     <input
                         type="checkbox"
                         name="education"
-                        onChange={this.handleFieldsChange}
+                        onChange={this.handleActivityCheck}
                         value={this.state.fields.education}
                     />
                     <div>교육</div>
@@ -285,7 +295,7 @@ class Write extends Component {
                     <input
                         type="checkbox"
                         name="council"
-                        onChange={this.handleFieldsChange}
+                        onChange={this.handleActivityCheck}
                         value={this.state.fields.council}
                     />
                     <div>상담</div>
@@ -293,7 +303,7 @@ class Write extends Component {
                     <input
                         type="checkbox"
                         name="making"
-                        onChange={this.handleFieldsChange}
+                        onChange={this.handleActivityCheck}
                         value={this.state.fields.making}
                     />
                     <div>메이킹</div>
@@ -301,7 +311,7 @@ class Write extends Component {
                     <input
                         type="checkbox"
                         name="activity"
-                        onChange={this.handleFieldsChange}
+                        onChange={this.handleActivityCheck}
                         value={this.state.fields.activity}
                     />
                     <div>야외활동</div>
@@ -310,7 +320,7 @@ class Write extends Component {
                     <input
                         type="checkbox"
                         name="culture"
-                        onChange={this.handleFieldsChange}
+                        onChange={this.handleActivityCheck}
                         value={this.state.fields.culture}
                     />
                     <div>문화</div>
@@ -318,7 +328,7 @@ class Write extends Component {
                     <input
                         type="checkbox"
                         name="trip"
-                        onChange={this.handleFieldsChange}
+                        onChange={this.handleActivityCheck}
                         value={this.state.fields.trip}
                     />
                     <div>여행</div>
@@ -326,7 +336,7 @@ class Write extends Component {
                     <input
                         type="checkbox"
                         name="etc"
-                        onChange={this.handleFieldsChange}
+                        onChange={this.handleActivityCheck}
                         value={this.state.fields.etc}
                     />
                     <div>기타</div>
