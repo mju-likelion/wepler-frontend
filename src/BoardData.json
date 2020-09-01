@@ -13,12 +13,18 @@
     "plz_belong":"individual",
 
     "area":"seoul",
-    "mem_id":"아이디",
-    "mem_oneself":"나는야 플러스회원",
-    "mem_rating":"5",
-    "start_time":"2020.08.08",
-    "start_day":"mon",
-    "when_learn":"thinking"   
+    "plus_id":"플러스회원아이디",
+    "plus_oneself":"나는야 플러스회원",
+    "plus_rating":"5",
+    "plus_fields":["council","trip"], 
+    "plus_talentshare":"2020.08.08",
+    "plus_start_day":"mon",
+    "plus_when_learn":"thinking",
+    
+    "plus_continu_month":"5",
+    "plus_start_time":"8:00",
+    "plus_end_time":"17:00"
+
     
   },
   {

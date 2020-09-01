@@ -89,12 +89,12 @@ class Profile extends Component {
                                 <ListItem key={item.number}>
                                     <Link to={`/plusseoulde/${item.number}`}>
                                         <BoxName>
-                                            <h2>{item.mem_id}</h2>
+                                            <h2>{item.plus_id}</h2>
                                         </BoxName>
                                         <BoxExplan>
-                                            <div>{item.mem_oneself}</div>
-                                            <div>평균평점: {item.mem_rating}</div>
-                                            <HashBox>{item.hash}</HashBox>
+                                            <div>{item.plus_oneself}</div>
+                                            <div>평균평점: {item.plus_rating}</div>
+                                            <HashBox>{item.plus_fields}</HashBox>
                                         </BoxExplan>
                                     </Link>
                                 </ListItem>

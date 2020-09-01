@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import HashTag from "components/HashTag/HashTagChoose/HashTagChoose";
-import WhenStart from "components/Sign/Plus/WhenStart";
 import WhenDay from "components/Sign/Plus/WhenDay";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -149,21 +148,8 @@ export default function SignUp() {
                   />
                 </Grid>
               </Grid>
-              <Grid>
-                <Grid item xs={12}>
-                  <TextQuestion>
-                    원하는 재능 나눔 분야
-                  </TextQuestion>
-                </Grid>
-                <Field>
-                  <HashTag />
-                </Field>
-                <Grid item xs={12}>
-                  <TextQuestion>
-                    재능나눔 시간 입력해주세요.
-                  </TextQuestion>
-                </Grid>                
-                  <WhenStart />  
+              <Grid>                             
+                  
                   <WhenDay />            
                 <Grid item xs={12}>
                   <FormControlLabel

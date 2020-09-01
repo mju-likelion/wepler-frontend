@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container2 = styled`
+export const Container2 = styled.div`
   text-align: center;
   color: #404a41;
   line-height: 2;
@@ -8,14 +8,14 @@ export const Container2 = styled`
   font-weight: bold;
   font-size: 30px;
 `
-export const Container3 = styled`
+export const Container3 = styled.div`
   padding: 20px;
   padding-left: 30px;
   margin-top: 30px;
   margin-left: 50px;
 `
 
-export const Button = styled`
+export const Button = styled.div`
   border-top: 1px solid #eee;
   padding: 20px;
   button {
@@ -46,11 +46,11 @@ export const Button = styled`
     margin-right: 5px;
   }
 `;
-export const Line = styled`
+export const Line = styled.div`
   line-height: 1.5;
 `;
 
-export const TitleWrap = styled`
+export const TitleWrap = styled.div`
   padding: 20px;
   padding-left: 30px;
   margin-top: 30px;
@@ -64,14 +64,14 @@ export const TitleWrap = styled`
     font-weight: bold;
   }
 `;
-export const TextDisplay = styled`
+export const TextDisplay = styled.div`
   display: flex;
   line-height: 1.5;
 `;
-export const TextDisplay2 = styled`
+export const TextDisplay2 = styled.div`
   padding-right: 30px;
 `;
-export const TextWrap = styled`
+export const TextWrap = styled.div`
   textarea {
     resize: none;
     border: none;
@@ -80,7 +80,7 @@ export const TextWrap = styled`
     border: none;
   }
 `;
-export const TextWrapNeed = styled`
+export const TextWrapNeed = styled.div`
   padding-left: 30px;
   textarea {
     resize: none;
@@ -89,7 +89,7 @@ export const TextWrapNeed = styled`
     height: 20px;
   }
 `;
-export const TextWrapterm = styled`
+export const TextWrapterm = styled.div`
   font-size: 23px;
   margin-top: 20px;
   margin-left: 50px;
@@ -101,11 +101,11 @@ export const TextWrapterm = styled`
     border: none;
   }
 `;
-export const DisplayLine = styled`
+export const DisplayLine = styled.div`
 padding-right: 10px;
 `;
 
-export const ActivityDisplay = styled`
+export const ActivityDisplay = styled.div`
   display: flex;
   line-height: 1.5;
   input {
