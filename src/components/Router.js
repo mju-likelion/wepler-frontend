@@ -13,7 +13,6 @@ import HirePlus from "routes/Hire/HirePlus";
 import HirePlz from "routes/Hire/HirePlz";
 import Review from "routes/Review";
 import Education from "routes/Education";
-import Mypage from "routes/Mypage";
 import HireMember from "routes/Hire/HireMember";
 import Signup from "routes/Signup";
 import Signin from "routes/Signin";
@@ -41,7 +40,6 @@ export default () => (
     <>
       <Nav />
       <Switch>
-        <Route path="/" exact component={Home} />
         <Route path="/weplers" exact component={Weplers} />
         <Route path="/hire" exact component={HireMember} />
         <Route path="/review" exact component={Review} />
