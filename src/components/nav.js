@@ -97,9 +97,6 @@ export default withRouter(({location: {pathname} }) => (
       <Item current={pathname === "/education"}>
         <SLink to="/education">교육신청</SLink >
       </Item>
-      <Item current={pathname === "/mypage"}>
-        <SLink to="/mypage">마이 페이지</SLink >
-      </Item>
     </List>    
   </Header>
   
