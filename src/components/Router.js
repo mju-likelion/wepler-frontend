@@ -56,11 +56,13 @@ export default () => (
         <Route path="/reviewpluslist" exact component={ReviewViewPlus} />
         <Route path="/signuplz" exact component={PlzSignupDetail} />
         <Route path="/signuplus" exact component={PlusSignupDetail} />
+        {/* 플러스 회원 */}
         <Route path="/plusseoul" exact component={SeoulMem} />
         <Route path="/plusseoulde" exact component={SeoulDetail} />
         <Route path="/plusgyeong" exact component={GyeonggiMem} />
         <Route path="/plusinch" exact component={IncheonMem} />
-        <Route path="/mypage" exact component={Mypagenav} />
+        {/* 마이페이지 */}
+        <Route path="/Mypagenav" exact component={Mypagenav} />
         <Route path="/Activityapply" exact component={Activityapply} />
         <Route path="/Activityend" exact component={Activityend} />
         <Route path="/Activityprogress" exact component={Activityprogress} />

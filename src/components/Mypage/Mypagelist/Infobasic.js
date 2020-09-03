@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import MypageNav from "../Mypagenav";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
@@ -95,6 +96,7 @@ export default function Mypage() {
 
   return (
     <>
+    <MypageNav />
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <TextTitle>
