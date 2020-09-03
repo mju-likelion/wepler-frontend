@@ -66,9 +66,8 @@ export default () => (
         <Route path="/Activityprogress" exact component={Activityprogress} />
         <Route path="/Infoactivity" exact component={Infoactivity} />
         <Route path="/Infobasic" exact component={Infobasic} />
+        <Redirect from="*" to="/" />
       </Switch>
-
-      <Redirect from="*" to="/" />
     </>
   </Router>
 

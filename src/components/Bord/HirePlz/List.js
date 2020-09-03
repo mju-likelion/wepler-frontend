@@ -86,7 +86,26 @@ class List extends Component {
     state = {
         borads: [],
     };
-
+    postBoard = async () => {
+        const { title, number,recruit,plz_id, need_member, apply_member, start_date,  end_date,  content,  plz_list_fields } = this.state;
+        const get = await axios.get("http://localhost:8000/hire_post", {
+            title, number,recruit,plz_id, need_member, apply_member, start_date,  end_date,  content,  plz_list_fields,
+        });
+        alert("전송");
+        this.setState({
+          title: "",
+          number:"",
+          recruit: "",
+          plz_id:"",
+          need_member: "",
+          apply_member:"",
+          start_date: "",
+          end_date: "",
+          content: "",
+          plz_list_fields: [],
+        });
+        console.log(get);
+      };
     render() {
         //로딩 데이터 
         return (
@@ -125,7 +144,7 @@ class List extends Component {
                                             <ExplanWrap>
                                                 <div>필요/신청인원: {item.need_member}/{item.apply_member}</div>
                                                 <div>기간: {item.start_date}~{item.end_date}</div>
-                                                <div>분야: {item.fields}</div>
+                                                <div>분야: {item.plz_list_fields}</div>
                                             </ExplanWrap>
                                         </Link>
                                     </ListItem>
