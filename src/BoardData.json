@@ -8,7 +8,7 @@
     "apply_member":"1",
     "start_date":"2020.08.08",
     "end_date":"2020.12.31",
-    "fields":["council","trip"],   
+    "plz_list_fields":["council","trip"],   
     "content":"첫번째 글입니다아아아ㅏ",
     "plz_belong":"individual",
 
@@ -19,6 +19,7 @@
     "plus_fields":["council","trip"], 
     "plus_talentshare":"2020.08.08",
     "plus_start_day":"mon",
+
     "plus_when_learn":"thinking",
     
     "plus_continu_month":"5",
@@ -30,35 +31,47 @@
   {
     "number": "2",
     "title": "서류작업",
-    "need": "모집중",
-    "member": "개인",
-    "ne_mem":"4",
-    "ap_mem":"0",
-    "term1":"2020.08.08",
-    "term2":"2020.12.31",
-    "hash":["trip","culture"],
+    "recruit": "모집중",
+    "plz_id": "플리즈2",
+    "need_member":"5",
+    "apply_member":"1",
+    "start_date":"2020.04.08",
+    "end_date":"2020.10.31",
+    "plz_list_fields":["council","trip"],   
     "content":"두번째 글입니다아아아ㅏ",
-    "mem_id":"아이디2",
-    "mem_oneself":"나는야 플러스회원2",
-    "mem_rating":"6",
-    "start_time":"2020.08.08",
-    "start_day":"wed",
+    "plz_belong":"individual",
+
+    "area":"seoul",
+    "plus_id":"플러스회원아이디2",
+    "plus_oneself":"나는야 플러스회원2",
+    "plus_rating":"3",
+    "plus_fields":["council","trip"], 
+    "plus_talentshare":"2020.08.08",
+    "plus_start_day":"wed",
+    
     "when_learn":"thinking",
     "belong":"group"
   },
   {
     "number": "3",
-    "title": "운동",
-    "need": "모집완료",
-    "member": "단체",
-    "ne_mem":"2",
-    "ap_mem":"1",
-    "term1":"2020.08.08",
-    "term2":"2020.12.31",
-    "hash":["trip","culture","making","activity"],
+    "title": "운동",    
+    "recruit": "모집중",
+    "plz_id": "빛나는 위플러",
+    "need_member":"5",
+    "apply_member":"1",
+    "start_date":"2020.09.08",
+    "end_date":"2021.2.31",
+    "plz_list_fields":["trip","culture","making","activity"],   
     "content":"세번째 글입니다아아아ㅏ",
-    "mem_id":"아이디3",
-    "mem_oneself":"나는야 플러스회원3",
-    "mem_rating":"9"
+    
+    "plz_belong":"individual",
+  
+    "area":"seoul",
+    "plus_id":"플러스회원아이디3",
+    "plus_oneself":"나는야 플러스회원3",
+    "plus_rating":"5",
+    "plus_fields":["council"], 
+    "plus_talentshare":"2020.08.08",
+    "plus_start_day":"wed"
   }
 ]

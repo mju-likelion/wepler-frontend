@@ -40,6 +40,7 @@ export default () => (
     <>
       <Nav />
       <Switch>
+        <Route path="/" exact component={Home} />
         <Route path="/weplers" exact component={Weplers} />
         <Route path="/hire" exact component={HireMember} />
         <Route path="/review" exact component={Review} />
@@ -59,11 +60,7 @@ export default () => (
         <Route path="/plusseoulde" exact component={SeoulDetail} />
         <Route path="/plusgyeong" exact component={GyeonggiMem} />
         <Route path="/plusinch" exact component={IncheonMem} />
-      </Switch>
-
-      <Mypagenav />
-      <Switch align="center">
-        <Route path="/mypage" exact component={Mypage} />
+        <Route path="/mypage" exact component={Mypagenav} />
         <Route path="/Activityapply" exact component={Activityapply} />
         <Route path="/Activityend" exact component={Activityend} />
         <Route path="/Activityprogress" exact component={Activityprogress} />
