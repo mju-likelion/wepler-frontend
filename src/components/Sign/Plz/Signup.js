@@ -50,6 +50,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function SignUp() {
   const classes = useStyles();
 

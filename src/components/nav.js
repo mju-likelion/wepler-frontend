@@ -67,38 +67,38 @@ const SLink = styled(Link)`
   justify-content: center;
 `;
 
-export default withRouter(({location: {pathname} }) => (
+export default withRouter(({ location: { pathname } }) => (
   <>
-  <HeaderLo>
-    <ListLo>
-    <ItemLo current={pathname === "/signup"}>
-        <SLink to="/signup">회원가입</SLink >
-      </ItemLo>
-      <ItemLo current={pathname === "/signin"}>
-        <SLink to="/signin">로그인</SLink >
-      </ItemLo>
-    </ListLo>
-      
-      </HeaderLo>
-  <Header>
-    <List>
-      <ItemH>
-        <SLink to="/">Wepler</SLink >
-      </ItemH>
-      <Item current={pathname === "/weplers"}>
-        <SLink to="/weplers">위플러란?</SLink >
-      </Item>
-      <Item current={pathname === "/hire"}>
-        <SLink to="/hire">고용하기</SLink >
-      </Item>
-      <Item current={pathname === "/review"}>
-        <SLink to="/review">활동후기</SLink >
-      </Item>
-      <Item current={pathname === "/education"}>
-        <SLink to="/education">교육신청</SLink >
-      </Item>
-    </List>    
-  </Header>
-  
+    <HeaderLo>
+      <ListLo>
+        <ItemLo current={pathname === "/signup"}>
+          <SLink to="/signup">회원가입</SLink >
+        </ItemLo>
+        <ItemLo current={pathname === "/signin"}>
+          <SLink to="/signin">로그인</SLink >
+        </ItemLo>
+      </ListLo>
+
+    </HeaderLo>
+    <Header>
+      <List>
+        <ItemH>
+          <SLink to="/">Wepler</SLink >
+        </ItemH>
+        <Item current={pathname === "/weplers"}>
+          <SLink to="/weplers">위플러란?</SLink >
+        </Item>
+        <Item current={pathname === "/hire"}>
+          <SLink to="/hire">고용하기</SLink >
+        </Item>
+        <Item current={pathname === "/review"}>
+          <SLink to="/review">활동후기</SLink >
+        </Item>
+        <Item current={pathname === "/education"}>
+          <SLink to="/education">교육신청</SLink >
+        </Item>
+      </List>
+    </Header>
+
   </>
 ));

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import MypageNav from "../Mypagenav";
 import HashTag from "components/HashTag/HashTagChoose/HashTagChoose";
 import WhenDay from "components/Sign/Plus/WhenDay";
 import Button from '@material-ui/core/Button';
@@ -78,6 +79,7 @@ export default function SignUp() {
 
   return (
     <>
+      <MypageNav />
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <TextTitle>
@@ -108,29 +110,29 @@ export default function SignUp() {
               </Grid>
 
               <ButtonField>
-                      <CompleteBt>
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        color="secondary"
-                        className={classes.submit}
-                        margin="normal"
-                      >
-                        완료하기
+                <CompleteBt>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="secondary"
+                    className={classes.submit}
+                    margin="normal"
+                  >
+                    완료하기
                     </Button>
-                    </CompleteBt>
+                </CompleteBt>
 
-                    <DeleteBt>
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        className={classes.submit}
-                        padding="normal"
-                      >
-                        취소하기
+                <DeleteBt>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    className={classes.submit}
+                    padding="normal"
+                  >
+                    취소하기
                     </Button>
-                    </DeleteBt>
-                    </ButtonField>
+                </DeleteBt>
+              </ButtonField>
 
             </form>
           </div>

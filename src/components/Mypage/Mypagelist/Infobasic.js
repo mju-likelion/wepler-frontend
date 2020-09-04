@@ -19,7 +19,7 @@ const theme = createMuiTheme({
       main: '#F2D4CA',
     },
   },
-  
+
 
 });
 
@@ -81,8 +81,6 @@ const CompleteBt = styled.div`
   padding-right:40px;
 `;
 
-
-
 const useStyles = makeStyles((theme) => ({
   form: {
     width: '160%',
@@ -96,7 +94,7 @@ export default function Mypage() {
 
   return (
     <>
-    <MypageNav />
+      <MypageNav />
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <TextTitle>
@@ -113,18 +111,14 @@ export default function Mypage() {
               src={imgProfile}
               width='200'
               height='220'
-              alt='testA'/>
+              alt='testA' />
           </Profile>
 
-        <UploadBt>
-          <Button
-              type="submit"
-              variant="contained"
-              className={classes.submit}
-            >
-              
-              업로드하기
-          </Button>
+          <UploadBt>
+            <Button>
+              <input type="file" name="plus_file" />
+            </Button>
+
           </UploadBt>
         </ProfileBox>
 
@@ -251,27 +245,27 @@ export default function Mypage() {
 
                     <ButtonField>
                       <CompleteBt>
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        color="secondary"
-                        className={classes.submit}
-                        margin="normal"
-                      >
-                        완료하기
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          color="secondary"
+                          className={classes.submit}
+                          margin="normal"
+                        >
+                          완료하기
                     </Button>
-                    </CompleteBt>
+                      </CompleteBt>
 
-                    <DeleteBt>
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        className={classes.submit}
-                        padding="normal"
-                      >
-                        취소하기
+                      <DeleteBt>
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          className={classes.submit}
+                          padding="normal"
+                        >
+                          취소하기
                     </Button>
-                    </DeleteBt>
+                      </DeleteBt>
                     </ButtonField>
 
                   </form>
@@ -283,7 +277,7 @@ export default function Mypage() {
 
             </Container>
           </ThemeProvider>
-        </BigBox>  
+        </BigBox>
 
       </Wrapper>
     </>

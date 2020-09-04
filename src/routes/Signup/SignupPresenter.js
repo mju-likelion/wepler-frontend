@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+const BoxBody = styled.div`
+    padding: 40px ;
+`;
 
 const Container = styled.h2`
     text-align: center;
     font-size: 45px;
     color: #C9AA79;
     font-weight: bold;
-`;
-const BoxBody = styled.div`
-    padding: 40px ;
 `;
 
 const Body = styled.div`

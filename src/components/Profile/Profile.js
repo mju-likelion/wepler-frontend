@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import board from "BoardData.json";
 import { ListItem, 
     Box, 

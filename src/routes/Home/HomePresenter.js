@@ -110,12 +110,13 @@ const BoxButton = styled.button`
     line-height: 1.5;    
 `;
 
-
+const local = localStorage.setItem("item", "hello world");//데이터저장
+const gets = localStorage.getItem("item");
 
 const HomePresenter = () => (
     <>
-
         <Container>
+            {console.log(gets)}
             <div>WEPLER</div>
             <img src={imgBg1} alt="First slide" className="slick-image" />
         </Container>

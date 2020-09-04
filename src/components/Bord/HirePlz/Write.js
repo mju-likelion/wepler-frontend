@@ -27,10 +27,16 @@ class Write extends Component {
         fields: [],
     };
     postBoard = async () => {
-      const { title, recruit, need_member, start_date, end_date, content, fields } = this.state;
-      const post = await axios.post("http://localhost:8000/hire_post", {
-        title, recruit, need_member, start_date, end_date, content, fields,
+      const post = await axios.post("http://localhost:8000/hire_post",{
+        title: this.state.title, 
+        recruit:this.state.recruit, 
+        need_member:this.state.need_member, 
+        start_date:this.state.start_date, 
+        end_date:this.state.end_date, 
+        content:this.state.content, 
+        fields:this.state.fields
       });
+      
       alert("전송");
       this.setState({
         title: "",
