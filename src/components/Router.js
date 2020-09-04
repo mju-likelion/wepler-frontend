@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import Nav from "components/nav";
-import Mypagenav from "components/Mypage/Mypagenav";
+import PlusMypagenav from "components/PlusMypage/PlusMypagenav";
 import Home from "routes/Home";
 import Weplers from "routes/Weplers";
 import HirePlus from "routes/Hire/HirePlus";
@@ -28,11 +28,11 @@ import ReviewViewPlus from "components/Reviews/Plus/view";
 import PlzSignupDetail from "components/Sign/Plz/Signup";
 import PlusSignupDetail from "components/Sign/Plus/Signup";
 
-import Activityapply from "components/Mypage/Mypagelist/Activityapply";
-import Activityend from "components/Mypage/Mypagelist/Activityend";
-import Activityprogress from "components/Mypage/Mypagelist/Activityprogress";
-import Infoactivity from "components/Mypage/Mypagelist/Infoactivity";
-import Infobasic from "components/Mypage/Mypagelist/Infobasic";
+import PlusActivityapply from "components/PlusMypage/PlusMypagelist/PlusActivityapply";
+import PlusActivityend from "components/PlusMypage/PlusMypagelist/PlusActivityend";
+import PlusActivityprogress from "components/PlusMypage/PlusMypagelist/PlusActivityprogress";
+import PlusInfoactivity from "components/PlusMypage/PlusMypagelist/PlusInfoactivity";
+import PlusInfobasic from "components/PlusMypage/PlusMypagelist/PlusInfobasic";
 
 
 export default () => (
@@ -61,13 +61,13 @@ export default () => (
         <Route path="/plusseoulde" exact component={SeoulDetail} />
         <Route path="/plusgyeong" exact component={GyeonggiMem} />
         <Route path="/plusinch" exact component={IncheonMem} />
-        {/* 마이페이지 */}
-        <Route path="/Mypagenav" exact component={Mypagenav} />
-        <Route path="/Activityapply" exact component={Activityapply} />
-        <Route path="/Activityend" exact component={Activityend} />
-        <Route path="/Activityprogress" exact component={Activityprogress} />
-        <Route path="/Infoactivity" exact component={Infoactivity} />
-        <Route path="/Infobasic" exact component={Infobasic} />
+        {/* 플러스 회원 마이페이지 */}
+        <Route path="/PlusMypagenav" exact component={PlusMypagenav} />
+        <Route path="/PlusActivityapply" exact component={PlusActivityapply} />
+        <Route path="/PlusActivityend" exact component={PlusActivityend} />
+        <Route path="/PlusActivityprogress" exact component={PlusActivityprogress} />
+        <Route path="/PlusInfoactivity" exact component={PlusInfoactivity} />
+        <Route path="/PlusInfobasic" exact component={PlusInfobasic} />
         <Redirect from="*" to="/" />
       </Switch>
     </>
