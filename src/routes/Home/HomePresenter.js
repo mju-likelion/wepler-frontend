@@ -110,7 +110,7 @@ const BoxButton = styled.button`
     line-height: 1.5;    
 `;
 
-const local = localStorage.setItem("item", "hello world");//데이터저장
+localStorage.setItem("item", "hello world");//데이터저장
 const gets = localStorage.getItem("item");
 
 const HomePresenter = () => (

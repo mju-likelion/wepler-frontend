@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import PlusMypageNav from "../PlusMypagenav";
+import MypageNav from "../PlusMypagenav";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
@@ -26,11 +26,11 @@ const theme = createMuiTheme({
 const TextTitle = styled.div`
   padding-top:10px;
   padding-bottom:30px;
-  padding-left:200px;
   font-weight: bold;
   font-size:25px;
   text-align: center;
 `;
+
 
 
 const ButtonField = styled.ul`
@@ -61,7 +61,6 @@ const Wrapper = styled.div`
   display: flex;
   text-align: center;
   justify-content: center;
-  padding-left:200px;
 `;
 
 const BigBox = styled.div`
@@ -70,7 +69,7 @@ const BigBox = styled.div`
 `;
 
 const UploadBt = styled.div`
-  padding-right:40px;
+  padding-right:70%;
   padding-top:20px;
 `;
 
@@ -95,41 +94,34 @@ export default function Mypage() {
 
   return (
     <>
-      <PlusMypageNav />
-      <Container component="main" maxWidth="xs" >
+      <MypageNav />
+      <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <TextTitle>
             기본 정보 수정
           </TextTitle>
         </div>
-      </Container>
-
-      <Wrapper>
-
-        <ProfileBox>
-          <Profile>
-            <img
-              src={imgProfile}
-              width='200'
-              height='220'
-              alt='testA' />
-          </Profile>
-
-          <UploadBt>
-            <Button>
+        <Wrapper>
+          <ProfileBox>
+            <Profile>
+              <img
+                src={imgProfile}
+                width='200'
+                height='220'
+                alt='testA' />
+            </Profile>
+            <UploadBt>
               <input type="file" name="plus_file" />
-            </Button>
+            </UploadBt>
+          </ProfileBox>
 
-          </UploadBt>
-        </ProfileBox>
+          <BigBox>
+            <ThemeProvider theme={theme}>
+              <Container component="main" maxWidth="xs">
+                <Box1>
+                  <div className={classes.paper} >
+                    <form className={classes.form} noValidate >
 
-        <BigBox>
-          <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
-              <Box1>
-                <div className={classes.paper} >
-                  <form className={classes.form} noValidate >
-                    <Grid justify="flex-end">
                       <Grid item xs={10} sm={10}>
                         <TextField
                           autoComplete="name"
@@ -242,45 +234,40 @@ export default function Mypage() {
                           fullWidth
                         />
                       </Grid>
-                    </Grid>
 
-                    <ButtonField>
-                      <CompleteBt>
-                        <Button
-                          type="submit"
-                          variant="contained"
-                          color="secondary"
-                          className={classes.submit}
-                          margin="normal"
-                        >
-                          완료하기
+
+                      <ButtonField>
+                        <CompleteBt>
+                          <Button
+                            type="submit"
+                            variant="contained"
+                            color="secondary"
+                            className={classes.submit}
+                            margin="normal"
+                          >
+                            완료하기
                     </Button>
-                      </CompleteBt>
+                        </CompleteBt>
 
-                      <DeleteBt>
-                        <Button
-                          type="submit"
-                          variant="contained"
-                          className={classes.submit}
-                          padding="normal"
-                        >
-                          취소하기
+                        <DeleteBt>
+                          <Button
+                            type="submit"
+                            variant="contained"
+                            className={classes.submit}
+                            padding="normal"
+                          >
+                            취소하기
                     </Button>
-                      </DeleteBt>
-                    </ButtonField>
-
-                  </form>
-                </div>
-
-              </Box1>
-
-
-
-            </Container>
-          </ThemeProvider>
-        </BigBox>
-
-      </Wrapper>
+                        </DeleteBt>
+                      </ButtonField>
+                    </form>
+                  </div>
+                </Box1>
+              </Container>
+            </ThemeProvider>
+          </BigBox>
+        </Wrapper>
+      </Container>
     </>
   );
 }

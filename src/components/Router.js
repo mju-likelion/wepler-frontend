@@ -62,12 +62,12 @@ export default () => (
         <Route path="/plusgyeong" exact component={GyeonggiMem} />
         <Route path="/plusinch" exact component={IncheonMem} />
         {/* 플러스 회원 마이페이지 */}
-        <Route path="/PlusMypagenav" exact component={PlusMypagenav} />
-        <Route path="/PlusActivityapply" exact component={PlusActivityapply} />
-        <Route path="/PlusActivityend" exact component={PlusActivityend} />
-        <Route path="/PlusActivityprogress" exact component={PlusActivityprogress} />
-        <Route path="/PlusInfoactivity" exact component={PlusInfoactivity} />
-        <Route path="/PlusInfobasic" exact component={PlusInfobasic} />
+        <Route path="/plusmypagenav" exact component={PlusMypagenav} />
+        <Route path="/plusactivityapply" exact component={PlusActivityapply} />
+        <Route path="/plusactivityend" exact component={PlusActivityend} />
+        <Route path="/plusactivityprogress" exact component={PlusActivityprogress} />
+        <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
+        <Route path="/plusinfobasic" exact component={PlusInfobasic} />
         <Redirect from="*" to="/" />
       </Switch>
     </>
