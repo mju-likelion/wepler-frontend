@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import SigninPresenter from "./SigninPresenter";
-// import { makeStyles } from "@material-ui/core/styles";
 
 export default class extends React.Component {
   state = {
@@ -27,7 +26,6 @@ export default class extends React.Component {
 
   postBoard = async (e) => {
     e.preventDefault();
-    console.log(this.state);
     const { email, password } = this.state;
     try {
       const tokenGet = await axios.post("/tokentest/", {

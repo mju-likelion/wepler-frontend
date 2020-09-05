@@ -108,7 +108,7 @@ const HomePresenter = () => (
   <>
     <Container>
       <div>WEPLER</div>
-      <img src={imgBg1} alt="First slide" className="slick-image" />
+      <img src={imgBg1} alt="First slide" className="bg-image" />
     </Container>
 
     <Explanation>
