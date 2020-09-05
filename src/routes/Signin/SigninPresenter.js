@@ -1,43 +1,64 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import Container from "@material-ui/core/Container";
+import { createMuiTheme, withStyles } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
+const TextTitle = styled.div`
+  text-align: center;
+  font-weight: bold;
+  font-size: 35px;
+`;
 
 const theme = createMuiTheme({
   palette: {
-    primary: {     
-      main: '#C9AA79',
+    primary: {
+      main: "#C9AA79",
     },
     secondary: {
-      main: '#404A41',
+      main: "#404A41",
     },
   },
 });
 
-const TextTitle = styled.div`
-  text-align: center;
-  padding-top:10%;
-  font-weight: bold;
-  font-size: 35px;
-  padding: 40px ;
-`;
+const styles = {
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+};
 
-const SigninPresenter = ({ postBoard,classes, email }) => (
+const SigninPresenter = ({
+  oninfoChange,
+  postBoard,
+  classes,
+  email,
+  password,
+}) => (
   <>
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
-        <TextTitle>
-          로그인
-          </TextTitle>
+        <TextTitle>로그인</TextTitle>
       </div>
     </Container>
     <ThemeProvider theme={theme}>
@@ -54,6 +75,7 @@ const SigninPresenter = ({ postBoard,classes, email }) => (
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={oninfoChange}
             />
             <TextField
               variant="outlined"
@@ -65,6 +87,7 @@ const SigninPresenter = ({ postBoard,classes, email }) => (
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={oninfoChange}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -78,12 +101,12 @@ const SigninPresenter = ({ postBoard,classes, email }) => (
               className={classes.submit}
             >
               로그인
-          </Button>
+            </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   비밀번호를 잊으셨나요?
-              </Link>
+                </Link>
               </Grid>
               <Grid item>
                 <Link href="/signup" variant="body2">
@@ -91,17 +114,12 @@ const SigninPresenter = ({ postBoard,classes, email }) => (
                 </Link>
               </Grid>
             </Grid>
-
           </form>
         </div>
-        <Box mt={8}>
-        </Box>
+        <Box mt={8}></Box>
       </Container>
     </ThemeProvider>
   </>
-
-
-
 );
 
-export default SigninPresenter;
+export default withStyles(styles)(SigninPresenter);

@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 const globalStyles = createGlobalStyle`
@@ -15,5 +15,6 @@ const globalStyles = createGlobalStyle`
         background-color: #fffffc;
         color: #404A41;
     }
+    
 `;
 export default globalStyles;
