@@ -32,9 +32,19 @@ export default class extends React.Component {
         email,
         password,
       });
-      console.log(tokenGet);
       var token = tokenGet.data.token;
-      localStorage.setItem("token", JSON.stringify(token));
+      if (token !== null) {
+        // 서버로 부터 받은 JSON형태의 데이터를 로컬스토리지에 우선 저장한다.
+        window.localStorage.setItem("token", JSON.stringify(token));
+        //스테이트에 유저정보를 저장한다.
+        this.setState({
+          email: token.email,
+          isLogin: token.success,
+        });
+        this.props.history.push("/"); //Home으로 돌아감
+      }
+      console.log(tokenGet);
+      alert("로그인되었습니다");
     } catch {
       console.log("Theres was an error!");
     }
