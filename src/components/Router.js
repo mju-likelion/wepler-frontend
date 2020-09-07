@@ -61,13 +61,13 @@ export default () => (
         <Route path="/plusseoulde" exact component={SeoulDetail} />
         <Route path="/plusgyeong" exact component={GyeonggiMem} />
         <Route path="/plusinch" exact component={IncheonMem} />
-        {/* 플러스 회원 마이페이지 */}
-        <Route path="/plusmypagenav" exact component={PlusMypagenav} />
-        <Route path="/plusactivityapply" exact component={PlusActivityapply} />
-        <Route path="/plusactivityend" exact component={PlusActivityend} />
-        <Route path="/plusactivityprogress" exact component={PlusActivityprogress} />
-        <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
-        <Route path="/plusinfobasic" exact component={PlusInfobasic} />
+        {/* 플리즈 회원 마이페이지 */}
+        <Route path="/PlzMypagenav" exact component={PlzMypagenav} />
+        <Route path="/PlzActivityapply" exact component={PlzActivityapply} />
+        <Route path="/PlzActivityend" exact component={PlzActivityend} />
+        <Route path="/PlzActivityprogress" exact component={PlzActivityprogress} />
+        <Route path="/PlzInfoactivity" exact component={PlzInfoactivity} />
+        <Route path="/PlzInfobasic" exact component={PlzInfobasic} />
         <Redirect from="*" to="/" />
       </Switch>
     </>
