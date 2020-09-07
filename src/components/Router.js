@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Nav from "components/nav";
 import PlusMypagenav from "components/PlusMypage/PlusMypagenav";
+import PlzMypagenav from "components/PlzMypage/PlzMypagenav";
 import Home from "routes/Home";
 import Weplers from "routes/Weplers";
 import HirePlus from "routes/Hire/HirePlus";
@@ -34,6 +35,11 @@ import PlusActivityprogress from "components/PlusMypage/PlusMypagelist/PlusActiv
 import PlusInfoactivity from "components/PlusMypage/PlusMypagelist/PlusInfoactivity";
 import PlusInfobasic from "components/PlusMypage/PlusMypagelist/PlusInfobasic";
 
+import PlzActivityapply from "components/PlzMypage/PlzMypagelist/PlzActivityapply";
+import PlzActivityend from "components/PlzMypage/PlzMypagelist/PlzActivityend";
+import PlzActivityprogress from "components/PlzMypage/PlzMypagelist/PlzActivityprogress";
+import PlzInfoactivity from "components/PlzMypage/PlzMypagelist/PlzInfoactivity";
+import PlzInfobasic from "components/PlzMypage/PlzMypagelist/PlzInfobasic";
 
 export default () => (
   <Router>
@@ -68,6 +74,13 @@ export default () => (
         <Route path="/PlzActivityprogress" exact component={PlzActivityprogress} />
         <Route path="/PlzInfoactivity" exact component={PlzInfoactivity} />
         <Route path="/PlzInfobasic" exact component={PlzInfobasic} />
+        {/* 플러스 회원 마이페이지 */}
+        <Route path="/PlusMypagenav" exact component={PlusMypagenav} />
+        <Route path="/PlusActivityapply" exact component={PlusActivityapply} />
+        <Route path="/PlusActivityend" exact component={PlusActivityend} />
+        <Route path="/PlusActivityprogress" exact component={PlusActivityprogress} />
+        <Route path="/PlusInfoactivity" exact component={PlusInfoactivity} />
+        <Route path="/PlusInfobasic" exact component={PlusInfobasic} />
         <Redirect from="*" to="/" />
       </Switch>
     </>
