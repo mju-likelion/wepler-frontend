@@ -33,6 +33,8 @@ export default class extends React.Component {
         password,
       });
       console.log(tokenGet);
+      var token = tokenGet.data.token;
+      localStorage.setItem("token", JSON.stringify(token));
     } catch {
       console.log("Theres was an error!");
     }
