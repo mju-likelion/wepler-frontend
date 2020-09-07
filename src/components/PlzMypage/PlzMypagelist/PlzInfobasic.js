@@ -198,26 +198,14 @@ export default function Mypage() {
                           variant="outlined"
                           required
                           fullWidth
-                          id="school"
-                          label="학교"
-                          name="school"
-                          autoComplete="school"
+                          id="belong"
+                          label="소속"
+                          name="belong"
+                          autoComplete="belong"
                           margin="normal"
                         />
                       </Grid>
-                      <Grid item xs={10}>
 
-                        <TextField
-                          variant="outlined"
-                          required
-                          fullWidth
-                          id="grade"
-                          label="학년"
-                          name="grade"
-                          autoComplete="grade"
-                          margin="normal"
-                        />
-                      </Grid>
                       <Grid item xs={10}>
                         <TextField
                           variant="outlined"
