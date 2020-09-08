@@ -42,10 +42,13 @@ export default withRouter(({ location: { pathname } }) => (
       <SLink to="/PlusInfobasic">기본 정보</SLink>
     </Item>
     <Item current={pathname === "/PlusInfoactivity"}>
-      <SLink to="/PlusInfoactivity">활동 분야</SLink >
+      <SLink to="/PlusInfoactivity">활동/신청 분야</SLink >
     </Item>
     <Item>
       <Menuname>교육 이수 내역</Menuname>
+    </Item>
+      <Item current={pathname === "/Plusactivityhistory"}>
+      <SLink to="/Plusactivityhistory">교육 이수 내역</SLink >
     </Item>
     <Item current={pathname === "/PlusActivityapply"}>
       <SLink to="/PlusActivityapply">신청 활동</SLink >
