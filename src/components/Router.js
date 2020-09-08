@@ -6,8 +6,6 @@ import {
   Switch,
 } from "react-router-dom";
 import Nav from "components/nav";
-import PlusMypagenav from "components/PlusMypage/PlusMypagenav";
-import PlzMypagenav from "components/PlzMypage/PlzMypagenav";
 import Home from "routes/Home";
 import Weplers from "routes/Weplers";
 import HirePlus from "routes/Hire/HirePlus";
@@ -29,17 +27,17 @@ import ReviewViewPlus from "components/Reviews/Plus/view";
 import PlzSignupDetail from "components/Sign/Plz/Signup";
 import PlusSignupDetail from "components/Sign/Plus/Signup";
 
-import PlusActivityapply from "components/PlusMypage/PlusMypagelist/PlusActivityapply";
-import PlusActivityend from "components/PlusMypage/PlusMypagelist/PlusActivityend";
-import PlusActivityprogress from "components/PlusMypage/PlusMypagelist/PlusActivityprogress";
-import PlusInfoactivity from "components/PlusMypage/PlusMypagelist/PlusInfoactivity";
-import PlusInfobasic from "components/PlusMypage/PlusMypagelist/PlusInfobasic";
+import PlusActivityapply from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityapply";
+import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityend";
+import PlusActivityprogress from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityprogress";
+import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfoactivity";
+import PlusInfobasic from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfobasic";
 
-import PlzActivityapply from "components/PlzMypage/PlzMypagelist/PlzActivityapply";
-import PlzActivityend from "components/PlzMypage/PlzMypagelist/PlzActivityend";
-import PlzActivityprogress from "components/PlzMypage/PlzMypagelist/PlzActivityprogress";
-import PlzInfoactivity from "components/PlzMypage/PlzMypagelist/PlzInfoactivity";
-import PlzInfobasic from "components/PlzMypage/PlzMypagelist/PlzInfobasic";
+import PlzActivityapply from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityapply";
+import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityend";
+import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityprogress";
+import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
+import PlzInfobasic from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfobasic";
 
 export default () => (
   <Router>
@@ -68,23 +66,27 @@ export default () => (
         <Route path="/plusgyeong" exact component={GyeonggiMem} />
         <Route path="/plusinch" exact component={IncheonMem} />
         {/* 플리즈 회원 마이페이지 */}
-        <Route path="/PlzMypagenav" exact component={PlzMypagenav} />
-        <Route path="/PlzActivityapply" exact component={PlzActivityapply} />
-        <Route path="/PlzActivityend" exact component={PlzActivityend} />
-        <Route path="/PlzActivityprogress" exact component={PlzActivityprogress} />
-        <Route path="/PlzInfoactivity" exact component={PlzInfoactivity} />
-        <Route path="/PlzInfobasic" exact component={PlzInfobasic} />
+        <Route path="/plzactivityapply" exact component={PlzActivityapply} />
+        <Route path="/plzactivityend" exact component={PlzActivityend} />
+        <Route
+          path="/plzactivityprogress"
+          exact
+          component={PlzActivityprogress}
+        />
+        <Route path="/plzinfoactivity" exact component={PlzInfoactivity} />
+        <Route path="/plzinfobasic" exact component={PlzInfobasic} />
         {/* 플러스 회원 마이페이지 */}
-        <Route path="/PlusMypagenav" exact component={PlusMypagenav} />
-        <Route path="/PlusActivityapply" exact component={PlusActivityapply} />
-        <Route path="/PlusActivityend" exact component={PlusActivityend} />
-        <Route path="/PlusActivityprogress" exact component={PlusActivityprogress} />
-        <Route path="/PlusInfoactivity" exact component={PlusInfoactivity} />
-        <Route path="/PlusInfobasic" exact component={PlusInfobasic} />
+        <Route path="/plusactivityapply" exact component={PlusActivityapply} />
+        <Route path="/plusactivityend" exact component={PlusActivityend} />
+        <Route
+          path="/plusactivityprogress"
+          exact
+          component={PlusActivityprogress}
+        />
+        <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
+        <Route path="/plusinfobasic" exact component={PlusInfobasic} />
         <Redirect from="*" to="/" />
       </Switch>
     </>
   </Router>
-
-
 );

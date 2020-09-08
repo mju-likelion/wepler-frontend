@@ -70,8 +70,6 @@ export default withRouter(({ pathname }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log(token);
-
     if (token) {
       setLogged(true);
     }
@@ -84,12 +82,11 @@ export default withRouter(({ pathname }) => {
 
   return (
     <>
-      {console.log(logged)}
       <HeaderLo>
         {logged ? (
           <ListLo>
             <ItemLo>
-              <SLink to="/signup">마이페이지</SLink>
+              <SLink to="/plzinfobasic">마이페이지</SLink>
             </ItemLo>
             <ItemLo>
               <SLink to="/" onClick={handleLogoutClieked}>
