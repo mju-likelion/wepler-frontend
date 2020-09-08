@@ -32,15 +32,13 @@ import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/PlusAc
 import PlusActivityprogress from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityprogress";
 import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfoactivity";
 import PlusInfobasic from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfobasic";
-import Plusactivityhistory from "components/PlusMypage/PlusMypagelist/Plusactivityhistory";
-
+import Plusactivityhistory from "components/MyPages/PlusMypage/PlusMypagelist/Plusactivityhistory";
 import PlzActivityapply from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityapply";
 import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityend";
 import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityprogress";
 import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
 import PlzInfobasic from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfobasic";
-import Plzactivityhistory from "components/PlzMypage/PlzMypagelist/Plzactivityhistory";
-
+import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
 
 export default () => (
   <Router>
