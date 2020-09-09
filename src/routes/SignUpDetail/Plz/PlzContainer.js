@@ -4,52 +4,47 @@ import PlzPresenter from "./PlzPresenter";
 
 export default class extends React.Component {
   state = {
-    plus_name: "",
-    plus_email: "",
-    plus_password: "",
-    plus_number: "",
-    plus_address_big: "",
-    plus_address_small: "",
-    plus_start_day: [],
-    plus_talentshare: "",
-    plus_continu_month: "",
-    plus_start_time: "",
-    plus_end_time: "",
-    plus_fields: [],
+    plz_name: "",
+    plz_email: "",
+    plz_password: "",
+    plz_phonenumber: "",
+    plz_address_big: "",
+    plz_address_small: "",
+
+    plz_fields: [],
+    plz_when_learn: "",
+    plz_belong: "",
   };
-  postBoard = async () => {
+  postBoard = async (e) => {
+    e.preventDefault();
     const {
-      plus_name,
-      plus_email,
-      plus_password,
-      plus_address_big,
-      plus_address_small,
-      plus_address,
-      plus_start_day,
-      plus_talentshare,
-      plus_continu_month,
-      plus_start_time,
-      plus_end_time,
-      plus_fields,
+      plz_name,
+      plz_email,
+      plz_password,
+      plz_phonenumber,
+      plz_address_big,
+      plz_address_small,
+      plz_fields,
+      plz_when_learn,
+      plz_belong,
     } = this.state;
-    const post = await axios.post("http://localhost:4000/plus_signup", {
-      plus_name,
-      plus_email,
-      plus_password,
-      plus_address_big,
-      plus_address_small,
-      plus_address,
-      plus_start_day,
-      plus_talentshare,
-      plus_continu_month,
-      plus_start_time,
-      plus_end_time,
-      plus_fields,
-    });
-    this.setState({
-      ...this.state,
-    });
-    console.log(post);
+    try {
+      const post = await axios.post("/plus_signup/", {
+        plz_name,
+        plz_email,
+        plz_password,
+        plz_phonenumber,
+        plz_address_big,
+        plz_address_small,
+        plz_when_learn,
+        plz_belong,
+        plz_fields,
+      });
+      console.log(post);
+      alert("회원가입 되었습니다");
+    } catch {
+      console.log("There was an error!");
+    }
   };
 
   handelinfoChange = (e) => {
@@ -90,54 +85,20 @@ export default class extends React.Component {
         plus_address_big: e.target.value,
       });
     }
-    console.log("88sd!");
   };
 
-  handleChange = (e) => {
-    const { name } = e.target;
-    if (name === "plus_talentshare") {
-      this.setState({
-        plus_talentshare: e.target.value,
-      });
-    }
-    if (name === "plus_continu_month") {
-      this.setState({
-        plus_continu_month: e.target.value,
-      });
-    }
-    if (name === "plus_start_time") {
-      this.setState({
-        plus_start_time: e.target.value,
-      });
-    }
-    if (name === "plus_end_time") {
-      this.setState({
-        plus_end_time: e.target.value,
-      });
-    }
-  };
+  handleWhenRadio(event) {
+    let obj = {};
+    obj[event.target.value] = event.target.checked; // true
+    this.setState({ when_learn: obj });
+  }
 
-  handleWhen = (e) => {
-    const { name } = e.target;
-    // 배열에 값이 있으면
-    if (this.state.plus_start_day.findIndex((i) => i === name) !== -1) {
-      const newHash = this.state.plus_start_day.filter(
-        (value) => value !== name
-      );
-      this.setState({
-        ...this.state,
-        plus_start_day: newHash,
-      });
-      console.log("T!");
-    }
-    // 배열에 값이 없으면
-    else {
-      this.setState({
-        ...this.state,
-        plus_start_day: [...this.state.plus_start_day, name],
-      });
-    }
-  };
+  handleBelongRadio(event) {
+    let obj2 = {};
+    obj2[event.target.value] = event.target.checked; // true
+    this.setState({ belong: obj2 });
+  }
+
   handleActivity = (e) => {
     const { name } = e.target;
     // 배열에 값이 있으면
@@ -147,7 +108,6 @@ export default class extends React.Component {
         ...this.state,
         plus_fields: newHash,
       });
-      console.log("88!");
     }
     // 배열에 값이 없으면
     else {
@@ -159,37 +119,32 @@ export default class extends React.Component {
   };
   render() {
     const {
-      plus_name,
-      plus_email,
-      plus_password,
-      plus_address_big,
-      plus_address_small,
-      plus_address,
-      plus_start_day,
-      plus_talentshare,
-      plus_continu_month,
-      plus_start_time,
-      plus_end_time,
-      plus_fields,
+      plz_name,
+      plz_email,
+      plz_password,
+      plz_phonenumber,
+      plz_address_big,
+      plz_address_small,
+      plz_when_learn,
+      plz_belong,
+      plz_fields,
     } = this.state;
     return (
       <PlzPresenter
-        plus_name={plus_name}
-        plus_email={plus_email}
-        plus_password={plus_password}
-        plus_address_big={plus_address_big}
-        plus_address_small={plus_address_small}
-        plus_start_day={plus_start_day}
-        plus_talentshare={plus_talentshare}
-        plus_continu_month={plus_continu_month}
-        plus_start_time={plus_start_time}
-        plus_end_time={plus_end_time}
-        plus_fields={plus_fields}
+        plz_name={plz_name}
+        plz_email={plz_email}
+        plz_password={plz_password}
+        plz_phonenumber={plz_phonenumber}
+        plz_address_big={plz_address_big}
+        plz_address_small={plz_address_small}
+        plz_fields={plz_fields}
+        plz_when_learn={plz_when_learn}
+        plz_belong={plz_belong}
         postBoard={this.postBoard}
-        handleChange={this.handleChange}
         handelinfoChange={this.handelinfoChange}
-        handleWhen={this.handleWhen}
         handleActivity={this.handleActivity}
+        handleWhenRadio={this.handleWhenRadio}
+        handleBelongRadio={this.handleBelongRadio}
       />
     );
   }

@@ -7,7 +7,6 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { createMuiTheme, withStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -118,6 +117,7 @@ const PlusPresenter = ({
   plus_name,
   plus_email,
   plus_password,
+  plus_phonenumber,
   plus_address_big,
   plus_address_small,
   plus_start_day,
@@ -137,7 +137,7 @@ const PlusPresenter = ({
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="md">
           <div className={classes.paper}>
-            <form className={classes.form} noValidate>
+            <form className={classes.form} onSubmit={postBoard} noValidate>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextQuestion>이름</TextQuestion>
@@ -191,10 +191,10 @@ const PlusPresenter = ({
                   <TextField
                     required
                     fullWidth
-                    id="plus_number"
+                    id="plus_phonenumber"
                     label="전화번호"
-                    name="plus_number"
-                    autoComplete="plus_number"
+                    name="plus_phonenumber"
+                    autoComplete="plus_phonenumber"
                     onChange={handelinfoChange}
                   />
                 </Grid>
@@ -203,10 +203,12 @@ const PlusPresenter = ({
                   <TextQuestion>주소</TextQuestion>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                  <select name="plus_address_big" onChange={handelinfoChange}>
-                    <option value="" selected disabled>
-                      지역을 선택하세요.
-                    </option>
+                  <select
+                    name="plus_address_big"
+                    defaultValue="지역을 선택하세요"
+                    onChange={handelinfoChange}
+                  >
+                    <option disabled>지역을 선택하세요</option>
                     <option value="seoul">서울</option>
                     <option value="gyeonggi">경기도</option>
                   </select>

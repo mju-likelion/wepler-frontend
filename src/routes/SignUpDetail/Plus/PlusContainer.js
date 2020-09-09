@@ -1,13 +1,13 @@
 import React from "react";
 import axios from "axios";
-import PlusPresenter from "./PlusePresenter";
+import PlusPresenter from "./PlusPresenter";
 
 export default class extends React.Component {
   state = {
     plus_name: "",
     plus_email: "",
     plus_password: "",
-    plus_number: "",
+    plus_phonenumber: "",
     plus_address_big: "",
     plus_address_small: "",
     plus_start_day: [],
@@ -17,11 +17,13 @@ export default class extends React.Component {
     plus_end_time: "",
     plus_fields: [],
   };
-  postBoard = async () => {
+  postBoard = async (e) => {
+    e.preventDefault();
     const {
       plus_name,
       plus_email,
       plus_password,
+      plus_phonenumber,
       plus_address_big,
       plus_address_small,
       plus_address,
@@ -32,24 +34,27 @@ export default class extends React.Component {
       plus_end_time,
       plus_fields,
     } = this.state;
-    const post = await axios.post("http://localhost:4000/plus_signup", {
-      plus_name,
-      plus_email,
-      plus_password,
-      plus_address_big,
-      plus_address_small,
-      plus_address,
-      plus_start_day,
-      plus_talentshare,
-      plus_continu_month,
-      plus_start_time,
-      plus_end_time,
-      plus_fields,
-    });
-    this.setState({
-      ...this.state,
-    });
-    console.log(post);
+    try {
+      const post = await axios.post("/plus_signup/", {
+        plus_name,
+        plus_email,
+        plus_password,
+        plus_phonenumber,
+        plus_address_big,
+        plus_address_small,
+        plus_address,
+        plus_start_day,
+        plus_talentshare,
+        plus_continu_month,
+        plus_start_time,
+        plus_end_time,
+        plus_fields,
+      });
+      console.log(post);
+      alert("회원가입 되었습니다");
+    } catch {
+      console.log("Theres was an error!");
+    }
   };
 
   handelinfoChange = (e) => {
@@ -72,10 +77,10 @@ export default class extends React.Component {
         plus_email: e.target.value,
       });
     }
-    if (name === "plus_number") {
+    if (name === "plus_phonenumber") {
       this.setState({
         ...this.state,
-        plus_number: e.target.value,
+        plus_phonenumber: e.target.value,
       });
     }
     if (name === "plus_address_small") {
@@ -89,8 +94,8 @@ export default class extends React.Component {
         ...this.state,
         plus_address_big: e.target.value,
       });
+      console.log(e.target.value);
     }
-    console.log("88sd!");
   };
 
   handleChange = (e) => {
@@ -101,9 +106,11 @@ export default class extends React.Component {
       });
     }
     if (name === "plus_continu_month") {
-      this.setState({
-        plus_continu_month: e.target.value,
-      });
+      if (e.target.value >= 1) {
+        this.setState({
+          plus_continu_month: e.target.value,
+        });
+      }
     }
     if (name === "plus_start_time") {
       this.setState({
@@ -147,7 +154,6 @@ export default class extends React.Component {
         ...this.state,
         plus_fields: newHash,
       });
-      console.log("88!");
     }
     // 배열에 값이 없으면
     else {
@@ -162,9 +168,9 @@ export default class extends React.Component {
       plus_name,
       plus_email,
       plus_password,
+      plus_phonenumber,
       plus_address_big,
       plus_address_small,
-      plus_address,
       plus_start_day,
       plus_talentshare,
       plus_continu_month,
@@ -176,6 +182,7 @@ export default class extends React.Component {
       <PlusPresenter
         plus_name={plus_name}
         plus_email={plus_email}
+        plus_phonenumber={plus_phonenumber}
         plus_password={plus_password}
         plus_address_big={plus_address_big}
         plus_address_small={plus_address_small}

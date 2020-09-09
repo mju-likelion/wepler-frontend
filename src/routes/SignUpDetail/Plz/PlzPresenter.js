@@ -7,7 +7,6 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { createMuiTheme, withStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -18,7 +17,7 @@ const theme = createMuiTheme({
       main: "#C9AA79",
     },
     secondary: {
-      main: "#EFEFEF",
+      main: "#F2D4CA",
     },
   },
 });
@@ -33,6 +32,7 @@ const TextTitle = styled.div`
   font-weight: bold;
   font-size: 25px;
 `;
+
 const ActivityDisplay = styled.div`
   display: flex;
   margin: 30px;
@@ -55,36 +55,28 @@ const ActivityBox = styled.div`
   }
 `;
 
-const ActivityList = styled.div`
-  display: flex;
-`;
 const TextQuestion = styled.div`
   padding-top: 30px;
   font-size: 20px;
   font-weight: bold;
 `;
 
-const TextList = styled.div`
-  padding-top: 30px;
-  padding-left: 17px;
-  font-size: 20px;
-  font-weight: bold;
-`;
-const TextWrapterm = styled.div`
+const TextDisplayWhen = styled.div`
   display: flex;
-  font-size: 23px;
-  margin-top: 25px;
-  margin-left: 20px;
-  textarea {
-    resize: none;
-    border: none;
-    width: 30%;
-    height: 30px;
-    border: none;
+  font-size: 20px;
+  line-height: 1.5;
+  label {
+    padding-right: 20px;
   }
-  div {
-    padding-left: 5px;
-    font-size: 20px;
+`;
+
+const TextDisplay = styled.div`
+  margin-bottom: 30px;
+  display: flex;
+  font-size: 20px;
+  line-height: 1.5;
+  label {
+    padding-right: 20px;
   }
 `;
 
@@ -109,28 +101,27 @@ const styles = {
 };
 
 const PlzPresenter = ({
+  handleWhenRadio,
+  handleBelongRadio,
   handleChange,
   handelinfoChange,
-  handleWhen,
   handleActivity,
   postBoard,
   classes,
-  plus_name,
-  plus_email,
-  plus_password,
-  plus_address_big,
-  plus_address_small,
-  plus_start_day,
-  plus_talentshare,
-  plus_continu_month,
-  plus_start_time,
-  plus_end_time,
-  plus_fields,
+  plz_name,
+  plz_email,
+  plz_password,
+  plz_phonenumber,
+  plz_address_big,
+  plz_address_small,
+  plz_when_learn,
+  plz_belong,
+  plz_fields,
 }) => (
   <>
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
-        <TextTitle>Plus(플러스) - 회원가입</TextTitle>
+        <TextTitle>Plz(플리즈) - 회원가입</TextTitle>
       </div>
     </Container>
     <Big>
@@ -149,10 +140,10 @@ const PlzPresenter = ({
                   <TextField
                     required
                     fullWidth
-                    id="plus_name"
+                    id="plz_name"
                     label="이름"
-                    name="plus_name"
-                    autoComplete="plus_name"
+                    name="plz_name"
+                    autoComplete="plz_name"
                     onChange={handelinfoChange}
                   />
                 </Grid>
@@ -161,10 +152,10 @@ const PlzPresenter = ({
                   <TextField
                     required
                     fullWidth
-                    id="plus_email"
+                    id="plz_email"
                     label="이메일 주소"
-                    name="plus_email"
-                    autoComplete="plus_email"
+                    name="plz_email"
+                    autoComplete="plz_email"
                     onChange={handelinfoChange}
                   />
                 </Grid>
@@ -175,10 +166,10 @@ const PlzPresenter = ({
                   <TextField
                     required
                     fullWidth
-                    name="plus_password"
+                    name="plz_password"
                     label="비밀번호"
-                    type="plus_password"
-                    id="plus_password"
+                    type="plz_password"
+                    id="plz_password"
                     autoComplete="current-password"
                     onChange={handelinfoChange}
                   />
@@ -191,10 +182,10 @@ const PlzPresenter = ({
                   <TextField
                     required
                     fullWidth
-                    id="plus_number"
+                    id="plz_number"
                     label="전화번호"
-                    name="plus_number"
-                    autoComplete="plus_number"
+                    name="plz_number"
+                    autoComplete="plz_number"
                     onChange={handelinfoChange}
                   />
                 </Grid>
@@ -203,10 +194,12 @@ const PlzPresenter = ({
                   <TextQuestion>주소</TextQuestion>
                 </Grid>
                 <Grid item xs={12} sm={4}>
-                  <select name="plus_address_big" onChange={handelinfoChange}>
-                    <option value="" selected disabled>
-                      지역을 선택하세요.
-                    </option>
+                  <select
+                    name="plus_address_big"
+                    defaultValue="지역을 선택하세요"
+                    onChange={handelinfoChange}
+                  >
+                    <option disabled>지역을 선택하세요</option>
                     <option value="seoul">서울</option>
                     <option value="gyeonggi">경기도</option>
                   </select>
@@ -215,10 +208,10 @@ const PlzPresenter = ({
                   <TextField
                     required
                     fullWidth
-                    id="plus_address_small"
+                    id="plz_address_small"
                     label="나머지 주소"
-                    name="plus_address_small"
-                    autoComplete="plus_address_small"
+                    name="plz_address_small"
+                    autoComplete="plz_address_small"
                     onChange={handelinfoChange}
                   />
                 </Grid>
@@ -232,7 +225,7 @@ const PlzPresenter = ({
                         <Checkbox
                           name="education"
                           onChange={handleActivity}
-                          value={plus_fields.education}
+                          value={plz_fields.education}
                           color="primary"
                         />
                       }
@@ -245,7 +238,7 @@ const PlzPresenter = ({
                         <Checkbox
                           name="council"
                           onChange={handleActivity}
-                          value={plus_fields.council}
+                          value={plz_fields.council}
                           color="primary"
                         />
                       }
@@ -258,7 +251,7 @@ const PlzPresenter = ({
                         <Checkbox
                           name="making"
                           onChange={handleActivity}
-                          value={plus_fields.making}
+                          value={plz_fields.making}
                           color="primary"
                         />
                       }
@@ -271,7 +264,7 @@ const PlzPresenter = ({
                         <Checkbox
                           name="activity"
                           onChange={handleActivity}
-                          value={plus_fields.activity}
+                          value={plz_fields.activity}
                           color="primary"
                         />
                       }
@@ -284,7 +277,7 @@ const PlzPresenter = ({
                         <Checkbox
                           name="culture"
                           onChange={handleActivity}
-                          value={plus_fields.culture}
+                          value={plz_fields.culture}
                           color="primary"
                         />
                       }
@@ -299,7 +292,7 @@ const PlzPresenter = ({
                         <Checkbox
                           name="trip"
                           onChange={handleActivity}
-                          value={plus_fields.trip}
+                          value={plz_fields.trip}
                           color="primary"
                         />
                       }
@@ -312,7 +305,7 @@ const PlzPresenter = ({
                         <Checkbox
                           name="etc"
                           onChange={handleActivity}
-                          value={plus_fields.etc}
+                          value={plz_fields.etc}
                           color="primary"
                         />
                       }
@@ -320,130 +313,69 @@ const PlzPresenter = ({
                     />
                   </ActivityBox>
                 </ActivityDisplay>
-
-                <TextQuestion>재능나눔 시간 입력해주세요.</TextQuestion>
-                <ActivityList>
-                  <TextList>
-                    <h3>재능 나눔 시작일</h3>
-                  </TextList>
-                  <TextWrapterm>
-                    <input
-                      type="date"
-                      name="plus_talentshare"
-                      onChange={handleChange}
-                      value={plus_talentshare}
-                    />
-                  </TextWrapterm>
-                </ActivityList>
-                <ActivityList>
-                  <TextList>
-                    <h3>요일</h3>
-                  </TextList>
-                  <TextWrapterm>
-                    <input
-                      type="checkbox"
-                      name="monday"
-                      onChange={handleWhen}
-                      value={plus_start_day.mon}
-                    />
-                    <div>월</div>
-                  </TextWrapterm>
-                  <TextWrapterm>
-                    <input
-                      type="checkbox"
-                      name="tuesday"
-                      onChange={handleWhen}
-                      value={plus_start_day.tues}
-                    />
-                    <div>화</div>
-                  </TextWrapterm>
-                  <TextWrapterm>
-                    <input
-                      type="checkbox"
-                      name="wednesday"
-                      onChange={handleWhen}
-                      value={plus_start_day.wednes}
-                    />
-                    <div>수</div>
-                  </TextWrapterm>
-                  <TextWrapterm>
-                    <input
-                      type="checkbox"
-                      name="thursday"
-                      onChange={handleWhen}
-                      value={plus_start_day.thurs}
-                    />
-                    <div>목</div>
-                  </TextWrapterm>
-                  <TextWrapterm>
-                    <input
-                      type="checkbox"
-                      name="friday"
-                      onChange={handleWhen}
-                      value={plus_start_day.fri}
-                    />
-                    <div>금</div>
-                  </TextWrapterm>
-                  <TextWrapterm>
-                    <input
-                      type="checkbox"
-                      name="saturday"
-                      onChange={handleWhen}
-                      value={plus_start_day.satur}
-                    />
-                    <div>토</div>
-                  </TextWrapterm>
-                  <TextWrapterm>
-                    <input
-                      type="checkbox"
-                      name="sunday"
-                      onChange={handleWhen}
-                      value={plus_start_day.sun}
-                    />
-                    <div>일</div>
-                  </TextWrapterm>
-                </ActivityList>
-                <ActivityList>
-                  <TextList>
-                    <h3>시작시간</h3>
-                  </TextList>
-                  <TextWrapterm>
-                    <input
-                      type="time"
-                      name="plus_start_time"
-                      onChange={handleChange}
-                      value={plus_start_time}
-                    />
-                  </TextWrapterm>
-                  <TextList>
-                    <h3>종료시간</h3>
-                  </TextList>
-                  <TextWrapterm>
-                    <input
-                      type="time"
-                      name="plus_end_time"
-                      onChange={handleChange}
-                      value={plus_end_time}
-                    />
-                  </TextWrapterm>
-                </ActivityList>
-                <ActivityList>
-                  <TextList>
-                    <h3>이 시간으로 얼마나 지속할 수 있으신가요?</h3>
-                  </TextList>
-                  <TextWrapterm>
-                    <input
-                      type="number"
-                      name="plus_continu_month"
-                      placeholder="ex) 5"
-                      onChange={handleChange}
-                      value={plus_continu_month}
-                    />
-                    <div>개월</div>
-                  </TextWrapterm>
-                </ActivityList>
               </Grid>
 
+              <TextQuestion>언제 배우고 싶으신가요?</TextQuestion>
+              <TextDisplayWhen>
+                <label>
+                  <input
+                    type="radio"
+                    name="when_learn"
+                    value="regularly"
+                    checked={["regularly"]}
+                    onChange={handleWhenRadio}
+                  />
+                  정기적으로 배우고 싶어요
+                </label>
+              </TextDisplayWhen>
+              <TextDisplayWhen>
+                <label>
+                  <input
+                    type="radio"
+                    name="when_learn"
+                    value="specific"
+                    checked={["specific"]}
+                    onChange={handleWhenRadio}
+                  />
+                  특정한 날에만 배우고 싶어요
+                </label>
+              </TextDisplayWhen>
+              <TextDisplayWhen>
+                <label>
+                  <input
+                    type="radio"
+                    name="when_learn"
+                    value="thinking"
+                    checked={["thinking"]}
+                    onChange={handleWhenRadio}
+                  />
+                  생각중이에요
+                </label>
+              </TextDisplayWhen>
+              <TextQuestion>개인 혹은 단체 이신가요?</TextQuestion>
+
+              <TextDisplay>
+                <label>
+                  <input
+                    type="radio"
+                    name="belong"
+                    value="individual"
+                    checked={["individual"]}
+                    onChange={handleBelongRadio}
+                  />
+                  개인
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="belong"
+                    value="group"
+                    checked={["group"]}
+                    onChange={handleBelongRadio}
+                  />
+                  단체
+                </label>
+              </TextDisplay>
               <Button
                 type="submit"
                 fullWidth
@@ -453,7 +385,6 @@ const PlzPresenter = ({
               >
                 회원가입
               </Button>
-
               <Grid container justify="flex-end">
                 <Grid item>
                   <Link href="/Signin" variant="body2">
