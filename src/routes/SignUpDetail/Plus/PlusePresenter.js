@@ -1,0 +1,466 @@
+import React from "react";
+import styled from "styled-components";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import { createMuiTheme, withStyles } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#C9AA79",
+    },
+    secondary: {
+      main: "#EFEFEF",
+    },
+  },
+});
+
+const Big = styled.div`
+  padding-left: 25%;
+  padding-right: 25%;
+`;
+
+const TextTitle = styled.div`
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 25px;
+`;
+const ActivityDisplay = styled.div`
+  display: flex;
+  margin: 30px;
+  line-height: 1.5;
+  input {
+    width: 10%;
+  }
+`;
+
+const ActivityBox = styled.div`
+  padding: 5px 5px;
+  border-radius: 5px;
+  border: 2px solid #c9aa79;
+  background-color: #ffffff;
+  color: #404a41;
+  margin-right: 20px;
+  display: flex;
+  &:hover {
+    background-color: #f2d4ca;
+  }
+`;
+
+const ActivityList = styled.div`
+  display: flex;
+`;
+const TextQuestion = styled.div`
+  padding-top: 30px;
+  font-size: 20px;
+  font-weight: bold;
+`;
+
+const TextList = styled.div`
+  padding-top: 30px;
+  padding-left: 17px;
+  font-size: 20px;
+  font-weight: bold;
+`;
+const TextWrapterm = styled.div`
+  display: flex;
+  font-size: 23px;
+  margin-top: 25px;
+  margin-left: 20px;
+  textarea {
+    resize: none;
+    border: none;
+    width: 30%;
+    height: 30px;
+    border: none;
+  }
+  div {
+    padding-left: 5px;
+    font-size: 20px;
+  }
+`;
+
+const styles = {
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+};
+
+const PlusPresenter = ({
+  handleChange,
+  handleWhen,
+  handleActivity,
+  postBoard,
+  classes,
+  plus_name,
+  email,
+  password,
+  plus_address_big,
+  plus_address_small,
+  plus_start_day,
+  plus_talentshare,
+  plus_continu_month,
+  plus_start_time,
+  plus_end_time,
+  plus_fields,
+}) => (
+  <>
+    <Container component="main" maxWidth="xs">
+      <div className={classes.paper}>
+        <TextTitle>Plus(플러스) - 회원가입</TextTitle>
+      </div>
+    </Container>
+    <Big>
+      <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="md">
+          <div className={classes.paper}>
+            <form className={classes.form} noValidate>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextQuestion>이름</TextQuestion>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextQuestion>이메일</TextQuestion>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="plus_name"
+                    label="이름"
+                    name="plus_name"
+                    autoComplete="plus_name"
+                  />
+                </Grid>
+
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="email"
+                    label="이메일 주소"
+                    name="email"
+                    autoComplete="email"
+                  />
+                </Grid>
+                <Grid xs={10}>
+                  <TextQuestion>비밀번호</TextQuestion>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="비밀번호"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                  />
+                </Grid>
+
+                <Grid xs={10}>
+                  <TextQuestion>전화번호</TextQuestion>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="number"
+                    label="전화번호"
+                    name="number"
+                    autoComplete="number"
+                  />
+                </Grid>
+
+                <Grid xs={12}>
+                  <TextQuestion>주소</TextQuestion>
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <select name="plus_address_big" onChange={handleChange}>
+                    <option value="seoul" selected="selected">
+                      서울
+                    </option>
+                    <option value="gyeonggi-do">경기도</option>
+                  </select>
+                </Grid>
+                <Grid item xs={12} sm={8}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="plus_address_small"
+                    label="나머지 주소"
+                    name="plus_address_small"
+                    autoComplete="plus_address_small"
+                  />
+                </Grid>
+              </Grid>
+              <Grid>
+                <TextQuestion>원하는 재능 나눔 분야</TextQuestion>
+                <ActivityDisplay>
+                  <ActivityBox>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="education"
+                          onChange={handleActivity}
+                          value={plus_fields.education}
+                          color="primary"
+                        />
+                      }
+                      label="교육"
+                    />
+                  </ActivityBox>
+                  <ActivityBox>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="council"
+                          onChange={handleActivity}
+                          value={plus_fields.council}
+                          color="primary"
+                        />
+                      }
+                      label="상담"
+                    />
+                  </ActivityBox>
+                  <ActivityBox>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="making"
+                          onChange={handleActivity}
+                          value={plus_fields.making}
+                          color="primary"
+                        />
+                      }
+                      label="메이킹"
+                    />
+                  </ActivityBox>
+                  <ActivityBox>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="activity"
+                          onChange={handleActivity}
+                          value={plus_fields.activity}
+                          color="primary"
+                        />
+                      }
+                      label="야외활동"
+                    />
+                  </ActivityBox>
+                  <ActivityBox>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="culture"
+                          onChange={handleActivity}
+                          value={plus_fields.culture}
+                          color="primary"
+                        />
+                      }
+                      label="문화"
+                    />
+                  </ActivityBox>
+                </ActivityDisplay>
+                <ActivityDisplay>
+                  <ActivityBox>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="trip"
+                          onChange={handleActivity}
+                          value={plus_fields.trip}
+                          color="primary"
+                        />
+                      }
+                      label="여행"
+                    />
+                  </ActivityBox>
+                  <ActivityBox>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="etc"
+                          onChange={handleActivity}
+                          value={plus_fields.etc}
+                          color="primary"
+                        />
+                      }
+                      label="기타"
+                    />
+                  </ActivityBox>
+                </ActivityDisplay>
+
+                <TextQuestion>재능나눔 시간 입력해주세요.</TextQuestion>
+                <ActivityList>
+                  <TextList>
+                    <h3>재능 나눔 시작일</h3>
+                  </TextList>
+                  <TextWrapterm>
+                    <input
+                      type="date"
+                      name="plus_talentshare"
+                      onChange={handleChange}
+                      value={plus_talentshare}
+                    />
+                  </TextWrapterm>
+                </ActivityList>
+                <ActivityList>
+                  <TextList>
+                    <h3>요일</h3>
+                  </TextList>
+                  <TextWrapterm>
+                    <input
+                      type="checkbox"
+                      name="monday"
+                      onChange={handleWhen}
+                      value={plus_start_day.mon}
+                    />
+                    <div>월</div>
+                  </TextWrapterm>
+                  <TextWrapterm>
+                    <input
+                      type="checkbox"
+                      name="tuesday"
+                      onChange={handleWhen}
+                      value={plus_start_day.tues}
+                    />
+                    <div>화</div>
+                  </TextWrapterm>
+                  <TextWrapterm>
+                    <input
+                      type="checkbox"
+                      name="wednesday"
+                      onChange={handleWhen}
+                      value={plus_start_day.wednes}
+                    />
+                    <div>수</div>
+                  </TextWrapterm>
+                  <TextWrapterm>
+                    <input
+                      type="checkbox"
+                      name="thursday"
+                      onChange={handleWhen}
+                      value={plus_start_day.thurs}
+                    />
+                    <div>목</div>
+                  </TextWrapterm>
+                  <TextWrapterm>
+                    <input
+                      type="checkbox"
+                      name="friday"
+                      onChange={handleWhen}
+                      value={plus_start_day.fri}
+                    />
+                    <div>금</div>
+                  </TextWrapterm>
+                  <TextWrapterm>
+                    <input
+                      type="checkbox"
+                      name="saturday"
+                      onChange={handleWhen}
+                      value={plus_start_day.satur}
+                    />
+                    <div>토</div>
+                  </TextWrapterm>
+                  <TextWrapterm>
+                    <input
+                      type="checkbox"
+                      name="sunday"
+                      onChange={handleWhen}
+                      value={plus_start_day.sun}
+                    />
+                    <div>일</div>
+                  </TextWrapterm>
+                </ActivityList>
+                <ActivityList>
+                  <TextList>
+                    <h3>시작시간</h3>
+                  </TextList>
+                  <TextWrapterm>
+                    <input
+                      type="time"
+                      name="plus_start_time"
+                      onChange={handleChange}
+                      value={plus_start_time}
+                    />
+                  </TextWrapterm>
+                  <TextList>
+                    <h3>종료시간</h3>
+                  </TextList>
+                  <TextWrapterm>
+                    <input
+                      type="time"
+                      name="plus_end_time"
+                      onChange={handleChange}
+                      value={plus_end_time}
+                    />
+                  </TextWrapterm>
+                </ActivityList>
+                <ActivityList>
+                  <TextList>
+                    <h3>이 시간으로 얼마나 지속할 수 있으신가요?</h3>
+                  </TextList>
+                  <TextWrapterm>
+                    <input
+                      type="number"
+                      name="plus_continu_month"
+                      placeholder="ex) 5"
+                      onChange={handleChange}
+                      value={plus_continu_month}
+                    />
+                    <div>개월</div>
+                  </TextWrapterm>
+                </ActivityList>
+              </Grid>
+
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="secondary"
+                className={classes.submit}
+              >
+                회원가입
+              </Button>
+
+              <Grid container justify="flex-end">
+                <Grid item>
+                  <Link href="/Signin" variant="body2">
+                    이미 계정이 있으신가요?
+                  </Link>
+                </Grid>
+              </Grid>
+            </form>
+          </div>
+          <Box mt={5} />
+        </Container>
+      </ThemeProvider>
+    </Big>
+  </>
+);
+
+export default withStyles(styles)(PlusPresenter);

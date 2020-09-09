@@ -39,6 +39,8 @@ import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/PlzA
 import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
 import PlzInfobasic from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfobasic";
 
+import PlusSing from "routes/SignUpDetail/Plus";
+
 export default () => (
   <Router>
     <>
@@ -85,6 +87,7 @@ export default () => (
         />
         <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
         <Route path="/plusinfobasic" exact component={PlusInfobasic} />
+        <Route path="/plusSing" exact component={PlusSing} />
         <Redirect from="*" to="/" />
       </Switch>
     </>

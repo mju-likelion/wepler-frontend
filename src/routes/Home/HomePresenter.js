@@ -140,7 +140,7 @@ const HomePresenter = () => (
             <p>
               위플러는 <br />
               플러스 회원와 플리즈회원이 <br></br>서로 원하는 회원을 매칭할 수
-              있습니다.{" "}
+              있습니다.
             </p>
           </BoxExplan>
         </BoxBig>

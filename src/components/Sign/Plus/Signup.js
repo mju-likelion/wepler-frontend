@@ -1,49 +1,48 @@
 import React from "react";
 import styled from "styled-components";
 import WhenDay from "components/Sign/Plus/WhenDay";
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
-
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#C9AA79',
+      main: "#C9AA79",
     },
     secondary: {
-      main: '#EFEFEF',
+      main: "#EFEFEF",
     },
   },
 });
 
 const TextTitle = styled.div`
-  padding-top:10px;
+  padding-top: 10px;
   font-weight: bold;
-  font-size:25px;
+  font-size: 25px;
 `;
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '160%', // Fix IE 11 issue.
+    width: "160%", // Fix IE 11 issue.
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -58,9 +57,7 @@ export default function SignUp() {
     <>
       <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
-          <TextTitle>
-            Plus(플러스) - 회원가입
-          </TextTitle>
+          <TextTitle>Plus(플러스) - 회원가입</TextTitle>
         </div>
       </Container>
       <ThemeProvider theme={theme}>
@@ -122,8 +119,8 @@ export default function SignUp() {
                     id="address"
                     label="주소"
                     name="address"
-                    autoComplete="address" />
-
+                    autoComplete="address"
+                  />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
@@ -137,12 +134,13 @@ export default function SignUp() {
                   />
                 </Grid>
               </Grid>
-              <Grid>                             
-                  
-                  <WhenDay />            
+              <Grid>
+                <WhenDay />
                 <Grid item xs={12}>
                   <FormControlLabel
-                    control={<Checkbox value="allowExtraEmails" color="primary" />}
+                    control={
+                      <Checkbox value="allowExtraEmails" color="primary" />
+                    }
                     label="관련 소식을 이메일로 받아보고 싶어요."
                   />
                 </Grid>
@@ -156,13 +154,13 @@ export default function SignUp() {
                 className={classes.submit}
               >
                 회원가입
-            </Button>
+              </Button>
 
               <Grid container justify="flex-end">
                 <Grid item>
                   <Link href="/Signin" variant="body2">
                     이미 계정이 있으신가요?
-                </Link>
+                  </Link>
                 </Grid>
               </Grid>
             </form>
@@ -173,5 +171,3 @@ export default function SignUp() {
     </>
   );
 }
-
-
