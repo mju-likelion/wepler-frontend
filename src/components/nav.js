@@ -70,10 +70,15 @@ export default withRouter(({ pathname }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const user_id = localStorage.getItem("user_id");
+
     if (token) {
       setLogged(true);
+      if (user_id == "plus_id") {
+        console.log(user_id);
+      }
     }
-  });
+  }, []);
 
   function handleLogoutClieked() {
     localStorage.clear();
@@ -86,8 +91,9 @@ export default withRouter(({ pathname }) => {
         {logged ? (
           <ListLo>
             <ItemLo>
-              <SLink to="/plzinfobasic">마이페이지</SLink>
+              <SLink to="/plusinfobasic">플러스</SLink>
             </ItemLo>
+
             <ItemLo>
               <SLink to="/" onClick={handleLogoutClieked}>
                 로그아웃

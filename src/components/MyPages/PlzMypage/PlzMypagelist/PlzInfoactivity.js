@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import PlzMypageNav from "../PlzMypagenav";
-import PlzWhenDay from "components/Sign/Plz/PlzWhenDay";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
@@ -60,7 +59,6 @@ export default function SignUp() {
         <TextTitle>참여 분야 수정</TextTitle>
         <ThemeProvider theme={theme}>
           <form className={classes.form} noValidate>
-            <PlzWhenDay />
             <ButtonField>
               <Button
                 type="submit"

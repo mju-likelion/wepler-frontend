@@ -44,7 +44,7 @@ export default class extends React.Component {
         this.props.history.push("/"); //Home으로 돌아감
       }
       console.log(tokenGet);
-      alert("로그인 되었습니다");
+      alert("로그인되었습니다");
     } catch {
       console.log("Theres was an error!");
     }
