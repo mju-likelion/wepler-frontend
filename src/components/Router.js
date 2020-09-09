@@ -24,8 +24,6 @@ import GyeonggiMem from "components/Areas/Plus/Gyeonggi/GyenggiMem";
 import IncheonMem from "components/Areas/Plus/Incheon/IncheonMem";
 import ReviewViewPlz from "components/Reviews/Plz/view";
 import ReviewViewPlus from "components/Reviews/Plus/view";
-import PlzSignupDetail from "components/Sign/Plz/Signup";
-import PlusSignupDetail from "components/Sign/Plus/Signup";
 
 import PlusActivityapply from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityapply";
 import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityend";
@@ -40,7 +38,8 @@ import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoa
 import PlzInfobasic from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfobasic";
 import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
 
-import PlusSing from "routes/SignUpDetail/Plus";
+import PlzSignupDetail from "routes/SignUpDetail/Plus";
+import PlusSignupDetail from "routes/SignUpDetail/Plz";
 
 export default () => (
   <Router>
@@ -71,7 +70,11 @@ export default () => (
         {/* 플리즈 회원 마이페이지 */}
         <Route path="/plzactivityapply" exact component={PlzActivityapply} />
         <Route path="/plzactivityend" exact component={PlzActivityend} />
-        <Route path="/Plzactivityhistory" exact component={Plzactivityhistory} />
+        <Route
+          path="/Plzactivityhistory"
+          exact
+          component={Plzactivityhistory}
+        />
 
         <Route
           path="/plzactivityprogress"
@@ -83,7 +86,11 @@ export default () => (
         {/* 플러스 회원 마이페이지 */}
         <Route path="/plusactivityapply" exact component={PlusActivityapply} />
         <Route path="/plusactivityend" exact component={PlusActivityend} />
-        <Route path="/Plusactivityhistory" exact component={Plusactivityhistory} />
+        <Route
+          path="/Plusactivityhistory"
+          exact
+          component={Plusactivityhistory}
+        />
 
         <Route
           path="/plusactivityprogress"
@@ -92,7 +99,6 @@ export default () => (
         />
         <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
         <Route path="/plusinfobasic" exact component={PlusInfobasic} />
-        <Route path="/plusSing" exact component={PlusSing} />
         <Redirect from="*" to="/" />
       </Switch>
     </>

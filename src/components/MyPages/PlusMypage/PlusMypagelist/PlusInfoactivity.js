@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import PlusMypageNav from "../PlusMypagenav";
-import WhenDay from "components/Sign/Plus/WhenDay";
 import Button from "@material-ui/core/Button";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -62,7 +61,6 @@ export default function SignUp() {
         <TextTitle>활동 분야 수정</TextTitle>
         <ThemeProvider theme={theme}>
           <form className={classes.form} noValidate>
-            <WhenDay />
             <FormControlLabel
               control={<Checkbox value="allowExtraEmails" color="primary" />}
               label="봉사자 교육을 수료했습니다."

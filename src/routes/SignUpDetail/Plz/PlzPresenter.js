@@ -108,7 +108,7 @@ const styles = {
   },
 };
 
-const PlusPresenter = ({
+const PlzPresenter = ({
   handleChange,
   handelinfoChange,
   handleWhen,
@@ -470,4 +470,4 @@ const PlusPresenter = ({
   </>
 );
 
-export default withStyles(styles)(PlusPresenter);
+export default withStyles(styles)(PlzPresenter);

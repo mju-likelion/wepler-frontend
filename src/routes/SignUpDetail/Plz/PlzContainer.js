@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import PlusPresenter from "./PlusePresenter";
+import PlzPresenter from "./PlzPresenter";
 
 export default class extends React.Component {
   state = {
@@ -173,7 +173,7 @@ export default class extends React.Component {
       plus_fields,
     } = this.state;
     return (
-      <PlusPresenter
+      <PlzPresenter
         plus_name={plus_name}
         plus_email={plus_email}
         plus_password={plus_password}
