@@ -47,6 +47,9 @@ export default withRouter(({ location: { pathname } }) => (
     <Item>
       <Menuname>교육 이수 내역</Menuname>
     </Item>
+    <Item current={pathname === "/Plusactivityhistory"}>
+      <SLink to="/Plusactivityhistory">교육 이수 내역</SLink >
+    </Item>
     <Item current={pathname === "/PlzActivityapply"}>
       <SLink to="/PlzActivityapply">신청 활동</SLink >
     </Item>

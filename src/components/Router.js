@@ -32,12 +32,13 @@ import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/PlusAc
 import PlusActivityprogress from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityprogress";
 import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfoactivity";
 import PlusInfobasic from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfobasic";
-
+import Plusactivityhistory from "components/MyPages/PlusMypage/PlusMypagelist/Plusactivityhistory";
 import PlzActivityapply from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityapply";
 import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityend";
 import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityprogress";
 import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
 import PlzInfobasic from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfobasic";
+import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
 
 import PlusSing from "routes/SignUpDetail/Plus";
 
@@ -70,6 +71,8 @@ export default () => (
         {/* 플리즈 회원 마이페이지 */}
         <Route path="/plzactivityapply" exact component={PlzActivityapply} />
         <Route path="/plzactivityend" exact component={PlzActivityend} />
+        <Route path="/Plzactivityhistory" exact component={Plzactivityhistory} />
+
         <Route
           path="/plzactivityprogress"
           exact
@@ -80,6 +83,8 @@ export default () => (
         {/* 플러스 회원 마이페이지 */}
         <Route path="/plusactivityapply" exact component={PlusActivityapply} />
         <Route path="/plusactivityend" exact component={PlusActivityend} />
+        <Route path="/Plusactivityhistory" exact component={Plusactivityhistory} />
+
         <Route
           path="/plusactivityprogress"
           exact
