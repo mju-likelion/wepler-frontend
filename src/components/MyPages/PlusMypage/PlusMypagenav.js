@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const List = styled.ul`
-  padding-top: 12%;
+  padding-top: 18%;
   padding-left: 8%;
   text-align: center;
   justify-content: center;
@@ -13,7 +13,7 @@ const List = styled.ul`
   bottom: 0;
 `;
 
-const Item = styled.li`  
+const Item = styled.li`
   font-size: 20px;
   text-align: center;
 `;
@@ -30,7 +30,7 @@ const Menuname = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #F2D4CA;
+  color: #c9aa79;
 `;
 
 export default withRouter(({ location: { pathname } }) => (
@@ -42,22 +42,28 @@ export default withRouter(({ location: { pathname } }) => (
       <SLink to="/PlusInfobasic">기본 정보</SLink>
     </Item>
     <Item current={pathname === "/PlusInfoactivity"}>
-      <SLink to="/PlusInfoactivity">활동/참여 분야</SLink >
+      <SLink to="/PlusInfoactivity">활동/참여 분야</SLink>
+      <hr width="80%" color="#f2d4ca" size="5"></hr>
     </Item>
+
     <Item>
       <Menuname>교육 이수 내역</Menuname>
     </Item>
-      <Item current={pathname === "/Plusactivityhistory"}>
-      <SLink to="/Plusactivityhistory">교육 이수 내역</SLink >
+    <Item current={pathname === "/Plusactivityhistory"}>
+      <SLink to="/Plusactivityhistory">교육 이수 내역</SLink>
+      <hr width="80%" color="#f2d4ca" size="5"></hr>
+    </Item>
+    <Item>
+      <Menuname>활동 내역</Menuname>
     </Item>
     <Item current={pathname === "/PlusActivityapply"}>
-      <SLink to="/PlusActivityapply">신청 활동</SLink >
+      <SLink to="/PlusActivityapply">신청 활동</SLink>
     </Item>
     <Item current={pathname === "/PlusActivityend"}>
-      <SLink to="/PlusActivityend">진행중</SLink >
+      <SLink to="/PlusActivityend">진행중</SLink>
     </Item>
     <Item current={pathname === "/PlusActivityprogress"}>
-      <SLink to="/PlusActivityprogress">활동 완료</SLink >
+      <SLink to="/PlusActivityprogress">활동 완료</SLink>
     </Item>
   </List>
 ));

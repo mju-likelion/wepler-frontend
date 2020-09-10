@@ -89,10 +89,6 @@ const SigninPresenter = ({
               autoComplete="current-password"
               onChange={oninfoChange}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="아이디를 기억합니다."
-            />
             <Button
               type="submit"
               fullWidth
