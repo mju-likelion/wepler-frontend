@@ -80,21 +80,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Mypage() {
   const classes = useStyles();
-  const [logged, setLogged] = useState(false);
   const [type, setType] = useState("");
   const token = localStorage.getItem("token");
 
   useEffect(() => {
     const user_id = localStorage.getItem("user_id");
     setType(user_id);
-    if (user_id !== '"plz_id"') {
+    if (user_id !== '"plus_id"') {
       localStorage.clear();
     }
+    if (token) {
+      console.log(token);
+    }
   });
-
-  if (token) {
-    console.log(token);
-  }
 
   return (
     <>

@@ -128,7 +128,7 @@ const PlzPresenter = ({
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="md">
           <div className={classes.paper}>
-            <form className={classes.form} noValidate>
+            <form className={classes.form} onSubmit={postBoard} noValidate>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextQuestion>이름</TextQuestion>
@@ -217,7 +217,7 @@ const PlzPresenter = ({
                 </Grid>
               </Grid>
               <Grid>
-                <TextQuestion>원하는 재능 나눔 분야</TextQuestion>
+                <TextQuestion>원하는 재능 배움 분야</TextQuestion>
                 <ActivityDisplay>
                   <ActivityBox>
                     <FormControlLabel
@@ -320,9 +320,9 @@ const PlzPresenter = ({
                 <label>
                   <input
                     type="radio"
-                    name="when_learn"
+                    name="plz_when_learn"
                     value="regularly"
-                    checked={["regularly"]}
+                    checked={plz_when_learn["regularly"] ? true : false}
                     onChange={handleWhenRadio}
                   />
                   정기적으로 배우고 싶어요
@@ -332,9 +332,9 @@ const PlzPresenter = ({
                 <label>
                   <input
                     type="radio"
-                    name="when_learn"
+                    name="plz_when_learn"
                     value="specific"
-                    checked={["specific"]}
+                    checked={plz_when_learn["specific"] ? true : false}
                     onChange={handleWhenRadio}
                   />
                   특정한 날에만 배우고 싶어요
@@ -344,9 +344,9 @@ const PlzPresenter = ({
                 <label>
                   <input
                     type="radio"
-                    name="when_learn"
+                    name="plz_when_learn"
                     value="thinking"
-                    checked={["thinking"]}
+                    checked={plz_when_learn["thinking"] ? true : false}
                     onChange={handleWhenRadio}
                   />
                   생각중이에요
@@ -358,9 +358,9 @@ const PlzPresenter = ({
                 <label>
                   <input
                     type="radio"
-                    name="belong"
+                    name="plz_belong"
                     value="individual"
-                    checked={["individual"]}
+                    checked={plz_belong["individual"] ? true : false}
                     onChange={handleBelongRadio}
                   />
                   개인
@@ -368,9 +368,9 @@ const PlzPresenter = ({
                 <label>
                   <input
                     type="radio"
-                    name="belong"
+                    name="plz_belong"
                     value="group"
-                    checked={["group"]}
+                    checked={plz_belong["group"] ? true : false}
                     onChange={handleBelongRadio}
                   />
                   단체

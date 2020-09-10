@@ -11,8 +11,15 @@ export default class extends React.Component {
     plz_address_big: "",
     plz_address_small: "",
     plz_fields: [],
-    plz_when_learn: "",
-    plz_belong: "",
+    plz_when_learn: {
+      regularly: true,
+      specific: false,
+      thinking: false,
+    },
+    plz_belong: {
+      individual: true,
+      group: false,
+    },
   };
   postBoard = async (e) => {
     e.preventDefault();
@@ -86,18 +93,6 @@ export default class extends React.Component {
     }
   };
 
-  handleWhenRadio(event) {
-    let obj = {};
-    obj[event.target.value] = event.target.checked; // true
-    this.setState({ when_learn: obj });
-  }
-
-  handleBelongRadio(event) {
-    let obj2 = {};
-    obj2[event.target.value] = event.target.checked; // true
-    this.setState({ belong: obj2 });
-  }
-
   handleActivity = (e) => {
     const { name } = e.target;
     // 배열에 값이 있으면
@@ -116,6 +111,19 @@ export default class extends React.Component {
       });
     }
   };
+
+  handleWhenRadio = (event) => {
+    let obj = {};
+    obj[event.target.value] = event.target.checked; // true
+    this.setState({ plz_when_learn: obj });
+  };
+
+  handleBelongRadio = (event) => {
+    let obj2 = {};
+    obj2[event.target.value] = event.target.checked; // true
+    this.setState({ plz_belong: obj2 });
+  };
+
   render() {
     const {
       plz_name,

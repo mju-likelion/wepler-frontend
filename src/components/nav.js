@@ -83,7 +83,7 @@ export default withRouter(({ pathname }) => {
 
   return (
     <>
-      {console.log(logged, type)}
+      {/* {console.log(logged, type)} */}
       <HeaderLo>
         {logged ? (
           <ListLo>
