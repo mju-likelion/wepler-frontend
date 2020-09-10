@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import PlzMypageNav from "../PlzMypagenav";
 import Button from "@material-ui/core/Button";
@@ -9,17 +9,6 @@ import Container from "@material-ui/core/Container";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import imgProfile from "assets/img/imgProfile.PNG";
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#C9AA79",
-    },
-    secondary: {
-      main: "#F2D4CA",
-    },
-  },
-});
 
 const TextTitle = styled.div`
   padding-top: 10px;
@@ -79,6 +68,17 @@ const CompleteBt = styled.div`
   padding-right: 40px;
 `;
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#C9AA79",
+    },
+    secondary: {
+      main: "#F2D4CA",
+    },
+  },
+});
+
 const useStyles = makeStyles((theme) => ({
   form: {
     width: "160%",
@@ -88,6 +88,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Mypage() {
   const classes = useStyles();
+  // const [type, setType] = useState("");
+
+  useEffect(() => {
+    const user_id = localStorage.getItem("user_id");
+    // setType(user_id);
+    if (user_id === '"plus_id"') {
+      this.props.history.push("/");
+      localStorage.clear();
+    }
+  });
 
   return (
     <>

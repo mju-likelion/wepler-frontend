@@ -67,17 +67,14 @@ const SLink = styled(Link)`
 
 export default withRouter(({ pathname }) => {
   const [logged, setLogged] = useState(false);
+  const [type, setType] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user_id = localStorage.getItem("user_id");
 
-    if (token) {
-      setLogged(true);
-      if (user_id == "plus_id") {
-        console.log(user_id);
-      }
-    }
+    setLogged(token ? true : false);
+    setType(user_id);
   }, []);
 
   function handleLogoutClieked() {
@@ -87,13 +84,19 @@ export default withRouter(({ pathname }) => {
 
   return (
     <>
+      {/* {console.log(logged, type)} */}
       <HeaderLo>
         {logged ? (
           <ListLo>
-            <ItemLo>
-              <SLink to="/plusinfobasic">플러스</SLink>
-            </ItemLo>
-
+            {type === '"plus_id"' ? (
+              <ItemLo>
+                <SLink to="/plusinfobasic">플러스회원</SLink>
+              </ItemLo>
+            ) : (
+              <ItemLo>
+                <SLink to="/plzinfobasic">플리즈회원</SLink>
+              </ItemLo>
+            )}
             <ItemLo>
               <SLink to="/" onClick={handleLogoutClieked}>
                 로그아웃

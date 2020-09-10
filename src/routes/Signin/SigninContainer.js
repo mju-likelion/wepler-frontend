@@ -33,9 +33,11 @@ export default class extends React.Component {
         password,
       });
       var token = tokenGet.data.token;
+      var user_id = tokenGet.data.user_id;
       if (token !== null) {
         // 서버로 부터 받은 JSON형태의 데이터를 로컬스토리지에 우선 저장한다.
         window.localStorage.setItem("token", JSON.stringify(token));
+        window.localStorage.setItem("user_id", JSON.stringify(user_id));
         //스테이트에 유저정보를 저장한다.
         this.setState({
           email: token.email,
