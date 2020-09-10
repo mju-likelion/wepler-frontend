@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PlzMypageNav from "../PlzMypagenav";
 import Button from "@material-ui/core/Button";
@@ -88,16 +88,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Mypage() {
   const classes = useStyles();
-  // const [type, setType] = useState("");
-
-  useEffect(() => {
-    const user_id = localStorage.getItem("user_id");
-    // setType(user_id);
-    if (user_id === '"plus_id"') {
-      this.props.history.push("/");
-      localStorage.clear();
-    }
-  });
 
   return (
     <>

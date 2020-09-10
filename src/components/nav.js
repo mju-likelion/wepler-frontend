@@ -72,7 +72,6 @@ export default withRouter(({ pathname }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user_id = localStorage.getItem("user_id");
-
     setLogged(token ? true : false);
     setType(user_id);
   }, []);
@@ -84,7 +83,7 @@ export default withRouter(({ pathname }) => {
 
   return (
     <>
-      {/* {console.log(logged, type)} */}
+      {console.log(logged, type)}
       <HeaderLo>
         {logged ? (
           <ListLo>

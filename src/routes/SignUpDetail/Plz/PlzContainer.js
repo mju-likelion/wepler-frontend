@@ -10,7 +10,6 @@ export default class extends React.Component {
     plz_phonenumber: "",
     plz_address_big: "",
     plz_address_small: "",
-
     plz_fields: [],
     plz_when_learn: "",
     plz_belong: "",
@@ -29,7 +28,7 @@ export default class extends React.Component {
       plz_belong,
     } = this.state;
     try {
-      const post = await axios.post("/plus_signup/", {
+      const post = await axios.post("/plz_signup/", {
         plz_name,
         plz_email,
         plz_password,
@@ -49,40 +48,40 @@ export default class extends React.Component {
 
   handelinfoChange = (e) => {
     const { name } = e.target;
-    if (name === "plus_name") {
+    if (name === "plz_name") {
       this.setState({
         ...this.state,
-        plus_name: e.target.value,
+        plz_name: e.target.value,
       });
     }
-    if (name === "plus_password") {
+    if (name === "plz_password") {
       this.setState({
         ...this.state,
-        plus_password: e.target.value,
+        plz_password: e.target.value,
       });
     }
-    if (name === "plus_email") {
+    if (name === "plz_email") {
       this.setState({
         ...this.state,
-        plus_email: e.target.value,
+        plz_email: e.target.value,
       });
     }
-    if (name === "plus_number") {
+    if (name === "plz_number") {
       this.setState({
         ...this.state,
-        plus_number: e.target.value,
+        plz_number: e.target.value,
       });
     }
-    if (name === "plus_address_small") {
+    if (name === "plz_address_small") {
       this.setState({
         ...this.state,
-        plus_address_small: e.target.value,
+        plz_address_small: e.target.value,
       });
     }
-    if (name === "plus_address_big") {
+    if (name === "plz_address_big") {
       this.setState({
         ...this.state,
-        plus_address_big: e.target.value,
+        plz_address_big: e.target.value,
       });
     }
   };
@@ -102,18 +101,18 @@ export default class extends React.Component {
   handleActivity = (e) => {
     const { name } = e.target;
     // 배열에 값이 있으면
-    if (this.state.plus_fields.findIndex((i) => i === name) !== -1) {
-      const newHash = this.state.plus_fields.filter((value) => value !== name);
+    if (this.state.plz_fields.findIndex((i) => i === name) !== -1) {
+      const newHash = this.state.plz_fields.filter((value) => value !== name);
       this.setState({
         ...this.state,
-        plus_fields: newHash,
+        plz_fields: newHash,
       });
     }
     // 배열에 값이 없으면
     else {
       this.setState({
         ...this.state,
-        plus_fields: [...this.state.plus_fields, name],
+        plz_fields: [...this.state.plz_fields, name],
       });
     }
   };

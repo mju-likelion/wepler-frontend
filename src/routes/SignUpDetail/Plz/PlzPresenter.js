@@ -195,7 +195,7 @@ const PlzPresenter = ({
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <select
-                    name="plus_address_big"
+                    name="plz_address_big"
                     defaultValue="지역을 선택하세요"
                     onChange={handelinfoChange}
                   >
