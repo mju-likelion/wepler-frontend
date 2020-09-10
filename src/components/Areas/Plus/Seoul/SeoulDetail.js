@@ -1,9 +1,8 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Profile from "components/Profile/Profile.js";
 
-const Container = styled.div``;
 
 const ButtonMember = styled.div`
     font-size: 50px;

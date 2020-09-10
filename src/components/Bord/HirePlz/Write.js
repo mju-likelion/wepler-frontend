@@ -1,152 +1,117 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import styled from "styled-components";
 import Container from "@material-ui/core/Container";
-import Activitys from "../HirePlz/WriteActivity";
-
-const Container2 = styled.div`
-  text-align: center;
-  color: #404a41;
-  line-height: 2;
-  padding-bottom: 5%;
-  font-weight: bold;
-  font-size: 30px;
-`;
-const Container3 = styled.div`
-  padding: 20px;
-  padding-left: 30px;
-  margin-top: 30px;
-  margin-left: 50px;
-`;
-
-const Button = styled.div`
-  border-top: 1px solid #eee;
-  padding: 20px;
-  button {
-    float: right;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    background: #212121;
-    color: #fff;
-    font-size: 16px;
-  }
-  a {
-    float: right;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    background: #f2f2f2;
-    border: 1px solid #ddd;
-    color: #424242;
-    font-size: 16px;
-  }
-  & > button + a {
-    margin-right: 5px;
-  }
-`;
-const Line = styled.div`
-  line-height: 1.5;
-`;
-
-const TitleWrap = styled.div`
-  padding: 20px;
-  padding-left: 30px;
-  margin-top: 30px;
-  margin-left: 50px;
-  input {
-    width: 91%;
-    padding-bottom: 30px;
-    border: none;
-    font-size: 22px;
-    border-bottom: solid 1px #ababab;
-    font-weight: bold;
-  }
-`;
-const TextDisplay = styled.div`
-  display: flex;
-  line-height: 1.5;
-`;
-const TextDisplay2 = styled.div`
-  padding-right: 30px;
-`;
-const TextWrap = styled.div`
-  textarea {
-    resize: none;
-    border: none;
-    width: 100%;
-    height: 100px;
-    border: none;
-  }
-`;
-const TextWrapNeed = styled.div`
-  padding-left: 30px;
-  textarea {
-    resize: none;
-    border: none;
-    width: 30%;
-    height: 20px;
-  }
-`;
-const TextWrapterm = styled.div`
-  font-size: 23px;
-  margin-top: 20px;
-  margin-left: 50px;
-  textarea {
-    resize: none;
-    border: none;
-    width: 30%;
-    height: 30px;
-    border: none;
-  }
-`;
-const DisplayLine = styled.div`
-padding-right: 10px;
-`;
-
-const ActivityDisplay = styled.div`
-  display: flex;
-  line-height: 1.5;
-  input {
-    width: 10%;
-
-  }
-`;
+import {Container2,
+  Container3,
+  Button,
+  Line,
+  TitleWrap,
+  TextDisplay,
+  TextDisplay2,
+  TextWrap,
+  TextWrapNeed,
+  TextWrapterm,
+  DisplayLine,
+  ActivityDisplay 
+} from "../HirePlz/WirteStyled"
 
 class Write extends Component {
-  state = {
-    title: "",
-    need: "",
-    ne_mem: "",
-    term1: "",
-    term2: "",
-    content: "",
-  };
-  postBoard = async () => {
-    const { title, content, need, ne_mem,term1,term2 } = this.state;
-    const post = await axios.post("http://localhost:4000/board", {
-      title,
-      content, need, ne_mem,term1,term2
-    });
-    alert("전송");
-    this.setState({
-      title: "",
-    need: "",
-    ne_mem: "",
-    term1: "",
-    term2: "",
-    content: "",
-    });
-    console.log(post);
-  };
+   state = {
+        title: "",
+        recruit: "",
+        need_member: "",
+        start_date: "",
+        end_date: "",
+        content: "",
+        fields: [],
+    };
+    postBoard = async () => {
+      const post = await axios.post("http://localhost:8000/hire_post",{
+        title: this.state.title, 
+        recruit:this.state.recruit, 
+        need_member:this.state.need_member, 
+        start_date:this.state.start_date, 
+        end_date:this.state.end_date, 
+        content:this.state.content, 
+        fields:this.state.fields
+      });
+      
+      alert("전송");
+      this.setState({
+        title: "",
+        recruit: "",
+        need_member: "",
+        start_date: "",
+        end_date: "",
+        content: "",
+        fields: [],
+      });
+      console.log(post);
+    };
+    constructor(props) {
+      super(props)
+      this.handleActivityCheck = this.handleActivityCheck.bind(this)
+      this.state = {
+          ...this.state,
+      }
+  }
+    handleChange = (e) => {
+      const { name} = e.target;
+      if(name === 'title'){
+        this.setState({
+          title : e.target.value,        
+        });
+      }
+      if( name === 'recruit' ){
+        this.setState({       
+          recruit : e.target.value,
+          
+        });
+      }
+      if( name === 'need_member'){
+        this.setState({        
+          need_member : e.target.value,
+          
+        });
+      }
+      if( name === 'start_date'){
+        this.setState({        
+          start_date : e.target.value,       
+        });
+      }
+      if(name === 'end_date'){
+        this.setState({        
+          end_date : e.target.value,        
+        });
+      }
+      if(name === 'content'){
+        this.setState({       
+          content : e.target.value,
+        });
+      }
+           
+    };
+  
+    handleActivityCheck(e) {
+      const { name } = e.target;
 
-  handleChange = (e) => {
-    const { name, value } = e.target; 
-    this.setState({ 
-      [name]: value, 
-    }); 
-  };
+      // 배열에 값이 있으면
+      if (this.state.fields.findIndex((i) => i === name) !== -1) {
+          const newHash = this.state.fields.filter((value) => value !== name);
+          this.setState({
+              ...this.state,
+              fields: newHash,
+          });
+      }
+      // 배열에 값이 없으면
+      else {
+          this.setState({
+              ...this.state,
+              fields: [...this.state.fields, name],
+          });
+      }
+  }
 
   render() {
     return (
@@ -173,9 +138,9 @@ class Write extends Component {
               </TextDisplay2>
               <input
                 type="date"
-                name="need"
+                name="recruit"
                 onChange={this.handleChange}
-                value={this.state.need}
+                value={this.state.recruit}
               />
             </TextDisplay>
             <Line>
@@ -186,10 +151,10 @@ class Write extends Component {
               <TextWrapNeed>
                 <input
                   type="number"
-                  name="ne_mem"
+                  name="need_member"
                   placeholder="ex) 5"
                   onChange={this.handleChange}
-                  value={this.state.ne_mem}
+                  value={this.state.need_member}
                 />
                 명
               </TextWrapNeed>
@@ -203,25 +168,86 @@ class Write extends Component {
                 <TextDisplay2>시작기간 :</TextDisplay2>
                 <input
                   type="date"
-                  name="term1"
-                  placeholder="ex) 2020.08.08"
+                  name="start_date"
                   onChange={this.handleChange}
-                  value={this.state.term1}
+                  value={this.state.start_date}
                 />
                 <TextDisplay2>~ 종료기간:</TextDisplay2>
                 <input
                   type="date"
-                  name="term2"
-                  placeholder="ex) 2020.12.31"
+                  name="end_date"
                   onChange={this.handleChange}
-                  value={this.state.term2}
+                  value={this.state.end_date}
                 />
               </TextDisplay>
             </TextWrapterm>
             <Line>
               <br />
             </Line>
-            <Activitys />
+            
+            <div>분야</div> <br />
+                <ActivityDisplay>
+                    <input
+                        type="checkbox"
+                        name="education"
+                        onChange={this.handleActivityCheck}
+                        value={this.state.fields.education}
+                    />
+                    <div>교육</div>
+                    <DisplayLine />
+                    <input
+                        type="checkbox"
+                        name="council"
+                        onChange={this.handleActivityCheck}
+                        value={this.state.fields.council}
+                    />
+                    <div>상담</div>
+                    <DisplayLine />
+                    <input
+                        type="checkbox"
+                        name="making"
+                        onChange={this.handleActivityCheck}
+                        value={this.state.fields.making}
+                    />
+                    <div>메이킹</div>
+                    <DisplayLine />
+                    <input
+                        type="checkbox"
+                        name="activity"
+                        onChange={this.handleActivityCheck}
+                        value={this.state.fields.activity}
+                    />
+                    <div>야외활동</div>
+                </ActivityDisplay>
+                <ActivityDisplay>
+                    <input
+                        type="checkbox"
+                        name="culture"
+                        onChange={this.handleActivityCheck}
+                        value={this.state.fields.culture}
+                    />
+                    <div>문화</div>
+                    <DisplayLine />
+                    <input
+                        type="checkbox"
+                        name="trip"
+                        onChange={this.handleActivityCheck}
+                        value={this.state.fields.trip}
+                    />
+                    <div>여행</div>
+                    <DisplayLine />
+                    <input
+                        type="checkbox"
+                        name="etc"
+                        onChange={this.handleActivityCheck}
+                        value={this.state.fields.etc}
+                    />
+                    <div>기타</div>
+                </ActivityDisplay>
+                <Line>
+                    <br />
+                </Line>
+            
             <Line>
               <br />
             </Line>
@@ -240,7 +266,6 @@ class Write extends Component {
               <button onClick={this.postBoard}>전송하기 </button>
               <Link to="/plzlist">목록</Link>
             </Button>
-            <div>{JSON.stringify(this.state)}</div>
           </Container3>
         </Container>
       </>

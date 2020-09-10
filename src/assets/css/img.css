@@ -1,18 +1,19 @@
-.slick-image{
-    width: 30%;
-    height: 30%;
+.bg-image {
+  width: 30%;
+  height: 30%;
+}
+.slicks-image {
+  width: 55%;
 }
 
-.slicks-image{
-    width: 55%;
+.member-image {
+  width: 10%;
 }
 
-.member-image{
-    width: 10%;
+.clock-image {
+  width: 5%;
+  height: 10%;
 }
-
-.clock-image{
-    width: 5%;
-    height: 10%;
-
+.act-image {
+  width: 5%;
 }
