@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import axios from "axios";
+import boards from "../../../../BoardData.json";
 import MypageNav from "../PlusMypagenav";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -18,46 +18,29 @@ const TextTitle = styled.div`
   text-align: center;
 `;
 
-const ButtonField = styled.ul`
-  display: flex;
-  text-align: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-`;
-
-const Box1 = styled.div`
-  text-align: center;
+const BigProfile = styled.div`
+  margin-bottom: 10%;
 `;
 
 const Profile = styled.div`
-  padding-top: 40px;
-  padding-right: 40px;
+  margin-bottom: 5%;
 `;
 
-const ProfileBox = styled.div`
-  text-align: center;
-`;
-
-const Wrapper = styled.div`
+const Infor = styled.div`
   display: flex;
-  text-align: center;
+  margin-bottom: 2%;
 `;
 
-const BigBox = styled.div`
-  text-align: center;
+const InforTitle = styled.div`
+  padding-right: 5%;
 `;
 
-const UploadBt = styled.div`
-  padding-right: 70%;
-  padding-top: 20px;
+const InforContents = styled.div`
+  color: #22577a;
 `;
 
-const DeleteBt = styled.div`
-  padding-left: 40px;
-`;
-
-const CompleteBt = styled.div`
-  padding-right: 40px;
+const Infortalent = styled.div`
+  padding-right: 50%;
 `;
 
 const theme = createMuiTheme({
@@ -90,9 +73,56 @@ export default function Mypage() {
       localStorage.clear();
     }
     if (token) {
-      console.log(token);
+      let result = axios.get("/token_check/", {
+        token: token,
+      });
+      if (result !== null) {
+        async function getBoard(e) {
+          const { plus_id } = this.state;
+          const get = await axios.get("/plus_onesinfo/", {
+            plus_id,
+          });
+          console.log(plus_id);
+        }
+      }
+    } else {
+      console.log("Information error");
     }
   });
+  async function postBoard(e) {
+    e.preventDefault();
+    const {
+      plus_password,
+      plus_address_big,
+      plus_address_small,
+      plus_start_day,
+      plus_talentshare,
+      plus_continu_month,
+      plus_start_time,
+      plus_end_time,
+      plus_fields,
+    } = this.state;
+    try {
+      const post = await axios.post("/plus_onesinfromation/", {
+        plus_password,
+        plus_address_big,
+        plus_address_small,
+        plus_start_day,
+        plus_talentshare,
+        plus_continu_month,
+        plus_start_time,
+        plus_end_time,
+        plus_fields,
+      });
+      console.log(post);
+      alert("플러스 회원조회 성공!");
+    } catch {
+      console.log("Theres was an error!");
+    }
+  }
+  const state = {
+    borads: [],
+  };
 
   return (
     <>
@@ -101,166 +131,132 @@ export default function Mypage() {
         <div className={classes.paper}>
           <TextTitle>기본 정보 수정</TextTitle>
         </div>
-        <Wrapper>
-          <ProfileBox>
-            <Profile>
-              <img src={imgProfile} width="200" height="220" alt="testA" />
-            </Profile>
-            <UploadBt>
-              <input type="file" name="plus_file" />
-            </UploadBt>
-          </ProfileBox>
-
-          <BigBox>
-            <ThemeProvider theme={theme}>
-              <Container component="main" maxWidth="xs">
-                <Box1>
-                  <div className={classes.paper}>
-                    <form className={classes.form} noValidate>
-                      <Grid item xs={10} sm={10}>
-                        <TextField
-                          autoComplete="name"
-                          name="name"
-                          variant="outlined"
-                          required
-                          fullWidth
-                          id="Name"
-                          label="이름"
-                          autoFocus
-                          margin="normal"
-                        />
-                      </Grid>
-                      <Grid item xs={10}>
-                        <TextField
-                          variant="outlined"
-                          required
-                          fullWidth
-                          id="email"
-                          label="이메일 주소"
-                          name="email"
-                          autoComplete="email"
-                          margin="normal"
-                        />
-                      </Grid>
-                      <Grid item xs={10}>
-                        <TextField
-                          variant="outlined"
-                          required
-                          fullWidth
-                          id="id"
-                          label="아이디"
-                          name="id"
-                          autoComplete="id"
-                          margin="normal"
-                        />
-                      </Grid>
-                      <Grid item xs={10}>
-                        <TextField
-                          variant="outlined"
-                          required
-                          fullWidth
-                          name="password_mo"
-                          label="비밀번호 수정"
-                          type="password_mo"
-                          id="password_mo"
-                          autoComplete="current-password"
-                          margin="normal"
-                        />
-                      </Grid>
-                      <Grid item xs={10}>
-                        <TextField
-                          variant="outlined"
-                          required
-                          fullWidth
-                          name="password_ch"
-                          label="수정된 비밀번호 확인"
-                          type="password_ch"
-                          id="password_ch"
-                          autoComplete="current-password"
-                          margin="normal"
-                        />
-                      </Grid>
-                      <Grid item xs={10}>
-                        <TextField
-                          variant="outlined"
-                          required
-                          fullWidth
-                          id="school"
-                          label="학교"
-                          name="school"
-                          autoComplete="school"
-                          margin="normal"
-                        />
-                      </Grid>
-                      <Grid item xs={10}>
-                        <TextField
-                          variant="outlined"
-                          required
-                          fullWidth
-                          id="grade"
-                          label="학년"
-                          name="grade"
-                          autoComplete="grade"
-                          margin="normal"
-                        />
-                      </Grid>
-                      <Grid item xs={10}>
-                        <TextField
-                          variant="outlined"
-                          required
-                          fullWidth
-                          id="number"
-                          label="전화번호"
-                          name="number"
-                          autoComplete="number"
-                          margin="normal"
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <TextField
-                          variant="outlined"
-                          required
-                          id="introduce"
-                          label="자기소개"
-                          name="introduce"
-                          autoComplete="introduce"
-                          margin="normal"
-                          fullWidth
-                        />
-                      </Grid>
-
-                      <ButtonField>
-                        <CompleteBt>
-                          <Button
-                            type="submit"
-                            variant="contained"
-                            color="secondary"
-                            className={classes.submit}
-                            margin="normal"
-                          >
-                            완료하기
-                          </Button>
-                        </CompleteBt>
-
-                        <DeleteBt>
-                          <Button
-                            type="submit"
-                            variant="contained"
-                            className={classes.submit}
-                            padding="normal"
-                          >
-                            취소하기
-                          </Button>
-                        </DeleteBt>
-                      </ButtonField>
-                    </form>
-                  </div>
-                </Box1>
-              </Container>
-            </ThemeProvider>
-          </BigBox>
-        </Wrapper>
       </Container>
+      <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="sm">
+          <div className={classes.paper}>
+            <form className={classes.form} onSubmit={postBoard} noValidate>
+              <Profile>
+                <img src={imgProfile} width="200" height="220" alt="testA" />
+                <input type="file"></input>
+              </Profile>
+              <Infor>
+                <InforTitle>
+                  <div>이름:</div>
+                </InforTitle>
+                <InforContents>{/* <div>{plus_id}</div> */}</InforContents>
+              </Infor>
+              {boards.map((item) => {
+                return (
+                  <BigProfile>
+                    <Infor>
+                      <InforTitle>
+                        <div>이름:</div>
+                      </InforTitle>
+                      <InforContents>
+                        <div>{item.plus_id}</div>
+                      </InforContents>
+                    </Infor>
+                    <Infor>
+                      <InforTitle>
+                        <div>이메일:</div>
+                      </InforTitle>
+                      <InforContents>
+                        <div>{item.plus_email}</div>
+                      </InforContents>
+                    </Infor>
+                    <Infor>
+                      <InforTitle>
+                        <div>비밀번호:</div>
+                      </InforTitle>
+                      <InforContents>
+                        <div>{item.plus_password}</div>
+                      </InforContents>
+                    </Infor>
+                    <Infor>
+                      <InforTitle>
+                        <div>전화번호:</div>
+                      </InforTitle>
+                      <InforContents>
+                        <div>{item.plus_email}</div>
+                      </InforContents>
+                    </Infor>
+                    <Infor>
+                      <InforTitle>
+                        <div>주소:</div>
+                      </InforTitle>
+                      <InforContents>
+                        <div>{item.area}</div>
+                        <div>{item.plus_address_small}</div>
+                      </InforContents>
+                    </Infor>
+                    <Infor>재능기부</Infor>
+                    <Infortalent>
+                      <Infor>
+                        <InforTitle>
+                          <div>나눔 분야</div>
+                        </InforTitle>
+                        <InforContents>
+                          <div>{item.plus_fields}</div>
+                        </InforContents>
+                      </Infor>
+                      <Infor>
+                        <InforTitle>
+                          <div>시작 날짜:</div>
+                        </InforTitle>
+                        <InforContents>
+                          <div>{item.plus_talentshare}</div>
+                        </InforContents>
+                      </Infor>
+                      <Infor>
+                        <InforTitle>
+                          <div>요일:</div>
+                        </InforTitle>
+                        <InforContents>
+                          <div>{item.plus_start_day}</div>
+                        </InforContents>
+                      </Infor>
+                      <Infor>
+                        <InforTitle>
+                          <div>시작시간:</div>
+                        </InforTitle>
+                        <InforContents>
+                          <div>{item.plus_start_time}</div>
+                        </InforContents>
+                      </Infor>
+                      <Infor>
+                        <InforTitle>
+                          <div>종료시간:</div>
+                        </InforTitle>
+                        <InforContents>
+                          <div>{item.plus_end_time}</div>
+                        </InforContents>
+                      </Infor>
+                      <Infor>
+                        <InforTitle>
+                          <div>지속기간:</div>
+                        </InforTitle>
+                        <InforContents>
+                          <div>{item.plus_continu_month}</div>
+                        </InforContents>
+                      </Infor>
+                    </Infortalent>
+                  </BigProfile>
+                );
+              })}
+              <Button
+                type="submit"
+                variant="contained"
+                color="secondary"
+                className={classes.submit}
+                margin="normal"
+              >
+                완료하기
+              </Button>
+            </form>
+          </div>
+        </Container>
+      </ThemeProvider>
     </>
   );
 }

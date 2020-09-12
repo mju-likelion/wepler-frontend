@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const List = styled.ul`
-  padding-top: 18%;
+  padding-top: 15%;
   padding-left: 8%;
   text-align: center;
   justify-content: center;

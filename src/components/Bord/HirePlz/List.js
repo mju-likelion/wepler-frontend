@@ -97,7 +97,7 @@ class List extends Component {
       content,
       plz_list_fields,
     } = this.state;
-    const get = await axios.get("http://localhost:8000/hire_post", {
+    const get = await axios.get("/hire_post/", {
       title,
       number,
       recruit,
