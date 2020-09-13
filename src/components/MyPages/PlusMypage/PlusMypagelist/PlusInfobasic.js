@@ -65,18 +65,16 @@ const MyPages = () => {
   const classes = useStyles();
   const [type, setType] = useState("");
   const [board, setBoard] = useState([]);
-  const [data, setData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    address_big: "",
-    address_small: "",
-    continu_month: "",
-    start_time: "",
-    end_time: "",
-    talentshare: "",
-    start_day: "",
-  });
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [address_big, setBig] = useState("");
+  const [address_small, setSmall] = useState("");
+  const [continu_month, setContinu] = useState("");
+  const [start_time, setStart] = useState("");
+  const [end_time, setEnd] = useState("");
+  const [talentshare, setShare] = useState("");
+  const [start_day, setDay] = useState([]);
 
   const token = localStorage.getItem("token");
 
@@ -94,18 +92,16 @@ const MyPages = () => {
         },
       });
       setBoard(test.data.user_class);
-      setData(
-        (data.name = test.data.user_name),
-        (data.phone = test.data.user_phone),
-        (data.email = test.data.user_email),
-        (data.address_big = test.data.user_address_big),
-        (data.address_small = test.data.user_address_small),
-        (data.continu_month = test.data.user_continu_month),
-        (data.start_time = test.data.user_start_time),
-        (data.end_time = test.data.user_end_time),
-        (data.talentshare = test.data.user_talentshare),
-        (data.start_day = test.data.user_start_day)
-      );
+      setName(test.data.user_name);
+      setPhone(test.data.user_phone);
+      setEmail(test.data.user_email);
+      setBig(test.data.user_address_big);
+      setSmall(test.data.user_address_small);
+      setContinu(test.data.user_continu_month);
+      setStart(test.data.user_start_time);
+      setEnd(test.data.user_end_time);
+      setShare(test.data.user_talentshare);
+      setDay(test.data.user_start_day);
     }
 
     getMypage();
@@ -133,7 +129,7 @@ const MyPages = () => {
                     <div>이름:</div>
                   </InforTitle>
                   <InforContents>
-                    <div>{data.name}</div>
+                    <div>{name}</div>
                   </InforContents>
                 </Infor>
                 <Infor>
@@ -141,7 +137,7 @@ const MyPages = () => {
                     <div>이메일:</div>
                   </InforTitle>
                   <InforContents>
-                    <div>{data.email}</div>
+                    <div>{email}</div>
                   </InforContents>
                 </Infor>
                 <Infor>
@@ -149,7 +145,7 @@ const MyPages = () => {
                     <div>전화번호:</div>
                   </InforTitle>
                   <InforContents>
-                    <div>{data.phone}</div>
+                    <div>{phone}</div>
                   </InforContents>
                 </Infor>
                 <Infor>
@@ -157,8 +153,8 @@ const MyPages = () => {
                     <div>주소:</div>
                   </InforTitle>
                   <InforContents>
-                    <div>{data.address_big}</div>
-                    <div>{data.address_small}</div>
+                    <div>{address_big}</div>
+                    <div>{address_small}</div>
                   </InforContents>
                 </Infor>
                 <Infor>재능기부</Infor>
@@ -176,7 +172,7 @@ const MyPages = () => {
                       <div>시작 날짜:</div>
                     </InforTitle>
                     <InforContents>
-                      <div>{data.talentshare}</div>
+                      <div>{talentshare}</div>
                     </InforContents>
                   </Infor>
                   <Infor>
@@ -184,7 +180,7 @@ const MyPages = () => {
                       <div>요일:</div>
                     </InforTitle>
                     <InforContents>
-                      <div>{data.start_day}</div>
+                      <div>{start_day}</div>
                     </InforContents>
                   </Infor>
                   <Infor>
@@ -192,7 +188,7 @@ const MyPages = () => {
                       <div>시작시간:</div>
                     </InforTitle>
                     <InforContents>
-                      <div>{data.start_time}</div>
+                      <div>{start_time}</div>
                     </InforContents>
                   </Infor>
                   <Infor>
@@ -200,7 +196,7 @@ const MyPages = () => {
                       <div>종료시간:</div>
                     </InforTitle>
                     <InforContents>
-                      <div>{data.end_time}</div>
+                      <div>{end_time}</div>
                     </InforContents>
                   </Infor>
                   <Infor>
@@ -208,7 +204,7 @@ const MyPages = () => {
                       <div>지속기간:</div>
                     </InforTitle>
                     <InforContents>
-                      <div>{data.continu_month}</div>
+                      <div>{continu_month}</div>
                     </InforContents>
                   </Infor>
                 </Infortalent>
