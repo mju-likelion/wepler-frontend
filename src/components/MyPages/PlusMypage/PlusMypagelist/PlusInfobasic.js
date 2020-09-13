@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import boards from "../../../../BoardData.json";
 import MypageNav from "../PlusMypagenav";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -85,22 +86,22 @@ const MyPages = () => {
     }
 
     async function getMypage() {
-      var tokenInfo = await axios.get("/mypage/getMypage", {
+      var test = await axios.get("/mypage/getMypage", {
         headers: {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },
       });
-      setBoard(tokenInfo.data.user_class);
-      setName(tokenInfo.data.user_name);
-      setPhone(tokenInfo.data.user_phone);
-      setEmail(tokenInfo.data.user_email);
-      setBig(tokenInfo.data.user_address_big);
-      setSmall(tokenInfo.data.user_address_small);
-      setContinu(tokenInfo.data.user_continu_month);
-      setStart(tokenInfo.data.user_start_time);
-      setEnd(tokenInfo.data.user_end_time);
-      setShare(tokenInfo.data.user_talentshare);
-      setDay(tokenInfo.data.user_start_day);
+      setBoard(test.data.user_class);
+      setName(test.data.user_name);
+      setPhone(test.data.user_phone);
+      setEmail(test.data.user_email);
+      setBig(test.data.user_address_big);
+      setSmall(test.data.user_address_small);
+      setContinu(test.data.user_continu_month);
+      setStart(test.data.user_start_time);
+      setEnd(test.data.user_end_time);
+      setShare(test.data.user_talentshare);
+      setDay(test.data.user_start_day);
     }
 
     getMypage();

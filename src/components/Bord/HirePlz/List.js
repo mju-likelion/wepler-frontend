@@ -82,8 +82,9 @@ const Button = styled.div`
 
 const List = () => {
   const [type, setType] = useState("");
-  const [title, setTitle] = useState("");
-  const token = localStorage.getItem("token");
+  const [title, setTitle] = useState({});
+  const [content, setContent] = useState({});
+
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
@@ -94,6 +95,7 @@ const List = () => {
         },
       });
       setTitle(lists.data.title);
+      setContent(lists.data.content);
     }
     getList();
   }, []);
@@ -130,6 +132,7 @@ const List = () => {
                       </Item>
                       <Item>
                         <h3>{item.title}</h3>
+                        <h3>{title}</h3>
                       </Item>
                       <Item>
                         <p>{item.recruit}</p>
