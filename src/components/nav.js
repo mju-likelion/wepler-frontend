@@ -71,7 +71,7 @@ export default withRouter(({ pathname }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const user_id = localStorage.getItem("user_id");
+    const user_id = JSON.parse(localStorage.getItem("user_id"));
     setLogged(token ? true : false);
     setType(user_id);
   }, []);
@@ -86,7 +86,7 @@ export default withRouter(({ pathname }) => {
       <HeaderLo>
         {logged ? (
           <ListLo>
-            {type === '"plus_id"' ? (
+            {type === "plus" ? (
               <ItemLo>
                 <SLink to="/plusinfobasic">플러스회원</SLink>
               </ItemLo>

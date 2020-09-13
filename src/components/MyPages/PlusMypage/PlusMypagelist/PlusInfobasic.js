@@ -61,68 +61,55 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Mypage() {
+const MyPages = () => {
   const classes = useStyles();
   const [type, setType] = useState("");
+  const [board, setBoard] = useState([]);
+  const [data, setData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address_big: "",
+    address_small: "",
+    continu_month: "",
+    start_time: "",
+    end_time: "",
+    talentshare: "",
+    start_day: "",
+  });
+
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const user_id = localStorage.getItem("user_id");
+    const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
-    if (user_id !== '"plus_id"') {
+    if (user_id !== "plus") {
       localStorage.clear();
     }
-    if (token) {
-      let result = axios.get("/token_check/", {
-        token: token,
+
+    async function getMypage() {
+      var test = await axios.get("/mypage/getMypage", {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
       });
-      if (result !== null) {
-        async function getBoard(e) {
-          const { plus_id } = this.state;
-          const get = await axios.get("/plus_onesinfo/", {
-            plus_id,
-          });
-          console.log(plus_id);
-        }
-      }
-    } else {
-      console.log("Information error");
+      setBoard(test.data.user_class);
+      setData(
+        (data.name = test.data.user_name),
+        (data.phone = test.data.user_phone),
+        (data.email = test.data.user_email),
+        (data.address_big = test.data.user_address_big),
+        (data.address_small = test.data.user_address_small),
+        (data.continu_month = test.data.user_continu_month),
+        (data.start_time = test.data.user_start_time),
+        (data.end_time = test.data.user_end_time),
+        (data.talentshare = test.data.user_talentshare),
+        (data.start_day = test.data.user_start_day)
+      );
     }
-  });
-  async function postBoard(e) {
-    e.preventDefault();
-    const {
-      plus_password,
-      plus_address_big,
-      plus_address_small,
-      plus_start_day,
-      plus_talentshare,
-      plus_continu_month,
-      plus_start_time,
-      plus_end_time,
-      plus_fields,
-    } = this.state;
-    try {
-      const post = await axios.post("/plus_onesinfromation/", {
-        plus_password,
-        plus_address_big,
-        plus_address_small,
-        plus_start_day,
-        plus_talentshare,
-        plus_continu_month,
-        plus_start_time,
-        plus_end_time,
-        plus_fields,
-      });
-      console.log(post);
-      alert("플러스 회원조회 성공!");
-    } catch {
-      console.log("Theres was an error!");
-    }
-  }
-  const state = {
-    borads: [],
-  };
+
+    getMypage();
+  }, []);
 
   return (
     <>
@@ -135,115 +122,97 @@ export default function Mypage() {
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="sm">
           <div className={classes.paper}>
-            <form className={classes.form} onSubmit={postBoard} noValidate>
+            <form className={classes.form} noValidate>
               <Profile>
                 <img src={imgProfile} width="200" height="220" alt="testA" />
                 <input type="file"></input>
               </Profile>
-              <Infor>
-                <InforTitle>
-                  <div>이름:</div>
-                </InforTitle>
-                <InforContents>{/* <div>{plus_id}</div> */}</InforContents>
-              </Infor>
-              {boards.map((item) => {
-                return (
-                  <BigProfile>
-                    <Infor>
-                      <InforTitle>
-                        <div>이름:</div>
-                      </InforTitle>
-                      <InforContents>
-                        <div>{item.plus_id}</div>
-                      </InforContents>
-                    </Infor>
-                    <Infor>
-                      <InforTitle>
-                        <div>이메일:</div>
-                      </InforTitle>
-                      <InforContents>
-                        <div>{item.plus_email}</div>
-                      </InforContents>
-                    </Infor>
-                    <Infor>
-                      <InforTitle>
-                        <div>비밀번호:</div>
-                      </InforTitle>
-                      <InforContents>
-                        <div>{item.plus_password}</div>
-                      </InforContents>
-                    </Infor>
-                    <Infor>
-                      <InforTitle>
-                        <div>전화번호:</div>
-                      </InforTitle>
-                      <InforContents>
-                        <div>{item.plus_email}</div>
-                      </InforContents>
-                    </Infor>
-                    <Infor>
-                      <InforTitle>
-                        <div>주소:</div>
-                      </InforTitle>
-                      <InforContents>
-                        <div>{item.area}</div>
-                        <div>{item.plus_address_small}</div>
-                      </InforContents>
-                    </Infor>
-                    <Infor>재능기부</Infor>
-                    <Infortalent>
-                      <Infor>
-                        <InforTitle>
-                          <div>나눔 분야</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{item.plus_fields}</div>
-                        </InforContents>
-                      </Infor>
-                      <Infor>
-                        <InforTitle>
-                          <div>시작 날짜:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{item.plus_talentshare}</div>
-                        </InforContents>
-                      </Infor>
-                      <Infor>
-                        <InforTitle>
-                          <div>요일:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{item.plus_start_day}</div>
-                        </InforContents>
-                      </Infor>
-                      <Infor>
-                        <InforTitle>
-                          <div>시작시간:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{item.plus_start_time}</div>
-                        </InforContents>
-                      </Infor>
-                      <Infor>
-                        <InforTitle>
-                          <div>종료시간:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{item.plus_end_time}</div>
-                        </InforContents>
-                      </Infor>
-                      <Infor>
-                        <InforTitle>
-                          <div>지속기간:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{item.plus_continu_month}</div>
-                        </InforContents>
-                      </Infor>
-                    </Infortalent>
-                  </BigProfile>
-                );
-              })}
+              <BigProfile>
+                <Infor>
+                  <InforTitle>
+                    <div>이름:</div>
+                  </InforTitle>
+                  <InforContents>
+                    <div>{data.name}</div>
+                  </InforContents>
+                </Infor>
+                <Infor>
+                  <InforTitle>
+                    <div>이메일:</div>
+                  </InforTitle>
+                  <InforContents>
+                    <div>{data.email}</div>
+                  </InforContents>
+                </Infor>
+                <Infor>
+                  <InforTitle>
+                    <div>전화번호:</div>
+                  </InforTitle>
+                  <InforContents>
+                    <div>{data.phone}</div>
+                  </InforContents>
+                </Infor>
+                <Infor>
+                  <InforTitle>
+                    <div>주소:</div>
+                  </InforTitle>
+                  <InforContents>
+                    <div>{data.address_big}</div>
+                    <div>{data.address_small}</div>
+                  </InforContents>
+                </Infor>
+                <Infor>재능기부</Infor>
+                <Infortalent>
+                  <Infor>
+                    <InforTitle>
+                      <div>나눔 분야</div>
+                    </InforTitle>
+                    <InforContents>
+                      <div>{board}</div>
+                    </InforContents>
+                  </Infor>
+                  <Infor>
+                    <InforTitle>
+                      <div>시작 날짜:</div>
+                    </InforTitle>
+                    <InforContents>
+                      <div>{data.talentshare}</div>
+                    </InforContents>
+                  </Infor>
+                  <Infor>
+                    <InforTitle>
+                      <div>요일:</div>
+                    </InforTitle>
+                    <InforContents>
+                      <div>{data.start_day}</div>
+                    </InforContents>
+                  </Infor>
+                  <Infor>
+                    <InforTitle>
+                      <div>시작시간:</div>
+                    </InforTitle>
+                    <InforContents>
+                      <div>{data.start_time}</div>
+                    </InforContents>
+                  </Infor>
+                  <Infor>
+                    <InforTitle>
+                      <div>종료시간:</div>
+                    </InforTitle>
+                    <InforContents>
+                      <div>{data.end_time}</div>
+                    </InforContents>
+                  </Infor>
+                  <Infor>
+                    <InforTitle>
+                      <div>지속기간:</div>
+                    </InforTitle>
+                    <InforContents>
+                      <div>{data.continu_month}</div>
+                    </InforContents>
+                  </Infor>
+                </Infortalent>
+              </BigProfile>
               <Button
                 type="submit"
                 variant="contained"
@@ -259,4 +228,5 @@ export default function Mypage() {
       </ThemeProvider>
     </>
   );
-}
+};
+export default MyPages;
