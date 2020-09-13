@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Container from "@material-ui/core/Container";
-import {Container2,
+import {
+  Container2,
   Container3,
   Button,
   Line,
@@ -13,104 +14,100 @@ import {Container2,
   TextWrapNeed,
   TextWrapterm,
   DisplayLine,
-  ActivityDisplay 
-} from "../HirePlz/WirteStyled"
+  ActivityDisplay,
+} from "../HirePlz/WirteStyled";
 
 class Write extends Component {
-   state = {
-        title: "",
-        recruit: "",
-        need_member: "",
-        start_date: "",
-        end_date: "",
-        content: "",
-        fields: [],
+  state = {
+    title: "",
+    recruit: "",
+    need_member: "",
+    start_date: "",
+    end_date: "",
+    content: "",
+    fields: [],
+  };
+  postBoard = async () => {
+    const post = await axios.post("/hire_post/", {
+      title: this.state.title,
+      recruit: this.state.recruit,
+      need_member: this.state.need_member,
+      start_date: this.state.start_date,
+      end_date: this.state.end_date,
+      content: this.state.content,
+      fields: this.state.fields,
+    });
+    alert("작성되었습니다.");
+    this.setState({
+      title: "",
+      recruit: "",
+      need_member: "",
+      start_date: "",
+      end_date: "",
+      content: "",
+      fields: [],
+    });
+    console.log(post);
+  };
+  constructor(props) {
+    super(props);
+    this.handleActivityCheck = this.handleActivityCheck.bind(this);
+    this.state = {
+      ...this.state,
     };
-    postBoard = async () => {
-      const post = await axios.post("http://localhost:8000/hire_post",{
-        title: this.state.title, 
-        recruit:this.state.recruit, 
-        need_member:this.state.need_member, 
-        start_date:this.state.start_date, 
-        end_date:this.state.end_date, 
-        content:this.state.content, 
-        fields:this.state.fields
-      });
-      
-      alert("전송");
-      this.setState({
-        title: "",
-        recruit: "",
-        need_member: "",
-        start_date: "",
-        end_date: "",
-        content: "",
-        fields: [],
-      });
-      console.log(post);
-    };
-    constructor(props) {
-      super(props)
-      this.handleActivityCheck = this.handleActivityCheck.bind(this)
-      this.state = {
-          ...this.state,
-      }
   }
-    handleChange = (e) => {
-      const { name} = e.target;
-      if(name === 'title'){
-        this.setState({
-          title : e.target.value,        
-        });
-      }
-      if( name === 'recruit' ){
-        this.setState({       
-          recruit : e.target.value,
-          
-        });
-      }
-      if( name === 'need_member'){
-        this.setState({        
-          need_member : e.target.value,
-          
-        });
-      }
-      if( name === 'start_date'){
-        this.setState({        
-          start_date : e.target.value,       
-        });
-      }
-      if(name === 'end_date'){
-        this.setState({        
-          end_date : e.target.value,        
-        });
-      }
-      if(name === 'content'){
-        this.setState({       
-          content : e.target.value,
-        });
-      }
-           
-    };
-  
-    handleActivityCheck(e) {
-      const { name } = e.target;
+  handleChange = (e) => {
+    const { name } = e.target;
+    if (name === "title") {
+      this.setState({
+        title: e.target.value,
+      });
+    }
+    if (name === "recruit") {
+      this.setState({
+        recruit: e.target.value,
+      });
+    }
+    if (name === "need_member") {
+      this.setState({
+        need_member: e.target.value,
+      });
+    }
+    if (name === "start_date") {
+      this.setState({
+        start_date: e.target.value,
+      });
+    }
+    if (name === "end_date") {
+      this.setState({
+        end_date: e.target.value,
+      });
+    }
+    if (name === "content") {
+      this.setState({
+        content: e.target.value,
+      });
+    }
+  };
 
-      // 배열에 값이 있으면
-      if (this.state.fields.findIndex((i) => i === name) !== -1) {
-          const newHash = this.state.fields.filter((value) => value !== name);
-          this.setState({
-              ...this.state,
-              fields: newHash,
-          });
-      }
-      // 배열에 값이 없으면
-      else {
-          this.setState({
-              ...this.state,
-              fields: [...this.state.fields, name],
-          });
-      }
+  handleActivityCheck(e) {
+    const { name } = e.target;
+
+    // 배열에 값이 있으면
+    if (this.state.fields.findIndex((i) => i === name) !== -1) {
+      const newHash = this.state.fields.filter((value) => value !== name);
+      this.setState({
+        ...this.state,
+        fields: newHash,
+      });
+    }
+    // 배열에 값이 없으면
+    else {
+      this.setState({
+        ...this.state,
+        fields: [...this.state.fields, name],
+      });
+    }
   }
 
   render() {
@@ -184,70 +181,68 @@ class Write extends Component {
             <Line>
               <br />
             </Line>
-            
             <div>분야</div> <br />
-                <ActivityDisplay>
-                    <input
-                        type="checkbox"
-                        name="education"
-                        onChange={this.handleActivityCheck}
-                        value={this.state.fields.education}
-                    />
-                    <div>교육</div>
-                    <DisplayLine />
-                    <input
-                        type="checkbox"
-                        name="council"
-                        onChange={this.handleActivityCheck}
-                        value={this.state.fields.council}
-                    />
-                    <div>상담</div>
-                    <DisplayLine />
-                    <input
-                        type="checkbox"
-                        name="making"
-                        onChange={this.handleActivityCheck}
-                        value={this.state.fields.making}
-                    />
-                    <div>메이킹</div>
-                    <DisplayLine />
-                    <input
-                        type="checkbox"
-                        name="activity"
-                        onChange={this.handleActivityCheck}
-                        value={this.state.fields.activity}
-                    />
-                    <div>야외활동</div>
-                </ActivityDisplay>
-                <ActivityDisplay>
-                    <input
-                        type="checkbox"
-                        name="culture"
-                        onChange={this.handleActivityCheck}
-                        value={this.state.fields.culture}
-                    />
-                    <div>문화</div>
-                    <DisplayLine />
-                    <input
-                        type="checkbox"
-                        name="trip"
-                        onChange={this.handleActivityCheck}
-                        value={this.state.fields.trip}
-                    />
-                    <div>여행</div>
-                    <DisplayLine />
-                    <input
-                        type="checkbox"
-                        name="etc"
-                        onChange={this.handleActivityCheck}
-                        value={this.state.fields.etc}
-                    />
-                    <div>기타</div>
-                </ActivityDisplay>
-                <Line>
-                    <br />
-                </Line>
-            
+            <ActivityDisplay>
+              <input
+                type="checkbox"
+                name="education"
+                onChange={this.handleActivityCheck}
+                value={this.state.fields.education}
+              />
+              <div>교육</div>
+              <DisplayLine />
+              <input
+                type="checkbox"
+                name="council"
+                onChange={this.handleActivityCheck}
+                value={this.state.fields.council}
+              />
+              <div>상담</div>
+              <DisplayLine />
+              <input
+                type="checkbox"
+                name="making"
+                onChange={this.handleActivityCheck}
+                value={this.state.fields.making}
+              />
+              <div>메이킹</div>
+              <DisplayLine />
+              <input
+                type="checkbox"
+                name="activity"
+                onChange={this.handleActivityCheck}
+                value={this.state.fields.activity}
+              />
+              <div>야외활동</div>
+            </ActivityDisplay>
+            <ActivityDisplay>
+              <input
+                type="checkbox"
+                name="culture"
+                onChange={this.handleActivityCheck}
+                value={this.state.fields.culture}
+              />
+              <div>문화</div>
+              <DisplayLine />
+              <input
+                type="checkbox"
+                name="trip"
+                onChange={this.handleActivityCheck}
+                value={this.state.fields.trip}
+              />
+              <div>여행</div>
+              <DisplayLine />
+              <input
+                type="checkbox"
+                name="etc"
+                onChange={this.handleActivityCheck}
+                value={this.state.fields.etc}
+              />
+              <div>기타</div>
+            </ActivityDisplay>
+            <Line>
+              <br />
+            </Line>
             <Line>
               <br />
             </Line>

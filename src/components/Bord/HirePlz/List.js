@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import board from "../../../BoardData.json";
@@ -80,115 +80,92 @@ const Button = styled.div`
   }
 `;
 
-class List extends Component {
-  state = {
-    borads: [],
-  };
-  postBoard = async () => {
-    const {
-      title,
-      number,
-      recruit,
-      plz_id,
-      need_member,
-      apply_member,
-      start_date,
-      end_date,
-      content,
-      plz_list_fields,
-    } = this.state;
-    const get = await axios.get("/hire_post/", {
-      title,
-      number,
-      recruit,
-      plz_id,
-      need_member,
-      apply_member,
-      start_date,
-      end_date,
-      content,
-      plz_list_fields,
-    });
-    alert("전송");
-    this.setState({
-      title: "",
-      number: "",
-      recruit: "",
-      plz_id: "",
-      need_member: "",
-      apply_member: "",
-      start_date: "",
-      end_date: "",
-      content: "",
-      plz_list_fields: [],
-    });
-    console.log(get);
-  };
-  render() {
-    //로딩 데이터
-    return (
-      <>
-        <Container component="main" maxWidth="lg">
-          <Grid item lg={12}>
-            <Container2>
-              <h2>고용합니다</h2>
-            </Container2>
-            <BigTextWrap>
-              <Item>
-                <div>번호</div>
-              </Item>
-              <Item>
-                <div>제목</div>
-              </Item>
-              <Item>
-                <div>모집여부</div>
-              </Item>
-              <Item>
-                <div>개인/단체</div>
-              </Item>
-            </BigTextWrap>
-            <Wrap>
-              {board.map((item) => {
-                return (
-                  <ListItem key={item.number}>
-                    <Link to={`/plzread/${item.number}`}>
-                      <TextWrap>
-                        <Item>
-                          <div>{item.number}</div>
-                        </Item>
-                        <Item>
-                          <h3>{item.title}</h3>
-                        </Item>
-                        <Item>
-                          <p>{item.recruit}</p>
-                        </Item>
-                        <Item>
-                          <div>{item.plz_id}</div>
-                        </Item>
-                      </TextWrap>
+const List = () => {
+  const [type, setType] = useState("");
+  const [title, setTitle] = useState("");
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    const user_id = JSON.parse(localStorage.getItem("user_id"));
+    setType(user_id);
+    async function getList() {
+      var lists = await axios.get("/hire_post/", {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      });
+      setTitle(lists.data.title);
+    }
+    getList();
+  }, []);
 
-                      <ExplanWrap>
-                        <div>
-                          필요/신청인원: {item.need_member}/{item.apply_member}
-                        </div>
-                        <div>
-                          기간: {item.start_date}~{item.end_date}
-                        </div>
-                        <div>분야: {item.plz_list_fields}</div>
-                      </ExplanWrap>
-                    </Link>
-                  </ListItem>
-                );
-              })}
-            </Wrap>
+  return (
+    <>
+      <Container component="main" maxWidth="lg">
+        <Grid item lg={12}>
+          <Container2>
+            <h2>고용합니다</h2>
+          </Container2>
+          <BigTextWrap>
+            <Item>
+              <div>번호</div>
+            </Item>
+            <Item>
+              <div>제목</div>
+            </Item>
+            <Item>
+              <div>모집여부</div>
+            </Item>
+            <Item>
+              <div>개인/단체</div>
+            </Item>
+          </BigTextWrap>
+          <Wrap>
+            {board.map((item) => {
+              return (
+                <ListItem key={item.number}>
+                  <Link to={`/plzread/${item.number}`}>
+                    <TextWrap>
+                      <Item>
+                        <div>{item.number}</div>
+                      </Item>
+                      <Item>
+                        <h3>{item.title}</h3>
+                      </Item>
+                      <Item>
+                        <p>{item.recruit}</p>
+                      </Item>
+                      <Item>
+                        <div>{item.plz_id}</div>
+                      </Item>
+                    </TextWrap>
+
+                    <ExplanWrap>
+                      <div>
+                        필요/신청인원: {item.need_member}/{item.apply_member}
+                      </div>
+                      <div>
+                        기간: {item.start_date}~{item.end_date}
+                      </div>
+                      <div>분야: {item.plz_list_fields}</div>
+                    </ExplanWrap>
+                  </Link>
+                </ListItem>
+              );
+            })}
+          </Wrap>
+          {type === "pluz" ? (
             <Button>
               <Link to={`/plzwrite`}>작성하기</Link>
             </Button>
-          </Grid>
-        </Container>
-      </>
-    );
-  }
-}
+          ) : (
+            <Button>
+              <Link to={`/`}>홈으로</Link>
+            </Button>
+          )}
+        </Grid>
+      </Container>
+    </>
+  );
+};
 
 export default List;
