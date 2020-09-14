@@ -20,10 +20,8 @@ import PlusSignup from "routes/SignUpDetail/Plus";
 import HirePlzList from "components/Bord/HirePlz/List";
 import HirePlzWrite from "components/Bord/HirePlz/Write";
 import HirePlzRead from "components/Bord/HirePlz/Read";
-import SeoulMem from "components/Areas/Plus/Seoul/SeoulMem";
-import SeoulDetail from "components/Areas/Plus/Seoul/SeoulDetail";
-import GyeonggiMem from "components/Areas/Plus/Gyeonggi/GyenggiMem";
-import IncheonMem from "components/Areas/Plus/Incheon/IncheonMem";
+import PlusProflie from "components/Areas/PlusProflie";
+import PlusProflieDetail from "components/Areas/PlusDetail";
 import ReviewViewPlz from "components/Reviews/Plz/view";
 import ReviewViewPlus from "components/Reviews/Plus/view";
 import PlusActivityapply from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityapply";
@@ -61,10 +59,8 @@ export default () => (
         <Route path="/signuplz" exact component={PlzSignup} />
         <Route path="/signuplus" exact component={PlusSignup} />
         {/* 플러스 회원 */}
-        <Route path="/plusseoul" exact component={SeoulMem} />
-        <Route path="/plusseoulde" exact component={SeoulDetail} />
-        <Route path="/plusgyeong" exact component={GyeonggiMem} />
-        <Route path="/plusinch" exact component={IncheonMem} />
+        <Route path="/plusseoul" exact component={PlusProflie} />
+        <Route path="/plusseoulde" exact component={PlusProflieDetail} />
         {/* 플리즈 회원 마이페이지 */}
         <Route path="/plzactivityapply" exact component={PlzActivityapply} />
         <Route path="/plzactivityend" exact component={PlzActivityend} />
