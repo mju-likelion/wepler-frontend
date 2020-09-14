@@ -170,7 +170,7 @@ const List = () => {
               </Link>
             </ListItem>
           </Wrap>
-          {type === "pluz" ? (
+          {type === "plz" ? (
             <Button>
               <Link to={`/plzwrite`}>작성하기</Link>
             </Button>

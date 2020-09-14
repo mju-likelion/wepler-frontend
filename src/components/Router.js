@@ -36,7 +36,7 @@ import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/PlzA
 import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
 import PlzInfobasic from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfobasic";
 import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
-import basic from "components/MyPages/PlusMypage/PlusMypagelist/basic";
+
 export default () => (
   <Router>
     <>
@@ -92,7 +92,6 @@ export default () => (
         <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
         <Route path="/plusinfobasic" exact component={PlusInfobasic} />
 
-        <Route path="/basicbasic" exact component={basic} />
         <Redirect from="*" to="/" />
       </Switch>
     </>
