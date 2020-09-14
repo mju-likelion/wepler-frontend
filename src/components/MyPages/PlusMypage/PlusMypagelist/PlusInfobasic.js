@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import boards from "../../../../BoardData.json";
 import MypageNav from "../PlusMypagenav";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
@@ -75,8 +74,7 @@ const MyPages = () => {
   const [end_time, setEnd] = useState("");
   const [talentshare, setShare] = useState("");
   const [start_day, setDay] = useState([]);
-
-  const token = localStorage.getItem("token");
+  localStorage.getItem("token");
 
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import board from "../../../BoardData.json";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
@@ -82,8 +81,26 @@ const Button = styled.div`
 
 const List = () => {
   const [type, setType] = useState("");
-  const [title, setTitle] = useState({});
-  const [content, setContent] = useState({});
+  const [page, setPage] = useState(1); //페이지 수
+  const [per, setPer] = useState({}); //페이지에 맞는 배열만 가짐 props
+  const [data, setData] = useState([
+    {
+      number: "1",
+      title: "제목1",
+      content: "내용1",
+      recruit: "모집중",
+      plz_id: "빛나는 위플러",
+      need_member: "5",
+      apply_member: "1",
+      start_date: "2020.08.08",
+      end_date: "2020.12.31",
+      plz_list_fields: ["council", "trip"],
+    },
+    {
+      title: "제목2",
+      content: "내용2",
+    },
+  ]);
 
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
@@ -94,11 +111,13 @@ const List = () => {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },
       });
-      setTitle(lists.data.title);
-      setContent(lists.data.content);
     }
     getList();
   }, []);
+
+  useEffect(() => {
+    setPer();
+  }, [page]);
 
   return (
     <>
@@ -122,39 +141,34 @@ const List = () => {
             </Item>
           </BigTextWrap>
           <Wrap>
-            {board.map((item) => {
-              return (
-                <ListItem key={item.number}>
-                  <Link to={`/plzread/${item.number}`}>
-                    <TextWrap>
-                      <Item>
-                        <div>{item.number}</div>
-                      </Item>
-                      <Item>
-                        <h3>{item.title}</h3>
-                        <h3>{title}</h3>
-                      </Item>
-                      <Item>
-                        <p>{item.recruit}</p>
-                      </Item>
-                      <Item>
-                        <div>{item.plz_id}</div>
-                      </Item>
-                    </TextWrap>
+            <ListItem key={data.number}>
+              <Link to={`/plzread/${data.number}`}>
+                <TextWrap>
+                  <Item>
+                    <div>{data[0].number}</div>
+                  </Item>
+                  <Item>
+                    <h3>{data[0].title}</h3>
+                  </Item>
+                  <Item>
+                    <p>{data[0].recruit}</p>
+                  </Item>
+                  <Item>
+                    <div>{data[0].plz_id}</div>
+                  </Item>
+                </TextWrap>
 
-                    <ExplanWrap>
-                      <div>
-                        필요/신청인원: {item.need_member}/{item.apply_member}
-                      </div>
-                      <div>
-                        기간: {item.start_date}~{item.end_date}
-                      </div>
-                      <div>분야: {item.plz_list_fields}</div>
-                    </ExplanWrap>
-                  </Link>
-                </ListItem>
-              );
-            })}
+                <ExplanWrap>
+                  <div>
+                    필요/신청인원: {data[0].need_member}/{data[0].apply_member}
+                  </div>
+                  <div>
+                    기간: {data[0].start_date}~{data[0].end_date}
+                  </div>
+                  <div>분야: {data[0].plz_list_fields}</div>
+                </ExplanWrap>
+              </Link>
+            </ListItem>
           </Wrap>
           {type === "pluz" ? (
             <Button>
