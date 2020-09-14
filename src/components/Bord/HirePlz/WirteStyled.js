@@ -7,45 +7,40 @@ export const Container2 = styled.div`
   padding-bottom: 5%;
   font-weight: bold;
   font-size: 30px;
-`
+`;
 export const Container3 = styled.div`
   padding: 20px;
   padding-left: 30px;
   margin-top: 30px;
   margin-left: 50px;
-`
+`;
 
 export const Button = styled.div`
-  border-top: 1px solid #eee;
-  padding: 20px;
-  button {
-    float: right;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    text-decoration: none;
-    background: #C9AA79;
-    color: #fff;
-    font-size: 16px;
-    &:hover {
-      background-color: #F2D4CA;
-    }
-  
-  }
-  a {
-    float: right;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    background: #f2f2f2;
-    border: 1px solid #ddd;
-    color: #424242;
-    font-size: 16px;
-  }
-  & > button + a {
-    margin-right: 5px;
+  float: right;
+  padding: 10px 10px;
+  margin-bottom: 10%;
+  padding-right: 5%;
+  float: right;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  text-decoration: none;
+  background: #c9aa79;
+  color: #fff;
+  font-size: 20px;
+  &:hover {
+    background-color: #eee4e1;
   }
 `;
+export const ButtonItem = styled.div`
+  padding-right: 5%;
+`;
+
+export const Buttonlist = styled.div`
+  padding-left: 45%;
+  display: flex;
+`;
+
 export const Line = styled.div`
   line-height: 1.5;
 `;
@@ -102,7 +97,7 @@ export const TextWrapterm = styled.div`
   }
 `;
 export const DisplayLine = styled.div`
-padding-right: 10px;
+  padding-right: 10px;
 `;
 
 export const ActivityDisplay = styled.div`
@@ -110,6 +105,5 @@ export const ActivityDisplay = styled.div`
   line-height: 1.5;
   input {
     width: 10%;
-
   }
 `;

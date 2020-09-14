@@ -6,6 +6,8 @@ import {
   Container2,
   Container3,
   Button,
+  ButtonItem,
+  Buttonlist,
   Line,
   TitleWrap,
   TextDisplay,
@@ -257,10 +259,14 @@ class Write extends Component {
                 value={this.state.content}
               />
             </TextWrap>
-            <Button>
-              <button onClick={this.postBoard}>전송하기 </button>
-              <Link to="/plzlist">목록</Link>
-            </Button>
+            <Buttonlist>
+              <ButtonItem>
+                <Button>
+                  <Link to="/plzlist">목록</Link>
+                </Button>
+              </ButtonItem>
+              <Button onClick={this.postBoard}>전송하기</Button>
+            </Buttonlist>
           </Container3>
         </Container>
       </>

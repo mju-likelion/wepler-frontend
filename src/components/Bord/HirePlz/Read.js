@@ -45,6 +45,10 @@ const Button = styled.div`
   text-decoration: none;
   background: #c9aa79;
   color: #fff;
+  font-size: 20px;
+  &:hover {
+    background-color: #eee4e1;
+  }
 `;
 const Buttonlist = styled.div`
   padding-top: 2%;
