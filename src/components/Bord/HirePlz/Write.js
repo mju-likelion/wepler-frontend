@@ -15,8 +15,7 @@ import {
   TextWrap,
   TextWrapNeed,
   TextWrapterm,
-  DisplayLine,
-  ActivityDisplay,
+  Act,
 } from "../HirePlz/WirteStyled";
 
 class Write extends Component {
@@ -53,7 +52,6 @@ class Write extends Component {
   };
   constructor(props) {
     super(props);
-    this.handleActivityCheck = this.handleActivityCheck.bind(this);
     this.state = {
       ...this.state,
     };
@@ -91,26 +89,6 @@ class Write extends Component {
       });
     }
   };
-
-  handleActivityCheck(e) {
-    const { name } = e.target;
-
-    // 배열에 값이 있으면
-    if (this.state.fields.findIndex((i) => i === name) !== -1) {
-      const newHash = this.state.fields.filter((value) => value !== name);
-      this.setState({
-        ...this.state,
-        fields: newHash,
-      });
-    }
-    // 배열에 값이 없으면
-    else {
-      this.setState({
-        ...this.state,
-        fields: [...this.state.fields, name],
-      });
-    }
-  }
 
   render() {
     return (
@@ -182,68 +160,10 @@ class Write extends Component {
             </TextWrapterm>
             <Line>
               <br />
-            </Line>
-            <div>분야</div> <br />
-            <ActivityDisplay>
-              <input
-                type="checkbox"
-                name="education"
-                onChange={this.handleActivityCheck}
-                value={this.state.fields.education}
-              />
-              <div>교육</div>
-              <DisplayLine />
-              <input
-                type="checkbox"
-                name="council"
-                onChange={this.handleActivityCheck}
-                value={this.state.fields.council}
-              />
-              <div>상담</div>
-              <DisplayLine />
-              <input
-                type="checkbox"
-                name="making"
-                onChange={this.handleActivityCheck}
-                value={this.state.fields.making}
-              />
-              <div>메이킹</div>
-              <DisplayLine />
-              <input
-                type="checkbox"
-                name="activity"
-                onChange={this.handleActivityCheck}
-                value={this.state.fields.activity}
-              />
-              <div>야외활동</div>
-            </ActivityDisplay>
-            <ActivityDisplay>
-              <input
-                type="checkbox"
-                name="culture"
-                onChange={this.handleActivityCheck}
-                value={this.state.fields.culture}
-              />
-              <div>문화</div>
-              <DisplayLine />
-              <input
-                type="checkbox"
-                name="trip"
-                onChange={this.handleActivityCheck}
-                value={this.state.fields.trip}
-              />
-              <div>여행</div>
-              <DisplayLine />
-              <input
-                type="checkbox"
-                name="etc"
-                onChange={this.handleActivityCheck}
-                value={this.state.fields.etc}
-              />
-              <div>기타</div>
-            </ActivityDisplay>
-            <Line>
-              <br />
+              <Act>
+                <div>분야는 회원가입 시 선택한 분야로 자동 등록 됩니다.</div>
+                <div>마이페이지에서 수정 할 수 있습니다.</div>
+              </Act>
             </Line>
             <Line>
               <br />

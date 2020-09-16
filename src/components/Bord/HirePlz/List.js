@@ -106,7 +106,7 @@ const List = () => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
     async function getList() {
-      var lists = await axios.get("/hire_post/", {
+      var lists = await axios.get("/hire_list/", {
         headers: {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },

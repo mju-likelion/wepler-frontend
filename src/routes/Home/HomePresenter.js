@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
-import css from "assets/css/img.css";
+import "assets/css/img.css";
 import imgBg1 from "assets/img/Home/bg1.jpg";
 import imgReview1 from "assets/img/Home/review1.jpg";
 

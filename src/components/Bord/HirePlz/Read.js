@@ -26,7 +26,7 @@ const Wrap = styled.div`
 
 const FlexItem = styled.div`
   padding-left: 3%;
-  color: #f07167;
+  color: #a26769;
 `;
 
 const ConItem = styled.div`
@@ -66,38 +66,70 @@ const ButtonItem = styled.div`
 const Read = () => {
   const [type, setType] = useState("");
   const [ismodify, setIsmodify] = useState(true);
-  const [data, setData] = useState([
-    {
-      number: "1",
-      title: "제목1",
-      content:
-        "내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용",
-      recruit: "모집중",
-      plz_id: "빛나는 위플러",
-      need_member: "5",
-      start_date: "2020-08-08",
-      end_date: "2020-12-31",
-      plz_list_fields: ["council", "trip"],
-    },
-  ]);
+  const [user_id, setId] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [recruit, setRecruit] = useState("");
+  const [need, setNeed] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+  const [fields, setFields] = useState([]);
+  const [plz_belong, setBelong] = useState("");
 
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
     async function getRead() {
-      var reads = await axios.get("/hire_post/", {
+      var reads = await axios.get("/hire_detail/", {
         headers: {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },
       });
     }
     getRead();
+    setId("plz_id");
+    setBelong("individual");
+    setTitle("제목1");
+    setContent(
+      "내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용"
+    );
+    setRecruit("모집중");
+    setNeed("5");
+    setStart("2020-08-08");
+    setEnd("2020-12-31");
+    setFields(["council", "trip"]);
   }, []);
 
+  const onChange = (e) => {
+    if (e.target.name === "title") {
+      setTitle(e.target.value);
+    } else if (e.target.name === "recruit") {
+      setRecruit(e.target.value);
+    }
+  };
+
+  const postBoard = async (e) => {
+    e.preventDefault();
+    const { title, content, need, start, fields } = this.state;
+    try {
+      const post = await axios.post("/hire_detail/", {
+        title,
+        content,
+        need,
+        start,
+        fields,
+      });
+      console.log(post);
+      alert("수정 되었습니다");
+    } catch {
+      alert("실패하였습니다.");
+    }
+  };
+  //어플라이) 토큰, 게시글 넘버
   const read = (
     <>
       <Container2>
-        <h2>{data[0].title}</h2>
+        <h2>{title}</h2>
       </Container2>
       <Container maxWidth="md">
         <Box>
@@ -107,15 +139,17 @@ const Read = () => {
             </Grid>
             <Grid item xs={12} sm={5}>
               <FlexItem>
-                <p>{data[0].recruit}</p>
+                <div>{recruit}</div>
               </FlexItem>
             </Grid>
             <Grid item xs={12} sm={2}>
-              <div>개인/단체:</div>
+              <div>작성자:</div>
             </Grid>
             <Grid item xs={12} sm={4}>
               <FlexItem>
-                <p>{data[0].plz_id}</p>
+                <p>
+                  {user_id}({plz_belong})
+                </p>
               </FlexItem>
             </Grid>
           </Grid>
@@ -127,7 +161,7 @@ const Read = () => {
             </Grid>
             <Grid item xs={12} sm={3}>
               <FlexItem>
-                <p>{data[0].need_member}</p>
+                <p>{need}</p>
               </FlexItem>
             </Grid>
           </Grid>
@@ -139,7 +173,7 @@ const Read = () => {
             </Grid>
             <Grid item xs={12} sm={4}>
               <FlexItem>
-                <p>{data[0].start_date}</p>
+                <p>{start}</p>
               </FlexItem>
             </Grid>
             <Grid item xs={12} sm={2}>
@@ -147,7 +181,7 @@ const Read = () => {
             </Grid>
             <Grid item xs={12} sm={3}>
               <FlexItem>
-                <p>{data[0].end_date}</p>
+                <p>{end}</p>
               </FlexItem>
             </Grid>
           </Grid>
@@ -159,7 +193,7 @@ const Read = () => {
             </Grid>
             <Grid item xs={12} sm={3}>
               <FlexItem>
-                <p>{data[0].plz_list_fields}</p>
+                <p>{fields}</p>
               </FlexItem>
             </Grid>
           </Grid>
@@ -171,7 +205,7 @@ const Read = () => {
         </Grid>
         <Box>
           <ConItem>
-            <p>{data[0].content}</p>
+            <div>{content}</div>
           </ConItem>
         </Box>
       </Container>
@@ -202,8 +236,9 @@ const Read = () => {
       <Container2>
         <TextField
           rows={6}
-          defaultValue={data[0].title}
-          onChange={(event) => setData.title(event.targey.value)}
+          name="title"
+          value={title}
+          onChange={onChange}
           required
         />
       </Container2>
@@ -215,15 +250,17 @@ const Read = () => {
             </Grid>
             <Grid item xs={12} sm={5}>
               <FlexItem>
-                <div>{data[0].recruit}</div>
+                <div>{recruit}</div>
               </FlexItem>
             </Grid>
             <Grid item xs={12} sm={2}>
-              <div>개인/단체:</div>
+              <div>작성자:</div>
             </Grid>
             <Grid item xs={12} sm={4}>
               <FlexItem>
-                <p>{data[0].plz_id}</p>
+                <p>
+                  {user_id}({plz_belong})
+                </p>
               </FlexItem>
             </Grid>
           </Grid>
@@ -236,9 +273,11 @@ const Read = () => {
             <Grid item xs={12} sm={3}>
               <FlexItem>
                 <TextField
-                  type="number"
                   rows={3}
-                  defaultValue={data[0].need_member}
+                  type="number"
+                  name="need"
+                  value={need}
+                  onChange={onChange}
                   required
                 />
               </FlexItem>
@@ -254,11 +293,11 @@ const Read = () => {
               <FlexItem>
                 <TextField
                   type="date"
-                  id="start"
-                  name="trip-start"
-                  defaultValue={data[0].start_date}
-                  min={data[0].start_date}
-                  max={data[0].end_date}
+                  name="start"
+                  defaultValue={start}
+                  min={start}
+                  max={end}
+                  onChange={onChange}
                   required
                 />
               </FlexItem>
@@ -270,11 +309,11 @@ const Read = () => {
               <FlexItem>
                 <TextField
                   type="date"
-                  id="start"
-                  name="trip-start"
-                  defaultValue={data[0].end_date}
-                  min={data[0].start_date}
-                  max={data[0].end_date}
+                  name="end"
+                  defaultValue={end}
+                  min={start}
+                  max={end}
+                  onChange={onChange}
                   required
                 />
               </FlexItem>
@@ -288,7 +327,7 @@ const Read = () => {
             </Grid>
             <Grid item xs={12} sm={3}>
               <FlexItem>
-                <p>{data[0].plz_list_fields}</p>
+                <p>{fields}</p>
               </FlexItem>
             </Grid>
           </Grid>
@@ -304,10 +343,12 @@ const Read = () => {
               label="내용"
               multiline
               rows={4}
-              defaultValue={data[0].content}
+              name="content"
+              value={content}
               variant="outlined"
               fullWidth
               margin="normal"
+              onChange={onChange}
               required
             />
           </ConItem>
@@ -316,7 +357,9 @@ const Read = () => {
       <Wrap>
         <Buttonlist>
           <ButtonItem>
-            <Button type="submit">완료하기</Button>
+            <Button type="submit" onSubmit={postBoard}>
+              완료하기
+            </Button>
           </ButtonItem>
           <ButtonItem>
             <Button>

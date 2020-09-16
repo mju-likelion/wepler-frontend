@@ -35,7 +35,9 @@ export const Button = styled.div`
 export const ButtonItem = styled.div`
   padding-right: 5%;
 `;
-
+export const Act = styled.div`
+  color: #f28482;
+`;
 export const Buttonlist = styled.div`
   padding-left: 45%;
   display: flex;
@@ -94,16 +96,5 @@ export const TextWrapterm = styled.div`
     width: 30%;
     height: 30px;
     border: none;
-  }
-`;
-export const DisplayLine = styled.div`
-  padding-right: 10px;
-`;
-
-export const ActivityDisplay = styled.div`
-  display: flex;
-  line-height: 1.5;
-  input {
-    width: 10%;
   }
 `;
