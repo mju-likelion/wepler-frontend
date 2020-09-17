@@ -3,14 +3,11 @@ import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const List = styled.ul`
-  padding-top: 12%;
   padding-left: 8%;
   text-align: center;
   justify-content: center;
   position: fixed;
   width: 30%;
-  top: 0;
-  bottom: 0;
 `;
 
 const Item = styled.li`

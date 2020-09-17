@@ -39,7 +39,7 @@ export const Act = styled.div`
   color: #f28482;
 `;
 export const Buttonlist = styled.div`
-  padding-left: 45%;
+  padding-left: 65%;
   display: flex;
 `;
 

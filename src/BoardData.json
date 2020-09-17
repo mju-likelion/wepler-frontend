@@ -1,32 +1,150 @@
-[
-  {
-    "number": "1",
-    "title": "미용봉사",
-    "recruit": "모집중",
-    "plz_id": "빛나는 위플러",
-    "need_member": "5",
-    "apply_member": "1",
-    "start_date": "2020.08.08",
-    "end_date": "2020.12.31",
-    "plz_list_fields": ["council", "trip"],
-    "content": "첫번째 글입니다아아아ㅏ",
-    "plz_belong": "individual",
-
-    "area": "seoul",
-    "plus_id": "플러스회원아이디",
-    "plus_oneself": "나는야 플러스회원",
-    "plus_rating": "5",
-    "plus_fields": ["council", "trip"],
-    "plus_talentshare": "2020.08.08",
-    "plus_start_day": "mon",
-
-    "plus_when_learn": "thinking",
-
-    "plus_continu_month": "5",
-    "plus_start_time": "8:00",
-    "plus_end_time": "17:00",
-    "plus_email": "1234@naver.com",
-    "plus_password": "****",
-    "plus_address_small": "용인시 처인구 명지대학교"
-  }
-]
+{
+  "area": "seoul",
+  "plus_id": "플러스회원아이디",
+  "plus_oneself": "나는야 플러스회원",
+  "plus_rating": "5",
+  "plus_fields": ["council", "trip"],
+  "plus_talentshare": "2020.08.08",
+  "plus_start_day": "mon",
+  "plus_when_learn": "thinking",
+  "plus_continu_month": "5",
+  "plus_start_time": "8:00",
+  "plus_end_time": "17:00",
+  "plus_email": "1234@naver.com",
+  "plus_password": "****",
+  "plus_address_small": "용인시 처인구 명지대학교",
+  "Board": [
+    {
+      "number": "1",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "1",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_fields": ["council", "trip"]
+    },
+    {
+      "number": "2",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    },
+    {
+      "number": "3",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    },
+    {
+      "number": "4",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    },
+    {
+      "number": "5",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    },
+    {
+      "number": "6",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    },
+    {
+      "number": "7",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    },
+    {
+      "number": "8",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    },
+    {
+      "number": "9",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    },
+    {
+      "number": "10",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    },
+    {
+      "number": "11",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    },
+    {
+      "number": "12",
+      "title": "미용봉사",
+      "recruit": "모집중",
+      "plz_id": "빛나는 위플러",
+      "need_member": "5",
+      "apply_member": "2",
+      "start_date": "2020.08.08",
+      "end_date": "2020.12.31",
+      "plz_list_fields": ["council", "trip"]
+    }
+  ]
+}

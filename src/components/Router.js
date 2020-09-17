@@ -17,7 +17,7 @@ import Signup from "routes/Signup";
 import Signin from "routes/Signin";
 import PlzSignup from "routes/SignUpDetail/Plz";
 import PlusSignup from "routes/SignUpDetail/Plus";
-import HirePlzList from "components/Bord/HirePlz/List";
+import HireBoard from "components/Bord/HirePlz/List/ListBoard";
 import HirePlzWrite from "components/Bord/HirePlz/Write";
 import HirePlzRead from "components/Bord/HirePlz/Read";
 import PlusProflie from "components/Areas/PlusProflie";
@@ -51,9 +51,6 @@ export default () => (
         <Route path="/areaplz" exact component={HirePlz} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/signin" exact component={Signin} />
-        <Route path="/plzlist" exact component={HirePlzList} />
-        <Route path="/plzread" exact component={HirePlzRead} />
-        <Route path="/plzwrite" exact component={HirePlzWrite} />
         <Route path="/reviewplzlist" exact component={ReviewViewPlz} />
         <Route path="/reviewpluslist" exact component={ReviewViewPlus} />
         <Route path="/signuplz" exact component={PlzSignup} />
@@ -91,7 +88,11 @@ export default () => (
         />
         <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
         <Route path="/plusinfobasic" exact component={PlusInfobasic} />
-
+        {/* 게시판 */}
+        <Route path="/@:plzread/:postId" component={HirePlzRead} /> {/* 읽기*/}
+        <Route path="/plzwrite" exact component={HirePlzWrite} /> {/* 글쓰기*/}
+        <Route path={["/@plzboard", "/"]} exact component={HireBoard} />{" "}
+        {/* 목록*/}
         <Redirect from="*" to="/" />
       </Switch>
     </>

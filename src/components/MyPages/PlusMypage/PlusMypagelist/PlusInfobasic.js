@@ -1,61 +1,29 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import axios from "axios";
 import MypageNav from "../PlusMypagenav";
 import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-
-const TextTitle = styled.div`
-  padding-top: 10px;
-  padding-bottom: 30px;
-  padding-left: 200px;
-  font-weight: bold;
-  font-size: 25px;
-  text-align: center;
-`;
-
-const BigProfile = styled.div`
-  margin-bottom: 10%;
-  text-align: center;
-  justify-content: center;
-`;
-
-const BigBox = styled.div`
-  text-align: center;
-  justify-content: center;
-`;
-
-const Profile = styled.div`
-  padding-right: 60px;
-  padding-bottom: 20px;
-  justify-content: center;
-  justify-content: center;
-  text-align: center;
-`;
-
-const Infor = styled.div`
-  display: flex;
-  margin-bottom: 20px;
-`;
-
-const InforTitle = styled.div``;
-
-const InforContents = styled.div`
-  color: #22577a;
-`;
-
-const Infortalent = styled.div`
-  padding-right: 200px;
-  padding-bottom: 50px;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  text-align: center;
-`;
+import {
+  TextTitle,
+  BigProfile,
+  BigBox,
+  Profile,
+  Infor,
+  InforContents,
+  Infortalent,
+  Wrapper,
+  ButtonList,
+  ActivityDisplay,
+  ActivityList,
+  TextWrapterm,
+  ActivityBox,
+} from "./BasicStyle";
 
 const theme = createMuiTheme({
   palette: {
@@ -75,20 +43,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MyPages = () => {
+const MyPages = ({ handleActivity, handleChange, handleWhen, postBoard }) => {
   const classes = useStyles();
+  const [ismodify, setIsmodify] = useState(false);
   const [type, setType] = useState("");
-  const [board, setBoard] = useState([]);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [address_big, setBig] = useState("");
-  const [address_small, setSmall] = useState("");
-  const [continu_month, setContinu] = useState("");
-  const [start_time, setStart] = useState("");
-  const [end_time, setEnd] = useState("");
-  const [talentshare, setShare] = useState("");
-  const [start_day, setDay] = useState([]);
+  const [plus_fields, setBoard] = useState([]);
+  const [plus_name, setName] = useState("");
+  const [plus_phone, setPhone] = useState("");
+  const [plus_email, setEmail] = useState("");
+  const [plus_address_big, setBig] = useState("");
+  const [plus_address_small, setSmall] = useState("");
+  const [plus_continu_month, setContinu] = useState("");
+  const [plus_start_time, setStart] = useState("");
+  const [plus_end_time, setEnd] = useState("");
+  const [plus_talentshare, setShare] = useState("");
+  const [plus_start_day, setDay] = useState([]);
 
   const [imgBase64, setImgBase64] = useState(""); // 파일 base64
   const [imgFile, setImgFile] = useState(null); //파일
@@ -112,7 +81,7 @@ const MyPages = () => {
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
-    if (user_id !== "plus") {
+    if (type !== "plus") {
       localStorage.clear();
     }
 
@@ -137,24 +106,301 @@ const MyPages = () => {
 
     getMypage();
   }, []);
+  const read = (
+    <Infortalent>
+      <Infor>
+        <div>나눔 분야:</div>
+        <InforContents>
+          <div>{plus_fields}</div>
+        </InforContents>
+      </Infor>
+      <Infor>
+        <div>시작 날짜:</div>
+
+        <InforContents>
+          <div>{plus_talentshare}</div>
+        </InforContents>
+      </Infor>
+      <Infor>
+        <div>요일:</div>
+
+        <InforContents>
+          <div>{plus_start_day}</div>
+        </InforContents>
+      </Infor>
+      <Infor>
+        <div>시작시간:</div>
+
+        <InforContents>
+          <div>{plus_start_time}</div>
+        </InforContents>
+      </Infor>
+      <Infor>
+        <div>종료시간:</div>
+
+        <InforContents>
+          <div>{plus_end_time}</div>
+        </InforContents>
+      </Infor>
+      <Infor>
+        <div>지속기간:</div>
+        <InforContents>
+          <div>{plus_continu_month}</div>
+        </InforContents>
+      </Infor>
+    </Infortalent>
+  );
+
+  const modify = (
+    <Infortalent>
+      <Infor>
+        <div>나눔 분야:</div>
+      </Infor>
+      <Infor>
+        <InforContents>
+          <ActivityDisplay>
+            <ActivityBox>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="education"
+                    onChange={handleActivity}
+                    value={plus_fields.education}
+                    color="primary"
+                  />
+                }
+                label="교육"
+              />
+            </ActivityBox>
+            <ActivityBox>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="council"
+                    onChange={handleActivity}
+                    value={plus_fields.council}
+                    color="primary"
+                  />
+                }
+                label="상담"
+              />
+            </ActivityBox>
+            <ActivityBox>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="making"
+                    onChange={handleActivity}
+                    value={plus_fields.making}
+                    color="primary"
+                  />
+                }
+                label="메이킹"
+              />
+            </ActivityBox>
+            <ActivityBox>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="activity"
+                    value={plus_fields.activity}
+                    onChange={handleActivity}
+                    color="primary"
+                  />
+                }
+                label="야외활동"
+              />
+            </ActivityBox>
+          </ActivityDisplay>
+          <ActivityDisplay>
+            <ActivityBox>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="culture"
+                    onChange={handleActivity}
+                    value={plus_fields.culture}
+                    color="primary"
+                  />
+                }
+                label="문화"
+              />
+            </ActivityBox>
+
+            <ActivityBox>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="trip"
+                    onChange={handleActivity}
+                    value={plus_fields.trip}
+                    color="primary"
+                  />
+                }
+                label="여행"
+              />
+            </ActivityBox>
+            <ActivityBox>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="etc"
+                    onChange={handleActivity}
+                    value={plus_fields.etc}
+                    color="primary"
+                  />
+                }
+                label="기타"
+              />
+            </ActivityBox>
+          </ActivityDisplay>
+        </InforContents>
+      </Infor>
+      <Infor>
+        <div>시작 날짜:</div>
+
+        <InforContents>
+          <input
+            type="date"
+            name="plus_talentshare"
+            onChange={handleChange}
+            value={plus_talentshare}
+          />
+        </InforContents>
+      </Infor>
+      <Infor>
+        <div>요일:</div>
+
+        <InforContents>
+          <ActivityList>
+            <TextWrapterm>
+              <input
+                type="checkbox"
+                name="monday"
+                onChange={handleWhen}
+                value={plus_start_day.mon}
+              />
+              <div>월</div>
+            </TextWrapterm>
+            <TextWrapterm>
+              <input
+                type="checkbox"
+                name="tuesday"
+                onChange={handleWhen}
+                value={plus_start_day.tues}
+              />
+              <div>화</div>
+            </TextWrapterm>
+            <TextWrapterm>
+              <input
+                type="checkbox"
+                name="wednesday"
+                onChange={handleWhen}
+                value={plus_start_day.wednes}
+              />
+              <div>수</div>
+            </TextWrapterm>
+            <TextWrapterm>
+              <input
+                type="checkbox"
+                name="thursday"
+                onChange={handleWhen}
+                value={plus_start_day.thurs}
+              />
+              <div>목</div>
+            </TextWrapterm>
+            <TextWrapterm>
+              <input
+                type="checkbox"
+                name="friday"
+                onChange={handleWhen}
+                value={plus_start_day.fri}
+              />
+              <div>금</div>
+            </TextWrapterm>
+            <TextWrapterm>
+              <input
+                type="checkbox"
+                name="saturday"
+                onChange={handleWhen}
+                value={plus_start_day.satur}
+              />
+              <div>토</div>
+            </TextWrapterm>
+            <TextWrapterm>
+              <input
+                type="checkbox"
+                name="sunday"
+                onChange={handleWhen}
+                value={plus_start_day.sun}
+              />
+              <div>일</div>
+            </TextWrapterm>
+          </ActivityList>
+        </InforContents>
+      </Infor>
+      <Infor>
+        <div>시작시간:</div>
+
+        <InforContents>
+          <TextWrapterm>
+            <input
+              type="time"
+              name="plus_start_time"
+              onChange={handleChange}
+              value={plus_start_time}
+            />
+          </TextWrapterm>
+        </InforContents>
+      </Infor>
+      <Infor>
+        <div>종료시간:</div>
+
+        <InforContents>
+          <TextWrapterm>
+            <input
+              type="time"
+              name="plus_end_time"
+              onChange={handleChange}
+              value={plus_end_time}
+            />
+          </TextWrapterm>
+        </InforContents>
+      </Infor>
+      <Infor>
+        <div>지속기간:</div>
+        <InforContents>
+          <TextWrapterm>
+            <input
+              type="number"
+              name="plus_continu_month"
+              placeholder="ex) 5"
+              onChange={handleChange}
+              value={plus_continu_month}
+            />
+            <div>개월</div>
+          </TextWrapterm>
+        </InforContents>
+      </Infor>
+    </Infortalent>
+  );
 
   return (
     <>
       <MypageNav />
       <Container component="main" maxWidth="xs">
-        <div className={classes.paper}>
+        <div>
           <TextTitle>기본 정보 수정</TextTitle>
         </div>
       </Container>
-
       <BigBox>
         <ThemeProvider theme={theme}>
           <Container component="main" maxWidth="xs">
-            <div className={classes.paper}>
-              <form className={classes.form} noValidate>
+            <div>
+              <form className={classes.form} onSubmit={postBoard} noValidate>
                 <Wrapper>
                   <Profile>
-                    <div className={MyPages}>
+                    <div>
                       <div
                         style={{
                           backgroundColor: "#efefef",
@@ -175,89 +421,39 @@ const MyPages = () => {
 
                   <BigProfile>
                     <Infor>
-                      <InforTitle>
-                        <div>이름:</div>
-                      </InforTitle>
+                      <div>이름:</div>
+
                       <InforContents>
-                        <div>{name}</div>
+                        <div>{plus_name}</div>
                       </InforContents>
                     </Infor>
                     <Infor>
-                      <InforTitle>
-                        <div>이메일:</div>
-                      </InforTitle>
+                      <div>이메일:</div>
+
                       <InforContents>
-                        <div>{email}</div>
+                        <div>{plus_email}</div>
                       </InforContents>
                     </Infor>
                     <Infor>
-                      <InforTitle>
-                        <div>전화번호:</div>
-                      </InforTitle>
+                      <div>전화번호:</div>
+
                       <InforContents>
-                        <div>{phone}</div>
+                        <div>{plus_phone}</div>
                       </InforContents>
                     </Infor>
                     <Infor>
-                      <InforTitle>
-                        <div>주소:</div>
-                      </InforTitle>
+                      <div>주소:</div>
                       <InforContents>
-                        <div>{address_big}</div>
-                        <div>{address_small}</div>
+                        <div>{plus_address_big}</div>
+                        <div>{plus_address_small}</div>
                       </InforContents>
                     </Infor>
-                    <Infor>재능기부)</Infor>
-                    <Infortalent>
-                      <Infor>
-                        <InforTitle>
-                          <div>나눔 분야:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{board}</div>
-                        </InforContents>
-                      </Infor>
-                      <Infor>
-                        <InforTitle>
-                          <div>시작 날짜:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{talentshare}</div>
-                        </InforContents>
-                      </Infor>
-                      <Infor>
-                        <InforTitle>
-                          <div>요일:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{start_day}</div>
-                        </InforContents>
-                      </Infor>
-                      <Infor>
-                        <InforTitle>
-                          <div>시작시간:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{start_time}</div>
-                        </InforContents>
-                      </Infor>
-                      <Infor>
-                        <InforTitle>
-                          <div>종료시간:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{end_time}</div>
-                        </InforContents>
-                      </Infor>
-                      <Infor>
-                        <InforTitle>
-                          <div>지속기간:</div>
-                        </InforTitle>
-                        <InforContents>
-                          <div>{continu_month}</div>
-                        </InforContents>
-                      </Infor>
-                    </Infortalent>
+                  </BigProfile>
+                </Wrapper>
+                <Infor>재능기부)</Infor>
+                <BigProfile>{ismodify ? modify : read}</BigProfile>
+                <ButtonList>
+                  {ismodify ? (
                     <Button
                       type="submit"
                       variant="contained"
@@ -267,10 +463,20 @@ const MyPages = () => {
                     >
                       완료하기
                     </Button>
-                  </BigProfile>
-                </Wrapper>
+                  ) : (
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      margin="normal"
+                      onClick={() => setIsmodify(true)}
+                    >
+                      수정하기
+                    </Button>
+                  )}
+                </ButtonList>
               </form>
             </div>
+            <Box mt={5} />
           </Container>
         </ThemeProvider>
       </BigBox>

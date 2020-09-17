@@ -10,7 +10,6 @@ const Container2 = styled.div`
   text-align: center;
   color: #404a41;
   line-height: 2;
-  padding-bottom: 5%;
   font-weight: bold;
   font-size: 30px;
 `;
@@ -18,7 +17,13 @@ const Container2 = styled.div`
 const Box = styled.div`
   margin-bottom: 3%;
 `;
-
+const Box2 = styled.div`
+  padding-left: 64%;
+  margin-top: 1rem;
+  margin-bottom: 5%;
+  color: #8d99ae;
+  display: flex;
+`;
 const Wrap = styled.div`
   padding-left: 20%;
   padding-right: 25%;
@@ -66,6 +71,7 @@ const ButtonItem = styled.div`
 const Read = () => {
   const [type, setType] = useState("");
   const [ismodify, setIsmodify] = useState(true);
+  const [user_email, setEmail] = useState("");
   const [user_id, setId] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -79,14 +85,15 @@ const Read = () => {
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
-    async function getRead() {
-      var reads = await axios.get("/hire_detail/", {
-        headers: {
-          Authorization: JSON.parse(localStorage.getItem("token")),
-        },
-      });
-    }
-    getRead();
+    // async function getRead() {
+    //   var reads = await axios.get("/hire_detail/", {
+    //     headers: {
+    //       Authorization: JSON.parse(localStorage.getItem("token")),
+    //     },
+    //   });
+    // }
+    // getRead();
+    setEmail("123@naver.com");
     setId("plz_id");
     setBelong("individual");
     setTitle("제목1");
@@ -125,13 +132,26 @@ const Read = () => {
       alert("실패하였습니다.");
     }
   };
+
+  const apply = async (e) => {};
   //어플라이) 토큰, 게시글 넘버
   const read = (
     <>
       <Container2>
         <h2>{title}</h2>
       </Container2>
+
       <Container maxWidth="md">
+        <Box2>
+          <Grid item xs={12} sm={4}>
+            <span>
+              <b>작성일:</b>
+            </span>
+          </Grid>
+          <Grid item xs={12} sm={12}>
+            <span>{new Date().toLocaleDateString()}</span>
+          </Grid>
+        </Box2>
         <Box>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={1}>
@@ -150,6 +170,7 @@ const Read = () => {
                 <p>
                   {user_id}({plz_belong})
                 </p>
+                <p>{user_email}</p>
               </FlexItem>
             </Grid>
           </Grid>
@@ -213,9 +234,7 @@ const Read = () => {
         <Buttonlist>
           <ButtonItem>
             {type === "plus" ? (
-              <Button>
-                <Link to={`/plzwrite`}>신청하기</Link>
-              </Button>
+              <Button onClick={apply}>신청하기</Button>
             ) : (
               <Button>
                 <Link to={`/`}>수정하기</Link>
@@ -243,8 +262,19 @@ const Read = () => {
         />
       </Container2>
       <Container maxWidth="md">
+        <Box2>
+          <Grid item xs={12} sm={4}>
+            <span>
+              <b>작성일:</b>
+            </span>
+          </Grid>
+          <Grid item xs={12} sm={12}>
+            <span>{new Date().toLocaleDateString()}</span>
+          </Grid>
+        </Box2>
+
         <Box>
-          <Grid container spacing={2}>
+          <Grid container spacing={1}>
             <Grid item xs={12} sm={1}>
               <div>모집:</div>
             </Grid>
@@ -256,11 +286,12 @@ const Read = () => {
             <Grid item xs={12} sm={2}>
               <div>작성자:</div>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={2}>
               <FlexItem>
                 <p>
                   {user_id}({plz_belong})
                 </p>
+                <p>{user_email}</p>
               </FlexItem>
             </Grid>
           </Grid>

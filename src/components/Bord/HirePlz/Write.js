@@ -182,7 +182,7 @@ class Write extends Component {
             <Buttonlist>
               <ButtonItem>
                 <Button>
-                  <Link to="/plzlist">목록</Link>
+                  <Link to="/@plzboardboard">취소</Link>
                 </Button>
               </ButtonItem>
               <Button onClick={this.postBoard}>전송하기</Button>

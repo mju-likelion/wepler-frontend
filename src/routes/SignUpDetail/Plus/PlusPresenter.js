@@ -69,6 +69,7 @@ const TextList = styled.div`
   font-size: 20px;
   font-weight: bold;
 `;
+
 const TextWrapterm = styled.div`
   display: flex;
   font-size: 23px;
