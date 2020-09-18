@@ -44,7 +44,7 @@ const Listpage = (props) => {
               <div key={index}>
                 <ItemCard
                   type={type}
-                  number={itemdata.number}
+                  id={itemdata.id}
                   title={itemdata.title}
                   plz_id={itemdata.plz_id}
                   need_member={itemdata.need_member}

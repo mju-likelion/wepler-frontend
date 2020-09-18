@@ -4,7 +4,7 @@ import { Item, TextWrap, ExplanWrap, ListItem } from "./ListStyle";
 
 function Itemlist({
   type,
-  number,
+  id,
   title,
   recruit,
   plz_id,
@@ -15,11 +15,11 @@ function Itemlist({
   plz_fields,
 }) {
   return (
-    <ListItem key={number}>
-      <Link to={`/plzread/${number}`}>
+    <ListItem key={id}>
+      <Link to={`/@$plzboard/${id}`}>
         <TextWrap>
           <Item>
-            <div>{number}</div>
+            <div>{id}</div>
           </Item>
           <Item>
             <h3>{title}</h3>
