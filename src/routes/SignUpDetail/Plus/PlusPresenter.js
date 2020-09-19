@@ -212,6 +212,20 @@ const PlusPresenter = ({
                     <option disabled>지역을 선택하세요</option>
                     <option value="seoul">서울</option>
                     <option value="gyeonggi">경기도</option>
+                    <option value="incheon">인천</option>
+                    <option value="gangwon">강원도</option>
+                    <option value="chungbuk">충청북도</option>
+                    <option value="chungnam">충청남도</option>
+                    <option value="daejeon">대전</option>
+                    <option value="jeonbuk">전라북도</option>
+                    <option value="jeonnam">전라남도</option>
+                    <option value="gwangju">광주</option>
+                    <option value="gyeongbuk">경상북도</option>
+                    <option value="daegu">대구</option>
+                    <option value="gyeongnam">경상남도</option>
+                    <option value="ulsan">울산</option>
+                    <option value="busan">부산</option>
+                    <option value="jeju">제주</option>
                   </select>
                 </Grid>
                 <Grid item xs={12} sm={8}>
