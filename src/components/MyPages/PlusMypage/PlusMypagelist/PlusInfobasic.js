@@ -58,9 +58,7 @@ const MyPages = ({ handleActivity, handleChange, handleWhen, postBoard }) => {
   const [plus_end_time, setEnd] = useState("");
   const [plus_talentshare, setShare] = useState("");
   const [plus_start_day, setDay] = useState([]);
-
-  const [imgBase64, setImgBase64] = useState(""); // 파일 base64
-  const [imgFile, setImgFile] = useState(null); //파일
+  const [file, setfile] = useState(null); //파일
 
   const handleChangeFile = (event) => {
     let reader = new FileReader();
@@ -69,13 +67,14 @@ const MyPages = ({ handleActivity, handleChange, handleWhen, postBoard }) => {
       // 2. 읽기가 완료되면 아래코드가 실행됩니다.
       const base64 = reader.result;
       if (base64) {
-        setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
+        base64.toString(); // 파일 base64 상태 업데이트
       }
     };
     if (event.target.files[0]) {
       reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
-      setImgFile(event.target.files[0]); // 파일 상태 업데이트
+      setfile(URL.createObjectURL(event.target.files[0])); // 파일 상태 업데이트
     }
+    setfile(URL.createObjectURL(event.target.files[0]));
   };
 
   useEffect(() => {
@@ -103,9 +102,8 @@ const MyPages = ({ handleActivity, handleChange, handleWhen, postBoard }) => {
       setShare(test.data.user_talentshare);
       setDay(test.data.user_start_day);
     }
-
     getMypage();
-  }, []);
+  }, [type]);
   const read = (
     <Infortalent>
       <Infor>
@@ -400,22 +398,22 @@ const MyPages = ({ handleActivity, handleChange, handleWhen, postBoard }) => {
               <form className={classes.form} onSubmit={postBoard} noValidate>
                 <Wrapper>
                   <Profile>
+                    <img
+                      style={{
+                        backgroundColor: "#efefef",
+                        width: "200px",
+                        height: "200px",
+                      }}
+                      src={file}
+                      alt=""
+                    />
                     <div>
-                      <div
-                        style={{
-                          backgroundColor: "#efefef",
-                          width: "200px",
-                          height: "200px",
-                        }}
-                      ></div>
-                      <div>
-                        <input
-                          type="file"
-                          name="imgFile"
-                          id="imgFile"
-                          onChange={handleChangeFile}
-                        />
-                      </div>
+                      <input
+                        type="file"
+                        name="imgFile"
+                        id="imgFile"
+                        onChange={handleChangeFile}
+                      />
                     </div>
                   </Profile>
 
