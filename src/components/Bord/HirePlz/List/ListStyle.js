@@ -63,7 +63,7 @@ export const ListItem = styled.div`
 
 export const Button = styled.div`
   border-top: 1px solid #eee;
-  padding: 20px;
+  padding: 20px 20px;
   a {
     float: right;
     padding: 10px 20px;
@@ -71,5 +71,10 @@ export const Button = styled.div`
     text-decoration: none;
     background: #c9aa79;
     color: #ffffff;
+  }
+  $:disabled {
+    background: #b5838d;
+    color: #e9c46a;
+    cursor: not-allowed;
   }
 `;

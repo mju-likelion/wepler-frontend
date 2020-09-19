@@ -71,6 +71,7 @@ const ButtonItem = styled.div`
 const Read = () => {
   const [type, setType] = useState("");
   const [ismodify, setIsmodify] = useState(true);
+  const [id, setPostid] = useState(0);
   const [user_email, setEmail] = useState("");
   const [user_id, setId] = useState("");
   const [title, setTitle] = useState("");
@@ -93,6 +94,7 @@ const Read = () => {
     //   });
     // }
     // getRead();
+    setPostid(1);
     setEmail("123@naver.com");
     setId("plz_id");
     setBelong("individual");
@@ -398,7 +400,9 @@ const Read = () => {
               {/* 삭제) 장고로 바로 보냄 */}
             </Button>
           </ButtonItem>
-          <Button onClick={() => setIsmodify(false)}>취소하기</Button>
+          <Button onClick={() => setIsmodify(false)}>
+            <Link to={`/@plzboard`}>취소하기</Link>
+          </Button>
         </Buttonlist>
       </Wrap>
     </>

@@ -20,6 +20,7 @@
     "date-arithmetic": "^4.1.0",
     "flat-color-icons": "^1.1.0",
     "moment": "^2.27.0",
+    "qs": "^6.9.4",
     "react": "^16.13.1",
     "react-big-calendar": "^0.27.0",
     "react-dom": "^16.13.1",
@@ -27,6 +28,7 @@
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "redux": "^4.0.5",
     "styled-components": "^5.2.0",
     "styled-reset": "^4.2.2"
   },

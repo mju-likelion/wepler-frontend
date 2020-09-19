@@ -4,17 +4,28 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import ItemCard from "./Itemlist";
 import { Container2, Wrap, Item, BigTextWrap, Button } from "./ListStyle";
+import Pagination from "./pageination";
 
 const Listpage = (props) => {
   const { Itemcard } = props;
   const [type, setType] = useState("");
   const [page, setPage] = useState("");
+  const [currentPage, setCurrentPage] = useState(""); //현재활성화된 page기본은 1
+  const [pageSize, setPageSize] = useState(""); //한페이지에 보여줄 개수
+  const [itemsCount, setItemsCount] = useState(""); //아이템 개수(임의로 10을 줌)
+
+  const handlePageChange = (page) => {
+    setCurrentPage({ page }); // 페이지 수 클릭 시 현재 페이지 변경
+    console.log(page);
+  };
 
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
-
-    setPage(0);
+    setCurrentPage(1);
+    setPage(1);
+    setPageSize(5);
+    setItemsCount(12);
   }, []);
 
   return (
@@ -56,15 +67,21 @@ const Listpage = (props) => {
               </div>
             ))}
         </Wrap>
-        {type === "plz" ? (
+        {type === "plus" ? (
           <Button>
-            <Link to={`/plzwrite`}>작성하기</Link>
+            <Link to={`/plzwrite`}>포스트 작성하기</Link>
           </Button>
         ) : (
           <Button>
             <Link to={`/`}>홈으로</Link>
           </Button>
         )}
+        <Pagination
+          pageSize={pageSize}
+          itemsCount={itemsCount}
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+        />
       </Grid>
     </Container>
   );
