@@ -68,7 +68,8 @@ const ButtonItem = styled.div`
   padding-right: 5%;
 `;
 
-const Read = () => {
+const Read = ({ match }) => {
+  console.log(match.params.postId);
   const [type, setType] = useState("");
   const [ismodify, setIsmodify] = useState(true);
   const [id, setPostid] = useState(0);
@@ -94,7 +95,6 @@ const Read = () => {
     //   });
     // }
     // getRead();
-    setPostid(1);
     setEmail("123@naver.com");
     setId("plz_id");
     setBelong("individual");
@@ -104,8 +104,8 @@ const Read = () => {
     );
     setRecruit("모집중");
     setNeed("5");
-    setStart("2020-08-08");
-    setEnd("2020-12-31");
+    setStart(new Date("2020-08-08"));
+    setEnd(new Date("2020-12-31"));
     setFields(["council", "trip"]);
   }, []);
 

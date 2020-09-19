@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Item, TextWrap, ExplanWrap, ListItem } from "./ListStyle";
 
 function Itemlist({
-  type,
   id,
   title,
   recruit,
@@ -16,7 +15,7 @@ function Itemlist({
 }) {
   return (
     <ListItem key={id}>
-      <Link to={`/@$plzboard/${id}`}>
+      <Link to={`/plzboard/${id}`}>
         <TextWrap>
           <Item>
             <div>{id}</div>

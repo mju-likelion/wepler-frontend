@@ -46,8 +46,12 @@ const Pagination = ({
         <PageNumber>
           {pages.map((page) => (
             <Button
+              key={page.id}
               to={currentPage === buildLinke({ plzboard, page: page })}
-              onClick={() => handlePageChange(page)}
+              onClick={() => {
+                console.log(page);
+                handlePageChange(page);
+              }}
             >
               {page}
             </Button>

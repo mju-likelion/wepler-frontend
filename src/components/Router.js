@@ -89,9 +89,9 @@ export default () => (
         <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
         <Route path="/plusinfobasic" exact component={PlusInfobasic} />
         {/* 게시판 */}
-        <Route path="/@:plzboard/:postId" component={HirePlzRead} /> {/* 읽기*/}
+        <Route path="/plzboard/:postId" component={HirePlzRead} /> {/* 읽기*/}
         <Route path="/plzwrite" exact component={HirePlzWrite} /> {/* 글쓰기*/}
-        <Route path={["/@plzboard", "/"]} exact component={HireBoard} />{" "}
+        <Route path={["/plzboard", "/"]} exact component={HireBoard} />{" "}
         {/* 목록*/}
         <Redirect from="*" to="/" />
       </Switch>
