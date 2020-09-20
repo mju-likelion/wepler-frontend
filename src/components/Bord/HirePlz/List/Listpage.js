@@ -9,24 +9,21 @@ import { Container2, Wrap, Item, BigTextWrap, Button } from "./ListStyle";
 const Listpage = (props) => {
   const { Itemcard } = props;
   const [type, setType] = useState("");
-  const [currentPage, setCurrentPage] = useState(""); //현재활성화된 page기본은 1
-  const [pageSize, setPageSize] = useState(""); //한페이지에 보여줄 개수
-  const [itemsCount, setItemsCount] = useState(""); //아이템 개수
-  const [lastpage, setLastpage] = useState("");
+  const [currentPage, setCurrentPage] = useState(1); //현재활성화된 page기본은 1
+  const [pageSize, setPageSize] = useState(5); //한페이지에 보여줄 개수
+  const [itemsCount, setItemsCount] = useState(12); //아이템 개수
+  const [lastpage, setLastpage] = useState(3);
 
-  const handlePageChange = (page) => {
-    setCurrentPage({ page }); // 페이지 수 클릭 시 현재 페이지 변경
-    console.log(page);
+  const handlePageChange = (event, page) => {
+    setCurrentPage(page); // 페이지 수 클릭 시 현재 페이지 변경
+    console.log(currentPage);
   };
 
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
-    setCurrentPage(1);
-    setPageSize(5);
-    setItemsCount(12);
-    setLastpage(Math.ceil(setItemsCount / setPageSize));
-  }, [setCurrentPage]);
+    setLastpage(Math.ceil(itemsCount / pageSize));
+  }, []);
 
   return (
     <Container component="main" maxWidth="lg">

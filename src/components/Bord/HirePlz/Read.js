@@ -87,14 +87,14 @@ const Read = ({ match }) => {
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
-    // async function getRead() {
-    //   var reads = await axios.get("/hire_detail/", {
-    //     headers: {
-    //       Authorization: JSON.parse(localStorage.getItem("token")),
-    //     },
-    //   });
-    // }
-    // getRead();
+    async function getRead() {
+      var reads = await axios.get(`/hire_detail/${match.params.postId}`, {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      });
+    }
+    getRead();
     setEmail("123@naver.com");
     setId("plz_id");
     setBelong("individual");
@@ -147,6 +147,7 @@ const Read = ({ match }) => {
         },
       }
     );
+    alert("신청되었습니다.");
   };
 
   const read = (
