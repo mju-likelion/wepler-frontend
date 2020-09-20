@@ -71,8 +71,8 @@ const ButtonItem = styled.div`
 const Read = ({ match }) => {
   console.log(match.params.postId);
   const [type, setType] = useState("");
-  const [ismodify, setIsmodify] = useState(true);
-  const [id, setPostid] = useState(0);
+  const [ismodify, setIsmodify] = useState(false);
+  const [id, setPostid] = useState(1);
   const [user_email, setEmail] = useState("");
   const [user_id, setId] = useState("");
   const [title, setTitle] = useState("");
@@ -104,8 +104,8 @@ const Read = ({ match }) => {
     );
     setRecruit("모집중");
     setNeed("5");
-    setStart(new Date("2020-08-08"));
-    setEnd(new Date("2020-12-31"));
+    setStart("2020-08-08");
+    setEnd("2020-12-31");
     setFields(["council", "trip"]);
   }, []);
 
@@ -121,7 +121,7 @@ const Read = ({ match }) => {
     e.preventDefault();
     const { title, content, need, start, fields } = this.state;
     try {
-      const post = await axios.post("/hire_detail/", {
+      const post = await axios.post("/board/hire_detail/", {
         title,
         content,
         need,
@@ -135,8 +135,20 @@ const Read = ({ match }) => {
     }
   };
 
-  const apply = async (e) => {};
-  //어플라이) 토큰, 게시글 넘버
+  const apply = async (e) => {
+    await axios.post(
+      "/board/hire_apply/",
+      {
+        id: setPostid,
+      },
+      {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      }
+    );
+  };
+
   const read = (
     <>
       <Container2>
@@ -245,7 +257,7 @@ const Read = ({ match }) => {
           </ButtonItem>
 
           <Button>
-            <Link to="/">목록</Link>
+            <Link to="/plzboard">목록</Link>
           </Button>
         </Buttonlist>
       </Wrap>
@@ -401,7 +413,7 @@ const Read = ({ match }) => {
             </Button>
           </ButtonItem>
           <Button onClick={() => setIsmodify(false)}>
-            <Link to={`/@plzboard`}>취소하기</Link>
+            <Link to={`/plzboard/${id}`}>취소하기</Link>
           </Button>
         </Buttonlist>
       </Wrap>

@@ -104,6 +104,7 @@ const MyPages = ({ handleActivity, handleChange, handleWhen, postBoard }) => {
     }
     getMypage();
   }, [type]);
+
   const read = (
     <Infortalent>
       <Infor>
