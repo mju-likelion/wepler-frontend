@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
-import BasicPresenter from "./BasicPresenter";
+import PlusBasicPresenter from "./PlusBasicPresenter";
 
 export default class extends React.Component {
   state = {
+    ismodify: false,
     type: "",
     file: null,
     plus_name: "",
@@ -20,43 +21,37 @@ export default class extends React.Component {
     plus_fields: [],
   };
 
-  componentDidMount = () => {
-    const user_id = JSON.parse(localStorage.getItem("user_id"));
-    this.setState({
-      type: user_id,
-    });
-    if (user_id !== "plus") {
-      localStorage.clear();
-    }
-    async function getMypage() {
-      try {
-        const gets = await axios.get("/mypage/getMypage", {
-          headers: {
-            Authorization: JSON.parse(localStorage.getItem("token")),
-          },
-        });
-        this.setState({
-          plus_fields: gets.data.user_class,
-          plus_name: gets.data.user_name,
-          plus_phonenumber: gets.data.user_phon,
-          plus_address_big: gets.data.user_address_big,
-          plus_address_small: gets.data.user_address_small,
-          plus_start_day: gets.data.user_start_day,
-          plus_talentshare: gets.data.user_talentshare,
-          plus_continu_month: gets.data.user_continu_month,
-          plus_start_time: gets.data.user_start_time,
-          plus_end_time: gets.data.user_end_time,
-          plus_email: gets.data.user_email,
-        });
-      } catch {
-        console.log("Infromation error!");
-      }
-    }
-    getMypage();
-  };
+  // useEffect = () => {
+  //   const user_id = JSON.parse(localStorage.getItem("user_id"));
+  //   setType(user_id);
+  //   if (type !== "plus") {
+  //     localStorage.clear();
+  //   }
+
+  //   async function getMypage() {
+  //     var test = await axios.get("/mypage/getMypage", {
+  //       headers: {
+  //         Authorization: JSON.parse(localStorage.getItem("token")),
+  //       },
+  //     });
+  //     setBoard(test.data.user_class);
+  //     setName(test.data.user_name);
+  //     setPhone(test.data.user_phone);
+  //     setEmail(test.data.user_email);
+  //     setBig(test.data.user_address_big);
+  //     setSmall(test.data.user_address_small);
+  //     setContinu(test.data.user_continu_month);
+  //     setStart(test.data.user_start_time);
+  //     setEnd(test.data.user_end_time);
+  //     setShare(test.data.user_talentshare);
+  //     setDay(test.data.user_start_day);
+  //   }
+  //   getMypage();
+  // };
 
   postBoard = async (e) => {
     e.preventDefault();
+    console.log("sdafas");
     const {
       plus_start_day,
       plus_talentshare,
@@ -64,10 +59,9 @@ export default class extends React.Component {
       plus_start_time,
       plus_end_time,
       plus_fields,
-      file,
     } = this.state;
-    const data = new FormData();
-    data.append("photo", file[0]);
+    // const data = new FormData();
+    // data.append("photo", file[0]);
     try {
       const post = await axios.post("/plus_signup/", {
         plus_start_day,
@@ -76,7 +70,6 @@ export default class extends React.Component {
         plus_start_time,
         plus_end_time,
         plus_fields,
-        file,
       });
       console.log(post);
       alert("수정 되었습니다");
@@ -185,6 +178,8 @@ export default class extends React.Component {
   };
   render() {
     const {
+      ismodify,
+      type,
       file,
       plus_name,
       plus_email,
@@ -200,7 +195,7 @@ export default class extends React.Component {
       plus_fields,
     } = this.state;
     return (
-      <BasicPresenter
+      <PlusBasicPresenter
         plus_name={plus_name}
         plus_fields={plus_fields}
         plus_phonenumber={plus_phonenumber}
