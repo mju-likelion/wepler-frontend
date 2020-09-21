@@ -133,7 +133,6 @@ export default class extends React.Component {
         ...this.state,
         plus_start_day: newHash,
       });
-      console.log("T!");
     }
     // 배열에 값이 없으면
     else {

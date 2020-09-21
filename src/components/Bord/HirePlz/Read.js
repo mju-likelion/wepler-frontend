@@ -70,11 +70,11 @@ const ButtonItem = styled.div`
 
 const Read = ({ match }) => {
   console.log(match.params.postId);
-  const [type, setType] = useState("");
-  const [ismodify, setIsmodify] = useState(false);
-  const [id, setPostid] = useState(1);
-  const [user_email, setEmail] = useState("");
-  const [wirter_email, setWirter] = useState("");
+  const [type, setType] = useState(""); //현사용자 회원
+  const [ismodify, setIsmodify] = useState(false); //수정가능=true
+  const [id, setPostid] = useState(1); //포스트 넘버
+  const [write_email, setWrite] = useState(""); //포스트 작성자 이메일
+  const [user_email, setEmail] = useState(""); //현사용자 이메일
   const [user_id, setId] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -91,57 +91,70 @@ const Read = ({ match }) => {
 
     async function getMypage() {
       //현사용자 이메일가져오기
-      var test = await axios.get("/mypage/getMypage", {
-        headers: {
-          Authorization: JSON.parse(localStorage.getItem("token")),
-        },
-      });
-      // setEmail("123@naver.com");
+      // const gets = await axios.get("/mypage/getMypage", {
+      //   headers: {
+      //     Authorization: JSON.parse(localStorage.getItem("token")),
+      //   },
+      // });
+      // setEmail(gets.data.user_email);
+      setEmail("123@naver.com");
     }
 
+    getMypage();
     async function getRead() {
       //포스트의 내용
-      var reads = await axios.get(`/hire_detail/${match.params.postId}`, {
-        headers: {
-          Authorization: JSON.parse(localStorage.getItem("token")),
-        },
-      });
+      // const reads = await axios.get(`/hire_detail/${match.params.postId}`, {
+      //   headers: {
+      //     Authorization: JSON.parse(localStorage.getItem("token")),
+      //   },
+      // });
+      // setWrite(reads.data.user_email);
+      setWrite("12123@naver.com");
+      setId("plz_id");
+      setBelong("individual");
+      setTitle("제목1");
+      setContent(
+        "내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용"
+      );
+      setRecruit("모집중");
+      setNeed("5");
+      setStart("2020-08-08");
+      setEnd("2020-12-31");
+      setFields(["council", "trip"]);
     }
-    getMypage();
+
     getRead();
-    setEmail("456@naver.com");
-    setWirter("123@naver.com");
-    setId("plz_id");
-    setBelong("individual");
-    setTitle("제목1");
-    setContent(
-      "내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용"
-    );
-    setRecruit("모집중");
-    setNeed("5");
-    setStart("2020-08-08");
-    setEnd("2020-12-31");
-    setFields(["council", "trip"]);
   }, []);
 
   const onChange = (e) => {
     if (e.target.name === "title") {
       setTitle(e.target.value);
-    } else if (e.target.name === "recruit") {
-      setRecruit(e.target.value);
+    }
+    if (e.target.name === "need") {
+      if (e.target.value >= 1) {
+        setNeed(e.target.value);
+      }
+    }
+    if (e.target.name === "start") {
+      setStart(e.target.value);
+    }
+    if (e.target.name === "end") {
+      setEnd(e.target.value);
+    }
+    if (e.target.name === "content") {
+      setContent(e.target.value);
     }
   };
 
   const postBoard = async (e) => {
     e.preventDefault();
-    const { title, content, need, start, fields } = this.state;
+    const { title, content, need, start } = this.state;
     try {
       const post = await axios.post("/board/hire_detail/", {
         title,
         content,
         need,
         start,
-        fields,
       });
       console.log(post);
       alert("수정 되었습니다");
@@ -281,7 +294,7 @@ const Read = ({ match }) => {
             {type === "plus" ? (
               <Button onClick={apply}>신청하기</Button>
             ) : undefined}
-            {user_email === wirter_email ? (
+            {user_email === write_email ? (
               <Button onClick={() => setIsmodify(true)}>수정하기</Button>
             ) : undefined}
           </ButtonItem>
@@ -300,7 +313,7 @@ const Read = ({ match }) => {
         <TextField
           rows={6}
           name="title"
-          value={title}
+          defaultValue={title}
           onChange={onChange}
           required
         />
@@ -351,7 +364,7 @@ const Read = ({ match }) => {
                   rows={3}
                   type="number"
                   name="need"
-                  value={need}
+                  defaultValue={need}
                   onChange={onChange}
                   required
                 />
@@ -419,7 +432,7 @@ const Read = ({ match }) => {
               multiline
               rows={4}
               name="content"
-              value={content}
+              defaultValue={content}
               variant="outlined"
               fullWidth
               margin="normal"
@@ -432,13 +445,11 @@ const Read = ({ match }) => {
       <Wrap>
         <Buttonlist>
           <ButtonItem>
-            <Button type="submit" onSubmit={postBoard}>
-              완료하기
-            </Button>
+            <Button onClick={postBoard}>완료하기</Button>
           </ButtonItem>
           <ButtonItem>
-            <Button type="submit" onSubmit={postDelete}>
-              <Link to="/">삭제하기</Link>
+            <Button onClick={postDelete}>
+              <Link to={`/plzboard/${id}`}>삭제하기</Link>
               {/* 삭제) 장고로 바로 보냄 */}
             </Button>
           </ButtonItem>

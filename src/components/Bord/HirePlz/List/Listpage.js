@@ -10,7 +10,7 @@ const Listpage = (props) => {
   const { Itemcard } = props;
   const [type, setType] = useState("");
   const [currentPage, setCurrentPage] = useState(1); //현재활성화된 page기본은 1
-  const [pageSize, setPageSize] = useState(5); //한페이지에 보여줄 개수
+  const pageSize = 5; //한페이지에 보여줄 개수
   const [itemsCount, setItemsCount] = useState(12); //아이템 개수
   const [lastpage, setLastpage] = useState(3);
 
@@ -22,6 +22,7 @@ const Listpage = (props) => {
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
+    setItemsCount();
     setLastpage(Math.ceil(itemsCount / pageSize));
   }, []);
 

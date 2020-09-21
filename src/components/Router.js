@@ -28,7 +28,7 @@ import PlusActivityapply from "components/MyPages/PlusMypage/PlusMypagelist/Plus
 import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityend";
 import PlusActivityprogress from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityprogress";
 import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfoactivity";
-import PlusInfobasic from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfobasic";
+import BasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/BasicContainer";
 import Plusactivityhistory from "components/MyPages/PlusMypage/PlusMypagelist/Plusactivityhistory";
 import PlzActivityapply from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityapply";
 import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityend";
@@ -87,7 +87,7 @@ export default () => (
           component={PlusActivityprogress}
         />
         <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
-        <Route path="/plusinfobasic" exact component={PlusInfobasic} />
+        <Route path="/plusinfobasic" exact component={BasicContainer} />
         {/* 게시판 */}
         <Route path="/plzboard/:postId" component={HirePlzRead} /> {/* 읽기*/}
         <Route path="/plzwrite" exact component={HirePlzWrite} /> {/* 글쓰기*/}
