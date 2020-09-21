@@ -90,25 +90,35 @@ const Read = ({ match }) => {
     setType(user_id); //현사용자 회원
 
     async function getMypage() {
-      //현사용자 이메일가져오기
-      // const gets = await axios.get("/mypage/getMypage", {
-      //   headers: {
-      //     Authorization: JSON.parse(localStorage.getItem("token")),
-      //   },
-      // });
-      // setEmail(gets.data.user_email);
+      // try {
+      //   // 현사용자 이메일가져오기
+      //   const gets = await axios.get("/mypage/getMypage", {
+      //     headers: {
+      //       Authorization: JSON.parse(localStorage.getItem("token")),
+      //     },
+      //   });
+      //   setEmail(gets.data.user_email);
+      // } catch {
+      //   console.log("user information error!");
+      // }
+
       setEmail("123@naver.com");
     }
 
     getMypage();
     async function getRead() {
-      //포스트의 내용
-      // const reads = await axios.get(`/hire_detail/${match.params.postId}`, {
-      //   headers: {
-      //     Authorization: JSON.parse(localStorage.getItem("token")),
-      //   },
-      // });
-      // setWrite(reads.data.user_email);
+      // try {
+      //   //포스트의 내용
+      //   const reads = await axios.get(`/hire_detail/${match.params.postId}`, {
+      //     headers: {
+      //       Authorization: JSON.parse(localStorage.getItem("token")),
+      //     },
+      //   });
+      //   setWrite(reads.data.user_email);
+      // } catch {
+      //   console.log("post error!");
+      // }
+
       setWrite("12123@naver.com");
       setId("plz_id");
       setBelong("individual");
