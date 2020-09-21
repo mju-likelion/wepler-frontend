@@ -74,6 +74,7 @@ const Read = ({ match }) => {
   const [ismodify, setIsmodify] = useState(false);
   const [id, setPostid] = useState(1);
   const [user_email, setEmail] = useState("");
+  const [wirter_email, setWirter] = useState("");
   const [user_id, setId] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -86,16 +87,30 @@ const Read = ({ match }) => {
 
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
-    setType(user_id);
+    setType(user_id); //현사용자 회원
+
+    async function getMypage() {
+      //현사용자 이메일가져오기
+      var test = await axios.get("/mypage/getMypage", {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      });
+      // setEmail("123@naver.com");
+    }
+
     async function getRead() {
+      //포스트의 내용
       var reads = await axios.get(`/hire_detail/${match.params.postId}`, {
         headers: {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },
       });
     }
+    getMypage();
     getRead();
-    setEmail("123@naver.com");
+    setEmail("456@naver.com");
+    setWirter("123@naver.com");
     setId("plz_id");
     setBelong("individual");
     setTitle("제목1");
@@ -133,6 +148,21 @@ const Read = ({ match }) => {
     } catch {
       alert("실패하였습니다.");
     }
+  };
+
+  const postDelete = async (e) => {
+    await axios.post(
+      "/board/hire_delete/",
+      {
+        id: setPostid,
+      },
+      {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      }
+    );
+    alert("삭제되었습니다.");
   };
 
   const apply = async (e) => {
@@ -250,11 +280,10 @@ const Read = ({ match }) => {
           <ButtonItem>
             {type === "plus" ? (
               <Button onClick={apply}>신청하기</Button>
-            ) : (
-              <Button>
-                <Link to={`/`}>수정하기</Link>
-              </Button>
-            )}
+            ) : undefined}
+            {user_email === wirter_email ? (
+              <Button onClick={() => setIsmodify(true)}>수정하기</Button>
+            ) : undefined}
           </ButtonItem>
 
           <Button>
@@ -408,7 +437,7 @@ const Read = ({ match }) => {
             </Button>
           </ButtonItem>
           <ButtonItem>
-            <Button>
+            <Button type="submit" onSubmit={postDelete}>
               <Link to="/">삭제하기</Link>
               {/* 삭제) 장고로 바로 보냄 */}
             </Button>
