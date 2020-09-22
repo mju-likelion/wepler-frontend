@@ -1,0 +1,129 @@
+import React, { useState, useEffect } from "react";
+import PlzMypageNav from "../PlzMypagenav";
+import Pagination from "@material-ui/lab/Pagination";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+
+const useStyles = makeStyles((theme) => ({
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+    paddingLeft: theme.spacing(40),
+  },
+  card: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  },
+  cardMedia: {
+    paddingTop: "56.25%", // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+  Typography: {
+    paddingLeft: theme.spacing(30),
+  },
+}));
+
+const ActivityapplyPresenter = ({ Itemcard }) => {
+  const classes = useStyles();
+  const [currentPage, setCurrentPage] = useState(1); //현재활성화된 page기본은 1
+  const pageSize = 3; //한페이지에 보여줄 개수
+  const [itemsCount, setItemsCount] = useState(5); //아이템 개수
+  const [lastpage, setLastpage] = useState(2);
+
+  const handlePageChange = (event, page) => {
+    setCurrentPage(page); // 페이지 수 클릭 시 현재 페이지 변경
+    console.log(currentPage);
+  };
+
+  useEffect(() => {
+    setItemsCount();
+    setLastpage(Math.ceil(itemsCount / pageSize));
+  }, []);
+
+  return (
+    <>
+      <PlzMypageNav />
+      <div>
+        <Container maxWidth="sm">
+          <Typography
+            variant="h3"
+            align="center"
+            gutterBottom
+            className={classes.Typography}
+          >
+            신청 온 활동
+          </Typography>
+        </Container>
+      </div>
+      <Container className={classes.cardGrid} maxWidth="md">
+        <Grid container spacing={4}>
+          {Itemcard &&
+            Itemcard.slice(currentPage * 3 - 3, currentPage * 3).map(
+              (carddata, index) => (
+                <Grid item key={index} xs={12} sm={6} md={4}>
+                  <Card>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image="https://source.unsplash.com/random"
+                      title="Image title"
+                    />
+                    <CardContent>
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="h2"
+                        align="center"
+                      >
+                        {carddata.plus_id}
+                      </Typography>
+                      <Typography align="center">
+                        활동 분야: {carddata.plus_fields}
+                      </Typography>
+                      <Typography align="center">
+                        활동 장소: {carddata.plus_address_big}
+                      </Typography>
+                      <Typography align="center">
+                        평균평점: {carddata.plus_rating}
+                      </Typography>
+                    </CardContent>
+
+                    <CardActions>
+                      <Button size="small" color="primary" align="center">
+                        수락하기
+                      </Button>
+                      <Button size="small" color="primary" align="center">
+                        거절하기
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grid>
+              )
+            )}
+        </Grid>
+      </Container>
+      <Container className={classes.cardGrid} maxWidth="sm">
+        <Pagination
+          variant="outlined"
+          shape="rounded"
+          color="primary"
+          size="large"
+          count={lastpage}
+          page={currentPage}
+          onChange={handlePageChange}
+        />
+      </Container>
+    </>
+  );
+};
+
+export default ActivityapplyPresenter;

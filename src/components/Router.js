@@ -28,13 +28,13 @@ import PlusActivityapply from "components/MyPages/PlusMypage/PlusMypagelist/Plus
 import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityend";
 import PlusActivityprogress from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityprogress";
 import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfoactivity";
-import PlusBasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/PlusBasicContainer";
+import PlusBasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/BasicContainer";
 import Plusactivityhistory from "components/MyPages/PlusMypage/PlusMypagelist/Plusactivityhistory";
-import PlzActivityapply from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityapply";
+import ActivityApplyContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApplyContainer";
 import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityend";
 import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityprogress";
 import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
-import PlzBasicContainer from "components/MyPages/PlzMypage/PlzMypagelist/PlzBasicContainer";
+import PlzBasicContainer from "components/MyPages/PlzMypage/PlzMypagelist/BasicContainer";
 import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
 
 export default () => (
@@ -55,11 +55,15 @@ export default () => (
         <Route path="/reviewpluslist" exact component={ReviewViewPlus} />
         <Route path="/signuplz" exact component={PlzSignup} />
         <Route path="/signuplus" exact component={PlusSignup} />
-        {/* 플러스 회원 */}
+        {/* 플러스 회원 프로필 */}
         <Route path="/plusseoul" exact component={PlusProflie} />
         <Route path="/plusseoulde" exact component={PlusProflieDetail} />
         {/* 플리즈 회원 마이페이지 */}
-        <Route path="/plzactivityapply" exact component={PlzActivityapply} />
+        <Route
+          path="/plzactivityapply"
+          exact
+          component={ActivityApplyContainer}
+        />
         <Route path="/plzactivityend" exact component={PlzActivityend} />
         <Route
           path="/Plzactivityhistory"

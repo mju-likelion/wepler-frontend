@@ -46,7 +46,7 @@ export default withRouter(({ location: { pathname } }) => (
       <hr width="80%" color="#f2d4ca" size="5"></hr>
     </Item>
     <Item current={pathname === "/PlzActivityapply"}>
-      <SLink to="/PlzActivityapply">신청 활동</SLink>
+      <SLink to="/PlzActivityapply">신청 온 활동</SLink>
     </Item>
     <Item current={pathname === "/PlzActivityend"}>
       <SLink to="/PlzActivityend">진행중</SLink>

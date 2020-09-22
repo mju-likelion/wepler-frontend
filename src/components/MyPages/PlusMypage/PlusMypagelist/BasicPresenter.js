@@ -21,7 +21,7 @@ import {
   ActivityList,
   TextWrapterm,
   ActivityBox,
-} from "./PlusBasicStyle";
+} from "./BasicStyle";
 
 const theme = createMuiTheme({
   palette: {
@@ -59,9 +59,6 @@ const PlusBasicPresenter = ({
   postBoard,
   handleChangeFile,
 }) => {
-  // const read = <></>;
-
-  // const modify = <></>;
   const [ismodify, setIsmodify] = useState(false);
   const plus_fields = [];
   const plus_start_day = [];
@@ -81,23 +78,37 @@ const PlusBasicPresenter = ({
               <form className={classes.form} onSubmit={postBoard} noValidate>
                 <Wrapper>
                   <Profile>
-                    <img
-                      style={{
-                        backgroundColor: "#efefef",
-                        width: "200px",
-                        height: "200px",
-                      }}
-                      src={file}
-                      alt=""
-                    />
-                    <div>
-                      <input
-                        type="file"
-                        name="imgFile"
-                        id="imgFile"
-                        onChange={handleChangeFile}
+                    {ismodify ? (
+                      <>
+                        <img
+                          style={{
+                            backgroundColor: "#efefef",
+                            width: "200px",
+                            height: "200px",
+                          }}
+                          src={file}
+                          alt=""
+                        />
+                        <div>
+                          <input
+                            type="file"
+                            name="imgFile"
+                            id="imgFile"
+                            onChange={handleChangeFile}
+                          />
+                        </div>
+                      </>
+                    ) : (
+                      <img
+                        style={{
+                          backgroundColor: "#efefef",
+                          width: "200px",
+                          height: "200px",
+                        }}
+                        src={file}
+                        alt=""
                       />
-                    </div>
+                    )}
                   </Profile>
 
                   <BigProfile>

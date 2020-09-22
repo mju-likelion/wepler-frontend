@@ -159,8 +159,8 @@ const Read = ({ match }) => {
   const postBoard = async (e) => {
     e.preventDefault();
     try {
-      const post = await axios.update(
-        `/board/hire_update/${match.params.postId}`,
+      const post = await axios.post(
+        `/board/hire_update/${match.params.postId}/`,
         {
           title,
           content,
