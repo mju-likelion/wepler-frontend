@@ -28,13 +28,13 @@ import PlusActivityapply from "components/MyPages/PlusMypage/PlusMypagelist/Plus
 import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityend";
 import PlusActivityprogress from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityprogress";
 import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfoactivity";
-import BasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/BasicContainer";
+import PlusBasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/PlusBasicContainer";
 import Plusactivityhistory from "components/MyPages/PlusMypage/PlusMypagelist/Plusactivityhistory";
 import PlzActivityapply from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityapply";
 import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityend";
 import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityprogress";
 import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
-import PlzInfobasic from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfobasic";
+import PlzBasicContainer from "components/MyPages/PlzMypage/PlzMypagelist/PlzBasicContainer";
 import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
 
 export default () => (
@@ -72,7 +72,7 @@ export default () => (
           component={PlzActivityprogress}
         />
         <Route path="/plzinfoactivity" exact component={PlzInfoactivity} />
-        <Route path="/plzinfobasic" exact component={PlzInfobasic} />
+        <Route path="/plzinfobasic" exact component={PlzBasicContainer} />
         {/* 플러스 회원 마이페이지 */}
         <Route path="/plusactivityapply" exact component={PlusActivityapply} />
         <Route path="/plusactivityend" exact component={PlusActivityend} />
@@ -87,7 +87,7 @@ export default () => (
           component={PlusActivityprogress}
         />
         <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
-        <Route path="/plusinfobasic" exact component={BasicContainer} />
+        <Route path="/plusinfobasic" exact component={PlusBasicContainer} />
         {/* 게시판 */}
         <Route path="/plzboard/:postId" component={HirePlzRead} /> {/* 읽기*/}
         <Route path="/plzwrite" exact component={HirePlzWrite} /> {/* 글쓰기*/}

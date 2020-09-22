@@ -21,7 +21,7 @@ import {
   ActivityList,
   TextWrapterm,
   ActivityBox,
-} from "./BasicStyle";
+} from "./PlusBasicStyle";
 
 const theme = createMuiTheme({
   palette: {
@@ -41,7 +41,7 @@ const styles = {
   },
 };
 
-const BasicPresenter = ({
+const PlusBasicPresenter = ({
   classes,
   plus_name,
   plus_phonenumber,
@@ -67,6 +67,7 @@ const BasicPresenter = ({
   const plus_start_day = [];
   return (
     <>
+      {console.log(postBoard)}
       <MypageNav />
       <Container component="main" maxWidth="xs">
         <div>
@@ -80,37 +81,23 @@ const BasicPresenter = ({
               <form className={classes.form} onSubmit={postBoard} noValidate>
                 <Wrapper>
                   <Profile>
-                    {ismodify ? (
-                      <>
-                        <img
-                          style={{
-                            backgroundColor: "#efefef",
-                            width: "200px",
-                            height: "200px",
-                          }}
-                          src={file}
-                          alt=""
-                        />
-                        <div>
-                          <input
-                            type="file"
-                            name="imgFile"
-                            id="imgFile"
-                            onChange={handleChangeFile}
-                          />
-                        </div>
-                      </>
-                    ) : (
-                      <img
-                        style={{
-                          backgroundColor: "#efefef",
-                          width: "200px",
-                          height: "200px",
-                        }}
-                        src={file}
-                        alt=""
+                    <img
+                      style={{
+                        backgroundColor: "#efefef",
+                        width: "200px",
+                        height: "200px",
+                      }}
+                      src={file}
+                      alt=""
+                    />
+                    <div>
+                      <input
+                        type="file"
+                        name="imgFile"
+                        id="imgFile"
+                        onChange={handleChangeFile}
                       />
-                    )}
+                    </div>
                   </Profile>
 
                   <BigProfile>
@@ -144,7 +131,7 @@ const BasicPresenter = ({
                     </Infor>
                   </BigProfile>
                 </Wrapper>
-                <Infor>재능기부)</Infor>
+                <Infor>활동 정보 수정)</Infor>
                 <BigProfile>
                   {ismodify ? (
                     <>
@@ -463,4 +450,4 @@ const BasicPresenter = ({
   );
 };
 
-export default withStyles(styles)(BasicPresenter);
+export default withStyles(styles)(PlusBasicPresenter);
