@@ -79,9 +79,9 @@ const Read = ({ match }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [recruit, setRecruit] = useState("");
-  const [need, setNeed] = useState("");
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
+  const [need_member, setNeed] = useState("");
+  const [start_date, setStart] = useState("");
+  const [end_date, setEnd] = useState("");
   const [fields, setFields] = useState([]);
   const [plz_belong, setBelong] = useState("");
 
@@ -119,7 +119,7 @@ const Read = ({ match }) => {
       //   console.log("post error!");
       // }
 
-      setWrite("12123@naver.com");
+      setWrite("123@naver.com");
       setId("plz_id");
       setBelong("individual");
       setTitle("제목1");
@@ -140,15 +140,15 @@ const Read = ({ match }) => {
     if (e.target.name === "title") {
       setTitle(e.target.value);
     }
-    if (e.target.name === "need") {
+    if (e.target.name === "need_member") {
       if (e.target.value >= 1) {
         setNeed(e.target.value);
       }
     }
-    if (e.target.name === "start") {
+    if (e.target.name === "start_date") {
       setStart(e.target.value);
     }
-    if (e.target.name === "end") {
+    if (e.target.name === "end_date") {
       setEnd(e.target.value);
     }
     if (e.target.name === "content") {
@@ -158,14 +158,17 @@ const Read = ({ match }) => {
 
   const postBoard = async (e) => {
     e.preventDefault();
-    const { title, content, need, start } = this.state;
     try {
-      const post = await axios.post("/board/hire_detail/", {
-        title,
-        content,
-        need,
-        start,
-      });
+      const post = await axios.update(
+        `/board/hire_update/${match.params.postId}`,
+        {
+          title,
+          content,
+          need_member,
+          start_date,
+          end_date,
+        }
+      );
       console.log(post);
       alert("수정 되었습니다");
     } catch {
@@ -174,33 +177,32 @@ const Read = ({ match }) => {
   };
 
   const postDelete = async (e) => {
-    await axios.post(
-      "/board/hire_delete/",
-      {
+    try {
+      await axios.delete("/board/hire_delete/", {
         id: setPostid,
-      },
-      {
-        headers: {
-          Authorization: JSON.parse(localStorage.getItem("token")),
-        },
-      }
-    );
-    alert("삭제되었습니다.");
+      });
+      alert("삭제되었습니다.");
+    } catch {
+      alert("실패하였습니다.");
+    }
   };
 
   const apply = async (e) => {
-    await axios.post(
-      "/board/hire_apply/",
-      {
-        id: setPostid,
-      },
-      {
-        headers: {
-          Authorization: JSON.parse(localStorage.getItem("token")),
+    try {
+      await axios.post(
+        "/board/hire_apply/",
+        {
+          id: setPostid,
         },
-      }
-    );
-    alert("신청되었습니다.");
+        {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        }
+      );
+    } catch {
+      alert("실패하였습니다.");
+    }
   };
 
   const read = (
@@ -250,7 +252,7 @@ const Read = ({ match }) => {
             </Grid>
             <Grid item xs={12} sm={3}>
               <FlexItem>
-                <p>{need}</p>
+                <p>{need_member}</p>
               </FlexItem>
             </Grid>
           </Grid>
@@ -262,7 +264,7 @@ const Read = ({ match }) => {
             </Grid>
             <Grid item xs={12} sm={4}>
               <FlexItem>
-                <p>{start}</p>
+                <p>{start_date}</p>
               </FlexItem>
             </Grid>
             <Grid item xs={12} sm={2}>
@@ -270,7 +272,7 @@ const Read = ({ match }) => {
             </Grid>
             <Grid item xs={12} sm={3}>
               <FlexItem>
-                <p>{end}</p>
+                <p>{end_date}</p>
               </FlexItem>
             </Grid>
           </Grid>
@@ -374,7 +376,7 @@ const Read = ({ match }) => {
                   rows={3}
                   type="number"
                   name="need"
-                  defaultValue={need}
+                  defaultValue={need_member}
                   onChange={onChange}
                   required
                 />
@@ -391,10 +393,10 @@ const Read = ({ match }) => {
               <FlexItem>
                 <TextField
                   type="date"
-                  name="start"
-                  defaultValue={start}
-                  min={start}
-                  max={end}
+                  name="start_date"
+                  defaultValue={start_date}
+                  min={start_date}
+                  max={end_date}
                   onChange={onChange}
                   required
                 />
@@ -407,10 +409,10 @@ const Read = ({ match }) => {
               <FlexItem>
                 <TextField
                   type="date"
-                  name="end"
-                  defaultValue={end}
-                  min={start}
-                  max={end}
+                  name="end_date"
+                  defaultValue={end_date}
+                  min={start_date}
+                  max={end_date}
                   onChange={onChange}
                   required
                 />

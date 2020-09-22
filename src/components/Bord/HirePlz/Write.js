@@ -29,33 +29,40 @@ class Write extends Component {
     fields: [],
   };
   postBoard = async () => {
-    const post = await axios.post("/hire_post/", {
-      title: this.state.title,
-      recruit: this.state.recruit,
-      need_member: this.state.need_member,
-      start_date: this.state.start_date,
-      end_date: this.state.end_date,
-      content: this.state.content,
-      fields: this.state.fields,
-    });
-    alert("작성되었습니다.");
-    this.setState({
-      title: "",
-      recruit: "",
-      need_member: "",
-      start_date: "",
-      end_date: "",
-      content: "",
-      fields: [],
-    });
-    console.log(post);
+    try {
+      const post = await axios.post(
+        "/board/hire_post/",
+        {
+          title: this.state.title,
+          recruit: this.state.recruit,
+          need_member: this.state.need_member,
+          start_date: this.state.start_date,
+          end_date: this.state.end_date,
+          content: this.state.content,
+          fields: this.state.fields,
+        },
+        {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        }
+      );
+      alert("작성되었습니다.");
+      this.setState({
+        title: "",
+        recruit: "",
+        need_member: "",
+        start_date: "",
+        end_date: "",
+        content: "",
+        fields: [],
+      });
+      console.log(post);
+    } catch {
+      console.log("작성에 실패하였습니다.");
+    }
   };
-  constructor(props) {
-    super(props);
-    this.state = {
-      ...this.state,
-    };
-  }
+
   handleChange = (e) => {
     const { name } = e.target;
     if (name === "title") {

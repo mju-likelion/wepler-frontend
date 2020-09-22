@@ -38,10 +38,7 @@ export default withRouter(({ location: { pathname } }) => (
     <Item current={pathname === "/PlusInfobasic"}>
       <SLink to="/PlusInfobasic">기본 정보</SLink>
     </Item>
-    <Item current={pathname === "/PlusInfoactivity"}>
-      <SLink to="/PlusInfoactivity">활동/참여 분야</SLink>
-      <hr width="80%" color="#f2d4ca" size="5"></hr>
-    </Item>
+    <hr width="80%" color="#f2d4ca" size="5"></hr>
 
     <Item>
       <Menuname>교육 이수 내역</Menuname>

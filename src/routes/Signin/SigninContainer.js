@@ -29,6 +29,7 @@ export default class extends React.Component {
     const { email, password } = this.state;
     try {
       const tokenGet = await axios.post("/tokentest/", {
+        ///login/
         email,
         password,
       });

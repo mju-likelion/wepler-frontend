@@ -4,21 +4,18 @@ import Listpage from "./Listpage";
 
 class ListBoard extends Component {
   state = {
-    loading: true,
     ItemList: [], // 비어있는 배열
   };
 
   componentDidMount() {
     const data = require("../../../../BoardData.json");
     this.setState({
-      loading: false,
       ItemList: data.Board,
     });
   }
 
   render() {
     const { ItemList } = this.state;
-    console.log(ItemList);
     return (
       <div>
         <Listpage Itemcard={ItemList} />

@@ -6,7 +6,7 @@ import Pagination from "@material-ui/lab/Pagination";
 import ItemCard from "./Itemlist";
 import { Container2, Wrap, Item, BigTextWrap, Button } from "./ListStyle";
 
-const Listpage = (props) => {
+const Listpage = (props, { classes }) => {
   const { Itemcard } = props;
   const [type, setType] = useState("");
   const [currentPage, setCurrentPage] = useState(1); //현재활성화된 page기본은 1
@@ -67,7 +67,7 @@ const Listpage = (props) => {
               )
             )}
         </Wrap>
-        {type === "plus" ? (
+        {type === "plz" ? (
           <Button>
             <Link to={`/plzwrite`}>포스트 작성하기</Link>
           </Button>
@@ -76,9 +76,12 @@ const Listpage = (props) => {
             <Link to={`/`}>홈으로</Link>
           </Button>
         )}
+
         <Pagination
           variant="outlined"
-          color="secondary"
+          shape="rounded"
+          color="primary"
+          size="large"
           count={lastpage}
           page={currentPage}
           onChange={handlePageChange}

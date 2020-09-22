@@ -11,17 +11,6 @@ import Container from "@material-ui/core/Container";
 import { createMuiTheme, withStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#C9AA79",
-    },
-    secondary: {
-      main: "#EFEFEF",
-    },
-  },
-});
-
 const Big = styled.div`
   padding-left: 25%;
   padding-right: 25%;
@@ -87,6 +76,17 @@ const TextWrapterm = styled.div`
     font-size: 20px;
   }
 `;
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#C9AA79",
+    },
+    secondary: {
+      main: "#EFEFEF",
+    },
+  },
+});
 
 const styles = {
   paper: {
