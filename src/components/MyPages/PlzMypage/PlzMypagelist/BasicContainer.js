@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import PlzBasicPresenter from "./PlzBasicPresenter";
+import PlzBasicPresenter from "./BasicPresenter";
 
 export default class extends React.Component {
   state = {

@@ -451,7 +451,7 @@ const Read = ({ match }) => {
           </ButtonItem>
           <ButtonItem>
             <Button onClick={postDelete}>
-              <Link to={`/plzboard/${id}`}>삭제하기</Link>
+              <Link to="/plzboard">삭제하기</Link>
               {/* 삭제) 장고로 바로 보냄 */}
             </Button>
           </ButtonItem>

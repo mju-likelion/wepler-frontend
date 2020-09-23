@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import styled from "styled-components";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -47,7 +48,6 @@ const ActivityPlus = ({
             title="Image title"
           />
         </Card> */}
-
         <Card>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2" align="center">
@@ -59,11 +59,10 @@ const ActivityPlus = ({
             </Typography>
             <Typography align="center">평균평점: {plus_rating}</Typography>
           </CardContent>
-
           <CardActions>
             <Button onClick={apply}>수락하기</Button>
             <Button onClick={postDelete}>
-              <Link to={`/plzapply`}>거절하기</Link>
+              <Link to="/plzapply">거절하기</Link>
             </Button>
           </CardActions>
         </Card>
