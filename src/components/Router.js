@@ -36,6 +36,7 @@ import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/PlzA
 import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
 import PlzBasicContainer from "components/MyPages/PlzMypage/PlzMypagelist/BasicContainer";
 import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
+import PlzactivityPlus from "components/MyPages/PlzMypage/PlzMypagelist/ActivityPlus";
 
 export default () => (
   <Router>
@@ -58,25 +59,6 @@ export default () => (
         {/* 플러스 회원 프로필 */}
         <Route path="/plusseoul" exact component={PlusProflie} />
         <Route path="/plusseoulde" exact component={PlusProflieDetail} />
-        {/* 플리즈 회원 마이페이지 */}
-        <Route
-          path="/plzactivityapply"
-          exact
-          component={ActivityApplyContainer}
-        />
-        <Route path="/plzactivityend" exact component={PlzActivityend} />
-        <Route
-          path="/Plzactivityhistory"
-          exact
-          component={Plzactivityhistory}
-        />
-        <Route
-          path="/plzactivityprogress"
-          exact
-          component={PlzActivityprogress}
-        />
-        <Route path="/plzinfoactivity" exact component={PlzInfoactivity} />
-        <Route path="/plzinfobasic" exact component={PlzBasicContainer} />
         {/* 플러스 회원 마이페이지 */}
         <Route path="/plusactivityapply" exact component={PlusActivityapply} />
         <Route path="/plusactivityend" exact component={PlusActivityend} />
@@ -92,10 +74,32 @@ export default () => (
         />
         <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
         <Route path="/plusinfobasic" exact component={PlusBasicContainer} />
+        {/* 플리즈 회원 마이페이지 */}
+        <Route
+          path={["/plzapply", "/"]}
+          exact
+          component={ActivityApplyContainer}
+        />
+        {/* 신청한 플러스회원 리스트 */}
+        <Route path="/plzactivityend" exact component={PlzActivityend} />
+        <Route
+          path="/Plzactivityhistory"
+          exact
+          component={Plzactivityhistory}
+        />
+        <Route path="/plzapply/:profileId" component={PlzactivityPlus} />
+        {/* 플리스회원디테일*/}
+        <Route
+          path="/plzactivityprogress"
+          exact
+          component={PlzActivityprogress}
+        />
+        <Route path="/plzinfoactivity" exact component={PlzInfoactivity} />
+        <Route path="/plzinfobasic" exact component={PlzBasicContainer} />
         {/* 게시판 */}
         <Route path="/plzboard/:postId" component={HirePlzRead} /> {/* 읽기*/}
         <Route path="/plzwrite" exact component={HirePlzWrite} /> {/* 글쓰기*/}
-        <Route path={["/plzboard", "/"]} exact component={HireBoard} />{" "}
+        <Route path={["/plzboard", "/"]} exact component={HireBoard} />
         {/* 목록*/}
         <Redirect from="*" to="/" />
       </Switch>

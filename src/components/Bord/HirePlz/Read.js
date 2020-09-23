@@ -72,7 +72,7 @@ const Read = ({ match }) => {
   console.log(match.params.postId);
   const [type, setType] = useState(""); //현사용자 회원
   const [ismodify, setIsmodify] = useState(false); //수정가능=true
-  const [id, setPostid] = useState(1); //포스트 넘버
+  const id = 1; //포스트 넘버
   const [write_email, setWrite] = useState(""); //포스트 작성자 이메일
   const [user_email, setEmail] = useState(""); //현사용자 이메일
   const [user_id, setId] = useState("");
@@ -177,32 +177,22 @@ const Read = ({ match }) => {
   };
 
   const postDelete = async (e) => {
-    try {
-      await axios.delete("/board/hire_delete/", {
-        id: setPostid,
-      });
-      alert("삭제되었습니다.");
-    } catch {
-      alert("실패하였습니다.");
-    }
+    await axios.delete(`/board/hire_delete/${match.params.postId}`);
+    alert("삭제되었습니다.");
   };
 
   const apply = async (e) => {
-    try {
-      await axios.post(
-        "/board/hire_apply/",
-        {
-          id: setPostid,
+    var overap = await axios.post(
+      `/board/hire_apply/${match.params.postId}/`,
+      {},
+      {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
         },
-        {
-          headers: {
-            Authorization: JSON.parse(localStorage.getItem("token")),
-          },
-        }
-      );
-    } catch {
-      alert("실패하였습니다.");
-    }
+      }
+    );
+    if (overap.data.isoverap === true) alert("이미 신청하셨습니다.");
+    else alert("신청되었습니다.");
   };
 
   const read = (
