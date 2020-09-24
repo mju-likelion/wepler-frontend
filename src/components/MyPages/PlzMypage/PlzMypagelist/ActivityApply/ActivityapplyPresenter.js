@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import PlzMypageNav from "../PlzMypagenav";
+import PlzMypageNav from "../../PlzMypagenav";
 import Pagination from "@material-ui/lab/Pagination";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import ActivityPlus from "./ActivityPlus";
+import Activityapplylist from "./Activityapplylist";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -68,7 +68,7 @@ const ActivityapplyPresenter = (props) => {
             Itemcard.slice(currentPage * 3 - 3, currentPage * 3).map(
               (carddata, id) => (
                 <Grid item key={id} xs={12} sm={6} md={4}>
-                  <ActivityPlus
+                  <Activityapplylist
                     index={carddata.index}
                     plus_id={carddata.plus_id}
                     plus_fields={carddata.plus_fields}
