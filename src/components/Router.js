@@ -31,8 +31,8 @@ import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusI
 import PlusBasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/BasicContainer";
 import Plusactivityhistory from "components/MyPages/PlusMypage/PlusMypagelist/Plusactivityhistory";
 import ActivityApplyContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApply/ActivityApplyContainer";
-import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityend";
-import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/PlzActivityprogress";
+import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/ActivityIng/PlzActivityend";
+import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/ActivityDone/PlzActivityprogress";
 import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
 import PlzBasicContainer from "components/MyPages/PlzMypage/PlzMypagelist/Basic/BasicContainer";
 import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
