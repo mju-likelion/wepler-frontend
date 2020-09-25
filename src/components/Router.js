@@ -24,19 +24,20 @@ import PlusProflie from "components/Areas/PlusProflie";
 import PlusProflieDetail from "components/Areas/PlusDetail";
 import ReviewViewPlz from "components/Reviews/Plz/view";
 import ReviewViewPlus from "components/Reviews/Plus/view";
-import PlusActivityapply from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityapply";
-import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityend";
-import PlusActivityprogress from "components/MyPages/PlusMypage/PlusMypagelist/PlusActivityprogress";
+import PlusActivityApplyContainer from "components/MyPages/PlusMypage/PlusMypagelist/ActivityApply/PlusActivityApplyContainer";
+import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/ActivityDone/PlusActivityend";
+import PlusActivityprogress from "components/MyPages/PlusMypage/PlusMypagelist/ActivityIng/PlusActivityprogress";
 import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfoactivity";
-import PlusBasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/BasicContainer";
+import PlusBasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/Basic/BasicContainer";
 import Plusactivityhistory from "components/MyPages/PlusMypage/PlusMypagelist/Plusactivityhistory";
-import ActivityApplyContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApply/ActivityApplyContainer";
-import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/ActivityIng/PlzActivityend";
-import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/ActivityDone/PlzActivityprogress";
+import PlzActivityApplyContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApply/PlzActivityApplyContainer";
+import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/ActivityDone/PlzActivityend";
+import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/ActivityIng/PlzActivityprogress";
 import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
 import PlzBasicContainer from "components/MyPages/PlzMypage/PlzMypagelist/Basic/BasicContainer";
 import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
-import PlzactivityPlusDetail from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApply/ActivityPlusDetail";
+import PlzactivityPlzDetail from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApply/PlzActivityPlzDetail";
+import PlusactivityPlusDetail from "components/MyPages/PlusMypage/PlusMypagelist/ActivityApply/PlusActivityPlusDetail";
 
 export default () => (
   <Router>
@@ -60,8 +61,17 @@ export default () => (
         <Route path="/plusseoul" exact component={PlusProflie} />
         <Route path="/plusseoulde" exact component={PlusProflieDetail} />
         {/* 플러스 회원 마이페이지 */}
-        <Route path="/plusactivityapply" exact component={PlusActivityapply} />
         <Route path="/plusactivityend" exact component={PlusActivityend} />
+        <Route
+          path={["/plusapply", "/"]}
+          exact
+          component={PlusActivityApplyContainer}
+        />
+        {/* 신청 받은 플리즈회원 리스트 */}
+
+        <Route path="/plusapply/:profileId" component={PlusactivityPlusDetail} />
+        {/* 플러스회원디테일*/}
+
         <Route
           path="/Plusactivityhistory"
           exact
@@ -78,17 +88,17 @@ export default () => (
         <Route
           path={["/plzapply", "/"]}
           exact
-          component={ActivityApplyContainer}
+          component={PlzActivityApplyContainer}
         />
-        {/* 신청한 플러스회원 리스트 */}
+        {/* 신청한 플리즈회원 리스트 */}
         <Route path="/plzactivityend" exact component={PlzActivityend} />
         <Route
           path="/Plzactivityhistory"
           exact
           component={Plzactivityhistory}
         />
-        <Route path="/plzapply/:profileId" component={PlzactivityPlusDetail} />
-        {/* 플리스회원디테일*/}
+        <Route path="/plzapply/:profileId" component={PlzactivityPlzDetail} />
+        {/* 플리즈회원디테일*/}
         <Route
           path="/plzactivityprogress"
           exact
