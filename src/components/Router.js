@@ -22,26 +22,31 @@ import HirePlzWrite from "components/Bord/HirePlz/Write";
 import HirePlzRead from "components/Bord/HirePlz/Read";
 import PlusProflie from "components/Areas/PlusProflie";
 import PlusProflieDetail from "components/Areas/PlusDetail";
-import ReviewViewPlz from "components/Reviews/Plz/List/ListBoard";
-import ReviewViewPlzDetail from "components/Reviews/Plz/Read/Read";
-import ReviewViewPlzWrite from "components/Reviews/Plz/Write/Write";
-import ReviewViewPlus from "components/Reviews/Plus/List/ListBoard";
-import ReviewViewPlusDetail from "components/Reviews/Plus/Read/Read";
-import ReviewViewPlusWrite from "components/Reviews/Plus/Write/Write";
+import ReviewViewPlz from "components/Reviews/Plz/view";
+import ReviewViewPlus from "components/Reviews/Plus/view";
+
 import PlusActivityApplyContainer from "components/MyPages/PlusMypage/PlusMypagelist/ActivityApply/PlusActivityApplyContainer";
-import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/ActivityDone/PlusActivityend";
-import PlusActivityprogress from "components/MyPages/PlusMypage/PlusMypagelist/ActivityIng/PlusActivityprogress";
+import PlusActivityAppliedContainer from "components/MyPages/PlusMypage/PlusMypagelist/ActivityApplied/PlusActivityAppliedContainer";
+import PlusActivityIngContainer from "components/MyPages/PlusMypage/PlusMypagelist/ActivityIng/PlusActivityIngContainer";
+import PlusActivityDoneContainer from "components/MyPages/PlusMypage/PlusMypagelist/ActivityDone/PlusActivityDoneContainer";
+
+import PlzActivityDoneContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityDone/PlzActivityDoneContainer";
+import PlzActivityIngContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityIng/PlzActivityIngContainer";
+import PlzActivityApplyContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApply/PlzActivityApplyContainer";
+import PlzActivityAppliedContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApplied/PlzActivityAppliedContainer";
+
 import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfoactivity";
 import PlusBasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/Basic/BasicContainer";
 import Plusactivityhistory from "components/MyPages/PlusMypage/PlusMypagelist/Plusactivityhistory";
-import PlzActivityApplyContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApply/PlzActivityApplyContainer";
-import PlzActivityend from "components/MyPages/PlzMypage/PlzMypagelist/ActivityDone/PlzActivityend";
-import PlzActivityprogress from "components/MyPages/PlzMypage/PlzMypagelist/ActivityIng/PlzActivityprogress";
 import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
 import PlzBasicContainer from "components/MyPages/PlzMypage/PlzMypagelist/Basic/BasicContainer";
 import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
-import PlzactivityPlzDetail from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApply/PlzActivityPlzDetail";
-import PlusactivityPlusDetail from "components/MyPages/PlusMypage/PlusMypagelist/ActivityApply/PlusActivityPlusDetail";
+
+import PlzactivityPlusDetail from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApplied/PlzActivityPlusDetail";
+import PlusActivityPlzDetail from "components/MyPages/PlusMypage/PlusMypagelist/ActivityApplied/PlusActivityPlzDetail";
+import PlusActivityIngDetail from "components/MyPages/PlusMypage/PlusMypagelist/ActivityIng/PlusActivityIngDetail";
+import PlzActivityIngDetail from "components/MyPages/PlzMypage/PlzMypagelist/ActivityIng/PlzActivityIngDetail";
+
 
 export default () => (
   <Router>
@@ -57,71 +62,81 @@ export default () => (
         <Route path="/areaplz" exact component={HirePlz} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/signin" exact component={Signin} />
-        {/* 활동후기 */}
-        <Route path={["/reviewplz", "/"]} exact component={ReviewViewPlz} />
-        {/* 목록*/}
-        <Route path="/reviewplz/:postId" component={ReviewViewPlzDetail} />
-        {/* 읽기*/}
-        <Route path="/reviewplzwrite" exact component={ReviewViewPlzWrite} />
-        {/* 글쓰기*/}
-        <Route path={["/reviewplus", "/"]} exact component={ReviewViewPlus} />
-        {/* 목록*/}
-        <Route
-          path="/reviewplus/:postId"
-          component={ReviewViewPlusDetail}
-        />{" "}
-        {/* 읽기*/}
-        <Route path="/reviewpluswrite" exact component={ReviewViewPlusWrite} />
-        {/* 글쓰기*/}
+        <Route path="/reviewplzlist" exact component={ReviewViewPlz} />
+        <Route path="/reviewpluslist" exact component={ReviewViewPlus} />
         <Route path="/signuplz" exact component={PlzSignup} />
         <Route path="/signuplus" exact component={PlusSignup} />
         {/* 플러스 회원 프로필 */}
         <Route path="/plusseoul" exact component={PlusProflie} />
         <Route path="/plusseoulde" exact component={PlusProflieDetail} />
         {/* 플러스 회원 마이페이지 */}
-        <Route path="/plusactivityend" exact component={PlusActivityend} />
+        <Route path="/plusactivityDone" exact component={PlusActivityDoneContainer} />
+
+
+
+        <Route
+          path={["/plusapplied", "/"]}
+          exact
+          component={PlusActivityAppliedContainer}
+        />
+        {/* 플러스가 신청 받은 플리즈 회원 리스트 */}
+
         <Route
           path={["/plusapply", "/"]}
           exact
           component={PlusActivityApplyContainer}
         />
-        {/* 신청 받은 플리즈회원 리스트 */}
+        {/* 플러스가 신청한 플리즈 회원 리스트 */}
+
         <Route
-          path="/plusapply/:profileId"
-          component={PlusactivityPlusDetail}
+          path={["/plzapply", "/"]}
+          exact
+          component={PlzActivityApplyContainer}
         />
+        {/* 플리즈가 신청한 플러스 회원 리스트 */}
+
+        <Route
+          path={["/plzapplied", "/"]}
+          exact
+          component={PlzActivityAppliedContainer}
+        />
+        {/* 플리즈가 신청 받은 플러스 회원 리스트 */}
+
+
+
+        <Route path="/plusIng/:profileId" component={PlusActivityIngDetail} />
+        <Route path="/plusapplied/:profileId" component={PlusActivityPlzDetail} />
         {/* 플러스회원디테일*/}
+
+        <Route path="/plzIng/:profileId" component={PlzActivityIngDetail} />
+        <Route path="/plzapplied/:profileId" component={PlzactivityPlusDetail} />
+        {/* 플리즈회원디테일*/}
+
         <Route
           path="/Plusactivityhistory"
           exact
           component={Plusactivityhistory}
         />
         <Route
-          path="/plusactivityprogress"
+          path="/plusactivityIng"
           exact
-          component={PlusActivityprogress}
+          component={PlusActivityIngContainer}
         />
         <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
         <Route path="/plusinfobasic" exact component={PlusBasicContainer} />
         {/* 플리즈 회원 마이페이지 */}
-        <Route
-          path={["/plzapply", "/"]}
-          exact
-          component={PlzActivityApplyContainer}
-        />
-        {/* 신청한 플리즈회원 리스트 */}
-        <Route path="/plzactivityend" exact component={PlzActivityend} />
+
+        <Route path="/plzactivityDone" exact component={PlzActivityDoneContainer} />
         <Route
           path="/Plzactivityhistory"
           exact
           component={Plzactivityhistory}
         />
-        <Route path="/plzapply/:profileId" component={PlzactivityPlzDetail} />
-        {/* 플리즈회원디테일*/}
+
         <Route
-          path="/plzactivityprogress"
+          path="/plzactivityIng"
           exact
-          component={PlzActivityprogress}
+          component={PlzActivityIngContainer}
         />
         <Route path="/plzinfoactivity" exact component={PlzInfoactivity} />
         <Route path="/plzinfobasic" exact component={PlzBasicContainer} />
