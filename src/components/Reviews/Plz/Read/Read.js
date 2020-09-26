@@ -68,6 +68,11 @@ const ButtonItem = styled.div`
   padding-right: 5%;
 `;
 
+const RatingItem = styled.div`
+  padding-top: 10px;
+  color: #db7f8e;
+`;
+
 const Read = ({ match }) => {
   console.log(match.params.postId);
   const [type, setType] = useState(""); //현사용자 회원
@@ -80,6 +85,7 @@ const Read = ({ match }) => {
   const [content, setContent] = useState("");
   const [matching, setMatching] = useState("");
   const [fields, setFields] = useState([]);
+  const [rating, setRating] = useState(1);
 
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
@@ -123,6 +129,7 @@ const Read = ({ match }) => {
       );
       setMatching("plus_id");
       setFields(["council", "trip"]);
+      setRating(6);
     }
 
     getRead();
@@ -182,6 +189,9 @@ const Read = ({ match }) => {
               <FlexItem>
                 <div>{matching}</div>
               </FlexItem>
+              <RatingItem>
+                <div>별점: {rating} / 10</div>
+              </RatingItem>
             </Grid>
             <Grid item xs={12} sm={2}>
               <div>작성자:</div>

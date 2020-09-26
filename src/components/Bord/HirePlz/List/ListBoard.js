@@ -1,5 +1,6 @@
+import { List } from "@material-ui/core";
 import React, { Component } from "react";
-// import axios from "axios";
+import axios from "axios";
 import Listpage from "./Listpage";
 
 class ListBoard extends Component {
@@ -7,10 +8,10 @@ class ListBoard extends Component {
     ItemList: [], // 비어있는 배열
   };
 
-  componentDidMount() {
-    const data = require("../../../../BoardData.json");
+  async componentDidMount() {
+    const list = await axios.get("/board/hire_list/");
     this.setState({
-      ItemList: data.Board,
+      ItemList: list.data,
     });
   }
 

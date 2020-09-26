@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Item, TextWrap, ListItem } from "./ListStyle";
 
-function Itemlist({ id, title, plus_id, plus_writeday }) {
+function Itemlist({ id, title, matching, plus_id, plus_writeday }) {
   return (
     <ListItem key={id}>
       <Link to={`/reviewplus/${id}`}>
@@ -12,6 +12,9 @@ function Itemlist({ id, title, plus_id, plus_writeday }) {
           </Item>
           <Item>
             <h3>{title}</h3>
+          </Item>
+          <Item>
+            <p>{matching}</p>
           </Item>
           <Item>
             <p>{plus_writeday}</p>

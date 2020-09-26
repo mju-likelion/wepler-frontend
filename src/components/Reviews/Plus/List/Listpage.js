@@ -14,6 +14,7 @@ const Listpage = (props) => {
   const pageSize = 5; //한페이지에 보여줄 개수
   const [itemsCount, setItemsCount] = useState(6); //아이템 개수
   const [lastpage, setLastpage] = useState(1);
+  const [matching, setMatching] = useState("plz_id");
 
   const handlePageChange = (event, page) => {
     setCurrentPage(page); // 페이지 수 클릭 시 현재 페이지 변경
@@ -42,6 +43,9 @@ const Listpage = (props) => {
               <div>제목</div>
             </Item>
             <Item>
+              <div>매칭회원</div>
+            </Item>
+            <Item>
               <div>작성일</div>
             </Item>
             <Item>
@@ -56,6 +60,7 @@ const Listpage = (props) => {
                     <ItemCard
                       type={type}
                       id={itemdata.id}
+                      matching={itemdata.matching}
                       title={itemdata.plus_title}
                       plus_id={itemdata.plus_id}
                       plus_writeday={itemdata.plus_writeday}
