@@ -5,7 +5,7 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import styled from "styled-components";
 
-const Plus = styled.div`
+const Plz = styled.div`
   padding-bottom: 10px;
   padding-top: 30px;
 `;
@@ -16,16 +16,17 @@ const Box = styled.div`
   padding-left: 30px;
 `;
 
+
 const Detail = ({ match }) => {
   console.log(match.params.profileId);
-  const [plus_id, setplus_id] = useState("");
-  const [plus_email, setplus_email] = useState("");
-  const [plus_oneself, setplus_oneself] = useState("");
-  const [plus_rating, setplus_rating] = useState(5); //평점은 기본 5
-  const [plus_fields, setplus_fields] = useState([]);
-  const [plus_start_day, setplus_start_day] = useState([]);
-  const [plus_start_time, setplus_start_time] = useState("");
-  const [plus_end_time, setplus_end_time] = useState("");
+  const [plus_id, setPlus_id] = useState("");
+  const [plus_email, setPlus_email] = useState("");
+  const [plus_oneself, setPlus_oneself] = useState("");
+  const [plus_rating, setPlus_rating] = useState(5); //평점은 기본 5
+  const [plus_fields, setPlus_fields] = useState([]);
+  const [plus_start_day, setPlus_start_day] = useState([]);
+  const [plus_start_time, setPlus_start_time] = useState("");
+  const [plus_end_time, setPlus_end_time] = useState("");
   const [plus_address_big, setplus_address_big] = useState("");
   const [plus_address_small, setplus_address_small] = useState("");
 
@@ -41,14 +42,14 @@ const Detail = ({ match }) => {
       //   } catch {
       //     console.log("profile error!");
       //   }
-      setplus_id("아이디1");
-      setplus_email("1234@naver.com");
-      setplus_oneself("나는야 플러스회원");
-      setplus_rating(5);
-      setplus_fields(["council", "trip"]);
-      setplus_start_day("mon");
-      setplus_start_time("8:00");
-      setplus_end_time("17:00");
+      setPlus_id("아이디1");
+      setPlus_email("1234@naver.com");
+      setPlus_oneself("나는야 플러스회원");
+      setPlus_rating(5);
+      setPlus_fields(["council", "trip"]);
+      setPlus_start_day("mon");
+      setPlus_start_time("8:00");
+      setPlus_end_time("17:00");
       setplus_address_big("seoul");
       setplus_address_small("용인시 처인구 명지대학교");
     }
@@ -59,38 +60,38 @@ const Detail = ({ match }) => {
     <>
       <PlzMypageNav />
       <Container maxWidth="xs">
-       <Grid>
+        <Grid>
          <Box>
-          <Plus>
-          플러스 회원 아이디 : {plus_id}
-          </Plus>
-          <Plus>
-          플러스 회원 한 줄 소개 : {plus_oneself}
-          </Plus>
-          <Plus>
-          플러스 회원 평점 : {plus_rating}
-          </Plus>
-          <Plus>
+          <Plz>
+          플리즈 회원 아이디 : {plus_id}
+          </Plz>
+          <Plz>
+          플리즈 회원 한 줄 소개 : {plus_oneself}
+          </Plz>
+          <Plz>
+          플리즈 회원 평점 : {plus_rating}
+          </Plz>
+          <Plz>
           활동 분야 : {plus_fields}
-          </Plus>
-          <Plus>
+          </Plz>
+          <Plz>
           활동 시작 날짜 : {plus_start_day}
-          </Plus>
-          <Plus>
+          </Plz>
+          <Plz>
           활동 시작 시간 : {plus_start_time}
-          </Plus>
-          <Plus>
+          </Plz>
+          <Plz>
           활동 마감 날짜 : {plus_end_time}
-          </Plus>
-          <Plus>
-          플러스 회원 이메일 주소 : {plus_email}
-          </Plus>
-          <Plus>
-          플러스 회원 활동 장소  : {plus_address_big}
-          </Plus>
-          <Plus>
-          플러스 회원 자세한 활동 장소 : {plus_address_small}
-          </Plus>
+          </Plz>
+          <Plz>
+          플리즈 회원 이메일 주소 : {plus_email}
+          </Plz>
+          <Plz>
+          플리즈 회원 활동 장소  : {plus_address_big}
+          </Plz>
+          <Plz>
+          플리즈 회원 자세한 활동 장소 : {plus_address_small}
+          </Plz>
           </Box>          
         </Grid>
       </Container>

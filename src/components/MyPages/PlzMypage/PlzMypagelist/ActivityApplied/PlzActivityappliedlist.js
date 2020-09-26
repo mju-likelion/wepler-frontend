@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 
-const ActivityPlus = ({
+const ActivityPlz = ({
   index,
   plus_id,
   plus_fields,
@@ -44,7 +44,7 @@ const ActivityPlus = ({
             title="Image title"
           />
         </Card> */}
-      
+      <Link to={`/plzapplied/${index}`}>
         <Card>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2" align="center">
@@ -56,10 +56,16 @@ const ActivityPlus = ({
             </Typography>
             <Typography align="center">평균 평점: {plus_rating}</Typography>
           </CardContent>
+          <CardActions>
+            <Button onClick={apply}>수락하기</Button>
+            <Button onClick={postDelete}>
+              <Link to="/plzapplied">거절하기</Link>
+            </Button>
+          </CardActions>
         </Card>
-      
+      </Link>
     </>
   );
 };
 
-export default ActivityPlus;
+export default ActivityPlz;

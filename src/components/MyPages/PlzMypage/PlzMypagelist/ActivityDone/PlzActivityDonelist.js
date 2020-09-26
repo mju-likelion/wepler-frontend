@@ -7,12 +7,11 @@ import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 
-const ActivityPlus = ({
+const ActivityPlz = ({
   index,
   plus_id,
   plus_fields,
   plus_address_big,
-  plus_rating,
   match,
 }) => {
   const apply = async (e) => {
@@ -44,7 +43,6 @@ const ActivityPlus = ({
             title="Image title"
           />
         </Card> */}
-      
         <Card>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2" align="center">
@@ -54,12 +52,11 @@ const ActivityPlus = ({
             <Typography align="center">
               활동 장소: {plus_address_big}
             </Typography>
-            <Typography align="center">평균 평점: {plus_rating}</Typography>
+            
           </CardContent>
         </Card>
-      
     </>
   );
 };
 
-export default ActivityPlus;
+export default ActivityPlz;

@@ -45,14 +45,20 @@ export default withRouter(({ location: { pathname } }) => (
       <SLink to="/PlzInfoactivity">활동/참여 분야</SLink>
       <hr width="80%" color="#f2d4ca" size="5"></hr>
     </Item>
+    <Item>
+      <Menuname>활동 내역</Menuname>
+    </Item>
     <Item current={pathname === "/plzapply"}>
       <SLink to="/plzapply">신청한 활동</SLink>
     </Item>
-    <Item current={pathname === "/PlzActivityprogress"}>
-      <SLink to="/PlzActivityprogress">진행중</SLink>
+    <Item current={pathname === "/plzapplied"}>
+      <SLink to="/plzapplied">신청 받은 활동</SLink>
     </Item>
-    <Item current={pathname === "/PlzActivityend"}>
-      <SLink to="/PlzActivityend">활동 완료</SLink>
+    <Item current={pathname === "/PlzActivityIng"}>
+      <SLink to="/PlzActivityIng">진행중</SLink>
+    </Item>
+    <Item current={pathname === "/PlzActivityDone"}>
+      <SLink to="/PlzActivityDone">활동 완료</SLink>
     </Item>
   </List>
 ));
