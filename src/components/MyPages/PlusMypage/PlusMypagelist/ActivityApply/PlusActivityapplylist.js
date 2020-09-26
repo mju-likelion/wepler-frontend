@@ -44,7 +44,7 @@ const ActivityPlus = ({
             title="Image title"
           />
         </Card> */}
-      <Link to={`/plzapply/${index}`}>
+      
         <Card>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2" align="center">
@@ -54,16 +54,10 @@ const ActivityPlus = ({
             <Typography align="center">
               활동 장소: {plus_address_big}
             </Typography>
-            <Typography align="center">평균평점: {plus_rating}</Typography>
+            
           </CardContent>
-          <CardActions>
-            <Button onClick={apply}>수락하기</Button>
-            <Button onClick={postDelete}>
-              <Link to="/plzapply">거절하기</Link>
-            </Button>
-          </CardActions>
         </Card>
-      </Link>
+
     </>
   );
 };

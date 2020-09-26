@@ -3,6 +3,18 @@ import React, { useState, useEffect } from "react";
 import PlusMypageNav from "../../PlusMypagenav";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
+import styled from "styled-components";
+
+const Plus = styled.div`
+  padding-bottom: 10px;
+  padding-top: 30px;
+`;
+
+const Box = styled.div`
+  padding-bottom: 30px;
+  padding-top: 30px;
+  padding-left: 30px;
+`;
 
 const Detail = ({ match }) => {
   console.log(match.params.profileId);
@@ -47,17 +59,39 @@ const Detail = ({ match }) => {
     <>
       <PlusMypageNav />
       <Container maxWidth="xs">
-        <h2>플러스 회원 아이디 : {plus_id}</h2>
-        <Grid item xs={12} sm={12}>
-          {plus_oneself}
-          {plus_rating}
-          {plus_fields}
-          {plus_start_day}
-          {plus_start_time}
-          {plus_end_time}
-          {plus_email}
-          {plus_address_big}
-          {plus_address_small}
+        <Grid>
+         <Box>
+          <Plus>
+          플리즈 회원 아이디 : {plus_id}
+          </Plus>
+          <Plus>
+          플리즈 회원 한 줄 소개 : {plus_oneself}
+          </Plus>
+          <Plus>
+          플리즈 회원 평점 : {plus_rating}
+          </Plus>
+          <Plus>
+          활동 분야 : {plus_fields}
+          </Plus>
+          <Plus>
+          활동 시작 날짜 : {plus_start_day}
+          </Plus>
+          <Plus>
+          활동 시작 시간 : {plus_start_time}
+          </Plus>
+          <Plus>
+          활동 마감 날짜 : {plus_end_time}
+          </Plus>
+          <Plus>
+          플리즈 회원 이메일 주소 : {plus_email}
+          </Plus>
+          <Plus>
+          플리즈 회원 활동 장소  : {plus_address_big}
+          </Plus>
+          <Plus>
+          플리즈 회원 자세한 활동 장소 : {plus_address_small}
+          </Plus>
+          </Box>          
         </Grid>
       </Container>
     </>

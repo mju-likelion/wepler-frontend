@@ -58,7 +58,7 @@ const ActivityapplyPresenter = (props) => {
             gutterBottom
             className={classes.Typography}
           >
-            신청 받은 활동
+            신청한 활동
           </Typography>
         </Container>
       </div>
@@ -73,7 +73,6 @@ const ActivityapplyPresenter = (props) => {
                     plus_id={carddata.plus_id}
                     plus_fields={carddata.plus_fields}
                     plus_address_big={carddata.plus_address_big}
-                    plus_rating={carddata.plus_rating}
                   />
                 </Grid>
               )
