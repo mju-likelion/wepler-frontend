@@ -22,7 +22,9 @@ import HirePlzWrite from "components/Bord/HirePlz/Write";
 import HirePlzRead from "components/Bord/HirePlz/Read";
 import PlusProflie from "components/Areas/PlusProflie";
 import PlusProflieDetail from "components/Areas/PlusDetail";
-import ReviewViewPlz from "components/Reviews/Plz/view";
+import ReviewViewPlz from "components/Reviews/Plz/List/ListBoard";
+import ReviewViewPlzDetail from "components/Reviews/Plz/Read/Read";
+import ReviewViewPlzWrite from "components/Reviews/Plz/Write/Write";
 import ReviewViewPlus from "components/Reviews/Plus/List/ListBoard";
 import ReviewViewPlusDetail from "components/Reviews/Plus/Read/Read";
 import ReviewViewPlusWrite from "components/Reviews/Plus/Write/Write";
@@ -56,7 +58,12 @@ export default () => (
         <Route path="/signup" exact component={Signup} />
         <Route path="/signin" exact component={Signin} />
         {/* 활동후기 */}
-        <Route path="/reviewplzlist" exact component={ReviewViewPlz} />
+        <Route path={["/reviewplz", "/"]} exact component={ReviewViewPlz} />
+        {/* 목록*/}
+        <Route path="/reviewplz/:postId" component={ReviewViewPlzDetail} />
+        {/* 읽기*/}
+        <Route path="/reviewplzwrite" exact component={ReviewViewPlzWrite} />
+        {/* 글쓰기*/}
         <Route path={["/reviewplus", "/"]} exact component={ReviewViewPlus} />
         {/* 목록*/}
         <Route
