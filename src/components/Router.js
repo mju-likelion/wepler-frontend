@@ -23,7 +23,9 @@ import HirePlzRead from "components/Bord/HirePlz/Read";
 import PlusProflie from "components/Areas/PlusProflie";
 import PlusProflieDetail from "components/Areas/PlusDetail";
 import ReviewViewPlz from "components/Reviews/Plz/view";
-import ReviewViewPlus from "components/Reviews/Plus/view";
+import ReviewViewPlus from "components/Reviews/Plus/List/ListBoard";
+import ReviewViewPlusDetail from "components/Reviews/Plus/Read/Read";
+import ReviewViewPlusWrite from "components/Reviews/Plus/Write/Write";
 import PlusActivityApplyContainer from "components/MyPages/PlusMypage/PlusMypagelist/ActivityApply/PlusActivityApplyContainer";
 import PlusActivityend from "components/MyPages/PlusMypage/PlusMypagelist/ActivityDone/PlusActivityend";
 import PlusActivityprogress from "components/MyPages/PlusMypage/PlusMypagelist/ActivityIng/PlusActivityprogress";
@@ -53,8 +55,17 @@ export default () => (
         <Route path="/areaplz" exact component={HirePlz} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/signin" exact component={Signin} />
+        {/* 활동후기 */}
         <Route path="/reviewplzlist" exact component={ReviewViewPlz} />
-        <Route path="/reviewpluslist" exact component={ReviewViewPlus} />
+        <Route path={["/reviewplus", "/"]} exact component={ReviewViewPlus} />
+        {/* 목록*/}
+        <Route
+          path="/reviewplus/:postId"
+          component={ReviewViewPlusDetail}
+        />{" "}
+        {/* 읽기*/}
+        <Route path="/reviewpluswrite" exact component={ReviewViewPlusWrite} />
+        {/* 글쓰기*/}
         <Route path="/signuplz" exact component={PlzSignup} />
         <Route path="/signuplus" exact component={PlusSignup} />
         {/* 플러스 회원 프로필 */}
@@ -68,10 +79,11 @@ export default () => (
           component={PlusActivityApplyContainer}
         />
         {/* 신청 받은 플리즈회원 리스트 */}
-
-        <Route path="/plusapply/:profileId" component={PlusactivityPlusDetail} />
+        <Route
+          path="/plusapply/:profileId"
+          component={PlusactivityPlusDetail}
+        />
         {/* 플러스회원디테일*/}
-
         <Route
           path="/Plusactivityhistory"
           exact
