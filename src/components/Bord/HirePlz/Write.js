@@ -76,9 +76,13 @@ class Write extends Component {
       });
     }
     if (name === "need_member") {
-      this.setState({
-        need_member: e.target.value,
-      });
+      if (e.target.value >= 1) {
+        this.setState({
+          need_member: e.target.value,
+        });
+      } else {
+        alert("필요인원은 1명부터 가능합니다.");
+      }
     }
     if (name === "start_date") {
       this.setState({
