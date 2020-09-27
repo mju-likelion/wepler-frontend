@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Footer from "../../components/Footer/Footer";
 
 const ButtonList = styled.ul`
     display: flex;  
@@ -56,6 +57,7 @@ const ReviewPresenter = () => (
         </ButtPlu>
       </ButtonLink>
     </ButtonList>
+    <Footer />
   </>
 );
 
