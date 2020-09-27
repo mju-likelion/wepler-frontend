@@ -14,7 +14,6 @@ const Listpage = (props) => {
   const pageSize = 5; //한페이지에 보여줄 개수
   const [itemsCount, setItemsCount] = useState(6); //아이템 개수
   const [lastpage, setLastpage] = useState(1);
-  const [matching, setMatching] = useState("plus_id");
 
   const handlePageChange = (event, page) => {
     setCurrentPage(page); // 페이지 수 클릭 시 현재 페이지 변경

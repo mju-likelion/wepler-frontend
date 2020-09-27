@@ -59,36 +59,19 @@ const Detail = ({ match }) => {
     <>
       <PlusMypageNav />
       <Container maxWidth="xs">
-      <Grid>
-         <Box>
-          <Plus>
-          플리즈 회원 아이디 : {plz_id}
-          </Plus>
-          <Plus>
-          플리즈 회원 한 줄 소개 : {plz_oneself}
-          </Plus>
-          <Plus>
-          활동 분야 : {plz_fields}
-          </Plus>
-          <Plus>
-          활동 시작 날짜 : {plz_start_day}
-          </Plus>
-          <Plus>
-          활동 시작 시간 : {plz_start_time}
-          </Plus>
-          <Plus>
-          활동 마감 날짜 : {plz_end_time}
-          </Plus>
-          <Plus>
-          플리즈 회원 이메일 주소 : {plz_email}
-          </Plus>
-          <Plus>
-          플리즈 회원 활동 장소  : {plz_address_big}
-          </Plus>
-          <Plus>
-          플리즈 회원 자세한 활동 장소 : {plz_address_small}
-          </Plus>
-          </Box>          
+        <Grid>
+          <Box>
+            <Plus>플리즈 회원 아이디 : {plz_id}</Plus>
+            <Plus>플리즈 회원 한 줄 소개 : {plz_oneself}</Plus>
+            <Plus>플리즈 회원 평균 평점 : {plz_rating}</Plus>
+            <Plus>활동 분야 : {plz_fields}</Plus>
+            <Plus>활동 시작 날짜 : {plz_start_day}</Plus>
+            <Plus>활동 시작 시간 : {plz_start_time}</Plus>
+            <Plus>활동 마감 날짜 : {plz_end_time}</Plus>
+            <Plus>플리즈 회원 이메일 주소 : {plz_email}</Plus>
+            <Plus>플리즈 회원 활동 장소 : {plz_address_big}</Plus>
+            <Plus>플리즈 회원 자세한 활동 장소 : {plz_address_small}</Plus>
+          </Box>
         </Grid>
       </Container>
     </>
