@@ -5,6 +5,7 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import "assets/css/img.css";
 import imgBg1 from "assets/img/Home/bg1.jpg";
 import imgReview1 from "assets/img/Home/review1.jpg";
+import Footer from "../../components/Footer/Footer";
 
 const Container = styled.h2`
   padding-top: 100px;
@@ -59,8 +60,8 @@ const Margin = styled.div`
 
 const Box = styled.div`
   padding-top: 50px;
-  padding-left: 10px;
-  padding-right: 20px;
+  padding-left: 10%;
+  padding-right: 20%;
   margine: 10px;
   display: flex;
   justify-content: center;
@@ -157,6 +158,7 @@ const HomePresenter = () => (
         </BoxBig>
       </Box>
     </Margin>
+    <Footer />
   </>
 );
 
