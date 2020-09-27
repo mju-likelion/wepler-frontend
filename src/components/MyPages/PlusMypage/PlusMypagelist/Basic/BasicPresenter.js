@@ -64,7 +64,6 @@ const PlusBasicPresenter = ({
   const plus_start_day = [];
   return (
     <>
-      {console.log(postBoard)}
       <MypageNav />
       <Container component="main" maxWidth="xs">
         <div>

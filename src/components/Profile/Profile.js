@@ -18,12 +18,11 @@ class Profile extends Component {
   render() {
     return (
       <>
-        {board.map((item) => {
+        {board.Profile.map((item, index) => {
           return (
             <Box>
-              <BoxLeft />
               <BoxBig>
-                <ListItem key={item.number}>
+                <ListItem key={index}>
                   <Link to="/plusseoulde">
                     {/* <Link to={`/plusseoulde/${item.number}`}> */}
                     <BoxName>

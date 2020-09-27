@@ -21,7 +21,8 @@ import HireBoard from "components/Bord/HirePlz/List/ListBoard";
 import HirePlzWrite from "components/Bord/HirePlz/Write";
 import HirePlzRead from "components/Bord/HirePlz/Read";
 import PlusProflie from "components/Areas/PlusProflie";
-import PlusProflieDetail from "components/Areas/PlusDetail";import ReviewViewPlz from "components/Reviews/Plz/List/ListBoard";
+import PlusProflieDetail from "components/Areas/PlusDetail";
+import ReviewViewPlz from "components/Reviews/Plz/List/ListBoard";
 import ReviewViewPlzDetail from "components/Reviews/Plz/Read/Read";
 import ReviewViewPlzWrite from "components/Reviews/Plz/Write/Write";
 import ReviewViewPlus from "components/Reviews/Plus/List/ListBoard";
@@ -50,7 +51,6 @@ import PlusActivityPlzDetail from "components/MyPages/PlusMypage/PlusMypagelist/
 import PlusActivityIngDetail from "components/MyPages/PlusMypage/PlusMypagelist/ActivityIng/PlusActivityIngDetail";
 import PlzActivityIngDetail from "components/MyPages/PlzMypage/PlzMypagelist/ActivityIng/PlzActivityIngDetail";
 
-
 export default () => (
   <Router>
     <>
@@ -65,7 +65,6 @@ export default () => (
         <Route path="/areaplz" exact component={HirePlz} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/signin" exact component={Signin} />
-
         {/* 활동후기 */}
         <Route path={["/reviewplz", "/"]} exact component={ReviewViewPlz} />
         {/* 목록*/}
@@ -90,48 +89,47 @@ export default () => (
         <Route path="/plusseoul" exact component={PlusProflie} />
         <Route path="/plusseoulde" exact component={PlusProflieDetail} />
         {/* 플러스 회원 마이페이지 */}
-        <Route path="/plusactivityDone" exact component={PlusActivityDoneContainer} />
-
-
-
+        <Route
+          path="/plusactivityDone"
+          exact
+          component={PlusActivityDoneContainer}
+        />
         <Route
           path={["/plusapplied", "/"]}
           exact
           component={PlusActivityAppliedContainer}
         />
         {/* 플러스가 신청 받은 플리즈 회원 리스트 */}
-
         <Route
           path={["/plusapply", "/"]}
           exact
           component={PlusActivityApplyContainer}
         />
         {/* 플러스가 신청한 플리즈 회원 리스트 */}
-
         <Route
           path={["/plzapply", "/"]}
           exact
           component={PlzActivityApplyContainer}
         />
         {/* 플리즈가 신청한 플러스 회원 리스트 */}
-
         <Route
           path={["/plzapplied", "/"]}
           exact
           component={PlzActivityAppliedContainer}
         />
         {/* 플리즈가 신청 받은 플러스 회원 리스트 */}
-
-
-
         <Route path="/plusIng/:profileId" component={PlusActivityIngDetail} />
-        <Route path="/plusapplied/:profileId" component={PlusActivityPlzDetail} />
+        <Route
+          path="/plusapplied/:profileId"
+          component={PlusActivityPlzDetail}
+        />
         {/* 플러스회원디테일*/}
-
         <Route path="/plzIng/:profileId" component={PlzActivityIngDetail} />
-        <Route path="/plzapplied/:profileId" component={PlzactivityPlusDetail} />
+        <Route
+          path="/plzapplied/:profileId"
+          component={PlzactivityPlusDetail}
+        />
         {/* 플리즈회원디테일*/}
-
         <Route
           path="/Plusactivityhistory"
           exact
@@ -145,14 +143,16 @@ export default () => (
         <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
         <Route path="/plusinfobasic" exact component={PlusBasicContainer} />
         {/* 플리즈 회원 마이페이지 */}
-
-        <Route path="/plzactivityDone" exact component={PlzActivityDoneContainer} />
+        <Route
+          path="/plzactivityDone"
+          exact
+          component={PlzActivityDoneContainer}
+        />
         <Route
           path="/Plzactivityhistory"
           exact
           component={Plzactivityhistory}
         />
-
         <Route
           path="/plzactivityIng"
           exact

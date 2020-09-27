@@ -20,7 +20,7 @@ export default class extends React.Component {
     plz_fields: [],
   };
 
-  componentDidMount = () => {
+  componentDidMount() {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     this.setState({
       type: user_id,
@@ -49,7 +49,7 @@ export default class extends React.Component {
       }
     }
     getMypage();
-  };
+  }
 
   postBoard = async (e) => {
     e.preventDefault();
