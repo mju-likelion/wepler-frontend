@@ -296,7 +296,7 @@ const Read = ({ match }) => {
             {type === "plus" ? (
               <Button onClick={apply}>신청하기</Button>
             ) : undefined}
-            {user_email === write_email ? (
+            {type === "plz" && user_email === write_email ? (
               <Button onClick={() => setIsmodify(true)}>수정하기</Button>
             ) : undefined}
           </ButtonItem>
@@ -447,7 +447,9 @@ const Read = ({ match }) => {
       <Wrap>
         <Buttonlist>
           <ButtonItem>
-            <Button onClick={postBoard}>완료하기</Button>
+            <Button onClick={(postBoard, () => setIsmodify(false))}>
+              <Link to={`/plzboard/${id}`}>완료하기</Link>
+            </Button>
           </ButtonItem>
           <ButtonItem>
             <Button onClick={postDelete}>
