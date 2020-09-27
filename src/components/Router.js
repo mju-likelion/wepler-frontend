@@ -39,7 +39,6 @@ import PlzActivityIngContainer from "components/MyPages/PlzMypage/PlzMypagelist/
 import PlzActivityApplyContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApply/PlzActivityApplyContainer";
 import PlzActivityAppliedContainer from "components/MyPages/PlzMypage/PlzMypagelist/ActivityApplied/PlzActivityAppliedContainer";
 
-import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfoactivity";
 import PlusBasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/Basic/BasicContainer";
 import Plusactivityhistory from "components/MyPages/PlusMypage/PlusMypagelist/Plusactivityhistory";
 import PlzBasicContainer from "components/MyPages/PlzMypage/PlzMypagelist/Basic/BasicContainer";
@@ -140,7 +139,6 @@ export default () => (
           exact
           component={PlusActivityIngContainer}
         />
-        <Route path="/plusinfoactivity" exact component={PlusInfoactivity} />
         <Route path="/plusinfobasic" exact component={PlusBasicContainer} />
         {/* 플리즈 회원 마이페이지 */}
         <Route
