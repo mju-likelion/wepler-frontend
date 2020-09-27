@@ -42,7 +42,6 @@ import PlzActivityAppliedContainer from "components/MyPages/PlzMypage/PlzMypagel
 import PlusInfoactivity from "components/MyPages/PlusMypage/PlusMypagelist/PlusInfoactivity";
 import PlusBasicContainer from "components/MyPages/PlusMypage/PlusMypagelist/Basic/BasicContainer";
 import Plusactivityhistory from "components/MyPages/PlusMypage/PlusMypagelist/Plusactivityhistory";
-import PlzInfoactivity from "components/MyPages/PlzMypage/PlzMypagelist/PlzInfoactivity";
 import PlzBasicContainer from "components/MyPages/PlzMypage/PlzMypagelist/Basic/BasicContainer";
 import Plzactivityhistory from "components/MyPages/PlzMypage/PlzMypagelist/Plzactivityhistory";
 
@@ -159,7 +158,6 @@ export default () => (
           exact
           component={PlzActivityIngContainer}
         />
-        <Route path="/plzinfoactivity" exact component={PlzInfoactivity} />
         <Route path="/plzinfobasic" exact component={PlzBasicContainer} />
         {/* 게시판 */}
         <Route path="/plzboard/:postId" component={HirePlzRead} /> {/* 읽기*/}
