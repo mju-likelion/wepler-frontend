@@ -22,7 +22,7 @@ const ActivityPlz = ({
             title="Image title"
           />
         </Card> */}
-      <Link to={`/plzIng/${index}`}>
+      <Link to={`/plzactivitying/${index}`}>
         <Card>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2" align="center">

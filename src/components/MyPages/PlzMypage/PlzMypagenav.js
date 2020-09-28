@@ -3,11 +3,14 @@ import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const List = styled.ul`
+  padding-top: 15%;
   padding-left: 8%;
   text-align: center;
   justify-content: center;
   position: fixed;
   width: 30%;
+  top: 0;
+  bottom: 0;
 `;
 
 const Item = styled.li`
@@ -35,11 +38,10 @@ export default withRouter(({ location: { pathname } }) => (
     <Item>
       <Menuname>개인 정보 수정</Menuname>
     </Item>
-    <Item current={pathname === "/PlzInfobasic"}>
-      <SLink to="/PlzInfobasic">기본 정보</SLink>
+    <Item current={pathname === "/plzinfobasic"}>
+      <SLink to="/plzinfobasic">기본 정보</SLink>
     </Item>
-    <Item current={pathname === "/PlzInfoactivity"}>
-      <SLink to="/PlzInfoactivity">활동/참여 분야</SLink>
+    <Item>
       <hr width="80%" color="#f2d4ca" size="5"></hr>
     </Item>
     <Item>
@@ -51,11 +53,11 @@ export default withRouter(({ location: { pathname } }) => (
     <Item current={pathname === "/plzapplied"}>
       <SLink to="/plzapplied">신청 받은 활동</SLink>
     </Item>
-    <Item current={pathname === "/PlzActivityIng"}>
-      <SLink to="/PlzActivityIng">진행중</SLink>
+    <Item current={pathname === "/plzactivitying"}>
+      <SLink to="/plzactivitying">진행중</SLink>
     </Item>
-    <Item current={pathname === "/PlzActivityDone"}>
-      <SLink to="/PlzActivityDone">활동 완료</SLink>
+    <Item current={pathname === "/plzactivitydone"}>
+      <SLink to="/plzactivitydone">활동 완료</SLink>
     </Item>
   </List>
 ));

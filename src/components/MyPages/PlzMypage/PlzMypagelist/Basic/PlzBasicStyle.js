@@ -58,6 +58,25 @@ export const ActivityDisplay = styled.div`
   }
 `;
 
+export const Plus = styled.div`
+  padding-bottom: 10px;
+  padding-top: 30px;
+  justify-content: center;
+`;
+
+export const Box = styled.div`
+  padding-bottom: 30px;
+  padding-top: 30px;
+  justify-content: center;
+`;
+
+export const Container = styled.div`
+  padding-bottom: 30px;
+  padding-top: 30px;
+  padding-left: 850px;
+  justify-content: center;
+`;
+
 export const ActivityList = styled.div`
   display: flex;
 `;
