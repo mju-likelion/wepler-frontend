@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 // import axios from "axios";
 import PlusMypageNav from "../../PlusMypagenav";
 import Grid from "@material-ui/core/Grid";
-import styled from "styled-components";
 import { Plus, Container } from "../Basic/BasicStyle";
 
 const Detail = ({ match }) => {

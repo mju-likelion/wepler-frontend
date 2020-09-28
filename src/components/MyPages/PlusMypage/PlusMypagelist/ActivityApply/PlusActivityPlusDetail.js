@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import PlusMypageNav from "../../PlusMypagenav";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import styled from "styled-components";
 import { Box, Plus } from "../Basic/BasicStyle";
 
 const Detail = ({ match }) => {

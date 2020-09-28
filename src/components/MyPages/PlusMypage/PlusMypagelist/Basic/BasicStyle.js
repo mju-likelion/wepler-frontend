@@ -41,7 +41,7 @@ export const Box = styled.div`
 export const Container = styled.div`
   padding-bottom: 30px;
   padding-top: 30px;
-  padding-left: 850px;
+  padding-left: 750px;
   justify-content: center;
 `;
 
