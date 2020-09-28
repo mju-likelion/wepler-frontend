@@ -35,16 +35,16 @@ export default withRouter(({ location: { pathname } }) => (
     <Item>
       <Menuname>개인 정보 수정</Menuname>
     </Item>
-    <Item current={pathname === "/PlusInfobasic"}>
-      <SLink to="/PlusInfobasic">기본 정보</SLink>
+    <Item current={pathname === "/plusinfobasic"}>
+      <SLink to="/plusinfobasic">기본 정보</SLink>
     </Item>
     <hr width="80%" color="#f2d4ca" size="5"></hr>
 
     <Item>
       <Menuname>교육 이수 내역</Menuname>
     </Item>
-    <Item current={pathname === "/Plusactivityhistory"}>
-      <SLink to="/Plusactivityhistory">교육 이수 내역</SLink>
+    <Item current={pathname === "/plusactivityhistory"}>
+      <SLink to="/plusactivityhistory">교육 이수 내역</SLink>
       <hr width="80%" color="#f2d4ca" size="5"></hr>
     </Item>
     <Item>
@@ -56,11 +56,11 @@ export default withRouter(({ location: { pathname } }) => (
     <Item current={pathname === "/plusapplied"}>
       <SLink to="/plusapplied">신청 받은 활동</SLink>
     </Item>
-    <Item current={pathname === "/PlusActivityIng"}>
-      <SLink to="/PlusActivityIng">진행 중</SLink>
+    <Item current={pathname === "/plusactivitying"}>
+      <SLink to="/plusactivitying">진행 중</SLink>
     </Item>
-    <Item current={pathname === "/PlusActivityDone"}>
-      <SLink to="/PlusActivityDone">활동 완료</SLink>
+    <Item current={pathname === "/plusactivitydone"}>
+      <SLink to="/plusactivitydone">활동 완료</SLink>
     </Item>
   </List>
 ));

@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from "react";
 // import axios from "axios";
 import PlusMypageNav from "../../PlusMypagenav";
-import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import styled from "styled-components";
-
-const Plus = styled.div`
-  padding-bottom: 10px;
-  padding-top: 30px;
-`;
-
-const Box = styled.div`
-  padding-bottom: 30px;
-  padding-top: 30px;
-  padding-left: 30px;
-`;
+import { Plus, Container } from "../Basic/BasicStyle";
 
 const Detail = ({ match }) => {
   console.log(match.params.profileId);
@@ -42,7 +31,7 @@ const Detail = ({ match }) => {
       //   }
       setplz_id("아이디1");
       setplz_email("1234@naver.com");
-      setplz_oneself("나는야 플러스회원");
+      setplz_oneself("나는야 플리즈회원");
       setplz_fields(["council", "trip"]);
       setplz_start_day("mon");
       setplz_start_time("8:00");
@@ -58,17 +47,15 @@ const Detail = ({ match }) => {
       <PlusMypageNav />
       <Container maxWidth="xs">
         <Grid>
-          <Box>
             <Plus>플리즈 회원 아이디 : {plz_id}</Plus>
             <Plus>플리즈 회원 한 줄 소개 : {plz_oneself}</Plus>
-            <Plus>활동 분야 : {plz_fields}</Plus>
+            <Plus>원하는 활동 분야 : {plz_fields}</Plus>
             <Plus>활동 시작 날짜 : {plz_start_day}</Plus>
             <Plus>활동 시작 시간 : {plz_start_time}</Plus>
             <Plus>활동 마감 날짜 : {plz_end_time}</Plus>
             <Plus>플리즈 회원 이메일 주소 : {plz_email}</Plus>
             <Plus>플리즈 회원 활동 장소 : {plz_address_big}</Plus>
             <Plus>플리즈 회원 자세한 활동 장소 : {plz_address_small}</Plus>
-          </Box>
         </Grid>
       </Container>
     </>

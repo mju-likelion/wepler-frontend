@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Activityappliedlist from "./PlusActivityappliedlist";
+import { TextTitle } from "../Basic/BasicStyle";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   Typography: {
-    paddingLeft: theme.spacing(28),
+    paddingLeft: theme.spacing(37),
   },
 }));
 
@@ -52,14 +53,7 @@ const ActivityappliedPresenter = (props) => {
       <PlusMypageNav />
       <div>
         <Container maxWidth="sm">
-          <Typography
-            variant="h3"
-            align="center"
-            gutterBottom
-            className={classes.Typography}
-          >
-            신청 받은 활동
-          </Typography>
+          <TextTitle className={classes.Typography}> 신청 받은 활동 </TextTitle>
         </Container>
       </div>
       <Container className={classes.cardGrid} maxWidth="md">
