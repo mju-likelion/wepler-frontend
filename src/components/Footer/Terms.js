@@ -5,7 +5,6 @@ import Footer from "components/Footer/Footer.js";
 
 const Container = styled.div`
     padding: 50px 0px;
-    text-align: center;
     font-size:20px;
 `;
 
