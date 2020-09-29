@@ -16,6 +16,8 @@ export default class extends React.Component {
     plus_start_time: "",
     plus_end_time: "",
     plus_fields: [],
+    agreePrivate: false,
+    agreeWepler: false,
   };
   postBoard = async (e) => {
     e.preventDefault();
@@ -142,6 +144,7 @@ export default class extends React.Component {
       });
     }
   };
+
   handleActivity = (e) => {
     const { name } = e.target;
     // 배열에 값이 있으면
@@ -160,6 +163,19 @@ export default class extends React.Component {
       });
     }
   };
+
+  handleTerms = (event) => {
+    const { name } = event.target;
+    if (name === "agreePrivate") {
+      this.setState({ agreePrivate: event.target.checked });
+      console.log(event.target.checked);
+    }
+    if (name === "agreeWepler") {
+      this.setState({ agreeWepler: event.target.checked });
+      console.log(event.target.checked);
+    }
+  };
+
   render() {
     const {
       plus_name,
@@ -194,6 +210,7 @@ export default class extends React.Component {
         handelinfoChange={this.handelinfoChange}
         handleWhen={this.handleWhen}
         handleActivity={this.handleActivity}
+        handleTerms={this.handleTerms}
       />
     );
   }

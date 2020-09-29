@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -19,6 +20,9 @@ const theme = createMuiTheme({
     },
     secondary: {
       main: "#F2D4CA",
+    },
+    initial: {
+      main: "#404A41",
     },
   },
 });
@@ -104,9 +108,9 @@ const styles = {
 const PlzPresenter = ({
   handleWhenRadio,
   handleBelongRadio,
-  handleChange,
   handelinfoChange,
   handleActivity,
+  handleTerms,
   postBoard,
   classes,
   plz_when_learn,
@@ -163,7 +167,7 @@ const PlzPresenter = ({
                     fullWidth
                     name="plz_password"
                     label="비밀번호"
-                    type="plz_password"
+                    type="password"
                     id="plz_password"
                     autoComplete="current-password"
                     onChange={handelinfoChange}
@@ -197,6 +201,20 @@ const PlzPresenter = ({
                     <option disabled>지역을 선택하세요</option>
                     <option value="seoul">서울</option>
                     <option value="gyeonggi">경기도</option>
+                    <option value="incheon">인천</option>
+                    <option value="gangwon">강원도</option>
+                    <option value="chungbuk">충청북도</option>
+                    <option value="chungnam">충청남도</option>
+                    <option value="daejeon">대전</option>
+                    <option value="jeonbuk">전라북도</option>
+                    <option value="jeonnam">전라남도</option>
+                    <option value="gwangju">광주</option>
+                    <option value="gyeongbuk">경상북도</option>
+                    <option value="daegu">대구</option>
+                    <option value="gyeongnam">경상남도</option>
+                    <option value="ulsan">울산</option>
+                    <option value="busan">부산</option>
+                    <option value="jeju">제주</option>
                   </select>
                 </Grid>
                 <Grid item xs={12} sm={8}>
@@ -370,19 +388,25 @@ const PlzPresenter = ({
                   단체
                 </label>
               </TextDisplay>
-              <TextQuestion>개인정보 수집 및 이용 동의
-              <Checkbox
-                          name="agree"
-                          onChange={handleActivity}
-                          color="primary"
-                        />
+              <TextQuestion>
+                <Checkbox
+                  name="agreePrivate"
+                  defaultChecked={"agreePrivate" ? false : true}
+                  onChange={handleTerms}
+                />
+                <Link to="/memberterms" color="initial">
+                  개인정보 수집 및 이용 동의(필수)
+                </Link>
               </TextQuestion>
-              <TextQuestion>위플러 이용약관 동의
-              <Checkbox
-                          name="agree"
-                          onChange={handleActivity}
-                          color="primary"
-                        />
+              <TextQuestion>
+                <Checkbox
+                  name="agreeWepler"
+                  defaultChecked={"agreeWepler" ? false : true}
+                  onChange={handleTerms}
+                />
+                <Link to="/terms" color="initial">
+                  위플러 이용약관 동의(필수)
+                </Link>
               </TextQuestion>
 
               <Button
@@ -400,9 +424,7 @@ const PlzPresenter = ({
                     이미 계정이 있으신가요?
                   </Link>
                 </Grid>
-              </Grid>        
-
-
+              </Grid>
             </form>
           </div>
           <Box mt={5} />
@@ -412,5 +434,14 @@ const PlzPresenter = ({
     <Footer />
   </>
 );
+
+PlzPresenter.propTypes = {
+  postBoard: PropTypes.func.isRequired,
+  handelinfoChange: PropTypes.func.isRequired,
+  handleActivity: PropTypes.func.isRequired,
+  handleWhenRadio: PropTypes.func.isRequired,
+  handleBelongRadio: PropTypes.func.isRequired,
+  handleTerms: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(PlzPresenter);

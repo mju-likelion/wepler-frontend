@@ -20,6 +20,8 @@ export default class extends React.Component {
       individual: true,
       group: false,
     },
+    agreePrivate: false,
+    agreeWepler: false,
   };
   postBoard = async (e) => {
     e.preventDefault();
@@ -119,9 +121,21 @@ export default class extends React.Component {
   };
 
   handleBelongRadio = (event) => {
-    let obj2 = {};
-    obj2[event.target.value] = event.target.checked; // true
-    this.setState({ plz_belong: obj2 });
+    let obj = {};
+    obj[event.target.value] = event.target.checked; // true
+    this.setState({ plz_belong: obj });
+  };
+
+  handleTerms = (event) => {
+    const { name } = event.target;
+    if (name === "agreePrivate") {
+      this.setState({ agreePrivate: event.target.checked });
+      console.log(event.target.checked);
+    }
+    if (name === "agreeWepler") {
+      this.setState({ agreeWepler: event.target.checked });
+      console.log(event.target.checked);
+    }
   };
 
   render() {
@@ -135,6 +149,8 @@ export default class extends React.Component {
       plz_when_learn,
       plz_belong,
       plz_fields,
+      agreePrivate,
+      agreeWepler,
     } = this.state;
     return (
       <PlzPresenter
@@ -147,11 +163,14 @@ export default class extends React.Component {
         plz_fields={plz_fields}
         plz_when_learn={plz_when_learn}
         plz_belong={plz_belong}
+        agreePrivate={agreePrivate}
+        agreeWepler={agreeWepler}
         postBoard={this.postBoard}
         handelinfoChange={this.handelinfoChange}
         handleActivity={this.handleActivity}
         handleWhenRadio={this.handleWhenRadio}
         handleBelongRadio={this.handleBelongRadio}
+        handleTerms={this.handleTerms}
       />
     );
   }

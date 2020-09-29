@@ -3,62 +3,57 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const FooterContainer = styled.div`
-    padding: 20px 0px;
-    background-color: #404A41;
-    color: white;   
-    
+  padding: 20px 0px;
+  background-color: #404a41;
+  color: white;
 `;
 const FirstFooter = styled.div`
-    padding: 3px 20px;
-    background-color: #404A41;
-    color: white;
-    font-size:25px;
+  padding: 3px 20px;
+  margin-bottom: 10px;
+  background-color: #404a41;
+  color: white;
+  font-size: 25px;
 `;
 
 const Footer = styled.div`
-    padding: 3px 20px;
-    background-color: #404A41;
-    color: white;
-    font-size:15px;    
+  padding: 3px 20px;
+  background-color: #404a41;
+  color: white;
+  font-size: 20px;
 `;
 
 const MiddleFooter = styled.div`
   display: flex;
 `;
 
-
 const SLink = styled(Link)`
-    padding: 3px 20px;
-    background-color: #404A41;
-    color: white;
-    font-size:15px; 
+  padding: 3px 20px;
+  background-color: #404a41;
+  color: white;
+  font-size: 15px;
 `;
 
-
 const Footers = () => (
-
-    <FooterContainer>
-        <FirstFooter>
-            <h1>WEPLER</h1>
-        </FirstFooter>
-        <MiddleFooter>    
-            <SLink>
-                <p>Preoject</p>
-            </SLink>
-            <SLink to="/terms">
-                <p>이용 약관</p>
-            </SLink>
-            <SLink to="/memberterms">
-                <p>회원 정책</p>
-            </SLink>
-        </MiddleFooter>  
-        <hr width="100%" color="#C9AA79" size="10"></hr>
-        <Footer>
-            <p>Tel. 000-0000</p>
-            <p>E-mail. wepler@wepl.com</p>
-        </Footer>
-    </FooterContainer>
-
-)
+  <FooterContainer>
+    <FirstFooter>
+      <h1>WEPLER</h1>
+    </FirstFooter>
+    <MiddleFooter>
+      <SLink to="/weplers">
+        <p>Preoject</p>
+      </SLink>
+      <SLink to="/terms">
+        <p>이용 약관</p>
+      </SLink>
+      <SLink to="/memberterms">
+        <p>회원 정책</p>
+      </SLink>
+    </MiddleFooter>
+    <hr width="100%" color="#C9AA79" size="10"></hr>
+    <Footer>
+      <p>E-mail. kimhan0421@nvaer.com</p>
+    </Footer>
+  </FooterContainer>
+);
 
 export default Footers;

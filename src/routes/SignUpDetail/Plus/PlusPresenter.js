@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -47,6 +48,7 @@ const ActivityBox = styled.div`
 const ActivityList = styled.div`
   display: flex;
 `;
+
 const TextQuestion = styled.div`
   padding-top: 30px;
   font-size: 20px;
@@ -86,6 +88,9 @@ const theme = createMuiTheme({
     secondary: {
       main: "#EFEFEF",
     },
+    initial: {
+      main: "#404A41",
+    },
   },
 });
 
@@ -115,6 +120,7 @@ const PlusPresenter = ({
   handleWhen,
   handleActivity,
   postBoard,
+  handleTerms,
   classes,
   plus_name,
   plus_email,
@@ -179,7 +185,7 @@ const PlusPresenter = ({
                     fullWidth
                     name="plus_password"
                     label="비밀번호"
-                    type="plus_password"
+                    type="password"
                     id="plus_password"
                     autoComplete="current-password"
                     onChange={handelinfoChange}
@@ -461,6 +467,26 @@ const PlusPresenter = ({
                   </TextWrapterm>
                 </ActivityList>
               </Grid>
+              <TextQuestion>
+                <Checkbox
+                  name="agreePrivate"
+                  defaultChecked={"agreePrivate" ? false : true}
+                  onChange={handleTerms}
+                />
+                <Link to="/memberterms" color="initial">
+                  개인정보 수집 및 이용 동의(필수)
+                </Link>
+              </TextQuestion>
+              <TextQuestion>
+                <Checkbox
+                  name="agreeWepler"
+                  defaultChecked={"agreeWepler" ? false : true}
+                  onChange={handleTerms}
+                />
+                <Link to="/terms" color="initial">
+                  위플러 이용약관 동의(필수)
+                </Link>
+              </TextQuestion>
 
               <Button
                 type="submit"
@@ -488,5 +514,14 @@ const PlusPresenter = ({
     <Footer />
   </>
 );
+
+PlusPresenter.propTypes = {
+  postBoard: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handelinfoChange: PropTypes.func.isRequired,
+  handleWhen: PropTypes.func.isRequired,
+  handleActivity: PropTypes.func.isRequired,
+  handleTerms: PropTypes.func.isRequired,
+};
 
 export default withStyles(styles)(PlusPresenter);
