@@ -10,6 +10,7 @@ import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { createMuiTheme, withStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import Footer from "../../../components/Footer/Footer";
 
 const theme = createMuiTheme({
   palette: {
@@ -398,6 +399,7 @@ const PlzPresenter = ({
         </Container>
       </ThemeProvider>
     </Big>
+    <Footer />
   </>
 );
 
