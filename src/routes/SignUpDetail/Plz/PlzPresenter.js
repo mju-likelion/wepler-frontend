@@ -85,7 +85,9 @@ const TextDisplay = styled.div`
   }
 `;
 
-const SLink = styled(Link)``;
+const AccountAsk = styled.div`
+  font-size: 15px;
+`;
 
 const styles = {
   paper: {
@@ -420,11 +422,11 @@ const PlzPresenter = ({
                 회원가입
               </Button>
               <Grid container justify="flex-end">
-                <Grid item>
+                <AccountAsk>
                   <Link to="/Signin" variant="body2">
                     이미 계정이 있으신가요?
                   </Link>
-                </Grid>
+                </AccountAsk>
               </Grid>
             </form>
           </div>

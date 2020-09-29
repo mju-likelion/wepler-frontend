@@ -62,6 +62,10 @@ const TextList = styled.div`
   font-weight: bold;
 `;
 
+const AccountAsk = styled.div`
+  font-size: 15px;
+`;
+
 const TextWrapterm = styled.div`
   display: flex;
   font-size: 23px;
@@ -498,11 +502,11 @@ const PlusPresenter = ({
               </Button>
 
               <Grid container justify="flex-end">
-                <Grid item>
-                  <Link to="/Signin" variant="body2">
+                <AccountAsk>
+                  <Link to="/signin" variant="body2">
                     이미 계정이 있으신가요?
                   </Link>
-                </Grid>
+                </AccountAsk>
               </Grid>
             </form>
           </div>
