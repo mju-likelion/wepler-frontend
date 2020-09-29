@@ -5,12 +5,12 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { createMuiTheme, withStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import { Link } from "react-router-dom";
 import Footer from "../../../components/Footer/Footer";
 
 const theme = createMuiTheme({
@@ -84,6 +84,8 @@ const TextDisplay = styled.div`
     padding-right: 20px;
   }
 `;
+
+const SLink = styled(Link)``;
 
 const styles = {
   paper: {
@@ -408,7 +410,6 @@ const PlzPresenter = ({
                   위플러 이용약관 동의(필수)
                 </Link>
               </TextQuestion>
-
               <Button
                 type="submit"
                 fullWidth
@@ -420,7 +421,7 @@ const PlzPresenter = ({
               </Button>
               <Grid container justify="flex-end">
                 <Grid item>
-                  <Link href="/Signin" variant="body2">
+                  <Link to="/Signin" variant="body2">
                     이미 계정이 있으신가요?
                   </Link>
                 </Grid>
@@ -431,6 +432,7 @@ const PlzPresenter = ({
         </Container>
       </ThemeProvider>
     </Big>
+
     <Footer />
   </>
 );

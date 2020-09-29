@@ -5,13 +5,13 @@ import Footer from "components/Footer/Footer.js";
 
 const Container = styled.div`
     padding: 50px 0px;
-    text-align: center;
     font-size:20px;
 `;
 
 const Head = styled.div`
     font-size:35px;
     padding: 30px 0px;
+    text-align: center;
 `;
 
 const Body = styled.div`
