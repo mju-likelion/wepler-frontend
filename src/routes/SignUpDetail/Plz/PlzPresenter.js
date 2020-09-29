@@ -108,12 +108,6 @@ const PlzPresenter = ({
   handleActivity,
   postBoard,
   classes,
-  plz_name,
-  plz_email,
-  plz_password,
-  plz_phonenumber,
-  plz_address_big,
-  plz_address_small,
   plz_when_learn,
   plz_belong,
   plz_fields,
@@ -353,7 +347,6 @@ const PlzPresenter = ({
                 </label>
               </TextDisplayWhen>
               <TextQuestion>개인 혹은 단체 이신가요?</TextQuestion>
-
               <TextDisplay>
                 <label>
                   <input
@@ -376,6 +369,21 @@ const PlzPresenter = ({
                   단체
                 </label>
               </TextDisplay>
+              <TextQuestion>개인정보 수집 및 이용 동의
+              <Checkbox
+                          name="agree"
+                          onChange={handleActivity}
+                          color="primary"
+                        />
+              </TextQuestion>
+              <TextQuestion>위플러 이용약관 동의
+              <Checkbox
+                          name="agree"
+                          onChange={handleActivity}
+                          color="primary"
+                        />
+              </TextQuestion>
+
               <Button
                 type="submit"
                 fullWidth
@@ -391,7 +399,9 @@ const PlzPresenter = ({
                     이미 계정이 있으신가요?
                   </Link>
                 </Grid>
-              </Grid>
+              </Grid>        
+
+
             </form>
           </div>
           <Box mt={5} />
