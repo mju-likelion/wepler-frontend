@@ -6,6 +6,8 @@ import {
   Switch,
 } from "react-router-dom";
 import Nav from "components/nav";
+import Terms from "components/Footer/Terms";
+import MemberTerms from "components/Footer/MemberTerms";
 import Home from "routes/Home";
 import Weplers from "routes/Weplers";
 import HirePlus from "routes/Hire/HirePlus";
@@ -63,6 +65,8 @@ export default () => (
         <Route path="/areaplz" exact component={HirePlz} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/signin" exact component={Signin} />
+        <Route path="/terms" exact component={Terms} />
+        <Route path="/memberterms" exact component={MemberTerms} />
         {/* 활동후기 */}
         <Route path={["/reviewplz", "/"]} exact component={ReviewViewPlz} />
         {/* 목록*/}

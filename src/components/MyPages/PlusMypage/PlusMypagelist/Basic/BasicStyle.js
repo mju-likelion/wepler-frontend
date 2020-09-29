@@ -26,6 +26,25 @@ export const Profile = styled.div`
   text-align: center;
 `;
 
+export const Plus = styled.div`
+  padding-bottom: 10px;
+  padding-top: 30px;
+  justify-content: center;
+`;
+
+export const Box = styled.div`
+  padding-bottom: 30px;
+  padding-top: 30px;
+  justify-content: center;
+`;
+
+export const Container = styled.div`
+  padding-bottom: 30px;
+  padding-top: 30px;
+  padding-left: 750px;
+  justify-content: center;
+`;
+
 export const Infor = styled.div`
   display: flex;
   margin-bottom: 20px;

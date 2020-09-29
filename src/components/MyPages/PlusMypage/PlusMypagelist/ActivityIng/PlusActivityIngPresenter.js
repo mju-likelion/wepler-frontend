@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import PlzMypageNav from "../../PlusMypagenav";
+import PlusMypageNav from "../../PlusMypagenav";
 import Pagination from "@material-ui/lab/Pagination";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import ActivityInglist from "./PlusActivityInglist";
+import { TextTitle } from "../Basic/BasicStyle";
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   Typography: {
-    paddingLeft: theme.spacing(28),
+    paddingLeft: theme.spacing(37),
   },
 }));
 
@@ -49,17 +50,10 @@ const ActivityIngPresenter = (props) => {
 
   return (
     <>
-      <PlzMypageNav />
+      <PlusMypageNav />
       <div>
-        <Container maxWidth="sm">
-          <Typography
-            variant="h3"
-            align="center"
-            gutterBottom
-            className={classes.Typography}
-          >
-            진행 중인 활동 
-          </Typography>
+      <Container maxWidth="sm">
+          <TextTitle className={classes.Typography}> 진행 중인 활동 </TextTitle>
         </Container>
       </div>
       <Container className={classes.cardGrid} maxWidth="md">

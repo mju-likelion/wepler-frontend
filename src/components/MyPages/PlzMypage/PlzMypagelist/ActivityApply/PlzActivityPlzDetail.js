@@ -4,6 +4,7 @@ import PlzMypageNav from "../../PlzMypagenav";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import styled from "styled-components";
+import { TextTitle } from "./PlzBasicStyle";
 
 const Plus = styled.div`
   padding-bottom: 10px;

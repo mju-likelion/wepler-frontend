@@ -1,20 +1,8 @@
 import React, { useState, useEffect } from "react";
 // import axios from "axios";
 import PlzMypageNav from "../../PlzMypagenav";
-import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import styled from "styled-components";
-
-const Plus = styled.div`
-  padding-bottom: 10px;
-  padding-top: 30px;
-`;
-
-const Box = styled.div`
-  padding-bottom: 30px;
-  padding-top: 30px;
-  padding-left: 30px;
-`;
+import { Plus, Container } from "../Basic/PlzBasicStyle";
 
 const Detail = ({ match }) => {
   console.log(match.params.profileId);
@@ -60,7 +48,6 @@ const Detail = ({ match }) => {
       <PlzMypageNav />
       <Container maxWidth="xs">
         <Grid>
-          <Box>
             <Plus>플러스 회원 아이디 : {plz_id}</Plus>
             <Plus>플러스 회원 한 줄 소개 : {plz_oneself}</Plus>
             <Plus>플러스 회원 평균 평점 : {plz_rating}</Plus>
@@ -71,7 +58,6 @@ const Detail = ({ match }) => {
             <Plus>플러스 회원 이메일 주소 : {plz_email}</Plus>
             <Plus>플러스 회원 활동 장소 : {plz_address_big}</Plus>
             <Plus>플러스 회원 자세한 활동 장소 : {plz_address_small}</Plus>
-          </Box>
         </Grid>
       </Container>
     </>
