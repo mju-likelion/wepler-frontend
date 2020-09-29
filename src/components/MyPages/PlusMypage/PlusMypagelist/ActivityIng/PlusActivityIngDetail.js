@@ -62,7 +62,7 @@ const Detail = ({ match }) => {
             <PlusId>{plz_id}</PlusId>
             <PlusMail>이메일 : {plz_email}</PlusMail>
             <Plus>분야 : {plz_fields}</Plus>
-            <Plus>시간 : {plz_start_time}</Plus>
+            <Plus>시간 : {plz_start_time} ~ {plz_end_time}</Plus>
             <Plus>지역 : {plz_address_big}</Plus>
             <Plus>장소 : {plz_address_small}</Plus>
         </Grid>
