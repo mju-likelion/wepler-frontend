@@ -4,13 +4,12 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { createMuiTheme, withStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import Footer from "../../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 const theme = createMuiTheme({
   palette: {
@@ -79,6 +78,10 @@ const TextDisplay = styled.div`
   label {
     padding-right: 20px;
   }
+`;
+
+const SLink = styled(Link)`
+ 
 `;
 
 const styles = {
@@ -370,18 +373,18 @@ const PlzPresenter = ({
                   단체
                 </label>
               </TextDisplay>
-              <TextQuestion>개인정보 수집 및 이용 동의
+              <TextQuestion>
+                <SLink to="/memberterms">개인정보 수집 및 이용 동의</SLink>
               <Checkbox
                           name="agree"
                           onChange={handleActivity}
-                          color="primary"
                         />
               </TextQuestion>
-              <TextQuestion>위플러 이용약관 동의
+              <TextQuestion>
+                <SLink to="/terms">위플러 이용약관 동의</SLink>
               <Checkbox
                           name="agree"
                           onChange={handleActivity}
-                          color="primary"
                         />
               </TextQuestion>
 
@@ -409,7 +412,6 @@ const PlzPresenter = ({
         </Container>
       </ThemeProvider>
     </Big>
-    <Footer />
   </>
 );
 
