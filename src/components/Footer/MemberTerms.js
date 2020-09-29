@@ -11,6 +11,7 @@ const Container = styled.div`
 const Head = styled.div`
     font-size:35px;
     padding: 30px 0px;
+    text-align: center;
 `;
 
 const Body = styled.div`
