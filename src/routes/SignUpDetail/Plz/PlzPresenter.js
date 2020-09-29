@@ -10,6 +10,7 @@ import Container from "@material-ui/core/Container";
 import { createMuiTheme, withStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { Link } from "react-router-dom";
+import Footer from "../../../components/Footer/Footer";
 
 const theme = createMuiTheme({
   palette: {
@@ -412,6 +413,7 @@ const PlzPresenter = ({
         </Container>
       </ThemeProvider>
     </Big>
+   <Footer />
   </>
 );
 
