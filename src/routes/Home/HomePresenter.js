@@ -60,7 +60,7 @@ const Margin = styled.div`
 
 const Box = styled.div`
   padding-top: 50px;
-  padding-left: 10%;
+  padding-left: 20%;
   padding-right: 20%;
   margine: 10px;
   display: flex;
@@ -71,7 +71,6 @@ const Box = styled.div`
 `;
 
 const BoxBig = styled.div`
-  padding: 20px 30px;
   margin: 20px;
   border: 3px solid #f2d4ca;
   border-radius: 10px;
@@ -82,6 +81,7 @@ const BoxBig = styled.div`
 `;
 
 const BoxExplan = styled.div`
+  padding: 10%;
   font-size: 20px;
   line-height: 1.5;
 `;

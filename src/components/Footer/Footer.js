@@ -51,7 +51,7 @@ const Footers = () => (
     </MiddleFooter>
     <hr width="100%" color="#C9AA79" size="10"></hr>
     <Footer>
-      <p>E-mail. kimhan0421@nvaer.com</p>
+      <p>E-mail. kimhan0421@naver.com</p>
     </Footer>
   </FooterContainer>
 );
