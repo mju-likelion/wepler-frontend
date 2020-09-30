@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
@@ -6,6 +6,7 @@ import Pagination from "@material-ui/lab/Pagination";
 import ItemCard from "./Itemlist";
 import Box from "@material-ui/core/Box";
 import { Container2, Wrap, Item, BigTextWrap, Button } from "./ListStyle";
+import TextField from "@material-ui/core/TextField";
 
 const Listpage = (props) => {
   const { Itemcard } = props;
@@ -18,6 +19,10 @@ const Listpage = (props) => {
   const handlePageChange = (event, page) => {
     setCurrentPage(page); // 페이지 수 클릭 시 현재 페이지 변경
     console.log(currentPage);
+  };
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
   };
 
   useEffect(() => {
@@ -77,6 +82,14 @@ const Listpage = (props) => {
               <Link to={`/`}>홈으로</Link>
             </Button>
           )}
+
+    <Grid item xs={12} sm={6}>
+      <TextField type={"text"} size={"25"} className={"input-sm"} placeholder={"Search"} onChange={handleChange}>
+          <table className={"table"}>
+          </table>
+        </TextField>
+      </Grid>    
+
         </Grid>
       </Container>
       <Container maxWidth="sm">
