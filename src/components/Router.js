@@ -85,7 +85,8 @@ export default () => (
         {/* 글쓰기*/}
         <Route path="/signuplz" exact component={PlzSignup} />
         <Route path="/signuplus" exact component={PlusSignup} />
-        {/* 플러스 회원 프로필 */}        <Route path={["/plusprofile", "/"]} exact component={PlusProflie} />
+        {/* 플러스 회원 프로필 */}{" "}
+        <Route path={["/plusprofile", "/"]} exact component={PlusProflie} />
         <Route
           path="/plusprofile/:proflieId"
           exact
@@ -121,13 +122,19 @@ export default () => (
           component={PlzActivityAppliedContainer}
         />
         {/* 플리즈가 신청 받은 플러스 회원 리스트 */}
-        <Route path="/plusactivitying/:profileId" component={PlusActivityIngDetail} />
+        <Route
+          path="/plusactivitying/:profileId"
+          component={PlusActivityIngDetail}
+        />
         <Route
           path="/plusapplied/:profileId"
           component={PlusActivityPlzDetail}
         />
         {/* 플러스회원디테일*/}
-        <Route path="/plzactivitying/:profileId" component={PlzActivityIngDetail} />
+        <Route
+          path="/plzactivitying/:profileId"
+          component={PlzActivityIngDetail}
+        />
         <Route
           path="/plzapplied/:profileId"
           component={PlzactivityPlusDetail}

@@ -1,39 +1,10 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import axios from "axios";
 
-const ActivityPlus = ({
-  index,
-  plus_id,
-  plus_fields,
-  plus_address_big,
-  
-  match,
-}) => {
-  const apply = async (e) => {
-    var overap = await axios.post(
-      `/board/hire_apply/${match.params.postId}/`,
-      {},
-      {
-        headers: {
-          Authorization: JSON.parse(localStorage.getItem("token")),
-        },
-      }
-    );
-    if (overap.data.isoverap === true) alert("이미 수락하셨습니다.");
-    else alert("수락되었습니다. 즐겁게 재능을 배우세요!");
-  };
-
-  const postDelete = async (e) => {
-    await axios.delete(`/delete/${match.params.profileId}`);
-    alert("거절되었습니다.");
-  };
-
+const ActivityPlus = ({ index, plus_id, plus_fields, plus_address_big }) => {
   return (
     <>
       {/* {console.log(match.params.profileId)} */}
@@ -55,12 +26,6 @@ const ActivityPlus = ({
               활동 장소: {plus_address_big}
             </Typography>
           </CardContent>
-          <CardActions>
-            <Button onClick={apply}>수락하기</Button>
-            <Button onClick={postDelete}>
-              <Link to="/plusapplied">거절하기</Link>
-            </Button>
-          </CardActions>
         </Card>
       </Link>
     </>

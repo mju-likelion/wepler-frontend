@@ -4,14 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import axios from "axios";
 
-const ActivityPlus = ({
-  index,
-  plus_id,
-  plus_fields,
-  plus_address_big,
-  plus_rating,
-  match,
-}) => {
+const ActivityPlus = ({ plus_id, plus_fields, plus_address_big }) => {
   return (
     <>
       {/* {console.log(match.params.profileId)} */}

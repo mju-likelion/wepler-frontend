@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
+import { Link } from "react-router-dom";
 import PlusMypageNav from "../../PlusMypagenav";
-import Grid from "@material-ui/core/Grid";
-import { Plus, Container } from "../Basic/BasicStyle";
-import styled from "styled-components";
-
-const PlusId = styled.div`
-  padding-right: 380px;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  text-align: center;
-`;
+import Container from "@material-ui/core/Container";
+import { PlzId, Title, Explain } from "../../../DetailStyle";
 
 const Detail = ({ match }) => {
   console.log(match.params.profileId);
@@ -21,6 +14,28 @@ const Detail = ({ match }) => {
   const [plz_end_time, setplz_end_time] = useState("");
   const [plz_address_big, setplz_address_big] = useState("");
   const [plz_address_small, setplz_address_small] = useState("");
+
+  const apply = async (e) => {
+    const overap = await axios.post(
+      `/board/hire_apply/${match.params.postId}/`,
+      {},
+      {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      }
+    );
+  };
+
+  const postDelete = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.delete(`/delete/${match.params.profileId}`);
+      alert("거절되었습니다.");
+    } catch {
+      alert("거절에 실패하였습니다.");
+    }
+  };
 
   useEffect(() => {
     async function getApply() {
@@ -48,15 +63,18 @@ const Detail = ({ match }) => {
   return (
     <>
       <PlusMypageNav />
-      <Container maxWidth="xs">
-        <Grid>
-          <PlusId>{plz_id}</PlusId>
-          <Plus>이메일 : {plz_email}</Plus>
-          <Plus>분야 : {plz_fields}</Plus>
-          <Plus>시간 : {plz_start_time} ~ {plz_end_time}</Plus>
-          <Plus>지역 : {plz_address_big}</Plus>
-          <Plus>장소 : {plz_address_small}</Plus>
-        </Grid>
+      <Container component="main" maxWidth="md">
+        <PlzId>
+          <Title>{plz_id}</Title>
+
+          <Explain>이메일 : {plz_email}</Explain>
+          <Explain>분야 : {plz_fields}</Explain>
+          <Explain>
+            시간 : {plz_start_time} ~ {plz_end_time}
+          </Explain>
+          <Explain>지역 : {plz_address_big}</Explain>
+          <Explain>장소 : {plz_address_small}</Explain>
+        </PlzId>
       </Container>
     </>
   );

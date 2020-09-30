@@ -8,6 +8,8 @@ class ActivityContainer extends Component {
 
   componentDidMount() {
     const data = require("../../../../../BoardData.json");
+    // 'mypage/match_list/'
+    // 'mypage/match_list_count') 개수
     this.setState({
       ItemList: data.mypage,
     });

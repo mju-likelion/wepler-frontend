@@ -81,23 +81,37 @@ const PlzBasicPresenter = ({
               <form className={classes.form} onSubmit={postBoard} noValidate>
                 <Wrapper>
                   <Profile>
-                    <img
-                      style={{
-                        backgroundColor: "#efefef",
-                        width: "200px",
-                        height: "200px",
-                      }}
-                      src={file}
-                      alt=""
-                    />
-                    <div>
-                      <input
-                        type="file"
-                        name="imgFile"
-                        id="imgFile"
-                        onChange={handleChangeFile}
+                    {ismodify ? (
+                      <>
+                        <img
+                          style={{
+                            backgroundColor: "#efefef",
+                            width: "200px",
+                            height: "200px",
+                          }}
+                          src={file}
+                          alt=""
+                        />
+                        <div>
+                          <input
+                            type="file"
+                            name="imgFile"
+                            id="imgFile"
+                            onChange={handleChangeFile}
+                          />
+                        </div>
+                      </>
+                    ) : (
+                      <img
+                        style={{
+                          backgroundColor: "#efefef",
+                          width: "200px",
+                          height: "200px",
+                        }}
+                        src={file}
+                        alt=""
                       />
-                    </div>
+                    )}
                   </Profile>
 
                   <BigProfile>

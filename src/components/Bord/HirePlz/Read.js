@@ -182,7 +182,7 @@ const Read = ({ match }) => {
   };
 
   const apply = async (e) => {
-    var overap = await axios.post(
+    const overap = await axios.post(
       `/board/hire_apply/${match.params.postId}/`,
       {},
       {

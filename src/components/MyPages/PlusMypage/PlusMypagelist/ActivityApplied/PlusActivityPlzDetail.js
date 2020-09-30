@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 import PlusMypageNav from "../../PlusMypagenav";
-import Grid from "@material-ui/core/Grid";
-import { Plus, Container } from "../Basic/BasicStyle";
-import styled from "styled-components";
-
-const PlusId = styled.div`
-  padding-right: 380px;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  text-align: center;
-`;
+import Container from "@material-ui/core/Container";
+import { PlzId, Title, Buttons, Explain } from "../../../DetailStyle";
 
 const Detail = ({ match }) => {
-  console.log(match.params.profileId);
+  // console.log(match.params.profileId);
   const [plz_id, setplz_id] = useState("");
   const [plz_email, setplz_email] = useState("");
   const [plz_fields, setplz_fields] = useState([]);
@@ -21,6 +15,24 @@ const Detail = ({ match }) => {
   const [plz_end_time, setplz_end_time] = useState("");
   const [plz_address_big, setplz_address_big] = useState("");
   const [plz_address_small, setplz_address_small] = useState("");
+
+  const apply = async (e) => {
+    const overap = await axios.post(
+      `/mypage/accept/${match.params.profileId}/`,
+      {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      }
+    );
+    if (overap.data.isoverap === true) alert("이미 수락하셨습니다.");
+    else alert("수락되었습니다. 즐겁게 재능을 배우세요!");
+  };
+
+  const postDelete = async (e) => {
+    await axios.delete(`/mypage/reject/${match.params.profileId}`);
+    alert("거절되었습니다.");
+  };
 
   useEffect(() => {
     async function getApply() {
@@ -48,15 +60,25 @@ const Detail = ({ match }) => {
   return (
     <>
       <PlusMypageNav />
-      <Container maxWidth="xs">
-      <Grid>
-        <PlusId>{plz_id}</PlusId>
-          <Plus>이메일 : {plz_email}</Plus>
-          <Plus>분야 : {plz_fields}</Plus>
-          <Plus>시간 : {plz_start_time} ~ {plz_end_time}</Plus>
-          <Plus>지역 : {plz_address_big}</Plus>
-          <Plus>장소 : {plz_address_small}</Plus>
-        </Grid>
+      <Container component="main" maxWidth="md">
+        <PlzId>
+          <Title>{plz_id}</Title>
+          <Buttons>
+            <Button color="primary" onClick={apply}>
+              수락하기
+            </Button>
+            <Button color="secondary" onClick={postDelete}>
+              <Link to="/plusapplied">거절하기</Link>
+            </Button>
+          </Buttons>
+          <Explain>이메일 : {plz_email}</Explain>
+          <Explain>분야 : {plz_fields}</Explain>
+          <Explain>
+            시간 : {plz_start_time} ~ {plz_end_time}
+          </Explain>
+          <Explain>지역 : {plz_address_big}</Explain>
+          <Explain>장소 : {plz_address_small}</Explain>
+        </PlzId>
       </Container>
     </>
   );
