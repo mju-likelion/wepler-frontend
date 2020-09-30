@@ -12,20 +12,15 @@ const PlusId = styled.div`
   text-align: center;
 `;
 
-const PlusMail = styled.div`
-  padding-left: 330px;
-  padding-bottom: 10px;
-`;
-
 const Detail = ({ match }) => {
   console.log(match.params.profileId);
-  const [plz_id, setPlz_id] = useState("");
-  const [plz_email, setPlz_email] = useState("");
-  const [plz_fields, setPlz_fields] = useState([]);
-  const [plz_start_time, setPlz_start_time] = useState("");
-  const [plz_end_time, setPlz_end_time] = useState("");
-  const [plz_address_big, setPlz_address_big] = useState("");
-  const [plz_address_small, setPlz_address_small] = useState("");
+  const [plz_id, setplz_id] = useState("");
+  const [plz_email, setplz_email] = useState("");
+  const [plz_fields, setplz_fields] = useState([]);
+  const [plz_start_time, setplz_start_time] = useState("");
+  const [plz_end_time, setplz_end_time] = useState("");
+  const [plz_address_big, setplz_address_big] = useState("");
+  const [plz_address_small, setplz_address_small] = useState("");
 
   useEffect(() => {
     async function getApply() {
@@ -39,13 +34,13 @@ const Detail = ({ match }) => {
       //   } catch {
       //     console.log("profile error!");
       //   }
-      setPlz_id("플리즈1");
-      setPlz_email("1234@naver.com");
-      setPlz_fields(["council", "trip"]);
-      setPlz_start_time("8:00");
-      setPlz_end_time("17:00");
-      setPlz_address_big("seoul");
-      setPlz_address_small("용인시 처인구 명지대학교");
+      setplz_id("플리즈1");
+      setplz_email("1234@naver.com");
+      setplz_fields(["council", "trip"]);
+      setplz_start_time("8:00");
+      setplz_end_time("17:00");
+      setplz_address_big("seoul");
+      setplz_address_small("용인시 처인구 명지대학교");
     }
     getApply();
   }, []);
@@ -56,11 +51,9 @@ const Detail = ({ match }) => {
       <Container maxWidth="xs">
         <Grid>
           <PlusId>{plz_id}</PlusId>
-          <PlusMail>이메일 : {plz_email}</PlusMail>
+          <Plus>이메일 : {plz_email}</Plus>
           <Plus>분야 : {plz_fields}</Plus>
-          <Plus>
-            시간 : {plz_start_time} ~ {plz_end_time}
-          </Plus>
+          <Plus>시간 : {plz_start_time} ~ {plz_end_time}</Plus>
           <Plus>지역 : {plz_address_big}</Plus>
           <Plus>장소 : {plz_address_small}</Plus>
         </Grid>

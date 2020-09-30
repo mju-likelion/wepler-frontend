@@ -45,7 +45,7 @@ const ActivityDonePresenter = (props) => {
   useEffect(() => {
     setItemsCount();
     setLastpage(Math.ceil(itemsCount / pageSize));
-  }, []);
+  }, [])
 
   return (
     <>
