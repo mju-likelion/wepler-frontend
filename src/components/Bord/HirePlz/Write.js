@@ -89,11 +89,11 @@ class Write extends Component {
         start_date: e.target.value,
       });
     }
-        if (name === "end_date") {
-      if ( e.target.value >= this.state.start_date ) {
-      this.setState({
-        end_date: e.target.value,
-      });
+    if (name === "end_date") {
+      if (e.target.value >= this.state.start_date) {
+        this.setState({
+          end_date: e.target.value,
+        });
       } else {
         alert("종료 기간이 시작 기간보다 먼저 있을 수 없습니다.");
       }
@@ -197,10 +197,12 @@ class Write extends Component {
             <Buttonlist>
               <ButtonItem>
                 <Button>
-                  <Link to="/@plzboardboard">취소</Link>
+                  <Link to="/plzboard">취소</Link>
                 </Button>
               </ButtonItem>
-              <Button onClick={this.postBoard}>전송하기</Button>
+              <Button onClick={this.postBoard}>
+                <Link to="/plzboard">전송하기</Link>
+              </Button>
             </Buttonlist>
           </Container3>
         </Container>

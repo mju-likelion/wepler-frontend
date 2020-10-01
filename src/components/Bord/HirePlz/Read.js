@@ -90,49 +90,37 @@ const Read = ({ match }) => {
     setType(user_id); //현사용자 회원
 
     async function getMypage() {
-      // try {
-      //   // 현사용자 이메일가져오기
-      //   const gets = await axios.get("/mypage/getMypage", {
-      //     headers: {
-      //       Authorization: JSON.parse(localStorage.getItem("token")),
-      //     },
-      //   });
-      //   setEmail(gets.data.user_email);
-      // } catch {
-      //   console.log("user information error!");
-      // }
-
-      setEmail("123@naver.com");
+      try {
+        const gets = await axios.get("/token_check/", {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        });
+        setEmail(gets.data.user_email);
+      } catch {
+        console.log("user information error!");
+      }
     }
-
     getMypage();
     async function getRead() {
-      // try {
-      //   //포스트의 내용
-      //   const reads = await axios.get(`/hire_detail/${match.params.postId}`, {
-      //     headers: {
-      //       Authorization: JSON.parse(localStorage.getItem("token")),
-      //     },
-      //   });
-      //   setWrite(reads.data.user_email);
-      // } catch {
-      //   console.log("post error!");
-      // }
-
-      setWrite("123@naver.com");
-      setId("plz_id");
-      setBelong("individual");
-      setTitle("제목1");
-      setContent(
-        "내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용"
-      );
-      setRecruit("모집중");
-      setNeed("5");
-      setStart("2020-08-08");
-      setEnd("2020-12-31");
-      setFields(["council", "trip"]);
+      var reads = await axios.get(`/board/hire_detail/${match.params.postId}`, {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      });
+      console.log(reads.data);
+      setEmail(reads.data.user_id);
+      setId(reads.data.user_name);
+      setBelong(reads.data.user_belong);
+      setTitle(reads.data.title);
+      setContent(reads.data.content);
+      setRecruit(reads.data.recruit);
+      setNeed(reads.data.need_member);
+      setStart(reads.data.start_date);
+      setEnd(reads.data.end_date);
+      setFields(reads.data.user_field);
+      setWrite(reads.data.user_id);
     }
-
     getRead();
   }, []);
 
@@ -182,7 +170,7 @@ const Read = ({ match }) => {
   };
 
   const apply = async (e) => {
-    const overap = await axios.post(
+    var overap = await axios.post(
       `/board/hire_apply/${match.params.postId}/`,
       {},
       {
@@ -191,7 +179,8 @@ const Read = ({ match }) => {
         },
       }
     );
-    if (overap.data.isoverap === true) alert("이미 신청하셨습니다.");
+    if (overap.data.istimeover === true) alert("신청기간이 지났습니다.");
+    else if (overap.data.isoverap === true) alert("이미 신청하셨습니다.");
     else alert("신청되었습니다.");
   };
 
@@ -296,7 +285,7 @@ const Read = ({ match }) => {
             {type === "plus" ? (
               <Button onClick={apply}>신청하기</Button>
             ) : undefined}
-            {type === "plz" && user_email === write_email ? (
+            {user_email === write_email ? (
               <Button onClick={() => setIsmodify(true)}>수정하기</Button>
             ) : undefined}
           </ButtonItem>

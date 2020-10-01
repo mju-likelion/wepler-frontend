@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
@@ -185,10 +185,10 @@ const PlzPresenter = ({
                   <TextField
                     required
                     fullWidth
-                    id="plz_number"
+                    id="plz_phonenumber"
                     label="전화번호"
-                    name="plz_number"
-                    autoComplete="plz_number"
+                    name="plz_phonenumber"
+                    autoComplete="plz_phonenumber"
                     onChange={handelinfoChange}
                   />
                 </Grid>
@@ -421,6 +421,7 @@ const PlzPresenter = ({
               >
                 회원가입
               </Button>
+
               <Grid container justify="flex-end">
                 <AccountAsk>
                   <Link to="/Signin" variant="body2">

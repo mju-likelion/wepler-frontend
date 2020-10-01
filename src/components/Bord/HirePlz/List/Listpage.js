@@ -5,30 +5,34 @@ import Container from "@material-ui/core/Container";
 import Pagination from "@material-ui/lab/Pagination";
 import ItemCard from "./Itemlist";
 import { Container2, Wrap, Item, BigTextWrap, Button } from "./ListStyle";
+import axios from "axios";
 
 const Listpage = (props) => {
   const { Itemcard } = props;
   const [type, setType] = useState("");
   const [currentPage, setCurrentPage] = useState(1); //현재활성화된 page기본은 1
   const pageSize = 5; //한페이지에 보여줄 개수
-  const [itemsCount, setItemsCount] = useState(12); //아이템 개수
-  const [lastpage, setLastpage] = useState(3);
+  const [count, setCount] = useState(1); //아이템 개수
+  const [lastpage, setLastpage] = useState(1);
 
   const handlePageChange = (event, page) => {
     setCurrentPage(page); // 페이지 수 클릭 시 현재 페이지 변경
-    console.log(currentPage);
   };
 
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id);
-    setItemsCount();
-    setLastpage(Math.ceil(itemsCount / pageSize));
-  }, []);
-
+    async function getCount() {
+      const counts = await axios.get("board/hire_board_count/");
+      setCount(counts.data.count);
+      setLastpage(Math.ceil(count / pageSize));
+    }
+    getCount();
+  }, [count]);
   return (
     <>
-      <Container component="main" maxWidth="lg">
+      {console.log(lastpage)}
+      <Container maxWidth="lg">
         <Grid item lg={12}>
           <Container2>
             <h2>고용합니다</h2>
@@ -55,13 +59,15 @@ const Listpage = (props) => {
                     <ItemCard
                       type={type}
                       id={itemdata.id}
+                      timeover={itemdata.timeover}
+                      plz_group={itemdata.plz_group}
                       title={itemdata.title}
                       plz_id={itemdata.plz_id}
                       need_member={itemdata.need_member}
                       apply_member={itemdata.apply_member}
                       start_date={itemdata.start_date}
                       end_date={itemdata.end_date}
-                      plz_fields={itemdata.plz_fields}
+                      plz_fields={itemdata.plz_class}
                     />
                   </div>
                 )

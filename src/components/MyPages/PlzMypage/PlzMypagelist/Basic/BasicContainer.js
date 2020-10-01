@@ -20,36 +20,42 @@ export default class extends React.Component {
     plz_fields: [],
   };
 
-  componentDidMount = () => {
+  componentDidMount() {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     this.setState({
       type: user_id,
     });
-    if (user_id !== "plus") {
+    if (user_id !== "plz") {
       localStorage.clear();
     }
+
     async function getMypage() {
       try {
-        const gets = await axios.get("/mypage/getMypage", {
-          headers: {
-            Authorization: JSON.parse(localStorage.getItem("token")),
-          },
-        });
-        this.setState({
-          plz_fields: gets.data.user_class,
-          plz_name: gets.data.user_name,
-          plz_phonenumber: gets.data.user_phon,
-          plz_address_big: gets.data.user_address_big,
-          plz_address_small: gets.data.user_address_small,
-          //plz에 맞게 추가하기
-          plz_email: gets.data.user_email,
-        });
+        const gets = await axios.get(
+          "/mypage/getMypage",
+
+          {
+            headers: {
+              Authorization: JSON.parse(localStorage.getItem("token")),
+            },
+          }
+        );
+        console.log(gets);
+        // this.setState({
+        //   plz_fields: gets.data.user_class,
+        //   plz_name: gets.data.user_name,
+        //   plz_phonenumber: gets.data.user_phone,
+        //   plz_address_big: gets.data.user_address_big,
+        //   plz_address_small: gets.data.user_address_small,
+        //   plz_email: gets.data.user_email,
+        // });
+        // console.log(plz_fields);
       } catch {
         console.log("Infromation error!");
       }
     }
     getMypage();
-  };
+  }
 
   postBoard = async (e) => {
     e.preventDefault();

@@ -59,15 +59,11 @@ const PlzBasicPresenter = ({
   postBoard,
   handleChangeFile,
 }) => {
-  // const read = <></>;
-
-  // const modify = <></>;
   const [ismodify, setIsmodify] = useState(false);
   const plz_fields = [];
   const plz_start_day = [];
   return (
     <>
-      {console.log(postBoard)}
       <MypageNav />
       <Container component="main" maxWidth="xs">
         <div>
