@@ -89,10 +89,14 @@ class Write extends Component {
         start_date: e.target.value,
       });
     }
-    if (name === "end_date") {
+        if (name === "end_date") {
+      if ( e.target.value >= this.state.start_date ) {
       this.setState({
         end_date: e.target.value,
       });
+      } else {
+        alert("종료 기간이 시작 기간보다 먼저 있을 수 없습니다.");
+      }
     }
     if (name === "content") {
       this.setState({
