@@ -3,7 +3,6 @@ import axios from "axios";
 import Button from "@material-ui/core/Button";
 import PlzMypageNav from "../../PlzMypagenav";
 import Container from "@material-ui/core/Container";
-import styled from "styled-components";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { PlzId, Title, Buttons, Explain } from "../../../DetailStyle";
 

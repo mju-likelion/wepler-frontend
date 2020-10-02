@@ -61,7 +61,7 @@ const Detail = ({ match }) => {
     }
 
     getApply();
-  }, []);
+  }, [match.params.profileId]);
 
   return (
     <>

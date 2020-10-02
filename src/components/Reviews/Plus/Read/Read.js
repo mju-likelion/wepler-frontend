@@ -70,7 +70,6 @@ const ButtonItem = styled.div`
 
 const Read = ({ match }) => {
   console.log(match.params.postId);
-  const [type, setType] = useState(""); //현사용자 회원
   const [ismodify, setIsmodify] = useState(false); //수정가능=true
   const id = 1; //포스트 넘버
   const [write_email, setWrite] = useState(""); //포스트 작성자 이메일
@@ -82,9 +81,6 @@ const Read = ({ match }) => {
   const [fields, setFields] = useState([]);
 
   useEffect(() => {
-    const user_id = JSON.parse(localStorage.getItem("user_id"));
-    setType(user_id); //현사용자 회원
-
     async function getMypage() {
       // try {
       //   // 현사용자 이메일가져오기

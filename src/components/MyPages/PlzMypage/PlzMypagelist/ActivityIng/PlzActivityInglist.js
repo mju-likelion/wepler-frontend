@@ -3,15 +3,8 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import axios from "axios";
 
-const ActivityPlz = ({
-  index,
-  plus_id,
-  plus_fields,
-  plus_address_big,
-  match,
-}) => {
+const ActivityPlz = ({ index, plus_id, plus_fields, plus_address_big }) => {
   return (
     <>
       {/* {console.log(match.params.profileId)} */}

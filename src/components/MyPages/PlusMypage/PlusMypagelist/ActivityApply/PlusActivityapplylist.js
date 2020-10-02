@@ -2,7 +2,6 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import axios from "axios";
 
 const ActivityPlus = ({ plus_id, plus_fields, plus_address_big }) => {
   return (

@@ -4,7 +4,6 @@ import board from "BoardData.json";
 import {
   ListItem,
   Box,
-  BoxLeft,
   BoxBig,
   BoxName,
   BoxExplan,
