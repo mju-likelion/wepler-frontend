@@ -35,65 +35,65 @@ const HireUsPresenter = () => (
       <p>플러스 회원 프로필 보기</p>
 
       <ButtonList>
-        <ButtonLink to="/plusseoul">
+        <ButtonLink to="/plusprofile?location=seoul">
           <ButtonArea>서울특별시</ButtonArea>
         </ButtonLink>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=gyeonggi">
           <ButtonArea>경기도</ButtonArea>
         </ButtonLink>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=incheon">
           <ButtonArea>인천</ButtonArea>
         </ButtonLink>
       </ButtonList>
       <ButtonList>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=gangwon">
           <ButtonArea>강원도</ButtonArea>
         </ButtonLink>
       </ButtonList>
 
       <ButtonList>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=chungbuk">
           <ButtonArea>충청북도</ButtonArea>
         </ButtonLink>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=chungnam">
           <ButtonArea>충청남도</ButtonArea>
         </ButtonLink>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=daejeon">
           <ButtonArea>대전</ButtonArea>
         </ButtonLink>
       </ButtonList>
       <ButtonList>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=jeonbuk">
           <ButtonArea>전라북도</ButtonArea>
         </ButtonLink>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=jeonnam">
           <ButtonArea>전라남도</ButtonArea>
         </ButtonLink>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=gwangju">
           <ButtonArea>광주</ButtonArea>
         </ButtonLink>
       </ButtonList>
       <ButtonList>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=gyeongbuk">
           <ButtonArea>경상북도</ButtonArea>
         </ButtonLink>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=daegu">
           <ButtonArea>대구</ButtonArea>
         </ButtonLink>
       </ButtonList>
       <ButtonList>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=gyeongnam">
           <ButtonArea>경상남도</ButtonArea>
         </ButtonLink>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=ulsan">
           <ButtonArea>울산</ButtonArea>
         </ButtonLink>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=busan">
           <ButtonArea>부산</ButtonArea>
         </ButtonLink>
       </ButtonList>
       <ButtonList>
-        <ButtonLink>
+        <ButtonLink to="/plusprofile?location=jeju">
           <ButtonArea>제주</ButtonArea>
         </ButtonLink>
       </ButtonList>
