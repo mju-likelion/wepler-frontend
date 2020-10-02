@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import PlzMypageNav from "../../PlzMypagenav";
 import Pagination from "@material-ui/lab/Pagination";
 import { makeStyles } from "@material-ui/core/styles";
@@ -34,8 +35,8 @@ const ActivityDonePresenter = (props) => {
   const classes = useStyles();
   const [currentPage, setCurrentPage] = useState(1); //현재활성화된 page기본은 1
   const pageSize = 3; //한페이지에 보여줄 개수
-  const [itemsCount, setItemsCount] = useState(5); //아이템 개수
-  const [lastpage, setLastpage] = useState(2);
+  const [count, setCount] = useState(1); //아이템 개수
+  const [lastpage, setLastpage] = useState(1);
 
   const handlePageChange = (event, page) => {
     setCurrentPage(page); // 페이지 수 클릭 시 현재 페이지 변경
@@ -43,15 +44,19 @@ const ActivityDonePresenter = (props) => {
   };
 
   useEffect(() => {
-    setItemsCount()
-    setLastpage(Math.ceil(itemsCount / pageSize))
-  }, []) 
+    async function getCount() {
+      const counts = await axios.get("board/hire_board_count/");
+      setCount(counts.data.count);
+      setLastpage(Math.ceil(count / pageSize));
+    }
+    getCount();
+  }, [count]);
 
   return (
     <>
       <PlzMypageNav />
       <div>
-      <Container maxWidth="sm">
+        <Container maxWidth="sm">
           <TextTitle className={classes.Typography}> 완료된 활동 </TextTitle>
         </Container>
       </div>

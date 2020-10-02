@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+// import axios from "axios";
 import PlusMypageNav from "../../PlusMypagenav";
 import Container from "@material-ui/core/Container";
 import { PlzId, Title, Explain } from "../../../DetailStyle";
@@ -14,28 +13,6 @@ const Detail = ({ match }) => {
   const [plz_end_time, setplz_end_time] = useState("");
   const [plz_address_big, setplz_address_big] = useState("");
   const [plz_address_small, setplz_address_small] = useState("");
-
-  const apply = async (e) => {
-    const overap = await axios.post(
-      `/board/hire_apply/${match.params.postId}/`,
-      {},
-      {
-        headers: {
-          Authorization: JSON.parse(localStorage.getItem("token")),
-        },
-      }
-    );
-  };
-
-  const postDelete = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.delete(`/delete/${match.params.profileId}`);
-      alert("거절되었습니다.");
-    } catch {
-      alert("거절에 실패하였습니다.");
-    }
-  };
 
   useEffect(() => {
     async function getApply() {

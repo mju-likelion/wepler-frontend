@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
 import PlzMypageNav from "../../PlzMypagenav";
 import Container from "@material-ui/core/Container";
 import styled from "styled-components";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { PlzId, Title, Buttons, Explain } from "../../../DetailStyle";
-
-const PlusId = styled.div`
-  padding-right: 380px;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  text-align: center;
-`;
 
 const Detail = ({ match }) => {
   console.log(match.params.profileId);
@@ -29,15 +20,16 @@ const Detail = ({ match }) => {
   const [plus_address_small, setplus_address_small] = useState("");
 
   const apply = async (e) => {
-    const overap = await axios.post(
-      `/board/hire_apply/${match.params.postId}/`,
-      {
+    try {
+      await axios.post(`/board/hire_apply/${match.params.postId}/`, {
         headers: {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },
-      }
-    );
-    alert("활동을 종료했습니다.");
+      });
+      alert("활동을 종료했습니다.");
+    } catch {
+      alert("활동종료에 실패했습니다. 다시 시도해 주세요.");
+    }
   };
 
   useEffect(() => {

@@ -108,7 +108,6 @@ const Read = ({ match }) => {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },
       });
-      console.log(reads.data);
       setEmail(reads.data.user_id);
       setId(reads.data.user_name);
       setBelong(reads.data.user_belong);
@@ -122,7 +121,7 @@ const Read = ({ match }) => {
       setWrite(reads.data.user_id);
     }
     getRead();
-  }, []);
+  }, [match.params.postId]);
 
   const onChange = (e) => {
     if (e.target.name === "title") {
