@@ -6,7 +6,14 @@ import Container from "@material-ui/core/Container";
 import Pagination from "@material-ui/lab/Pagination";
 import ItemCard from "./Itemlist";
 import Box from "@material-ui/core/Box";
-import { Container2, Wrap, Item, BigTextWrap, Button } from "./ListStyle";
+import {
+  Container2,
+  Wrap,
+  Item,
+  BigTextWrap,
+  Button,
+  SearchStyle,
+} from "./ListStyle";
 import TextField from "@material-ui/core/TextField";
 
 const Listpage = (props) => {
@@ -45,6 +52,11 @@ const Listpage = (props) => {
           <Container2>
             <h2>플러스들의 후기</h2>
           </Container2>
+          <SearchStyle>
+            <TextField type="text" placeholder="Search" onChange={handleChange}>
+              <table className="table"></table>
+            </TextField>
+          </SearchStyle>
           <BigTextWrap>
             <Item>
               <div>번호</div>
@@ -88,18 +100,6 @@ const Listpage = (props) => {
               <Link to={`/`}>홈으로</Link>
             </Button>
           )}
-
-          <Grid item xs={12} sm={6}>
-            <TextField
-              type={"text"}
-              size={"25"}
-              className={"input-sm"}
-              placeholder={"Search"}
-              onChange={handleChange}
-            >
-              <table className={"table"}></table>
-            </TextField>
-          </Grid>
         </Grid>
       </Container>
       <Container maxWidth="sm">

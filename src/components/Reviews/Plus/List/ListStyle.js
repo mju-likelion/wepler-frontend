@@ -4,7 +4,7 @@ export const Container2 = styled.div`
   text-align: center;
   color: #f2d4ca;
   line-height: 2;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
   font-weight: bold;
   font-size: 30px;
 `;
@@ -77,4 +77,9 @@ export const Button = styled.div`
     color: #e9c46a;
     cursor: not-allowed;
   }
+`;
+
+export const SearchStyle = styled.div`
+  padding-left: 73%;
+  margin-bottom: 3%;
 `;
