@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import PlusList from "../Profile/Profile";
+import PlusList from "./Profile/Profile";
 import Pagination from "@material-ui/lab/Pagination";
 import qs from "qs";
 
