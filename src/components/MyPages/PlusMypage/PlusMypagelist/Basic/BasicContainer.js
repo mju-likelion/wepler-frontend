@@ -18,6 +18,7 @@ export default class extends React.Component {
     plus_start_time: "",
     plus_end_time: "",
     plus_fields: [],
+    plus_oneself: "",
   };
 
   componentDidMount = () => {
@@ -47,6 +48,7 @@ export default class extends React.Component {
           plus_start_time: gets.data.user_start_time,
           plus_end_time: gets.data.user_end_time,
           plus_email: gets.data.user_email,
+          plus_oneself: gets.data.user_oneself,
         });
       } catch {
         console.log("Infromation error!");
@@ -65,9 +67,10 @@ export default class extends React.Component {
       plus_end_time,
       plus_fields,
       file,
+      plus_oneself,
     } = this.state;
-    const data = new FormData();
-    data.append("photo", file[0]);
+    // const data = new FormData();
+    // data.append("photo", file[0]);
     try {
       const post = await axios.post("/mypage/updateMypage/", {
         plus_start_day,
@@ -77,6 +80,7 @@ export default class extends React.Component {
         plus_end_time,
         plus_fields,
         file,
+        plus_oneself,
       });
       console.log(post);
       alert("수정 되었습니다");
@@ -126,6 +130,11 @@ export default class extends React.Component {
     if (name === "plus_end_time") {
       this.setState({
         plus_end_time: e.target.value,
+      });
+    }
+    if (name === "plus_oneself") {
+      this.setState({
+        plus_oneself: e.target.value,
       });
     }
   };
@@ -178,6 +187,7 @@ export default class extends React.Component {
       });
     }
   };
+
   render() {
     const {
       file,
@@ -192,6 +202,7 @@ export default class extends React.Component {
       plus_start_time,
       plus_end_time,
       plus_fields,
+      plus_oneself,
     } = this.state;
     return (
       <PlusBasicPresenter
@@ -207,6 +218,7 @@ export default class extends React.Component {
         plus_talentshare={plus_talentshare}
         plus_start_day={plus_start_day}
         file={file}
+        plus_oneself={plus_oneself}
         postBoard={this.postBoard}
         handleChange={this.handleChange}
         handleWhen={this.handleWhen}

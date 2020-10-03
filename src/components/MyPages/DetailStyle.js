@@ -10,9 +10,18 @@ export const Title = styled.div`
   text-align: center;
 `;
 
-export const Buttons = styled.div`
-  padding-left: 60%;
+export const Buttons = styled.button`
+  padding: 3% 3%;
+  border-radius: 40px;
+  border: 3px solid #c9aa79;
   margin-bottom: 20px;
+  font-size: 20px;
+  background-color: #f2d4ca;
+  color: #404a41;
+  &:hover {
+    background-color: #c9aa79;
+    color: #ffffff;
+  }
 `;
 
 export const Explain = styled.div`

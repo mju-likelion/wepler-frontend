@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import ActivityIngPresenter from "./PlzActivityIngPresenter";
 
 class ActivityContainer extends Component {
@@ -7,11 +8,17 @@ class ActivityContainer extends Component {
   };
 
   componentDidMount() {
-    const data = require("/mypage/match_list/");
-    // 'mypage/match_list_count') 개수
-    this.setState({
-      ItemList: data.mypage,
-    });
+    // const data = require("../../../../../BoardData.json");
+    // this.setState({
+    //   ItemList: data.mypage,
+    // });
+    const getApplied = async () => {
+      const data = await axios.get("/mypage/match_list/");
+      this.setState({
+        ItemList: data.mypage,
+      });
+    };
+    getApplied();
   }
 
   render() {

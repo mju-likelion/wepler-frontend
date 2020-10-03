@@ -68,6 +68,7 @@ const ActivityapplyPresenter = (props) => {
                 <Grid item key={id} xs={12} sm={6} md={4}>
                   <Activityapplylist
                     index={carddata.index}
+                    title={carddata.title}
                     plus_id={carddata.plus_id}
                     plus_fields={carddata.plus_fields}
                     plus_address_big={carddata.plus_address_big}

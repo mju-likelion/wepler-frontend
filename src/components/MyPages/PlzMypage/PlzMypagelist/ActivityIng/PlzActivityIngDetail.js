@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
 import PlzMypageNav from "../../PlzMypagenav";
 import Container from "@material-ui/core/Container";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { PlzId, Title, Buttons, Explain } from "../../../DetailStyle";
 
 const Detail = ({ match }) => {
-  console.log(match.params.profileId);
   const [plus_id, setplus_id] = useState("");
   const [plus_rating, setplus_rating] = useState("");
   const [plus_oneself, setplus_oneself] = useState("");
@@ -20,7 +18,7 @@ const Detail = ({ match }) => {
 
   const apply = async (e) => {
     try {
-      await axios.post(`/board/hire_apply/${match.params.postId}/`, {
+      await axios.post(`/mypage/complete/${match.params.postId}/`, {
         headers: {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },
@@ -33,16 +31,28 @@ const Detail = ({ match }) => {
 
   useEffect(() => {
     async function getApply() {
-      //   try {
-      //     //프로필의 내용
-      //     const reads = await axios.get(`/apply_detail/${match.params.profileId}`, {
+      // try {
+      //   //프로필의 내용
+      //   const reads = await axios.get(
+      //     `/mypage/complete_detail/${match.params.profileId}`,
+      //     {
       //       headers: {
       //         Authorization: JSON.parse(localStorage.getItem("token")),
       //       },
-      //     });
-      //   } catch {
-      //     console.log("profile error!");
-      //   }
+      //     }
+      //   );
+      //   setplus_id(reads.data.id);
+      //   setplus_oneself(reads.data);
+      //   setplus_rating(reads.data);
+      //   setplus_email(reads.data);
+      //   setplus_fields(reads.data);
+      //   setplus_start_time(reads.data);
+      //   setplus_end_time(reads.data);
+      //   setplus_address_big(reads.data);
+      //   setplus_address_small(reads.data);
+      // } catch {
+      //   console.log("profile error!");
+      // }
       setplus_id("아이디1");
       setplus_oneself("이건 저의 한 줄 소개입니다.");
       setplus_rating("7점");
@@ -62,6 +72,7 @@ const Detail = ({ match }) => {
       <Container component="main" maxWidth="md">
         <PlzId>
           <Title>{plus_id}</Title>
+          <Buttons onClick={apply}>활동완료하기</Buttons>
           <Explain>
             <FaQuoteLeft size="18" color="#404A41" /> {plus_oneself}
             <FaQuoteRight size="18" color="#404A41" />
@@ -76,11 +87,6 @@ const Detail = ({ match }) => {
           <Explain>장소 : {plus_address_small}</Explain>
         </PlzId>
       </Container>
-      <Buttons>
-        <Button color="primary" onClick={apply}>
-          활동완료하기
-        </Button>
-      </Buttons>
     </>
   );
 };

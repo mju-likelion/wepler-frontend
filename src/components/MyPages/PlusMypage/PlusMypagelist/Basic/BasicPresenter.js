@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MypageNav from "../../PlusMypagenav";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
+import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Container from "@material-ui/core/Container";
@@ -53,6 +54,7 @@ const PlusBasicPresenter = ({
   plus_end_time,
   plus_talentshare,
   file,
+  plus_oneself,
   handleActivity,
   handleChange,
   handleWhen,
@@ -141,10 +143,24 @@ const PlusBasicPresenter = ({
                     </Infor>
                   </BigProfile>
                 </Wrapper>
-                <Infor>활동 정보 수정)</Infor>
+
                 <BigProfile>
                   {ismodify ? (
                     <>
+                      <Infor>한줄소개 수정) </Infor>
+                      <Infortalent>
+                        <TextField
+                          required
+                          fullWidth
+                          label="한줄소개를 입력하세요"
+                          type="text"
+                          name="plus_oneself"
+                          onChange={handleChange}
+                          value={plus_oneself}
+                        />
+                      </Infortalent>
+
+                      <Infor>활동 정보 수정)</Infor>
                       <Infortalent>
                         <Infor>
                           <div>나눔 분야:</div>
@@ -379,6 +395,11 @@ const PlusBasicPresenter = ({
                     </>
                   ) : (
                     <>
+                      <Infor>한줄소개</Infor>
+                      <InforContents>
+                        <div>{plus_oneself}</div>
+                      </InforContents>
+                      <Infor>활동 정보)</Infor>
                       <Infortalent>
                         <Infor>
                           <div>나눔 분야:</div>

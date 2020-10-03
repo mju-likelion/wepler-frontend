@@ -1,16 +1,20 @@
 import React, { Component } from "react";
+import axios from "axios";
 import ActivityapplyPresenter from "./PlusActivityapplyPresenter";
 
 class ActivityContainer extends Component {
   state = {
-    ItemList: [], // 프로필 개수
+    ItemList: [],
   };
 
   componentDidMount() {
-    const data = require("/mypage/apply_list/");
-    this.setState({
-      ItemList: data.mypage,
-    });
+    const getApplied = async () => {
+      const data = await axios.get("/mypage/apply_list/");
+      this.setState({
+        ItemList: data.mypage,
+      });
+    };
+    getApplied();
   }
 
   render() {

@@ -65,8 +65,8 @@ export default class extends React.Component {
       plz_fields,
       file,
     } = this.state;
-    const data = new FormData();
-    data.append("photo", file[0]);
+    // const data = new FormData();
+    // data.append("photo", file[0]);
     try {
       const post = await axios.post("/mypage/updateMypage/", {
         plz_start_day,

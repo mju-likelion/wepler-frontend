@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import ActivityapplyPresenter from "./PlzActivityapplyPresenter";
 
 class ActivityContainer extends Component {
@@ -7,10 +8,13 @@ class ActivityContainer extends Component {
   };
 
   componentDidMount() {
-    const data = require("/mypage/apply_list/");
-    this.setState({
-      ItemList: data.mypage,
-    });
+    const getApplied = async () => {
+      const data = await axios.get("/mypage/apply_list/");
+      this.setState({
+        ItemList: data.mypage,
+      });
+    };
+    getApplied();
   }
 
   render() {
