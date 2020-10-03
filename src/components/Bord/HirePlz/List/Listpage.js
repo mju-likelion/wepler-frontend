@@ -29,6 +29,7 @@ const Listpage = (props) => {
     }
     getCount();
   }, [count]);
+
   return (
     <>
       {console.log(lastpage)}

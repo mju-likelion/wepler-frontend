@@ -9,7 +9,6 @@ const ActivityPlus = ({
   plus_fields,
   plus_address_big,
   plus_rating,
-  match,
 }) => {
   return (
     <>

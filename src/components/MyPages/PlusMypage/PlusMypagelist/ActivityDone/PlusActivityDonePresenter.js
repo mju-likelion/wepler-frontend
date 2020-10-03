@@ -45,7 +45,7 @@ const ActivityDonePresenter = (props) => {
 
   useEffect(() => {
     async function getCount() {
-      const counts = await axios.get("board/hire_board_count/");
+      const counts = await axios.get("/mypage/complete_list_count/");
       setCount(counts.data.count);
       setLastpage(Math.ceil(count / pageSize));
     }

@@ -54,6 +54,7 @@ const Footers = () => (
       <p>E-mail. </p>
       <p>kimhan0421@naver.com</p>
       <p>re9946@naver.com</p>
+      <p>sooooooohyeon5@naver.com</p>
     </Footer>
   </FooterContainer>
 );

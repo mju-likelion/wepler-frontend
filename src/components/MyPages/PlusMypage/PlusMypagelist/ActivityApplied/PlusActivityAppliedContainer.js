@@ -8,7 +8,6 @@ class ActivityContainer extends Component {
 
   componentDidMount() {
     const data = require("/mypage/applied_list/");
-    // 'mypage/apply_list/'
     this.setState({
       ItemList: data.mypage,
     });
