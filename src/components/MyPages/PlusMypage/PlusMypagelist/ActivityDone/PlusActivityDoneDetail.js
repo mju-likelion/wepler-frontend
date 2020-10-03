@@ -21,7 +21,7 @@ const Detail = ({ match }) => {
     async function getApply() {
       //   try {
       //     //프로필의 내용
-      //     const reads = await axios.get(`/apply_detail/${match.params.profileId}`, {
+      //     const reads = await axios.get(`/mypage/complete_detail/${match.params.profileId}`, {
       //       headers: {
       //         Authorization: JSON.parse(localStorage.getItem("token")),
       //       },

@@ -34,7 +34,7 @@ const Detail = ({ match }) => {
       // try {
       //   //프로필의 내용
       //   const reads = await axios.get(
-      //     `/mypage/complete_detail/${match.params.profileId}`,
+      //     `/mypage/match_detail/${match.params.profileId}`,
       //     {
       //       headers: {
       //         Authorization: JSON.parse(localStorage.getItem("token")),

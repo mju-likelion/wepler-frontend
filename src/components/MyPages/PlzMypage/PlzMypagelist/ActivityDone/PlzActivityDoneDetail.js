@@ -16,7 +16,6 @@ const Box = styled.div`
   padding-left: 30px;
 `;
 
-
 const Detail = ({ match }) => {
   console.log(match.params.profileId);
   const [plus_id, setPlus_id] = useState("");
@@ -34,7 +33,7 @@ const Detail = ({ match }) => {
     async function getApply() {
       //   try {
       //     //프로필의 내용
-      //     const reads = await axios.get(`/apply_detail/${match.params.profileId}`, {
+      //     const reads = await axios.get(`//mypage/complete_detail/${match.params.profileId}`, {
       //       headers: {
       //         Authorization: JSON.parse(localStorage.getItem("token")),
       //       },
@@ -61,38 +60,18 @@ const Detail = ({ match }) => {
       <PlzMypageNav />
       <Container maxWidth="xs">
         <Grid>
-         <Box>
-          <Plz>
-          플리즈 회원 아이디 : {plus_id}
-          </Plz>
-          <Plz>
-          플리즈 회원 한 줄 소개 : {plus_oneself}
-          </Plz>
-          <Plz>
-          플리즈 회원 평점 : {plus_rating}
-          </Plz>
-          <Plz>
-          활동 분야 : {plus_fields}
-          </Plz>
-          <Plz>
-          활동 시작 날짜 : {plus_start_day}
-          </Plz>
-          <Plz>
-          활동 시작 시간 : {plus_start_time}
-          </Plz>
-          <Plz>
-          활동 마감 날짜 : {plus_end_time}
-          </Plz>
-          <Plz>
-          플리즈 회원 이메일 주소 : {plus_email}
-          </Plz>
-          <Plz>
-          플리즈 회원 활동 장소  : {plus_address_big}
-          </Plz>
-          <Plz>
-          플리즈 회원 자세한 활동 장소 : {plus_address_small}
-          </Plz>
-          </Box>          
+          <Box>
+            <Plz>플리즈 회원 아이디 : {plus_id}</Plz>
+            <Plz>플리즈 회원 한 줄 소개 : {plus_oneself}</Plz>
+            <Plz>플리즈 회원 평점 : {plus_rating}</Plz>
+            <Plz>활동 분야 : {plus_fields}</Plz>
+            <Plz>활동 시작 날짜 : {plus_start_day}</Plz>
+            <Plz>활동 시작 시간 : {plus_start_time}</Plz>
+            <Plz>활동 마감 날짜 : {plus_end_time}</Plz>
+            <Plz>플리즈 회원 이메일 주소 : {plus_email}</Plz>
+            <Plz>플리즈 회원 활동 장소 : {plus_address_big}</Plz>
+            <Plz>플리즈 회원 자세한 활동 장소 : {plus_address_small}</Plz>
+          </Box>
         </Grid>
       </Container>
     </>
