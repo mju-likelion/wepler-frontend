@@ -18,6 +18,7 @@ import TextField from "@material-ui/core/TextField";
 
 const Listpage = (props) => {
   const { Itemcard } = props;
+  const [keyword, setKeyword] = useState("");
   const [type, setType] = useState("");
   const [currentPage, setCurrentPage] = useState(1); //현재활성화된 page기본은 1
   const pageSize = 5; //한페이지에 보여줄 개수
@@ -29,8 +30,8 @@ const Listpage = (props) => {
     console.log(currentPage);
   };
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
+  const handleSearch = (e) => {
+    setKeyword(e.target.value);
   };
 
   useEffect(() => {
@@ -53,7 +54,13 @@ const Listpage = (props) => {
             <h2>플러스들의 후기</h2>
           </Container2>
           <SearchStyle>
-            <TextField type="text" placeholder="Search" onChange={handleChange}>
+            <TextField
+              type="text"
+              name="keyword"
+              value={keyword}
+              placeholder="검색하기"
+              onChange={handleSearch}
+            >
               <table className="table"></table>
             </TextField>
           </SearchStyle>

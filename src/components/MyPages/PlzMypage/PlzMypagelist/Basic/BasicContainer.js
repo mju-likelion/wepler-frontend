@@ -29,31 +29,28 @@ export default class extends React.Component {
       localStorage.clear();
     }
 
-    async function getMypage() {
+    const getMypage = async () => {
       try {
-        const gets = await axios.get(
-          "/mypage/getMypage",
-
-          {
-            headers: {
-              Authorization: JSON.parse(localStorage.getItem("token")),
-            },
-          }
-        );
-        console.log(gets);
-        // this.setState({
-        //   plz_fields: gets.data.user_class,
-        //   plz_name: gets.data.user_name,
-        //   plz_phonenumber: gets.data.user_phone,
-        //   plz_address_big: gets.data.user_address_big,
-        //   plz_address_small: gets.data.user_address_small,
-        //   plz_email: gets.data.user_email,
-        // });
-        // console.log(plz_fields);
-      } catch {
+        const gets = await axios.get("/mypage/getMypage", {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        });
+        console.log(gets.data.user_name);
+        this.setState({
+          plz_fields: gets.data.user_class,
+          plz_name: gets.data.user_name,
+          plz_phonenumber: gets.data.user_phone,
+          plz_address_big: gets.data.user_address_big,
+          plz_address_small: gets.data.user_address_small,
+          plz_email: gets.data.user_email,
+        });
+      } catch (err) {
+        console.log(err.name);
+        console.log(err.message);
         console.log("Infromation error!");
       }
-    }
+    };
     getMypage();
   }
 
