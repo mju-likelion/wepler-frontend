@@ -26,10 +26,10 @@ const Container = styled.div`
 `;
 
 const ButtonList = styled.ul`
-    display: flex;  
-    justify-content: center;  
-    height: 50px:
-    text-align: center;
+  display: flex;  
+  justify-content: center;  
+  height: 50px:
+  text-align: center;
 `;
 
 const ButtonLink = styled(Link)`
@@ -64,15 +64,12 @@ const ButtPlu = styled.button`
   height: 350px;
 `;
 
-const Box1 = styled.div``;
-
-const Box2 = styled.div``;
-
-const Box3 = styled.div``;
+const Box1 = styled.div`
+  padding-left: 10px;
+`;
 
 const Box = styled.div`
   padding-top: 50px;
-  padding-left: 10px;
   padding-right: 20px;
   margin: 10px;
   display: flex;
@@ -97,7 +94,7 @@ const BoxName = styled.div`
 const HireMember = () => (
   <>
     <ButtonList>
-      <ButtonLink to="/areaplz">
+      <ButtonLink to="/plzboard">
         <ButtPlz>
           <br></br>재능이 필요해요<ButtMember>개인 혹은 단체</ButtMember>
         </ButtPlz>
@@ -149,7 +146,7 @@ const HireMember = () => (
           </BoxExplan>
         </Container>
       </Box1>
-      <Box2>
+      <Box1>
         <Container>
           <BoxName>
             <div>
@@ -184,8 +181,8 @@ const HireMember = () => (
             />
           </BoxExplan>
         </Container>
-      </Box2>
-      <Box3>
+      </Box1>
+      <Box1>
         <Container>
           <BoxName>
             <div>
@@ -220,7 +217,7 @@ const HireMember = () => (
             />
           </BoxExplan>
         </Container>
-      </Box3>
+      </Box1>
     </Box>
     <Footer />
   </>
