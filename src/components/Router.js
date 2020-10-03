@@ -86,7 +86,7 @@ export default () => (
         <Route path="/signuplz" exact component={PlzSignup} />
         <Route path="/signuplus" exact component={PlusSignup} />
         {/* 플러스 회원 프로필 */}{" "}
-        <Route path={["/plusprofile", "/"]} exact component={PlusProflie} />
+        <Route path="/plusprofile" exact component={PlusProflie} />
         <Route
           path="/plusprofile/:proflieId"
           exact
