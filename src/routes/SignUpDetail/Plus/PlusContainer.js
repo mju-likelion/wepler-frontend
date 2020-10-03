@@ -3,22 +3,26 @@ import axios from "axios";
 import PlusPresenter from "./PlusPresenter";
 
 export default class extends React.Component {
-  state = {
-    plus_name: "",
-    plus_email: "",
-    plus_password: "",
-    plus_phonenumber: "",
-    plus_address_big: "",
-    plus_address_small: "",
-    plus_start_day: [],
-    plus_talentshare: "",
-    plus_continu_month: "",
-    plus_start_time: "",
-    plus_end_time: "",
-    plus_fields: [],
-    agreePrivate: false,
-    agreeWepler: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      plus_name: "",
+      plus_email: "",
+      plus_password: "",
+      plus_phonenumber: "",
+      plus_address_big: "",
+      plus_address_small: "",
+      plus_start_day: [],
+      plus_talentshare: "",
+      plus_continu_month: "",
+      plus_start_time: "",
+      plus_end_time: "",
+      plus_fields: [],
+      agreePrivate: false,
+      agreeWepler: false,
+    };
+  }
+
   postBoard = async (e) => {
     e.preventDefault();
     const {
@@ -52,8 +56,9 @@ export default class extends React.Component {
       });
       console.log(post);
       alert("회원가입 되었습니다");
+      window.history.pushState("/");
     } catch {
-      console.log("Theres was an error!");
+      alert("Theres was an error!");
     }
   };
 

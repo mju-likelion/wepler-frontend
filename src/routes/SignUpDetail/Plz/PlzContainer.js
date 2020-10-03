@@ -3,26 +3,30 @@ import axios from "axios";
 import PlzPresenter from "./PlzPresenter";
 
 export default class extends React.Component {
-  state = {
-    plz_name: "",
-    plz_email: "",
-    plz_password: "",
-    plz_phonenumber: "",
-    plz_address_big: "",
-    plz_address_small: "",
-    plz_fields: [],
-    plz_when_learn: {
-      regularly: true,
-      specific: false,
-      thinking: false,
-    },
-    plz_belong: {
-      individual: true,
-      group: false,
-    },
-    agreePrivate: false,
-    agreeWepler: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      plz_name: "",
+      plz_email: "",
+      plz_password: "",
+      plz_phonenumber: "",
+      plz_address_big: "",
+      plz_address_small: "",
+      plz_fields: [],
+      plz_when_learn: {
+        regularly: false,
+        specific: false,
+        thinking: false,
+      },
+      plz_belong: {
+        individual: false,
+        group: false,
+      },
+      agreePrivate: false,
+      agreeWepler: false,
+    };
+  }
+
   postBoard = async (e) => {
     e.preventDefault();
     const {
@@ -50,8 +54,9 @@ export default class extends React.Component {
       });
       console.log(post);
       alert("회원가입 되었습니다");
+      window.history.pushState("/");
     } catch {
-      console.log("There was an error!");
+      alert("There was an error!");
     }
   };
 
@@ -129,12 +134,18 @@ export default class extends React.Component {
   handleTerms = (event) => {
     const { name } = event.target;
     if (name === "agreePrivate") {
-      this.setState({ agreePrivate: event.target.checked });
-      console.log(event.target.checked);
+      this.setState({ agreePrivate: event.target.checked }); //true
+    } else {
+      if (event.target.checked === false) {
+        alert("개인정보 수집 및 이용 약관에 동의해 주세요");
+      }
     }
     if (name === "agreeWepler") {
-      this.setState({ agreeWepler: event.target.checked });
-      console.log(event.target.checked);
+      this.setState({ agreeWepler: event.target.checked }); //true
+    } else {
+      if (event.target.checked === false) {
+        alert("위플러 이용 약관에 동의해 주세요");
+      }
     }
   };
 

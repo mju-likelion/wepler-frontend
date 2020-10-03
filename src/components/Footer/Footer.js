@@ -30,7 +30,7 @@ const SLink = styled(Link)`
   padding: 3px 20px;
   background-color: #404a41;
   color: white;
-  font-size: 15px;
+  font-size: 17px;
 `;
 
 const Footers = () => (
