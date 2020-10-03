@@ -76,17 +76,14 @@ export default () => (
         {/* 글쓰기*/}
         <Route path={["/reviewplus", "/"]} exact component={ReviewViewPlus} />
         {/* 목록*/}
-        <Route
-          path="/reviewplus/:postId"
-          component={ReviewViewPlusDetail}
-        />{" "}
+        <Route path="/reviewplus/:postId" component={ReviewViewPlusDetail} />
         {/* 읽기*/}
         <Route path="/reviewpluswrite" exact component={ReviewViewPlusWrite} />
         {/* 글쓰기*/}
         <Route path="/signuplz" exact component={PlzSignup} />
         <Route path="/signuplus" exact component={PlusSignup} />
-        {/* 플러스 회원 프로필 */}{" "}
-        <Route path="/plusprofile" exact component={PlusProflie} />
+        {/* 플러스 회원 프로필 */}
+        <Route path={["/plusprofile", "/"]} exact component={PlusProflie} />
         <Route
           path="/plusprofile/:proflieId"
           exact

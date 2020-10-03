@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import board from "BoardData.json";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import {
   ListItem,
   Box,
@@ -10,37 +10,41 @@ import {
   HashBox,
 } from "../Profile/ProfileStyled";
 
-class Profile extends Component {
-  state = {
-    borads: [],
-  };
-  render() {
-    return (
-      <>
-        {board.Profile.map((item, index) => {
-          return (
-            <Box>
-              <BoxBig>
-                <ListItem key={index}>
-                  <Link to="/plusseoulde">
-                    {/* <Link to={`/plusseoulde/${item.number}`}> */}
-                    <BoxName>
-                      <h2>{item.plus_id}</h2>
-                    </BoxName>
-                    <BoxExplan>
-                      <div>{item.plus_oneself}</div>
-                      <div>평균평점: {item.plus_rating}</div>
-                      <HashBox>{item.plus_fields}</HashBox>
-                    </BoxExplan>
-                  </Link>
-                </ListItem>
-              </BoxBig>
-            </Box>
-          );
-        })}
-      </>
-    );
-  }
+function Itemlist({
+  id,
+  plus_id,
+  plus_fields,
+  plus_oneself,
+  plus_rating,
+  plus_edu,
+  plus_start_day,
+  plus_start_time,
+  plus_end_time,
+  plus_email,
+}) {
+  return (
+    <>
+      <Box>
+        <BoxBig>
+          <ListItem>
+            <Link to={`/plusprofile/${id}`}>
+              {/* <Link to={`/plusseoulde/${item.number}`}> */}
+              <BoxName>
+                <h2>{plus_id}</h2>
+              </BoxName>
+              <BoxExplan>
+                <FaQuoteLeft size="15" color="#404A41" />
+                {plus_oneself}
+                <FaQuoteRight size="15" color="#404A41" />
+                <div>평균평점: {plus_rating}</div>
+                <HashBox>{plus_fields}</HashBox>
+              </BoxExplan>
+            </Link>
+          </ListItem>
+        </BoxBig>
+      </Box>
+    </>
+  );
 }
 
-export default Profile;
+export default Itemlist;

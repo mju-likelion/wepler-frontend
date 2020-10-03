@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Profile from "components/Profile/Profile.js";
+import PlusList from "../Profile/Profile";
+import Pagination from "@material-ui/lab/Pagination";
 import qs from "qs";
 
 const Container = styled.div`
@@ -11,12 +13,11 @@ const Container = styled.div`
   font-weight: bold;
 `;
 const Container2 = styled.div`
-  padding-left: 20%;
+  padding-left: 10%;
   padding-top: 10px;
 `;
 const ButtonMember = styled.div`
   font-size: 50px;
-  padding-top: 60px;
   padding-left: 75%;
 `;
 
@@ -39,6 +40,11 @@ const BeforeButton = styled.button`
   }
 `;
 
+const Page = styled.div`
+  padding-top: 5%;
+  padding-left: 50%;
+`;
+
 const city = {
   seoul: "서울특별시",
   gyeonggi: "경기도",
@@ -59,17 +65,74 @@ const city = {
 };
 
 const SeoulMem = ({ location: { search } }) => {
+  const [currentPage, setCurrentPage] = useState(1); //현재활성화된 page기본은 1
+  const pageSize = 5; //한페이지에 보여줄 개수
+  const [count, setCount] = useState(1); //아이템 개수
+  const [lastpage, setLastpage] = useState(1);
+  const [itemList, setItemList] = useState([]);
   const query = qs.parse(search, {
     ignoreQueryPrefix: true, // 이 설정을 통해 맨 앞의 ? 생략
   });
+
+  const handlePageChange = (event, page) => {
+    setCurrentPage(page); // 페이지 수 클릭 시 현재 페이지 변경
+  };
+
+  useEffect(() => {
+    const getList = async () => {
+      const list = require("../../BoardData.json");
+      setItemList(list.data);
+    };
+    // const getList = async () => {
+    //   const list = await axios.get("board/hire_board_list/");
+    //   setItemList(list.data);
+    // };
+    getList();
+    async function getCount() {
+      const counts = await axios.get("board/hire_board_count/");
+      setCount(counts.data.count);
+      setLastpage(Math.ceil(count / pageSize));
+    }
+    getCount();
+  }, [count]);
+
   return (
     <>
       <Container>
         <h1>{query?.location ? city[query.location] : "전체"}</h1>
       </Container>
-      <Container2 />
-
-      <Profile />
+      <Container2>
+        {itemList &&
+          itemList
+            .slice(currentPage * 5 - 5, currentPage * 5)
+            .map((itemdata, index) => (
+              <div key={index}>
+                <PlusList
+                  id={itemdata.id}
+                  plus_id={itemdata.plus_id}
+                  plus_fields={itemdata.plus_fields}
+                  plus_edu={itemdata.plus_edu}
+                  plus_oneself={itemdata.plus_oneself}
+                  plus_rating={itemdata.plus_rating}
+                  plus_start_day={itemdata.plus_start_day}
+                  plus_start_time={itemdata.plus_start_time}
+                  plus_end_time={itemdata.plus_end_time}
+                  plus_email={itemdata.plus_email}
+                />
+              </div>
+            ))}
+      </Container2>
+      <Page>
+        <Pagination
+          variant="outlined"
+          shape="rounded"
+          color="primary"
+          size="large"
+          count={lastpage}
+          page={currentPage}
+          onChange={handlePageChange}
+        />
+      </Page>
       <ButtonMember>
         <ButtonLink to="/areaplus">
           <BeforeButton>이전으로</BeforeButton>
