@@ -8,11 +8,13 @@ class ListBoard extends Component {
   };
 
   async componentDidMount() {
-    const list = await axios.get("/board/hire_list/");
-
-    this.setState({
-      ItemList: list.data,
-    });
+    const getList = async () => {
+      const list = await axios.get("/board/hire_list/");
+      this.setState({
+        ItemList: list.data,
+      });
+    };
+    getList();
   }
 
   render() {

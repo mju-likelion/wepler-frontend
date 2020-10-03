@@ -25,7 +25,7 @@ class Write extends Component {
   postBoard = async () => {
     try {
       const post = await axios.post(
-        "/plus_reviews/",
+        "/review/review_post/",
         {
           title: this.state.title,
           content: this.state.content,

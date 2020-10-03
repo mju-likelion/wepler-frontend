@@ -107,7 +107,7 @@ const Read = ({ match }) => {
     async function getRead() {
       // try {
       //   //포스트의 내용
-      //   const reads = await axios.get(`/reviews/${match.params.postId}`, {
+      //   const reads = await axios.get(`/review/plus_review_detail/${match.params.postId}`, {
       //     headers: {
       //       Authorization: JSON.parse(localStorage.getItem("token")),
       //     },
@@ -143,10 +143,13 @@ const Read = ({ match }) => {
   const postBoard = async (e) => {
     e.preventDefault();
     try {
-      const post = await axios.post(`/reviews/update/${match.params.postId}/`, {
-        title,
-        content,
-      });
+      const post = await axios.post(
+        ` /review/plus_review_update/${match.params.postId}/`,
+        {
+          title,
+          content,
+        }
+      );
       console.log(post);
       alert("수정 되었습니다");
     } catch {
@@ -155,7 +158,7 @@ const Read = ({ match }) => {
   };
 
   const postDelete = async (e) => {
-    await axios.delete(`/reviews/delete/${match.params.postId}`);
+    await axios.delete(`/review/plus_review_delete/${match.params.postId}`);
     alert("삭제되었습니다.");
   };
 

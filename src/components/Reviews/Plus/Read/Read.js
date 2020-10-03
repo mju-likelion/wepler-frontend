@@ -82,26 +82,23 @@ const Read = ({ match }) => {
 
   useEffect(() => {
     async function getMypage() {
-      // try {
-      //   // 현사용자 이메일가져오기
-      //   const gets = await axios.get("/mypage/getMypage", {
-      //     headers: {
-      //       Authorization: JSON.parse(localStorage.getItem("token")),
-      //     },
-      //   });
-      //   setEmail(gets.data.user_email);
-      // } catch {
-      //   console.log("user information error!");
-      // }
-
-      setEmail("1234@naver.com");
+      try {
+        const gets = await axios.get("/token_check/", {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        });
+        setEmail(gets.data.user_email);
+      } catch {
+        console.log("user information error!");
+      }
     }
-
     getMypage();
+
     async function getRead() {
       // try {
       //   //포스트의 내용
-      //   const reads = await axios.get(`/reviews/${match.params.postId}`, {
+      //   const reads = await axios.get(`/review/plz_review_detail/${match.params.postId}`, {
       //     headers: {
       //       Authorization: JSON.parse(localStorage.getItem("token")),
       //     },
@@ -137,7 +134,7 @@ const Read = ({ match }) => {
     e.preventDefault();
     try {
       const post = await axios.post(
-        `/board/hire_update/${match.params.postId}/`,
+        `/review/plz_review_update/${match.params.postId}/`,
         {
           title,
           content,
@@ -151,7 +148,7 @@ const Read = ({ match }) => {
   };
 
   const postDelete = async (e) => {
-    await axios.delete(`/board/hire_delete/${match.params.postId}`);
+    await axios.delete(`/review/plz_review_delete/${match.params.postId}`);
     alert("삭제되었습니다.");
   };
 

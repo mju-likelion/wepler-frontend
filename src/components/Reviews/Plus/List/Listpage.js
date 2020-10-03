@@ -39,7 +39,7 @@ const Listpage = (props) => {
     setType(user_id);
 
     async function getCount() {
-      const counts = await axios.get("");
+      const counts = await axios.get("/review/plz_review_count");
       setCount(counts.data.count);
       setLastpage(Math.ceil(count / pageSize));
     }

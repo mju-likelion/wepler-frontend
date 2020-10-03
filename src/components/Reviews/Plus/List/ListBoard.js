@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import axios from "axios";
+import axios from "axios";
 import Listpage from "./Listpage";
 import Footer from "../../../Footer/Footer";
 
@@ -9,10 +9,17 @@ class ListBoard extends Component {
   };
 
   componentDidMount() {
-    const data = require("../../../../BoardData.json");
-    this.setState({
-      ItemList: data.Plus_Reviews,
-    });
+    const getList = async () => {
+      const list = await axios.get("/review/plz_review_list/");
+      this.setState({
+        ItemList: list.data,
+      });
+    };
+    getList();
+    // const data = require("../../../../BoardData.json");
+    // this.setState({
+    //   ItemList: data.Plus_Reviews,
+    // });
   }
 
   render() {

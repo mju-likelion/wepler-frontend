@@ -9,10 +9,17 @@ class ListBoard extends Component {
   };
 
   componentDidMount() {
-    const data = require("../../../../BoardData.json");
-    this.setState({
-      ItemList: data.Plz_Reviews,
-    });
+    const getList = async () => {
+      const list = await axios.get("/review/plus_review_list/");
+      this.setState({
+        ItemList: list.data,
+      });
+    };
+    getList();
+    // const data = require("../../../../BoardData.json");
+    // this.setState({
+    //   ItemList: data.Plus_Reviews,
+    // });
   }
 
   render() {
