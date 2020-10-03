@@ -68,7 +68,7 @@ export default class extends React.Component {
     const data = new FormData();
     data.append("photo", file[0]);
     try {
-      const post = await axios.post("/plz_signup/", {
+      const post = await axios.post("/mypage/updateMypage/", {
         plz_start_day,
         plz_talentshare,
         plz_continu_month,

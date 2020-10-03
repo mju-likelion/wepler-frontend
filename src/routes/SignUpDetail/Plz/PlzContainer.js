@@ -135,14 +135,12 @@ export default class extends React.Component {
     const { name } = event.target;
     if (name === "agreePrivate") {
       this.setState({ agreePrivate: event.target.checked }); //true
-    } else {
       if (event.target.checked === false) {
         alert("개인정보 수집 및 이용 약관에 동의해 주세요");
       }
     }
     if (name === "agreeWepler") {
       this.setState({ agreeWepler: event.target.checked }); //true
-    } else {
       if (event.target.checked === false) {
         alert("위플러 이용 약관에 동의해 주세요");
       }

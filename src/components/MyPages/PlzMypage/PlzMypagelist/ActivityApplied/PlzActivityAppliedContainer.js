@@ -7,7 +7,7 @@ class ActivityContainer extends Component {
   };
 
   componentDidMount() {
-    const data = require("../../../../../BoardData.json");
+    const data = require("/mypage/applied_list/");
     this.setState({
       ItemList: data.mypage,
     });
