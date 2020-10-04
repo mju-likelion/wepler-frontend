@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import {
   Container2,
@@ -21,6 +23,7 @@ class Write extends Component {
     title: "",
     content: "",
     matching: "",
+    matchingEmail: "",
     rating: "",
   };
   postBoard = async () => {
@@ -31,6 +34,7 @@ class Write extends Component {
           title: this.state.title,
           content: this.state.content,
           matching: this.state.matching,
+          matchingEmail: this.state.matchingEmail,
           rating: this.state.rating,
         },
         {
@@ -44,6 +48,8 @@ class Write extends Component {
         title: "",
         content: "",
         matching: "",
+        matchingEmail: "",
+        rating: "",
       });
       console.log(post);
     } catch {
@@ -68,6 +74,13 @@ class Write extends Component {
         matching: e.target.value,
       });
     }
+
+    if (name === "matchingEmail") {
+      this.setState({
+        matchingEmail: e.target.value,
+      });
+    }
+
     if (name === "rating") {
       if (e.target.value >= 1 && e.target.value <= 10) {
         this.setState({
@@ -101,12 +114,26 @@ class Write extends Component {
               <TextDisplay2>
                 <div>매칭회원</div>
               </TextDisplay2>
-              <input
-                type="select"
-                name="matching"
-                onChange={this.handleChange}
-                value={this.state.matching}
-              />
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  label="플러스 회원 이름"
+                  type="text"
+                  name="matching"
+                  onChange={this.handleChange}
+                  value={this.state.matching}
+                />
+                <TextField
+                  required
+                  fullWidth
+                  label="이메일"
+                  type="text"
+                  name="matchingEmail"
+                  onChange={this.handleChange}
+                  value={this.state.matchingEmail}
+                />
+              </Grid>
             </TextDisplay>
             <TextDisplay>
               <TextDisplay2>
