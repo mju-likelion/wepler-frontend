@@ -32,7 +32,6 @@ const Listpage = (props) => {
 
   return (
     <>
-      {console.log(lastpage)}
       <Container maxWidth="lg">
         <Grid item lg={12}>
           <Container2>

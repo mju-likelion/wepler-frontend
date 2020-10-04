@@ -75,9 +75,9 @@ export default class extends React.Component {
           plus_fields,
           plus_oneself,
         });
-        console.log(post);
+        // console.log(post);
         alert("회원가입 되었습니다");
-        this.props.history.push("/");
+        this.props.history.push("/signin");
       } catch {
         alert("회원가입에 실패 했습니다. 다시 시도해 주세요.");
       }
@@ -232,7 +232,7 @@ export default class extends React.Component {
     } = this.state;
     return (
       <>
-        {console.log(this.props)}
+        {/* {console.log(this.props)} */}
         <PlusPresenter
           plus_name={plus_name}
           plus_email={plus_email}

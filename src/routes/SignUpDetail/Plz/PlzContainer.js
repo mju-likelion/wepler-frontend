@@ -68,9 +68,9 @@ export default class extends React.Component {
           plz_belong,
           plz_fields,
         });
-        console.log(post);
+        // console.log(post);
         alert("회원가입 되었습니다");
-        this.props.history.push("/");
+        this.props.history.push("/signin");
       } catch {
         alert("회원가입에 실패 하엿습니다.");
       }
