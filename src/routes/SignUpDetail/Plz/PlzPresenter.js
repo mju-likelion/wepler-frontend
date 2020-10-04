@@ -165,12 +165,12 @@ const PlzPresenter = ({
                 <Grid item xs={10}>
                   <TextQuestion>비밀번호</TextQuestion>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={12}>
                   <TextField
                     required
                     fullWidth
                     name="plz_password"
-                    label="비밀번호"
+                    label="특수문자, 숫자, 영어 포함 8자 이상 입력해 주세요"
                     type="password"
                     id="plz_password"
                     autoComplete="current-password"

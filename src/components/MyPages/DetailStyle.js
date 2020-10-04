@@ -11,16 +11,47 @@ export const Title = styled.div`
 `;
 
 export const Buttons = styled.button`
-  padding: 3% 3%;
-  border-radius: 40px;
+  padding: 2% 2%;
+  border-radius: 30px;
   border: 3px solid #c9aa79;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 20px;
   background-color: #f2d4ca;
   color: #404a41;
   &:hover {
     background-color: #c9aa79;
     color: #ffffff;
+  }
+`;
+
+export const ButtonsApply = styled.button`
+  padding: 2% 2%;
+  border-radius: 30px;
+  border: 3px solid #c9aa79;
+  margin-bottom: 30px;
+  font-size: 20px;
+  background-color: #f2d4ca;
+  color: #404a41;
+  &:hover {
+    border: 3px solid #0077b6;
+    background-color: #caf0f8;
+    color: #0077b6;
+  }
+`;
+
+export const ButtonsDelelte = styled.button`
+  margin-left: 30px;
+  padding: 2% 2%;
+  border-radius: 30px;
+  border: 3px solid #c9aa79;
+  margin-bottom: 30px;
+  font-size: 20px;
+  background-color: #f2d4ca;
+  color: #404a41;
+  &:hover {
+    border: 3px solid #ef233c;
+    background-color: #f7ede2;
+    color: #ef233c;
   }
 `;
 

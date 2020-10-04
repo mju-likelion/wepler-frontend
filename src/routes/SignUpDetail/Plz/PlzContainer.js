@@ -54,9 +54,9 @@ export default class extends React.Component {
       });
       console.log(post);
       alert("회원가입 되었습니다");
-      window.history.pushState("/");
+      window.history.pushState("/"); //고쳐보기
     } catch {
-      alert("There was an error!");
+      alert("회원가입에 실패 하엿습니다.");
     }
   };
 

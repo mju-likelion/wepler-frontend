@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import PlzMypageNav from "../../PlzMypagenav";
 import Container from "@material-ui/core/Container";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
-import { PlzId, Title, Buttons, Explain } from "../../../DetailStyle";
+import {
+  PlzId,
+  Title,
+  ButtonsApply,
+  ButtonsDelelte,
+  Explain,
+} from "../../../DetailStyle";
 
 const Detail = ({ match }) => {
   console.log(match.params.profileId);
@@ -69,14 +74,11 @@ const Detail = ({ match }) => {
       <Container component="main" maxWidth="md">
         <PlzId>
           <Title>{plus_id}</Title>
-          <Buttons>
-            <Button color="primary" onClick={apply}>
-              수락하기
-            </Button>
-            <Button color="secondary" onClick={postDelete}>
-              <Link to="/plzapplied">거절하기</Link>
-            </Button>
-          </Buttons>
+          <ButtonsApply onClick={apply}>수락하기</ButtonsApply>
+          <ButtonsDelelte onClick={postDelete}>
+            <Link to="/plzapplied">거절하기</Link>
+          </ButtonsDelelte>
+
           <Explain>
             <FaQuoteLeft size="18" color="#404A41" /> {plus_oneself}
             <FaQuoteRight size="18" color="#404A41" />

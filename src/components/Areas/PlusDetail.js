@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import Profile from "components/Profile/Profile.js";
+import Profile from "./Profile/Profile";
 
 const ButtonMember = styled.div`
   font-size: 50px;
@@ -34,7 +34,7 @@ const PlusDetail = ({ match }) => {
   useEffect(() => {
     // async function getRead() {
     //   var reads = await axios.get(
-    //     `/board/hire_detail/${match.params.proflieId}`,
+    //     `/choice_plus/choice_dedtail/${match.params.proflieId}`,
     //     {
     //       headers: {
     //         Authorization: JSON.parse(localStorage.getItem("token")),
