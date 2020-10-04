@@ -127,7 +127,7 @@ class Write extends Component {
                 <TextField
                   required
                   fullWidth
-                  label="이메일"
+                  label="플러스 회원 이메일"
                   type="text"
                   name="matchingEmail"
                   onChange={this.handleChange}
