@@ -31,12 +31,12 @@ const Line = styled.div`
 `;
 
 const LineLast = styled.div`
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   color: #000000;
 `;
 
 const Bigfont = styled.div`
-  font-size: 40px;
+  font-size: 35px;
   display: inline-block;
 `;
 
