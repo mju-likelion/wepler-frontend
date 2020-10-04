@@ -6,13 +6,38 @@ import Profile from "./Profile/Profile";
 
 const ButtonMember = styled.div`
   display: flex;
-  padding-top: 5%;
+  padding-top: 2%;
+  padding-bottom: 5%;
   padding-left: 40%;
 `;
 
 const ButtonLink = styled(Link)`
   display: flex;
   align-items: center;
+`;
+
+const Container = styled.div`
+  padding-left: 10%;
+  padding-top: 10px;
+`;
+
+const Container2 = styled.div`
+  padding-left: 15%;
+  padding-top: 40px;
+`;
+
+const Line = styled.div`
+  padding-bottom: 30px;
+`;
+
+const LineLast = styled.div`
+  padding-bottom: 20px;
+  color: #000000;
+`;
+
+const Bigfont = styled.div`
+  font-size: 40px;
+  display: inline-block;
 `;
 
 const ApplyButton = styled.button`
@@ -96,20 +121,21 @@ const PlusDetail = ({ match }) => {
 
   return (
     <>
+    <Container>
       <Profile />
-      <div>저는 {plus_id} 입니다.</div>
-      <div>저의 이메일 주소는 {plus_email} 입니다.</div>
-      <div>원하는 재능 나눔 분야</div>
-      {plus_fields} <div>봉사자 교육 수료 여부</div>
-      {plus_edu}
-      <div>제가 활동을 함께 할 수 있는 요일은 입니다.</div>
-      {plus_start_day}
-      <div>제가 활동을 함께 할 수 있는 시간은 입니다.</div>
-      {plus_start_time} ~{plus_end_time}
-      <div>
-        제가 활동을 지속할 수 있는 기간은 {plus_continu_month} 개월 입니다.
-      </div>
-      <div>'고용하기'버튼을 누르면 플러스에게 알림이 갑니다.</div>
+        <Container2>
+          <Line>저는  <Bigfont>{plus_id}</Bigfont>  입니다. </Line>
+          <Line>저의 이메일 주소는  <Bigfont>{plus_email}</Bigfont>  입니다.</Line>
+          <Line>제가 원하는 재능 나눔 분야는  <Bigfont>{plus_fields}</Bigfont>  입니다.</Line>
+          <Line>봉사자 교육 수료 <Bigfont>{plus_edu}</Bigfont></Line>
+          <Line>제가 활동을 함께 할 수 있는 요일은  <Bigfont>{plus_start_day}요일</Bigfont>  입니다.</Line>          
+          <Line>제가 활동을 함께 할 수 있는 시간은  <Bigfont>{plus_start_time}시부터 ~{plus_end_time}시까지</Bigfont>  입니다.</Line>         
+          <Line>제가 활동을 지속할 수 있는 기간은  <Bigfont>{plus_continu_month}개월</Bigfont>  입니다.</Line>
+          <br/> <br/>
+          <LineLast>'고용하기' 버튼을 누르면 플러스에게 알림이 갑니다.</LineLast>
+        </Container2>
+    </Container>
+
       <ButtonMember>
         {type === "plus" ? (
           <ApplyButton onClick={apply}>신청하기</ApplyButton>
