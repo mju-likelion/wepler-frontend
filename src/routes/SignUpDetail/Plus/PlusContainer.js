@@ -3,25 +3,23 @@ import axios from "axios";
 import PlusPresenter from "./PlusPresenter";
 
 export default class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      plus_name: "",
-      plus_email: "",
-      plus_password: "",
-      plus_phonenumber: "",
-      plus_address_big: "",
-      plus_address_small: "",
-      plus_start_day: [],
-      plus_talentshare: "",
-      plus_continu_month: "",
-      plus_start_time: "",
-      plus_end_time: "",
-      plus_fields: [],
-      agreePrivate: false,
-      agreeWepler: false,
-    };
-  }
+  state = {
+    plus_name: "",
+    plus_email: "",
+    plus_password: "",
+    plus_phonenumber: "",
+    plus_address_big: "",
+    plus_address_small: "",
+    plus_start_day: [],
+    plus_talentshare: "",
+    plus_continu_month: "",
+    plus_start_time: "",
+    plus_end_time: "",
+    plus_fields: [],
+    plus_oneself: "",
+    agreePrivate: false,
+    agreeWepler: false,
+  };
 
   postBoard = async (e) => {
     e.preventDefault();
@@ -38,27 +36,53 @@ export default class extends React.Component {
       plus_start_time,
       plus_end_time,
       plus_fields,
+      plus_oneself,
+      agreePrivate,
+      agreeWepler,
     } = this.state;
-    try {
-      const post = await axios.post("/plus_signup/", {
-        plus_name,
-        plus_email,
-        plus_password,
-        plus_phonenumber,
-        plus_address_big,
-        plus_address_small,
-        plus_start_day,
-        plus_talentshare,
-        plus_continu_month,
-        plus_start_time,
-        plus_end_time,
-        plus_fields,
-      });
-      console.log(post);
-      alert("회원가입 되었습니다");
-      window.history.pushState("/");
-    } catch {
-      alert("Theres was an error!");
+
+    if (
+      plus_name &&
+      plus_email &&
+      plus_password &&
+      plus_phonenumber &&
+      plus_address_big &&
+      plus_address_small &&
+      plus_start_day &&
+      plus_talentshare &&
+      plus_continu_month &&
+      plus_start_time &&
+      plus_end_time &&
+      plus_fields &&
+      plus_oneself
+    ) {
+      if (agreePrivate === false || agreeWepler === false) {
+        alert("이용 약관에 동의해 주세요");
+      }
+      try {
+        const post = await axios.post("/plus_signup/", {
+          plus_name,
+          plus_email,
+          plus_password,
+          plus_phonenumber,
+          plus_address_big,
+          plus_address_small,
+          plus_start_day,
+          plus_talentshare,
+          plus_continu_month,
+          plus_start_time,
+          plus_end_time,
+          plus_fields,
+          plus_oneself,
+        });
+        console.log(post);
+        alert("회원가입 되었습니다");
+        this.props.history.push("/");
+      } catch {
+        alert("회원가입에 실패 했습니다. 다시 시도해 주세요.");
+      }
+    } else {
+      alert("전부 입력해 주세요.");
     }
   };
 
@@ -99,7 +123,12 @@ export default class extends React.Component {
         ...this.state,
         plus_address_big: e.target.value,
       });
-      console.log(e.target.value);
+    }
+    if (name === "plus_oneself") {
+      this.setState({
+        ...this.state,
+        plus_oneself: e.target.value,
+      });
     }
   };
 
@@ -172,12 +201,16 @@ export default class extends React.Component {
   handleTerms = (event) => {
     const { name } = event.target;
     if (name === "agreePrivate") {
-      this.setState({ agreePrivate: event.target.checked });
-      console.log(event.target.checked);
+      this.setState({ agreePrivate: event.target.checked }); //true
+      if (event.target.checked === false) {
+        alert("개인정보 수집 및 이용 약관에 동의해 주세요");
+      }
     }
     if (name === "agreeWepler") {
-      this.setState({ agreeWepler: event.target.checked });
-      console.log(event.target.checked);
+      this.setState({ agreeWepler: event.target.checked }); //true
+      if (event.target.checked === false) {
+        alert("위플러 이용 약관에 동의해 주세요");
+      }
     }
   };
 
@@ -195,28 +228,33 @@ export default class extends React.Component {
       plus_start_time,
       plus_end_time,
       plus_fields,
+      plus_oneself,
     } = this.state;
     return (
-      <PlusPresenter
-        plus_name={plus_name}
-        plus_email={plus_email}
-        plus_phonenumber={plus_phonenumber}
-        plus_password={plus_password}
-        plus_address_big={plus_address_big}
-        plus_address_small={plus_address_small}
-        plus_start_day={plus_start_day}
-        plus_talentshare={plus_talentshare}
-        plus_continu_month={plus_continu_month}
-        plus_start_time={plus_start_time}
-        plus_end_time={plus_end_time}
-        plus_fields={plus_fields}
-        postBoard={this.postBoard}
-        handleChange={this.handleChange}
-        handelinfoChange={this.handelinfoChange}
-        handleWhen={this.handleWhen}
-        handleActivity={this.handleActivity}
-        handleTerms={this.handleTerms}
-      />
+      <>
+        {console.log(this.props)}
+        <PlusPresenter
+          plus_name={plus_name}
+          plus_email={plus_email}
+          plus_phonenumber={plus_phonenumber}
+          plus_password={plus_password}
+          plus_address_big={plus_address_big}
+          plus_address_small={plus_address_small}
+          plus_start_day={plus_start_day}
+          plus_talentshare={plus_talentshare}
+          plus_continu_month={plus_continu_month}
+          plus_start_time={plus_start_time}
+          plus_end_time={plus_end_time}
+          plus_fields={plus_fields}
+          plus_oneself={plus_oneself}
+          postBoard={this.postBoard}
+          handleChange={this.handleChange}
+          handelinfoChange={this.handelinfoChange}
+          handleWhen={this.handleWhen}
+          handleActivity={this.handleActivity}
+          handleTerms={this.handleTerms}
+        />
+      </>
     );
   }
 }

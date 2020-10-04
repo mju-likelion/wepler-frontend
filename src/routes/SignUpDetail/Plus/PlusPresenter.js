@@ -138,6 +138,7 @@ const PlusPresenter = ({
   plus_start_time,
   plus_end_time,
   plus_fields,
+  plus_oneself,
 }) => (
   <>
     <Container component="main" maxWidth="xs">
@@ -183,12 +184,12 @@ const PlusPresenter = ({
                 <Grid item xs={10}>
                   <TextQuestion>비밀번호</TextQuestion>
                 </Grid>
-                <Grid item xs={12} sm={12}>
+                <Grid item xs={12} sm={6}>
                   <TextField
                     required
                     fullWidth
                     name="plus_password"
-                    label="특수문자, 숫자, 영어 포함 8자 이상 입력해 주세요"
+                    label="특수문자, 숫자, 영어 포함 8자 이상"
                     type="password"
                     id="plus_password"
                     autoComplete="current-password"
@@ -471,6 +472,24 @@ const PlusPresenter = ({
                   </TextWrapterm>
                 </ActivityList>
               </Grid>
+              <ActivityDisplay />
+              <Grid container spacing={2}>
+                <Grid item xs={10}>
+                  <TextQuestion>플러스 회원의 한줄소개</TextQuestion>
+                </Grid>
+                <Grid item xs={12} sm={10}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="plus_oneself"
+                    label="플리즈 회원에게 보일 한줄 소개를 입력해 주세요"
+                    name="plus_oneself"
+                    autoComplete="plus_oneself"
+                    onChange={handelinfoChange}
+                  />
+                </Grid>
+              </Grid>
+
               <TextQuestion>
                 <Checkbox
                   name="agreePrivate"

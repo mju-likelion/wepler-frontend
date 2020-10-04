@@ -39,24 +39,43 @@ export default class extends React.Component {
       plz_fields,
       plz_when_learn,
       plz_belong,
+      agreePrivate,
+      agreeWepler,
     } = this.state;
-    try {
-      const post = await axios.post("/plz_signup/", {
-        plz_name,
-        plz_email,
-        plz_password,
-        plz_phonenumber,
-        plz_address_big,
-        plz_address_small,
-        plz_when_learn,
-        plz_belong,
-        plz_fields,
-      });
-      console.log(post);
-      alert("회원가입 되었습니다");
-      window.history.pushState("/"); //고쳐보기
-    } catch {
-      alert("회원가입에 실패 하엿습니다.");
+    if (
+      plz_name &&
+      plz_email &&
+      plz_password &&
+      plz_phonenumber &&
+      plz_address_big &&
+      plz_address_small &&
+      plz_when_learn &&
+      plz_belong &&
+      plz_fields
+    ) {
+      if (agreePrivate === false || agreeWepler === false) {
+        alert("이용 약관에 동의해 주세요");
+      }
+      try {
+        const post = await axios.post("/plz_signup/", {
+          plz_name,
+          plz_email,
+          plz_password,
+          plz_phonenumber,
+          plz_address_big,
+          plz_address_small,
+          plz_when_learn,
+          plz_belong,
+          plz_fields,
+        });
+        console.log(post);
+        alert("회원가입 되었습니다");
+        this.props.history.push("/");
+      } catch {
+        alert("회원가입에 실패 하엿습니다.");
+      }
+    } else {
+      alert("전부 입력해 주세요.");
     }
   };
 
