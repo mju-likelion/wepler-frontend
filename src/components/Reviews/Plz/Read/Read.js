@@ -73,7 +73,7 @@ const RatingItem = styled.div`
   color: #db7f8e;
 `;
 
-const Read = ({ match }) => {
+const Read = ({ match, history }) => {
   console.log(match.params.postId);
   const [ismodify, setIsmodify] = useState(false); //수정가능=true
   const id = 1; //포스트 넘버
@@ -152,6 +152,7 @@ const Read = ({ match }) => {
       );
       console.log(post);
       alert("수정 되었습니다");
+      history.push(`/reviewplz/${id}`);
     } catch {
       alert("실패하였습니다.");
     }
@@ -322,9 +323,7 @@ const Read = ({ match }) => {
       <Wrap>
         <Buttonlist>
           <ButtonItem>
-            <Button onClick={postBoard}>
-              <Link to={`/reviewplz/${id}`}>완료하기</Link>
-            </Button>
+            <Button onClick={postBoard}>완료하기</Button>
           </ButtonItem>
           <ButtonItem>
             <Button onClick={postDelete}>

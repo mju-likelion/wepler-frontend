@@ -3,30 +3,26 @@ import axios from "axios";
 import PlzPresenter from "./PlzPresenter";
 
 export default class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      plz_name: "",
-      plz_email: "",
-      plz_password: "",
-      plz_phonenumber: "",
-      plz_address_big: "",
-      plz_address_small: "",
-      plz_fields: [],
-      plz_when_learn: {
-        regularly: false,
-        specific: false,
-        thinking: false,
-      },
-      plz_belong: {
-        individual: false,
-        group: false,
-      },
-      agreePrivate: false,
-      agreeWepler: false,
-    };
-  }
-
+  state = {
+    plz_name: "",
+    plz_email: "",
+    plz_password: "",
+    plz_phonenumber: "",
+    plz_address_big: "",
+    plz_address_small: "",
+    plz_fields: [],
+    plz_when_learn: {
+      regularly: false,
+      specific: false,
+      thinking: false,
+    },
+    plz_belong: {
+      individual: false,
+      group: false,
+    },
+    agreePrivate: false,
+    agreeWepler: false,
+  };
   postBoard = async (e) => {
     e.preventDefault();
     const {
@@ -42,40 +38,25 @@ export default class extends React.Component {
       agreePrivate,
       agreeWepler,
     } = this.state;
-    if (
-      plz_name &&
-      plz_email &&
-      plz_password &&
-      plz_phonenumber &&
-      plz_address_big &&
-      plz_address_small &&
-      plz_when_learn &&
-      plz_belong &&
-      plz_fields
-    ) {
-      if (agreePrivate === false || agreeWepler === false) {
-        alert("이용 약관에 동의해 주세요");
-      }
-      try {
-        await axios.post("/plz_signup/", {
-          plz_name,
-          plz_email,
-          plz_password,
-          plz_phonenumber,
-          plz_address_big,
-          plz_address_small,
-          plz_when_learn,
-          plz_belong,
-          plz_fields,
-        });
-        // console.log(post);
-        alert("회원가입 되었습니다");
-        this.props.history.push("/signin");
-      } catch {
-        alert("회원가입에 실패 하엿습니다.");
-      }
-    } else {
-      alert("전부 입력해 주세요.");
+    if (agreePrivate === false || agreeWepler === false) {
+      alert("이용 약관에 동의해 주세요");
+    }
+    try {
+      await axios.post("/plz_signup/", {
+        plz_name,
+        plz_email,
+        plz_password,
+        plz_phonenumber,
+        plz_address_big,
+        plz_address_small,
+        plz_when_learn,
+        plz_belong,
+        plz_fields,
+      });
+      alert("회원가입 되었습니다");
+      this.props.history.push("/signin");
+    } catch {
+      alert("회원가입에 실패 하엿습니다.");
     }
   };
 
