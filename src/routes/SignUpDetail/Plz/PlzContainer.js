@@ -57,7 +57,7 @@ export default class extends React.Component {
         alert("이용 약관에 동의해 주세요");
       }
       try {
-        const post = await axios.post("/plz_signup/", {
+        await axios.post("/plz_signup/", {
           plz_name,
           plz_email,
           plz_password,

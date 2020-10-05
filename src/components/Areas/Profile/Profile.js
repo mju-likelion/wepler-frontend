@@ -28,7 +28,6 @@ function Itemlist({
         <BoxBig>
           <ListItem>
             <Link to={`/plusprofile/${id}`}>
-              {/* <Link to={`/plusseoulde/${item.number}`}> */}
               <BoxName>
                 <h2>{plus_id}</h2>
               </BoxName>

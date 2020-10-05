@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import Profile from "./Profile/Profile";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
+import {
+  ListItem,
+  Box,
+  BoxBig,
+  BoxName,
+  BoxExplan,
+  HashBox,
+} from "./Profile/ProfileStyled";
 
 const ButtonMember = styled.div`
   display: flex;
@@ -37,8 +45,8 @@ const LineLast = styled.div`
 
 const Bigfont = styled.div`
   font-size: 35px;
-  display: inline-block;  
-  color: #C9AA79;
+  display: inline-block;
+  color: #c9aa79;
 `;
 
 const ApplyButton = styled.button`
@@ -73,6 +81,8 @@ const BeforeButton = styled.button`
 const PlusDetail = ({ match }) => {
   const [type, setType] = useState(""); //현사용자 회원
   const [plus_id, setPlus_id] = useState("");
+  const [plus_oneself, setPlus_oneself] = useState("");
+  const [plus_rating, setPlus_rating] = useState("");
   const [plus_continu_month, setPlus_continu_month] = useState("");
   const [plus_fields, setPlus_fields] = useState([]);
   const [plus_edu, setPlus_edu] = useState("");
@@ -96,7 +106,9 @@ const PlusDetail = ({ match }) => {
     //   );
     // }
     // getRead();
+    setPlus_oneself("한줄소개 입니다");
     setPlus_id("plus_id");
+    setPlus_rating("7");
     setPlus_continu_month("5");
     setPlus_fields("council", "trip");
     setPlus_edu("O");
@@ -122,20 +134,59 @@ const PlusDetail = ({ match }) => {
 
   return (
     <>
-    <Container>
-      <Profile />
+      <Container>
+        <Box>
+          <BoxBig>
+            <ListItem>
+              <BoxName>
+                <h2>{plus_id}</h2>
+              </BoxName>
+              <BoxExplan>
+                <FaQuoteLeft size="15" color="#404A41" />
+                {plus_oneself}
+                <FaQuoteRight size="15" color="#404A41" />
+                <div>평균평점: {plus_rating}</div>
+                <HashBox>{plus_fields}</HashBox>
+              </BoxExplan>
+            </ListItem>
+          </BoxBig>
+        </Box>
+
         <Container2>
-          <Line>저는  <Bigfont>{plus_id}</Bigfont>  입니다. </Line>
-          <Line>저의 이메일 주소는  <Bigfont>{plus_email}</Bigfont>  입니다.</Line>
-          <Line>제가 원하는 재능 나눔 분야는  <Bigfont>{plus_fields}</Bigfont>  입니다.</Line>
-          <Line>봉사자 교육 수료 <Bigfont>{plus_edu}</Bigfont></Line>
-          <Line>제가 활동을 함께 할 수 있는 요일은  <Bigfont>{plus_start_day}요일</Bigfont>  입니다.</Line>          
-          <Line>제가 활동을 함께 할 수 있는 시간은  <Bigfont>{plus_start_time}시부터 ~{plus_end_time}시까지</Bigfont>  입니다.</Line>         
-          <Line>제가 활동을 지속할 수 있는 기간은  <Bigfont>{plus_continu_month}개월</Bigfont>  입니다.</Line>
-          <br/> <br/>
-          <LineLast>'고용하기' 버튼을 누르면 플러스에게 알림이 갑니다.</LineLast>
+          <Line>
+            저는 <Bigfont>{plus_id}</Bigfont> 입니다.{" "}
+          </Line>
+          <Line>
+            저의 이메일 주소는 <Bigfont>{plus_email}</Bigfont> 입니다.
+          </Line>
+          <Line>
+            제가 원하는 재능 나눔 분야는 <Bigfont>{plus_fields}</Bigfont>{" "}
+            입니다.
+          </Line>
+          <Line>
+            봉사자 교육 수료 <Bigfont>{plus_edu}</Bigfont>
+          </Line>
+          <Line>
+            제가 활동을 함께 할 수 있는 요일은{" "}
+            <Bigfont>{plus_start_day}요일</Bigfont> 입니다.
+          </Line>
+          <Line>
+            제가 활동을 함께 할 수 있는 시간은{" "}
+            <Bigfont>
+              {plus_start_time}시부터 ~{plus_end_time}시까지
+            </Bigfont>{" "}
+            입니다.
+          </Line>
+          <Line>
+            제가 활동을 지속할 수 있는 기간은{" "}
+            <Bigfont>{plus_continu_month}개월</Bigfont> 입니다.
+          </Line>
+          <br /> <br />
+          <LineLast>
+            '고용하기' 버튼을 누르면 플러스에게 알림이 갑니다.
+          </LineLast>
         </Container2>
-    </Container>
+      </Container>
 
       <ButtonMember>
         {type === "plus" ? (
