@@ -18,8 +18,6 @@ import {
   Wrapper,
   ButtonList,
   ActivityDisplay,
-  ActivityList,
-  TextWrapterm,
   ActivityBox,
 } from "./PlzBasicStyle";
 
@@ -48,20 +46,13 @@ const PlzBasicPresenter = ({
   plz_email,
   plz_address_big,
   plz_address_small,
-  plz_continu_month,
-  plz_start_time,
-  plz_end_time,
-  plz_talentshare,
   file,
   handleActivity,
-  handleChange,
-  handleWhen,
   postBoard,
   handleChangeFile,
 }) => {
   const [ismodify, setIsmodify] = useState(false);
   const plz_fields = [];
-  const plz_start_day = [];
   return (
     <>
       <MypageNav />
@@ -249,177 +240,17 @@ const PlzBasicPresenter = ({
                             </ActivityDisplay>
                           </InforContents>
                         </Infor>
-                        <Infor>
-                          <div>시작 날짜:</div>
-
-                          <InforContents>
-                            <input
-                              type="date"
-                              name="plz_talentshare"
-                              onChange={handleChange}
-                              value={plz_talentshare}
-                            />
-                          </InforContents>
-                        </Infor>
-                        <Infor>
-                          <div>요일:</div>
-
-                          <InforContents>
-                            <ActivityList>
-                              <TextWrapterm>
-                                <input
-                                  type="checkbox"
-                                  name="monday"
-                                  onChange={handleWhen}
-                                  value={plz_start_day.mon}
-                                />
-                                <div>월</div>
-                              </TextWrapterm>
-                              <TextWrapterm>
-                                <input
-                                  type="checkbox"
-                                  name="tuesday"
-                                  onChange={handleWhen}
-                                  value={plz_start_day.tues}
-                                />
-                                <div>화</div>
-                              </TextWrapterm>
-                              <TextWrapterm>
-                                <input
-                                  type="checkbox"
-                                  name="wednesday"
-                                  onChange={handleWhen}
-                                  value={plz_start_day.wednes}
-                                />
-                                <div>수</div>
-                              </TextWrapterm>
-                              <TextWrapterm>
-                                <input
-                                  type="checkbox"
-                                  name="thursday"
-                                  onChange={handleWhen}
-                                  value={plz_start_day.thurs}
-                                />
-                                <div>목</div>
-                              </TextWrapterm>
-                              <TextWrapterm>
-                                <input
-                                  type="checkbox"
-                                  name="friday"
-                                  onChange={handleWhen}
-                                  value={plz_start_day.fri}
-                                />
-                                <div>금</div>
-                              </TextWrapterm>
-                              <TextWrapterm>
-                                <input
-                                  type="checkbox"
-                                  name="saturday"
-                                  onChange={handleWhen}
-                                  value={plz_start_day.satur}
-                                />
-                                <div>토</div>
-                              </TextWrapterm>
-                              <TextWrapterm>
-                                <input
-                                  type="checkbox"
-                                  name="sunday"
-                                  onChange={handleWhen}
-                                  value={plz_start_day.sun}
-                                />
-                                <div>일</div>
-                              </TextWrapterm>
-                            </ActivityList>
-                          </InforContents>
-                        </Infor>
-                        <Infor>
-                          <div>시작시간:</div>
-
-                          <InforContents>
-                            <TextWrapterm>
-                              <input
-                                type="time"
-                                name="plz_start_time"
-                                onChange={handleChange}
-                                value={plz_start_time}
-                              />
-                            </TextWrapterm>
-                          </InforContents>
-                        </Infor>
-                        <Infor>
-                          <div>종료시간:</div>
-
-                          <InforContents>
-                            <TextWrapterm>
-                              <input
-                                type="time"
-                                name="plz_end_time"
-                                onChange={handleChange}
-                                value={plz_end_time}
-                              />
-                            </TextWrapterm>
-                          </InforContents>
-                        </Infor>
-                        <Infor>
-                          <div>지속기간:</div>
-                          <InforContents>
-                            <TextWrapterm>
-                              <input
-                                type="number"
-                                name="plz_continu_month"
-                                placeholder="ex) 5"
-                                onChange={handleChange}
-                                value={plz_continu_month}
-                              />
-                              <div>개월</div>
-                            </TextWrapterm>
-                          </InforContents>
-                        </Infor>
                       </Infortalent>
                     </>
                   ) : (
                     <>
                       <Infortalent>
                         <Infor>
-                          <div>활동 참여 분야:</div>
+                          <div>원하는 재능 배움 분야:</div>
                           <InforContents>
                             <div>{plz_fields}</div>
                           </InforContents>
-                        </Infor>
-                        <Infor>
-                          <div>시작 날짜:</div>
-
-                          <InforContents>
-                            <div>{plz_talentshare}</div>
-                          </InforContents>
-                        </Infor>
-                        <Infor>
-                          <div>요일:</div>
-
-                          <InforContents>
-                            <div>{plz_start_day}</div>
-                          </InforContents>
-                        </Infor>
-                        <Infor>
-                          <div>시작시간:</div>
-
-                          <InforContents>
-                            <div>{plz_start_time}</div>
-                          </InforContents>
-                        </Infor>
-                        <Infor>
-                          <div>종료시간:</div>
-
-                          <InforContents>
-                            <div>{plz_end_time}</div>
-                          </InforContents>
-                        </Infor>
-                        <Infor>
-                          <div>지속기간:</div>
-                          <InforContents>
-                            <div>{plz_continu_month}</div>
-                          </InforContents>
-                        </Infor>
+                        </Infor>                        
                       </Infortalent>
                     </>
                   )}
