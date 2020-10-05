@@ -37,7 +37,8 @@ const LineLast = styled.div`
 
 const Bigfont = styled.div`
   font-size: 35px;
-  display: inline-block;
+  display: inline-block;  
+  color: #C9AA79;
 `;
 
 const ApplyButton = styled.button`
