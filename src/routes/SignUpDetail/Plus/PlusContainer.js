@@ -53,8 +53,7 @@ export default class extends React.Component {
       plus_continu_month &&
       plus_start_time &&
       plus_end_time &&
-      plus_fields &&
-      plus_oneself
+      plus_fields
     ) {
       if (agreePrivate === false || agreeWepler === false) {
         alert("이용 약관에 동의해 주세요");
