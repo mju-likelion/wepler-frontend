@@ -1,28 +1,33 @@
 import React from "react";
 import axios from "axios";
 import PlzPresenter from "./PlzPresenter";
+import { Link } from "react-router-dom";
 
 export default class extends React.Component {
-  state = {
-    plz_name: "",
-    plz_email: "",
-    plz_password: "",
-    plz_phonenumber: "",
-    plz_address_big: "",
-    plz_address_small: "",
-    plz_fields: [],
-    plz_when_learn: {
-      regularly: false,
-      specific: false,
-      thinking: false,
-    },
-    plz_belong: {
-      individual: false,
-      group: false,
-    },
-    agreePrivate: false,
-    agreeWepler: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      plz_name: "",
+      plz_email: "",
+      plz_password: "",
+      plz_phonenumber: "",
+      plz_address_big: "",
+      plz_address_small: "",
+      plz_fields: [],
+      plz_when_learn: {
+        regularly: false,
+        specific: false,
+        thinking: false,
+      },
+      plz_belong: {
+        individual: false,
+        group: false,
+      },
+      agreePrivate: false,
+      agreeWepler: false,
+    };
+  }
+
   postBoard = async (e) => {
     e.preventDefault();
     const {
@@ -38,11 +43,13 @@ export default class extends React.Component {
       agreePrivate,
       agreeWepler,
     } = this.state;
+    
+      
     if (agreePrivate === false || agreeWepler === false) {
       alert("이용 약관에 동의해 주세요");
     }
     try {
-      await axios.post("/plz_signup/", {
+      const post = await axios.post("/plz_signup/", {
         plz_name,
         plz_email,
         plz_password,
@@ -53,10 +60,25 @@ export default class extends React.Component {
         plz_belong,
         plz_fields,
       });
+      // console.log(post);
+      if(post.data.len === false){
+        alert("비밀번호 길이가 8자리 이상이어야 합니다.");
+      }
+      else if(post.data.hasnumber === false){
+        alert("비밀번호에 숫자가 포함되어야 합니다.");
+      }
+      else if(post.data.hascharacter === false){
+        alert("비밀번호에 영문이 포함되어야 합니다.");
+      }
+      else if(post.data.hasspecial === false){
+        alert("비밀번호에 특수문자가 포함되어야 합니다.");
+      }
+      else{
       alert("회원가입 되었습니다");
+      }
       this.props.history.push("/signin");
     } catch {
-      alert("회원가입에 실패 하엿습니다.");
+      alert("회원가입에 실패 하였습니다.");
     }
   };
 
@@ -80,10 +102,10 @@ export default class extends React.Component {
         plz_email: e.target.value,
       });
     }
-    if (name === "plz_number") {
+    if (name === "plz_phonenumber") {
       this.setState({
         ...this.state,
-        plz_number: e.target.value,
+        plz_phonenumber: e.target.value,
       });
     }
     if (name === "plz_address_small") {

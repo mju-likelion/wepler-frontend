@@ -16,10 +16,7 @@ class ListBoard extends Component {
       });
     };
     getList();
-    // const data = require("../../../../BoardData.json");
-    // this.setState({
-    //   ItemList: data.Plus_Reviews,
-    // });
+
   }
 
   render() {

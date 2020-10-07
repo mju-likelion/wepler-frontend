@@ -29,7 +29,7 @@ export default class extends React.Component {
     if (user_id !== "plus") {
       localStorage.clear();
     }
-    async function getMypage() {
+    const getMypage = async () =>  {
       try {
         const gets = await axios.get("/mypage/getMypage", {
           headers: {
@@ -39,7 +39,7 @@ export default class extends React.Component {
         this.setState({
           plus_fields: gets.data.user_class,
           plus_name: gets.data.user_name,
-          plus_phonenumber: gets.data.user_phon,
+          plus_phonenumber: gets.data.user_phone,
           plus_address_big: gets.data.user_address_big,
           plus_address_small: gets.data.user_address_small,
           plus_start_day: gets.data.user_start_day,
@@ -48,7 +48,7 @@ export default class extends React.Component {
           plus_start_time: gets.data.user_start_time,
           plus_end_time: gets.data.user_end_time,
           plus_email: gets.data.user_email,
-          plus_oneself: gets.data.user_oneself,
+          plus_oneself: gets.data.user_info,
         });
       } catch {
         console.log("Infromation error!");
@@ -81,7 +81,11 @@ export default class extends React.Component {
         plus_fields,
         file,
         plus_oneself,
-      });
+      }, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        });
       console.log(post);
       alert("수정 되었습니다");
     } catch {

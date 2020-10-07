@@ -25,7 +25,9 @@ const Detail = ({ match }) => {
   const [plus_address_small, setplus_address_small] = useState("");
 
   const apply = async (e) => {
-    var overap = await axios.post(`/mypage/accept/${match.params.profileId}/`, {
+    var overap = await axios.post(`/mypage/accept/${match.params.profileId}/`, 
+    {},
+    {
       headers: {
         Authorization: JSON.parse(localStorage.getItem("token")),
       },
@@ -53,7 +55,7 @@ const Detail = ({ match }) => {
         );
         setplus_id(reads.data.user_name);
         setplus_email(reads.data.user_email);
-        setplus_oneself("나는야 플러스회원");
+        setplus_oneself(reads.data.user_info);
         setplus_rating(reads.data.user_point);
         setplus_fields(reads.data.user_class);
         setplus_start_time(reads.data.user_start);
@@ -74,7 +76,7 @@ const Detail = ({ match }) => {
       <Container component="main" maxWidth="md">
         <PlzId>
           <Title>{plus_id}</Title>
-          <ButtonsApply onClick={apply}>수락하기</ButtonsApply>
+          <ButtonsApply onClick={apply}><Link to="/plzactivitying">수락하기</Link></ButtonsApply>
           <ButtonsDelelte onClick={postDelete}>
             <Link to="/plzapplied">거절하기</Link>
           </ButtonsDelelte>

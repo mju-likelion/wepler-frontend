@@ -8,14 +8,16 @@ class ActivityContainer extends Component {
   };
 
   componentDidMount() {
-    // const data = require("../../../../../BoardData.json");
-    // this.setState({
-    //   ItemList: data.mypage,
-    // });
+
     const getApplied = async () => {
-      const data = await axios.get("/mypage/match_list/");
+      const datas = await axios.get("/mypage/match_list/", 
+      {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      });
       this.setState({
-        ItemList: data.mypage,
+        ItemList: datas.data,
       });
     };
     getApplied();

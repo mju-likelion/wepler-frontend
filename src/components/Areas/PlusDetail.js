@@ -91,31 +91,30 @@ const PlusDetail = ({ match }) => {
   const [plus_end_time, setPlus_end_time] = useState("");
   const [plus_email, setPlus_email] = useState("");
 
-  console.log(match.params.proflieId);
   useEffect(() => {
     const user_id = JSON.parse(localStorage.getItem("user_id"));
     setType(user_id); //현사용자 회원
-    // async function getRead() {
-    //   var reads = await axios.get(
-    //     `/choice_plus/choice_dedtail/${match.params.proflieId}`,
-    //     {
-    //       headers: {
-    //         Authorization: JSON.parse(localStorage.getItem("token")),
-    //       },
-    //     }
-    //   );
-    // }
-    // getRead();
-    setPlus_oneself("한줄소개 입니다");
-    setPlus_id("plus_id");
-    setPlus_rating("7");
-    setPlus_continu_month("5");
-    setPlus_fields("council", "trip");
-    setPlus_edu("O");
-    setPlus_start_day("월");
-    setPlus_start_time("8:00");
-    setPlus_end_time("17:00");
-    setPlus_email("1234@naver.com");
+    async function getRead() {
+      var reads = await axios.get(
+        `/choice_plus/plus_profile_detail/${match.params.proflieId}`,
+        {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        }
+      );
+      setPlus_id(reads.data.plus_name);
+      setPlus_continu_month(reads.data.plus_continu_month);
+      setPlus_fields(reads.data.plus_fields);
+      setPlus_edu(reads.data.plus_edu);
+      setPlus_start_day(reads.data.plus_start_day);
+      setPlus_start_time(reads.data.plus_start_time);
+      setPlus_end_time(reads.data.plus_end_time);
+      setPlus_email(reads.data.plus_id);
+      setPlus_oneself(reads.data.plus_info);
+      setPlus_rating(reads.data.plus_point);
+    }
+    getRead();
   }, [match.params.proflieId]);
 
   const apply = async (e) => {
@@ -168,7 +167,7 @@ const PlusDetail = ({ match }) => {
           </Line>
           <Line>
             제가 활동을 함께 할 수 있는 요일은{" "}
-            <Bigfont>{plus_start_day}요일</Bigfont> 입니다.
+            <Bigfont>{plus_start_day}</Bigfont> 입니다.
           </Line>
           <Line>
             제가 활동을 함께 할 수 있는 시간은{" "}
@@ -189,8 +188,8 @@ const PlusDetail = ({ match }) => {
       </Container>
 
       <ButtonMember>
-        {type === "plus" ? (
-          <ApplyButton onClick={apply}>신청하기</ApplyButton>
+        {type === "plz" ? (
+          <ApplyButton onClick={apply}>고용하기</ApplyButton>
         ) : undefined}
         <ButtonLink to="/areaplus">
           <BeforeButton>이전으로</BeforeButton>

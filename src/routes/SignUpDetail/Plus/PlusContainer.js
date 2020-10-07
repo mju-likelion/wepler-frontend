@@ -59,7 +59,7 @@ export default class extends React.Component {
         alert("이용 약관에 동의해 주세요");
       }
       try {
-        await axios.post("/plus_signup/", {
+        const post = await axios.post("/plus_signup/", {
           plus_name,
           plus_email,
           plus_password,
@@ -75,8 +75,22 @@ export default class extends React.Component {
           plus_oneself,
         });
         // console.log(post);
+        if(post.data.len === false){
+          alert("비밀번호 길이가 8자리 이상이어야 합니다.");
+        }
+        else if(post.data.hasnumber === false){
+          alert("비밀번호에 숫자가 포함되어야 합니다.");
+        }
+        else if(post.data.hascharacter === false){
+          alert("비밀번호에 영문이 포함되어야 합니다.");
+        }
+        else if(post.data.hasspecial === false){
+          alert("비밀번호에 특수문자가 포함되어야 합니다.");
+        }
+        else{
         alert("회원가입 되었습니다");
         this.props.history.push("/signin");
+        }
       } catch {
         alert("회원가입에 실패 했습니다. 다시 시도해 주세요.");
       }

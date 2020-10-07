@@ -91,7 +91,7 @@ const Read = ({ match }) => {
 
     async function getMypage() {
       try {
-        const gets = await axios.get("/token_check/", {
+        const gets = await axios.get("/mypage/getMypage/", {
           headers: {
             Authorization: JSON.parse(localStorage.getItem("token")),
           },
@@ -108,7 +108,6 @@ const Read = ({ match }) => {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },
       });
-      setEmail(reads.data.user_id);
       setId(reads.data.user_name);
       setBelong(reads.data.user_belong);
       setTitle(reads.data.title);

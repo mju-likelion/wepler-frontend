@@ -43,15 +43,21 @@ class Write extends Component {
           },
         }
       );
-      alert("작성되었습니다.");
-      this.setState({
-        title: "",
-        content: "",
-        matching: "",
-        matchingEmail: "",
-        rating: "",
-      });
-      console.log(post);
+      if(post.data.hasuser === false){
+        alert("활동이 완료되지 않았거나 활동을 같이 하지 않은 유저의 email 입니다.");
+      }
+      else if(post.data.isoverap === true){
+          alert("이미 후기를 작성한 유저의 email 입니다.");
+        }
+      else{
+        alert("작성되었습니다.");
+        this.setState({
+          title: "",
+          content: "",
+          matching: "",
+          matchingEmail: "",
+          rating: "",
+        });}
     } catch {
       console.log("작성에 실패하였습니다.");
     }
@@ -118,7 +124,7 @@ class Write extends Component {
                 <TextField
                   required
                   fullWidth
-                  label="플러스 회원 이름"
+                  label="매칭 넘버"
                   type="text"
                   name="matching"
                   onChange={this.handleChange}

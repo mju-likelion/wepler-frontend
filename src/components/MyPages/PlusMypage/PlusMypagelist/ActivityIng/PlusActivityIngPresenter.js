@@ -43,15 +43,20 @@ const ActivityIngPresenter = (props) => {
     console.log(currentPage);
   };
 
+ 
   useEffect(() => {
     async function getCount() {
-      const counts = await axios.get("/mypage/match_list_count/");
+      const counts = await axios.get("/mypage/match_list_count/", 
+      {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      });
       setCount(counts.data.count);
       setLastpage(Math.ceil(count / pageSize));
     }
     getCount();
   }, [count]);
-
   return (
     <>
       <PlusMypageNav />
@@ -67,10 +72,10 @@ const ActivityIngPresenter = (props) => {
               (carddata, id) => (
                 <Grid item key={id} xs={12} sm={6} md={4}>
                   <ActivityInglist
-                    index={carddata.index}
-                    plus_id={carddata.plus_id}
-                    plus_fields={carddata.plus_fields}
-                    plus_address_big={carddata.plus_address_big}
+                         index={carddata.id}
+                         plus_id={carddata.plz_name}
+                         plus_fields={carddata.plz_class}
+                         plus_address_big={carddata.plz_address_big}
                   />
                 </Grid>
               )

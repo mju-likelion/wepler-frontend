@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MypageNav from "../../PlzMypagenav";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
+import { Link } from "react-router-dom";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Container from "@material-ui/core/Container";
@@ -46,13 +47,13 @@ const PlzBasicPresenter = ({
   plz_email,
   plz_address_big,
   plz_address_small,
-  file,
+  plz_fields,
   handleActivity,
   postBoard,
   handleChangeFile,
 }) => {
   const [ismodify, setIsmodify] = useState(false);
-  const plz_fields = [];
+  // const plz_fields = [];
   return (
     <>
       <MypageNav />
@@ -67,7 +68,7 @@ const PlzBasicPresenter = ({
             <div>
               <form className={classes.form} onSubmit={postBoard} noValidate>
                 <Wrapper>
-                  <Profile>
+                  {/* <Profile>
                     {ismodify ? (
                       <>
                         <img
@@ -99,7 +100,7 @@ const PlzBasicPresenter = ({
                         alt=""
                       />
                     )}
-                  </Profile>
+                  </Profile> */}
 
                   <BigProfile>
                     <Infor>
@@ -267,7 +268,7 @@ const PlzBasicPresenter = ({
                   margin="normal"
                   onClick={postBoard}
                 >
-                  완료하기
+                 <Link to="/">완료하기</Link>
                 </Button>
               </ButtonList>
             ) : (

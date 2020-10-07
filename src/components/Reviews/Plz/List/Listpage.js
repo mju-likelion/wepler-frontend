@@ -65,10 +65,10 @@ const Listpage = (props) => {
                     <ItemCard
                       type={type}
                       id={itemdata.id}
-                      matching={itemdata.matching}
-                      title={itemdata.plz_title}
-                      plz_id={itemdata.plz_id}
-                      plz_writeday={itemdata.plz_writeday}
+                      matching={itemdata.plus_name}
+                      title={itemdata.title}
+                      plz_id={itemdata.plz_user}
+                      plz_writeday={itemdata.date}
                     />
                   </div>
                 )

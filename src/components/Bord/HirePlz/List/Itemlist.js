@@ -5,8 +5,8 @@ import { Item, TextWrap, ExplanWrap, ListItem } from "./ListStyle";
 function Itemlist({
   id,
   title,
-  recruit,
-  plz_id,
+  timeover,
+  plz_group,
   need_member,
   apply_member,
   start_date,
@@ -24,16 +24,16 @@ function Itemlist({
             <h3>{title}</h3>
           </Item>
           <Item>
-            <p>{recruit}</p>
+            <p>{timeover}</p>
           </Item>
           <Item>
-            <div>{plz_id}</div>
+            <div>{plz_group}</div>
           </Item>
         </TextWrap>
 
         <ExplanWrap>
           <div>
-            필요/신청인원: {need_member}/{apply_member}
+          신청인원/필요: {apply_member}/{need_member}
           </div>
           <div>
             기간: {start_date}~{end_date}

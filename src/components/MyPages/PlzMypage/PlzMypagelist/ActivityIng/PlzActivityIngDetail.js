@@ -4,6 +4,7 @@ import PlzMypageNav from "../../PlzMypagenav";
 import Container from "@material-ui/core/Container";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { PlzId, Title, Buttons, Explain } from "../../../DetailStyle";
+import { Link } from "react-router-dom";
 
 const Detail = ({ match }) => {
   const [plus_id, setplus_id] = useState("");
@@ -18,7 +19,7 @@ const Detail = ({ match }) => {
 
   const apply = async (e) => {
     try {
-      await axios.post(`/mypage/complete/${match.params.postId}/`, {
+      await axios.post(`/mypage/complete/${match.params.profileId}/`, {
         headers: {
           Authorization: JSON.parse(localStorage.getItem("token")),
         },
@@ -31,37 +32,28 @@ const Detail = ({ match }) => {
 
   useEffect(() => {
     async function getApply() {
-      // try {
-      //   //프로필의 내용
-      //   const reads = await axios.get(
-      //     `/mypage/match_detail/${match.params.profileId}`,
-      //     {
-      //       headers: {
-      //         Authorization: JSON.parse(localStorage.getItem("token")),
-      //       },
-      //     }
-      //   );
-      //   setplus_id(reads.data.id);
-      //   setplus_oneself(reads.data);
-      //   setplus_rating(reads.data);
-      //   setplus_email(reads.data);
-      //   setplus_fields(reads.data);
-      //   setplus_start_time(reads.data);
-      //   setplus_end_time(reads.data);
-      //   setplus_address_big(reads.data);
-      //   setplus_address_small(reads.data);
-      // } catch {
-      //   console.log("profile error!");
-      // }
-      setplus_id("아이디1");
-      setplus_oneself("이건 저의 한 줄 소개입니다.");
-      setplus_rating("7점");
-      setplus_email("1234@naver.com");
-      setplus_fields(["council", "trip"]);
-      setplus_start_time("8:00");
-      setplus_end_time("17:00");
-      setplus_address_big("seoul");
-      setplus_address_small("용인시 처인구 명지대학교");
+      try {
+        //프로필의 내용
+        const reads = await axios.get(
+          `/mypage/match_detail/${match.params.profileId}`,
+          {
+            headers: {
+              Authorization: JSON.parse(localStorage.getItem("token")),
+            },
+          }
+        );
+        setplus_id(reads.data.user_name);
+        setplus_oneself(reads.data.user_info);
+        setplus_rating(reads.data.user_point);
+        setplus_email(reads.data.user_email);
+        setplus_fields(reads.data.user_class);
+        setplus_start_time(reads.data.user_start);
+        setplus_end_time(reads.data.user_end);
+        setplus_address_big(reads.data.user_address_big);
+        setplus_address_small(reads.data.user_address_small);
+      } catch {
+        console.log("profile error!");
+      }
     }
     getApply();
   }, []);
@@ -72,7 +64,7 @@ const Detail = ({ match }) => {
       <Container component="main" maxWidth="md">
         <PlzId>
           <Title>{plus_id}</Title>
-          <Buttons onClick={apply}>활동완료하기</Buttons>
+          <Buttons onClick={apply}><Link to="/plzactivitydone">활동완료하기</Link></Buttons>
           <Explain>
             <FaQuoteLeft size="18" color="#404A41" /> {plus_oneself}
             <FaQuoteRight size="18" color="#404A41" />

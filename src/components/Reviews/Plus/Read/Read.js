@@ -68,8 +68,7 @@ const ButtonItem = styled.div`
   padding-right: 5%;
 `;
 
-const Read = ({ match }) => {
-  console.log(match.params.postId);
+const Read = ({ match, history }) => {
   const [ismodify, setIsmodify] = useState(false); //수정가능=true
   const id = 1; //포스트 넘버
   const [write_email, setWrite] = useState(""); //포스트 작성자 이메일
@@ -96,30 +95,28 @@ const Read = ({ match }) => {
     getMypage();
 
     async function getRead() {
-      // try {
-      //   //포스트의 내용
-      //   const reads = await axios.get(`/review/plz_review_detail/${match.params.postId}`, {
-      //     headers: {
-      //       Authorization: JSON.parse(localStorage.getItem("token")),
-      //     },
-      //   });
-      //   setWrite(reads.data.user_email);
-      // } catch {
-      //   console.log("post error!");
-      // }
+      try {
+        //포스트의 내용
+        const reads = await axios.get(`/review/plz_review_detail/${match.params.postId}`, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        });
+        setWrite(reads.data.writer);
+        setId(reads.data.writer_name);
+        setTitle(reads.data.title);
+        setContent(reads.data.content);
+        setMatching(reads.data.matching_name);
+        setFields(reads.data.writer_class);
+      } catch {
+        console.log("post error!");
+      }
 
-      setWrite("123@naver.com");
-      setId("plus_id");
-      setTitle("제목1");
-      setContent(
-        "내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용"
-      );
-      setMatching("plz_id");
-      setFields(["council", "trip"]);
     }
 
     getRead();
   }, []);
+
 
   const onChange = (e) => {
     if (e.target.name === "title") {
@@ -133,15 +130,15 @@ const Read = ({ match }) => {
   const postBoard = async (e) => {
     e.preventDefault();
     try {
-      const post = await axios.post(
+      await axios.post(
         `/review/plz_review_update/${match.params.postId}/`,
         {
           title,
           content,
         }
       );
-      console.log(post);
       alert("수정 되었습니다");
+      history.push("/reviewplus");
     } catch {
       alert("실패하였습니다.");
     }
@@ -150,6 +147,7 @@ const Read = ({ match }) => {
   const postDelete = async (e) => {
     await axios.delete(`/review/plz_review_delete/${match.params.postId}`);
     alert("삭제되었습니다.");
+    history.push("/reviewplus");
   };
 
   const read = (
@@ -311,13 +309,12 @@ const Read = ({ match }) => {
         <Buttonlist>
           <ButtonItem>
             <Button onClick={postBoard}>
-              <Link to={`/reviewplus/${id}`}>완료하기</Link>
+              완료하기
             </Button>
           </ButtonItem>
           <ButtonItem>
             <Button onClick={postDelete}>
-              <Link to="/reviewplus">삭제하기</Link>
-              {/* 삭제) 장고로 바로 보냄 */}
+              삭제하기
             </Button>
           </ButtonItem>
           <Button onClick={() => setIsmodify(false)}>

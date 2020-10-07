@@ -44,6 +44,7 @@ export default class extends React.Component {
           plz_address_big: gets.data.user_address_big,
           plz_address_small: gets.data.user_address_small,
           plz_email: gets.data.user_email,
+          plz_fields: gets.data.user_class,
         });
       } catch (err) {
         console.log(err.name);
@@ -76,6 +77,10 @@ export default class extends React.Component {
         plz_end_time,
         plz_fields,
         file,
+      }, {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
       });
       console.log(post);
       alert("수정 되었습니다");

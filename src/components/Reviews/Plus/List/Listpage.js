@@ -53,7 +53,7 @@ const Listpage = (props) => {
           <Container2>
             <h2>플러스들의 후기</h2>
           </Container2>
-          <SearchStyle>
+          {/* <SearchStyle>
             <TextField
               type="text"
               name="keyword"
@@ -63,7 +63,7 @@ const Listpage = (props) => {
             >
               <table className="table"></table>
             </TextField>
-          </SearchStyle>
+          </SearchStyle> */}
           <BigTextWrap>
             <Item>
               <div>번호</div>
@@ -89,10 +89,10 @@ const Listpage = (props) => {
                     <ItemCard
                       type={type}
                       id={itemdata.id}
-                      matching={itemdata.matching}
-                      title={itemdata.plus_title}
-                      plus_id={itemdata.plus_id}
-                      plus_writeday={itemdata.plus_writeday}
+                      matching={itemdata.plz_name}
+                      title={itemdata.title}
+                      plus_id={itemdata.plus_user}
+                      plus_writeday={itemdata.date}
                     />
                   </div>
                 )

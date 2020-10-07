@@ -13,14 +13,7 @@ const ActivityPlus = ({
 }) => {
   return (
     <>
-      {/* {console.log(match.params.profileId)} */}
-      {/* <Card>
-          <CardMedia
-            className={classes.cardMedia}
-            image="https://source.unsplash.com/random"
-            title="Image title"
-          />
-        </Card> */}
+      
       <Link to={`/plusactivitying/${index}`}>
         <Card>
           <CardContent>

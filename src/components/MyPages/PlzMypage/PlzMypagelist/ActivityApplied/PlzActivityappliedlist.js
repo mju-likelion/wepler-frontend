@@ -13,13 +13,7 @@ const ActivityPlz = ({
 }) => {
   return (
     <>
-      {/* <Card>
-          <CardMedia
-            className={classes.cardMedia}
-            image="https://source.unsplash.com/random"
-            title="Image title"
-          />
-        </Card> */}
+     
 
       <Card>
         <Link to={`/plzapplied/${index}`}>

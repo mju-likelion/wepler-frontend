@@ -88,48 +88,43 @@ const Read = ({ match, history }) => {
 
   useEffect(() => {
     async function getMypage() {
-      // try {
-      //   // 현사용자 이메일가져오기
-      //   const gets = await axios.get("/mypage/getMypage", {
-      //     headers: {
-      //       Authorization: JSON.parse(localStorage.getItem("token")),
-      //     },
-      //   });
-      //   setEmail(gets.data.user_email);
-      // } catch {
-      //   console.log("user information error!");
-      // }
+      try {
+        // 현사용자 이메일가져오기
+        const gets = await axios.get("/mypage/getMypage", {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        });
+        setEmail(gets.data.user_email);
+      } catch {
+        console.log("user information error!");
+      }
 
-      setEmail("123@naver.com");
     }
 
     getMypage();
     async function getRead() {
-      // try {
-      //   //포스트의 내용
-      //   const reads = await axios.get(`/review/plus_review_detail/${match.params.postId}`, {
-      //     headers: {
-      //       Authorization: JSON.parse(localStorage.getItem("token")),
-      //     },
-      //   });
-      //   setWrite(reads.data.user_email);
-      // } catch {
-      //   console.log("post error!");
-      // }
-
-      setWrite("123@naver.com");
-      setId("plz_id");
-      setTitle("제목1");
-      setContent(
-        "내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용"
-      );
-      setMatching("plus_id");
-      setFields(["council", "trip"]);
-      setRating(6);
+      try {
+        //포스트의 내용
+        const reads = await axios.get(`/review/plus_review_detail/${match.params.postId}`, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        });
+        setWrite(reads.data.writer);
+        setId(reads.data.writer_name);
+        setTitle(reads.data.title);
+        setContent(reads.data.content);
+        setMatching(reads.data.matching_name);
+        setFields(reads.data.writer_class);
+        setRating(reads.data.rating);
+      } catch {
+        console.log("post error!");
+      }
     }
 
     getRead();
-  }, []);
+  }, [match.params.postId]);
 
   const onChange = (e) => {
     if (e.target.name === "title") {
@@ -144,15 +139,19 @@ const Read = ({ match, history }) => {
     e.preventDefault();
     try {
       const post = await axios.post(
-        ` /review/plus_review_update/${match.params.postId}/`,
+        ` /review/review_update/${match.params.postId}/`,
         {
           title,
           content,
+        }, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
         }
       );
       console.log(post);
       alert("수정 되었습니다");
-      history.push(`/reviewplz/${id}`);
+      history.push("/reviewplz");
     } catch {
       alert("실패하였습니다.");
     }
@@ -161,6 +160,7 @@ const Read = ({ match, history }) => {
   const postDelete = async (e) => {
     await axios.delete(`/review/plus_review_delete/${match.params.postId}`);
     alert("삭제되었습니다.");
+    history.push("/reviewplz");
   };
 
   const read = (
@@ -323,11 +323,13 @@ const Read = ({ match, history }) => {
       <Wrap>
         <Buttonlist>
           <ButtonItem>
-            <Button onClick={postBoard}>완료하기</Button>
+            <Button onClick={postBoard}>
+             완료하기
+            </Button>
           </ButtonItem>
           <ButtonItem>
             <Button onClick={postDelete}>
-              <Link to="/reviewplz">삭제하기</Link>
+              삭제하기
               {/* 삭제) 장고로 바로 보냄 */}
             </Button>
           </ButtonItem>

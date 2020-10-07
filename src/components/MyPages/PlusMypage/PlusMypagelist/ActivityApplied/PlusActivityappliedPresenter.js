@@ -45,7 +45,12 @@ const ActivityappliedPresenter = (props) => {
 
   useEffect(() => {
     async function getCount() {
-      const counts = await axios.get("/mypage/applied_list_count/");
+      const counts = await axios.get("/mypage/applied_list_count/", 
+      {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      });
       setCount(counts.data.count);
       setLastpage(Math.ceil(count / pageSize));
     }
@@ -67,10 +72,10 @@ const ActivityappliedPresenter = (props) => {
               (carddata, id) => (
                 <Grid item key={id} xs={12} sm={6} md={4}>
                   <Activityappliedlist
-                    index={carddata.index}
-                    plus_id={carddata.plus_id}
-                    plus_fields={carddata.plus_fields}
-                    plus_address_big={carddata.plus_address_big}
+                     index={carddata.id}
+                     plus_id={carddata.plz_user_name}
+                     plus_fields={carddata.plz_class}
+                     plus_address_big={carddata.plz_address}
                   />
                 </Grid>
               )

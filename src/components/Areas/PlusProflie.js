@@ -80,7 +80,7 @@ const SeoulMem = ({ location: { search } }) => {
 
   useEffect(() => {
     const getList = async () => {
-      const list = require("../../BoardData.json");
+      const list = await axios.get(`/choice_plus/plus_profile_list/${query?.location}`);
       setItemList(list.data);
     };
     // const getList = async () => {
@@ -89,12 +89,12 @@ const SeoulMem = ({ location: { search } }) => {
     // };
     getList();
     async function getCount() {
-      const counts = await axios.get("board/hire_board_count/");
+      const counts = await axios.get(`choice_plus/plus_profile_list_count/${query?.location}`);
       setCount(counts.data.count);
       setLastpage(Math.ceil(count / pageSize));
     }
     getCount();
-  }, [count]);
+  }, [query.location, count]);
 
   return (
     <>
@@ -109,15 +109,15 @@ const SeoulMem = ({ location: { search } }) => {
               <div key={index}>
                 <PlusList
                   id={itemdata.id}
-                  plus_id={itemdata.plus_id}
-                  plus_fields={itemdata.plus_fields}
+                  plus_id={itemdata.plus_name}
+                  plus_fields={itemdata.plus_class}
                   plus_edu={itemdata.plus_edu}
-                  plus_oneself={itemdata.plus_oneself}
-                  plus_rating={itemdata.plus_rating}
-                  plus_start_day={itemdata.plus_start_day}
+                  plus_oneself={itemdata.plus_info}
+                  plus_rating={itemdata.plus_point}
+                  plus_start_day={itemdata.plus_date}
                   plus_start_time={itemdata.plus_start_time}
                   plus_end_time={itemdata.plus_end_time}
-                  plus_email={itemdata.plus_email}
+                  plus_email={itemdata.plus_user_id}
                 />
               </div>
             ))}

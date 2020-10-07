@@ -9,9 +9,13 @@ class ActivityContainer extends Component {
 
   componentDidMount() {
     const getApplied = async () => {
-      const data = await axios.get("/mypage/applied_list/");
+      const datas = await axios.get("/mypage/applied_list/", {
+        headers: {
+          Authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      });
       this.setState({
-        ItemList: data.mypage,
+        ItemList: datas.data,
       });
     };
     getApplied();

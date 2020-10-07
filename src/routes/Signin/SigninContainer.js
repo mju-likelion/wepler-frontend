@@ -28,26 +28,30 @@ export default class extends React.Component {
     e.preventDefault();
     const { email, password } = this.state;
     try {
-      const tokenGet = await axios.post("/tokentest/", {
+      const tokenGet = await axios.post("/login/", {
         ///login/
         email,
         password,
       });
-      var token = tokenGet.data.token;
-      var user_id = tokenGet.data.user_id;
-      if (token !== null) {
-        // 서버로 부터 받은 JSON형태의 데이터를 로컬스토리지에 우선 저장한다.
-        window.localStorage.setItem("token", JSON.stringify(token));
-        window.localStorage.setItem("user_id", JSON.stringify(user_id));
-        //스테이트에 유저정보를 저장한다.
-        this.setState({
-          email: token.email,
-          isLogin: token.success,
-        });
-        this.props.history.push("/"); //Home으로 돌아감
+      if(tokenGet.data.bug === true){
+        alert("잘못된 로그인 정보입니다.");
+      }else{
+        var token = tokenGet.data.token;
+        var user_id = tokenGet.data.user_id;
+        if (token !== null) {
+          // 서버로 부터 받은 JSON형태의 데이터를 로컬스토리지에 우선 저장한다.
+          window.localStorage.setItem("token", JSON.stringify(token));
+          window.localStorage.setItem("user_id", JSON.stringify(user_id));
+          //스테이트에 유저정보를 저장한다.
+          this.setState({
+            email: token.email,
+            isLogin: token.success,
+          });
+          this.props.history.push("/"); //Home으로 돌아감
+        }
+        console.log(tokenGet);
+        alert("로그인되었습니다");
       }
-      console.log(tokenGet);
-      alert("로그인되었습니다");
     } catch {
       console.log("Theres was an error!");
     }

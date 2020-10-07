@@ -19,26 +19,26 @@ const Detail = ({ match }) => {
 
   useEffect(() => {
     async function getApply() {
-      //   try {
-      //     //프로필의 내용
-      //     const reads = await axios.get(`/mypage/complete_detail/${match.params.profileId}`, {
-      //       headers: {
-      //         Authorization: JSON.parse(localStorage.getItem("token")),
-      //       },
-      //     });
-      //   } catch {
-      //     console.log("profile error!");
-      //   }
-      setPlus_id("아이디1");
-      setPlus_email("1234@naver.com");
-      setPlus_oneself("나는야 플러스회원");
-      setPlus_rating(5);
-      setPlus_fields(["council", "trip"]);
-      setPlus_start_day("mon");
-      setPlus_start_time("8:00");
-      setPlus_end_time("17:00");
-      setplus_address_big("seoul");
-      setplus_address_small("용인시 처인구 명지대학교");
+        try {
+          //프로필의 내용
+          const reads = await axios.get(`/mypage/complete_detail/${match.params.profileId}`, {
+            headers: {
+              Authorization: JSON.parse(localStorage.getItem("token")),
+            },
+          });
+          setPlus_id(reads.data.user_name);
+          setPlus_email(reads.data.user_id);
+          setPlus_oneself(reads.data.user_info);
+          setPlus_rating(reads.data.user_point);
+          setPlus_fields(reads.data.user_class);
+          setPlus_start_day(reads.data.user_day);
+          setPlus_start_time(reads.data.user_start);
+          setPlus_end_time(reads.data.user_end);
+          setplus_address_big(reads.data.user_address_big);
+          setplus_address_small(reads.data.user_address_small);
+        } catch {
+          console.log("profile error!");
+        }
     }
     getApply();
   }, []);

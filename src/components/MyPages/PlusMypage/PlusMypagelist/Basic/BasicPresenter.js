@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MypageNav from "../../PlusMypagenav";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -60,10 +61,12 @@ const PlusBasicPresenter = ({
   handleWhen,
   postBoard,
   handleChangeFile,
+  plus_fields,
+  plus_start_day,
 }) => {
   const [ismodify, setIsmodify] = useState(false);
-  const plus_fields = [];
-  const plus_start_day = [];
+  // const plus_fields = [];
+  // const plus_start_day = [];
   return (
     <>
       <MypageNav />
@@ -78,7 +81,7 @@ const PlusBasicPresenter = ({
             <div>
               <form className={classes.form} onSubmit={postBoard} noValidate>
                 <Wrapper>
-                  <Profile>
+                  {/* <Profile>
                     {ismodify ? (
                       <>
                         <img
@@ -110,7 +113,7 @@ const PlusBasicPresenter = ({
                         alt=""
                       />
                     )}
-                  </Profile>
+                  </Profile> */}
 
                   <BigProfile>
                     <Infor>
@@ -402,9 +405,9 @@ const PlusBasicPresenter = ({
                       <Infor>활동 정보)</Infor>
                       <Infortalent>
                         <Infor>
-                          <div>나눔 분야:</div>
+                          <div>나눔 분야: </div>
                           <InforContents>
-                            <div>{plus_fields}</div>
+                            <div>{plus_fields} </div>
                           </InforContents>
                         </Infor>
                         <Infor>
@@ -418,7 +421,7 @@ const PlusBasicPresenter = ({
                           <div>요일:</div>
 
                           <InforContents>
-                            <div>{plus_start_day}</div>
+                            <div>{plus_start_day} </div>
                           </InforContents>
                         </Infor>
                         <Infor>
@@ -457,7 +460,7 @@ const PlusBasicPresenter = ({
                   margin="normal"
                   onClick={postBoard}
                 >
-                  완료하기
+                  <Link to="/">완료하기</Link>
                 </Button>
               </ButtonList>
             ) : (

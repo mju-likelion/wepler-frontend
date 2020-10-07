@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 import PlusMypageNav from "../../PlusMypagenav";
 import Container from "@material-ui/core/Container";
 import { PlzId, Title, Explain } from "../../../DetailStyle";
@@ -16,23 +16,24 @@ const Detail = ({ match }) => {
 
   useEffect(() => {
     async function getApply() {
-      //   try {
-      //     //프로필의 내용
-      //     const reads = await axios.get(`/mypage/match_detail/${match.params.profileId}`, {
-      //       headers: {
-      //         Authorization: JSON.parse(localStorage.getItem("token")),
-      //       },
-      //     });
-      //   } catch {
-      //     console.log("profile error!");
-      //   }
-      setplz_id("플리즈1");
-      setplz_email("1234@naver.com");
-      setplz_fields(["council", "trip"]);
-      setplz_start_time("8:00");
-      setplz_end_time("17:00");
-      setplz_address_big("seoul");
-      setplz_address_small("용인시 처인구 명지대학교");
+        try {
+          //프로필의 내용
+          const reads = await axios.get(`/mypage/match_detail/${match.params.profileId}`, {
+            headers: {
+              Authorization: JSON.parse(localStorage.getItem("token")),
+            },
+          });
+          setplz_id(reads.data.user_name);
+          setplz_email(reads.data.user_email);
+          setplz_fields(reads.data.user_class);
+          setplz_start_time(reads.data.user_start);
+          setplz_end_time(reads.data.user_end);
+          setplz_address_big(reads.data.user_address_big);
+          setplz_address_small(reads.data.user_address_small);
+        } catch {
+          console.log("profile error!");
+        }
+    
     }
     getApply();
   }, []);

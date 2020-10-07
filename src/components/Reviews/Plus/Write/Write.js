@@ -41,14 +41,20 @@ class Write extends Component {
           },
         }
       );
-      alert("작성되었습니다.");
-      this.setState({
-        title: "",
-        content: "",
-        matching: "",
-        matchingEmail: "",
-      });
-      console.log(post);
+      if(post.data.hasuser === false){
+        alert("활동이 완료되지 않았거나 활동을 같이 하지 않은 유저의 email 입니다.");
+      }
+      else if(post.data.isoverap === true){
+          alert("이미 후기를 작성한 유저의 email 입니다.");
+        }
+      else{
+        alert("작성되었습니다.");
+        this.setState({
+          title: "",
+          content: "",
+          matching: "",
+          matchingEmail: "",
+        });}
     } catch {
       console.log("작성에 실패하였습니다.");
     }
@@ -105,7 +111,7 @@ class Write extends Component {
                 <TextField
                   required
                   fullWidth
-                  label="플리즈 회원 이름"
+                  label="매칭 넘버"
                   type="text"
                   name="matching"
                   onChange={this.handleChange}
@@ -148,10 +154,12 @@ class Write extends Component {
             </TextWrap>
             <Buttonlist>
               <ButtonItem>
-                <Button onClick={this.postBoard}>전송하기</Button>
+              <Button onClick={this.postBoard}>
+                  <Link to={`/reviewplus`}>전송하기</Link>
+                </Button>
               </ButtonItem>
               <ButtonItem>
-                <Button>
+                <Button> 
                   <Link to="/reviewplus">취소</Link>
                 </Button>
               </ButtonItem>
