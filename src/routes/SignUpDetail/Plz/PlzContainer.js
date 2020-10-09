@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import PlzPresenter from "./PlzPresenter";
-import { Link } from "react-router-dom";
 
 export default class extends React.Component {
   constructor(props) {
@@ -43,8 +42,7 @@ export default class extends React.Component {
       agreePrivate,
       agreeWepler,
     } = this.state;
-    
-      
+
     if (agreePrivate === false || agreeWepler === false) {
       alert("이용 약관에 동의해 주세요");
     }
@@ -61,20 +59,16 @@ export default class extends React.Component {
         plz_fields,
       });
       // console.log(post);
-      if(post.data.len === false){
+      if (post.data.len === false) {
         alert("비밀번호 길이가 8자리 이상이어야 합니다.");
-      }
-      else if(post.data.hasnumber === false){
+      } else if (post.data.hasnumber === false) {
         alert("비밀번호에 숫자가 포함되어야 합니다.");
-      }
-      else if(post.data.hascharacter === false){
+      } else if (post.data.hascharacter === false) {
         alert("비밀번호에 영문이 포함되어야 합니다.");
-      }
-      else if(post.data.hasspecial === false){
+      } else if (post.data.hasspecial === false) {
         alert("비밀번호에 특수문자가 포함되어야 합니다.");
-      }
-      else{
-      alert("회원가입 되었습니다");
+      } else {
+        alert("회원가입 되었습니다");
       }
       this.props.history.push("/signin");
     } catch {

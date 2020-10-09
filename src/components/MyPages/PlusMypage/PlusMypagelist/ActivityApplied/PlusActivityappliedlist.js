@@ -7,14 +7,6 @@ import Typography from "@material-ui/core/Typography";
 const ActivityPlus = ({ index, plus_id, plus_fields, plus_address_big }) => {
   return (
     <>
-      {/* {console.log(match.params.profileId)} */}
-      {/* <Card>
-          <CardMedia
-            className={classes.cardMedia}
-            image="https://source.unsplash.com/random"
-            title="Image title"
-          />
-        </Card> */}
       <Link to={`/plusapplied/${index}`}>
         <Card>
           <CardContent>

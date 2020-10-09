@@ -56,7 +56,7 @@ const Detail = ({ match }) => {
       }
     }
     getApply();
-  }, []);
+  }, [match.params.profileId]);
 
   return (
     <>
@@ -64,7 +64,9 @@ const Detail = ({ match }) => {
       <Container component="main" maxWidth="md">
         <PlzId>
           <Title>{plus_id}</Title>
-          <Buttons onClick={apply}><Link to="/plzactivitydone">활동완료하기</Link></Buttons>
+          <Buttons onClick={apply}>
+            <Link to="/plzactivitydone">활동완료하기</Link>
+          </Buttons>
           <Explain>
             <FaQuoteLeft size="18" color="#404A41" /> {plus_oneself}
             <FaQuoteRight size="18" color="#404A41" />

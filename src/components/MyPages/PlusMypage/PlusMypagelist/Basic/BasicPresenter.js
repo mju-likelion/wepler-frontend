@@ -13,7 +13,6 @@ import {
   TextTitle,
   BigProfile,
   BigBox,
-  Profile,
   Infor,
   InforContents,
   Infortalent,

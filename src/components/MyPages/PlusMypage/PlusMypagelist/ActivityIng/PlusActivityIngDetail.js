@@ -16,27 +16,29 @@ const Detail = ({ match }) => {
 
   useEffect(() => {
     async function getApply() {
-        try {
-          //프로필의 내용
-          const reads = await axios.get(`/mypage/match_detail/${match.params.profileId}`, {
+      try {
+        //프로필의 내용
+        const reads = await axios.get(
+          `/mypage/match_detail/${match.params.profileId}`,
+          {
             headers: {
               Authorization: JSON.parse(localStorage.getItem("token")),
             },
-          });
-          setplz_id(reads.data.user_name);
-          setplz_email(reads.data.user_email);
-          setplz_fields(reads.data.user_class);
-          setplz_start_time(reads.data.user_start);
-          setplz_end_time(reads.data.user_end);
-          setplz_address_big(reads.data.user_address_big);
-          setplz_address_small(reads.data.user_address_small);
-        } catch {
-          console.log("profile error!");
-        }
-    
+          }
+        );
+        setplz_id(reads.data.user_name);
+        setplz_email(reads.data.user_email);
+        setplz_fields(reads.data.user_class);
+        setplz_start_time(reads.data.user_start);
+        setplz_end_time(reads.data.user_end);
+        setplz_address_big(reads.data.user_address_big);
+        setplz_address_small(reads.data.user_address_small);
+      } catch {
+        console.log("profile error!");
+      }
     }
     getApply();
-  }, []);
+  }, [match.params.profileId]);
 
   return (
     <>

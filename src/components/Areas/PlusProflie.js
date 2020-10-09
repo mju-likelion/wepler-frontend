@@ -80,21 +80,21 @@ const SeoulMem = ({ location: { search } }) => {
 
   useEffect(() => {
     const getList = async () => {
-      const list = await axios.get(`/choice_plus/plus_profile_list/${query?.location}`);
+      const list = await axios.get(
+        `/choice_plus/plus_profile_list/${query?.location}`
+      );
       setItemList(list.data);
     };
-    // const getList = async () => {
-    //   const list = await axios.get("board/hire_board_list/");
-    //   setItemList(list.data);
-    // };
     getList();
     async function getCount() {
-      const counts = await axios.get(`choice_plus/plus_profile_list_count/${query?.location}`);
+      const counts = await axios.get(
+        `choice_plus/plus_profile_list_count/${query?.location}`
+      );
       setCount(counts.data.count);
       setLastpage(Math.ceil(count / pageSize));
     }
     getCount();
-  }, [query.location, count]);
+  }, [query, count]);
 
   return (
     <>

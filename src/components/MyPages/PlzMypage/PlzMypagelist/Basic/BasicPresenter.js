@@ -12,7 +12,6 @@ import {
   TextTitle,
   BigProfile,
   BigBox,
-  Profile,
   Infor,
   InforContents,
   Infortalent,
@@ -251,7 +250,7 @@ const PlzBasicPresenter = ({
                           <InforContents>
                             <div>{plz_fields}</div>
                           </InforContents>
-                        </Infor>                        
+                        </Infor>
                       </Infortalent>
                     </>
                   )}
@@ -268,7 +267,7 @@ const PlzBasicPresenter = ({
                   margin="normal"
                   onClick={postBoard}
                 >
-                 <Link to="/">완료하기</Link>
+                  <Link to="/">완료하기</Link>
                 </Button>
               </ButtonList>
             ) : (

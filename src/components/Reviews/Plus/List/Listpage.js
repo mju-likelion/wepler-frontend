@@ -6,19 +6,10 @@ import Container from "@material-ui/core/Container";
 import Pagination from "@material-ui/lab/Pagination";
 import ItemCard from "./Itemlist";
 import Box from "@material-ui/core/Box";
-import {
-  Container2,
-  Wrap,
-  Item,
-  BigTextWrap,
-  Button,
-  SearchStyle,
-} from "./ListStyle";
-import TextField from "@material-ui/core/TextField";
+import { Container2, Wrap, Item, BigTextWrap, Button } from "./ListStyle";
 
 const Listpage = (props) => {
   const { Itemcard } = props;
-  const [keyword, setKeyword] = useState("");
   const [type, setType] = useState("");
   const [currentPage, setCurrentPage] = useState(1); //현재활성화된 page기본은 1
   const pageSize = 5; //한페이지에 보여줄 개수
@@ -28,10 +19,6 @@ const Listpage = (props) => {
   const handlePageChange = (event, page) => {
     setCurrentPage(page); // 페이지 수 클릭 시 현재 페이지 변경
     console.log(currentPage);
-  };
-
-  const handleSearch = (e) => {
-    setKeyword(e.target.value);
   };
 
   useEffect(() => {
@@ -53,17 +40,6 @@ const Listpage = (props) => {
           <Container2>
             <h2>플러스들의 후기</h2>
           </Container2>
-          {/* <SearchStyle>
-            <TextField
-              type="text"
-              name="keyword"
-              value={keyword}
-              placeholder="검색하기"
-              onChange={handleSearch}
-            >
-              <table className="table"></table>
-            </TextField>
-          </SearchStyle> */}
           <BigTextWrap>
             <Item>
               <div>번호</div>

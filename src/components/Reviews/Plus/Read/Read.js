@@ -97,11 +97,14 @@ const Read = ({ match, history }) => {
     async function getRead() {
       try {
         //포스트의 내용
-        const reads = await axios.get(`/review/plz_review_detail/${match.params.postId}`, {
-          headers: {
-            Authorization: JSON.parse(localStorage.getItem("token")),
-          },
-        });
+        const reads = await axios.get(
+          `/review/plz_review_detail/${match.params.postId}`,
+          {
+            headers: {
+              Authorization: JSON.parse(localStorage.getItem("token")),
+            },
+          }
+        );
         setWrite(reads.data.writer);
         setId(reads.data.writer_name);
         setTitle(reads.data.title);
@@ -111,12 +114,10 @@ const Read = ({ match, history }) => {
       } catch {
         console.log("post error!");
       }
-
     }
 
     getRead();
-  }, []);
-
+  }, [match.params.postId]);
 
   const onChange = (e) => {
     if (e.target.name === "title") {
@@ -130,13 +131,10 @@ const Read = ({ match, history }) => {
   const postBoard = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        `/review/plz_review_update/${match.params.postId}/`,
-        {
-          title,
-          content,
-        }
-      );
+      await axios.post(`/review/plz_review_update/${match.params.postId}/`, {
+        title,
+        content,
+      });
       alert("수정 되었습니다");
       history.push("/reviewplus");
     } catch {
@@ -308,14 +306,10 @@ const Read = ({ match, history }) => {
       <Wrap>
         <Buttonlist>
           <ButtonItem>
-            <Button onClick={postBoard}>
-              완료하기
-            </Button>
+            <Button onClick={postBoard}>완료하기</Button>
           </ButtonItem>
           <ButtonItem>
-            <Button onClick={postDelete}>
-              삭제하기
-            </Button>
+            <Button onClick={postDelete}>삭제하기</Button>
           </ButtonItem>
           <Button onClick={() => setIsmodify(false)}>
             <Link to={`/reviewplus/${id}`}>취소하기</Link>

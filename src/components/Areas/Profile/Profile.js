@@ -10,18 +10,7 @@ import {
   HashBox,
 } from "../Profile/ProfileStyled";
 
-function Itemlist({
-  id,
-  plus_id,
-  plus_fields,
-  plus_oneself,
-  plus_rating,
-  plus_edu,
-  plus_start_day,
-  plus_start_time,
-  plus_end_time,
-  plus_email,
-}) {
+function Itemlist({ id, plus_id, plus_fields, plus_oneself, plus_rating }) {
   return (
     <>
       <Box>
