@@ -99,30 +99,30 @@
   5.1 /education
     - 전문가의 교육이 정해지면 달력에 표시할 예정
  
-6. 마이페이지
-  6.1 플러스 회원 
-    6.1.1 기본정보 /plusinfobasic
-      ⇒ 플러스 회원일 경우만 진입 가능
-    6.1.2 교육이수내역 /plusactivityeud
-    6.1.3 활동내역
-      - 신청한 활동 /plusapply
-      - 신청 받은 활동
-        => 플리즈 회원 리스트 보기 /plusapplied
-        => 플리즈 회원 자세히 보기 /plusapplied/:profileId
-      - 진행중
-      - 플리즈 회원 리스트 보기 /plusactivitying
-      - 플리즈 회원 자세히 보기 /plusactivitying/:profileId
-      - 활동완료 /plusactivitydone
-
-  6.2 플리즈 회원 /plzinfobasic
-    6.2.1 기본정보 /plzinfobasic
-      ⇒ 플리즈 회원일 경우만 진입 가능
-    6.2.2 활동내역
-      - 신청한 활동 /plzapply
-      - 신청 받은 활동
-         => 플러스 회원 리스트 보기 /plzapplied
-         => 플러스 회원 자세히 보기 /plzapplied/:profileId
-      - 진행중 /plzactivitying
-         => 플러스 회원 리스트 보기 /plzactivitying
-         => 플러스 회원 자세히 보기 /plzactivitying/:profileId
-     - 활동완료/plzactivitydone
+6. 마이페이지   
+  6.1 플러스 회원    
+    6.1.1 기본정보 /plusinfobasic   
+      ⇒ 플러스 회원일 경우만 진입 가능   
+    6.1.2 교육이수내역 /plusactivityeud   
+    6.1.3 활동내역   
+      - 신청한 활동 /plusapply   
+      - 신청 받은 활동   
+        => 플리즈 회원 리스트 보기 /plusapplied   
+        => 플리즈 회원 자세히 보기 /plusapplied/:profileId   
+      - 진행중   
+      - 플리즈 회원 리스트 보기 /plusactivitying   
+      - 플리즈 회원 자세히 보기 /plusactivitying/:profileId   
+      - 활동완료 /plusactivitydone   
+ 
+  6.2 플리즈 회원 /plzinfobasic   
+    6.2.1 기본정보 /plzinfobasic   
+        ⇒ 플리즈 회원일 경우만 진입 가능   
+    6.2.2 활동내역   
+        - 신청한 활동 /plzapply   
+        - 신청 받은 활동   
+            => 플러스 회원 리스트 보기 /plzapplied   
+            => 플러스 회원 자세히 보기 /plzapplied/:profileId   
+        - 진행중 /plzactivitying   
+            => 플러스 회원 리스트 보기 /plzactivitying   
+            => 플러스 회원 자세히 보기 /plzactivitying/:profileId   
+        - 활동완료/plzactivitydone   
