@@ -69,15 +69,15 @@
 #### 6. 마이페이지
 - 6.1 플러스 회원   
     > 6.1.1 기본정보 /plusinfobasic    
-    > 6.1.2 교육이수내역 /plusactivityeud    
+    > 6.1.2 교육이수내역/plusactivityeud    
     > 6.1.3 활동내역    
-    >   > 신청한 활동 /plusapply     
+    >   > 신청한 활동/plusapply     
     >   > 신청 받은 활동    
-        - 플리즈 회원 리스트 보기 /plusapplied     
-        - 플리즈 회원 자세히 보기 /plusapplied/:profileId    
+        - 플리즈 회원 리스트 보기/plusapplied     
+        - 플리즈 회원 자세히 보기/plusapplied/:profileId    
     >   > 진행중     
-        - 플리즈 회원 리스트 보기 /plusactivitying     
-        - 플리즈 회원 자세히 보기 /plusactivitying/:profileId     
+        - 플리즈 회원 리스트 보기/plusactivitying     
+        - 플리즈 회원 자세히 보기/plusactivitying/:profileId     
     >   > 활동완료 /plusactivitydone     
 - 6.2 플리즈 회원     
     > 6.2.1 기본정보 /plzinfobasic     
