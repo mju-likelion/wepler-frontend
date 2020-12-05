@@ -53,22 +53,22 @@
 - 4.1 /review   
 - 4.2 플리즈-플러스 회원이 활동 완료 일 경우에만 작성 가능   
     > 1. 플리즈 회원 후기    
-        - 플리즈 회원이 작성한 후기 보기 /reviewplz   
-        - 후기 자세히 보기 /reviewplz/:postId   
+        - 플리즈 회원이 작성한 후기 보기/reviewplz   
+        - 후기 자세히 보기/reviewplz/:postId   
     >   > ⇒ 플리즈 회원 + 작성자와 접속자의 이메일 같음 ) 수정, 삭제 가능   
-        - 후기 작성하기 /reviewplzwrite   
+        - 후기 작성하기/reviewplzwrite   
     >   > 플리즈 회원만 접근 가능   
     > 2. 플러스 회원 후기   
         - 플러스 회원이 작성한 후기 보기/reviewplus   
-        - 후기 자세히 보기 /reviewplus/:postId    
+        - 후기 자세히 보기/reviewplus/:postId    
     >   > ⇒ 플러스 회원 + 작성자와 접속자의 이메일 같음 ) 수정, 삭제 가능   
-        - 후기 작성하기 /reviewpluswrite    
+        - 후기 작성하기/reviewpluswrite    
     >   > ⇒플러스 회원만 접근 가능   
 #### 5. 교육신청 
 - 5.1 /education
 #### 6. 마이페이지
 - 6.1 플러스 회원   
-    > 6.1.1 기본정보 /plusinfobasic    
+    > 6.1.1 기본정보/plusinfobasic    
     > 6.1.2 교육이수내역/plusactivityeud    
     > 6.1.3 활동내역    
     >   > 신청한 활동/plusapply     
@@ -80,13 +80,13 @@
         - 플리즈 회원 자세히 보기/plusactivitying/:profileId     
     >   > 활동완료 /plusactivitydone     
 - 6.2 플리즈 회원     
-    > 6.2.1 기본정보 /plzinfobasic     
+    > 6.2.1 기본정보/plzinfobasic     
     > 6.2.2 활동내역    
-    - 신청한 활동 /plzapply    
+    - 신청한 활동
     >   > 신청 받은 활동      
-        - 플러스 회원 리스트 보기 /plzapplied    
-        - 플러스 회원 자세히 보기 /plzapplied/:profileId     
-    >   > 진행중 /plzactivitying   
-        - 플러스 회원 리스트 보기 /plzactivitying    
-        - 플러스 회원 자세히 보기 /plzactivitying/:profileId    
+        - 플러스 회원 리스트 보기/plzapplied    
+        - 플러스 회원 자세히 보기/plzapplied/:profileId     
+    >   > 진행중/plzactivitying   
+        - 플러스 회원 리스트 보기/plzactivitying    
+        - 플러스 회원 자세히 보기/plzactivitying/:profileId    
     >   > 활동완료/plzactivitydone    
